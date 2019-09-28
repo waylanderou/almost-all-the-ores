@@ -33,7 +33,7 @@
                                 }
                             ], 
                             "type": "minecraft:item", 
-                            "name": "almostalltheores:nether_coal_ore"
+                            "name": "minecraft:coal"
                         }
                     ]
                 }

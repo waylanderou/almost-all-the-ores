@@ -46,7 +46,7 @@ public class TooltipHandler {
 	public final String[] salt = { "halite" };
 	public final String[] mithril = { "mithril_ore" };
 	public final String[] npk = { "guano", "phosphorite", "carnallite", "sylvite", "polyhalite", "kainite", "langbeinite" };
-	public final String[] coal = {"bituminous_coal_ore", "anthracite_ore", "peat_piece", "lignite"};
+	public final String[] coal = {"bituminous_coal", "anthracite", "peat_piece", "lignite"};
 			
 	public TooltipHandler() {		
 	}
