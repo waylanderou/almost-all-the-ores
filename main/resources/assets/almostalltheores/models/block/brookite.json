@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/brookite"
+    }, 
+    "parent": "block/cube_all"
+}

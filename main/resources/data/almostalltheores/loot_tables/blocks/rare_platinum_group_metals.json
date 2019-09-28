@@ -1,0 +1,80 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+					"type": "minecraft:alternatives",
+					"children": [
+						{
+							"type": "minecraft:item",
+							"name": "almostalltheores:rare_platinum_group_metals",
+							"conditions": [
+								{
+									"condition": "minecraft:match_tool",
+									"predicate": {
+										"enchantments": [
+											{
+												"enchantment": "minecraft:silk_touch",
+												"levels": {
+													"min": 1
+												}
+											}
+										]
+									}
+								}
+							]							
+						},
+						{
+							"type": "minecraft:item", 
+							"name": "almostalltheores:ruthenium",
+							"functions": [
+								{
+									"function": "minecraft:apply_bonus", 
+									"enchantment": "minecraft:fortune", 
+									"formula": "minecraft:ore_drops"
+								}
+							],
+							"conditions": [
+								{
+									"condition": "minecraft:random_chance",
+									"chance": 0.15
+								}
+							]
+						},
+						{
+							"type": "minecraft:item", 
+							"name": "almostalltheores:rhodium",
+							"functions": [
+								{
+									"function": "minecraft:apply_bonus", 
+									"enchantment": "minecraft:fortune", 
+									"formula": "minecraft:ore_drops"
+								}
+							],
+							"conditions": [
+								{
+									"condition": "minecraft:random_chance",
+									"chance": 0.15
+								}
+							]
+						},
+						{
+							"functions": [
+								{
+									"function": "minecraft:apply_bonus", 
+									"enchantment": "minecraft:fortune", 
+									"formula": "minecraft:ore_drops"
+								}
+							], 
+							"type": "minecraft:item", 
+							"name": "almostalltheores:palladium"							
+						}						
+					]                    
+                }
+            ], 
+            "name": "rarePGMs", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

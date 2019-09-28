@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:carrollite"
+                }
+            ], 
+            "name": "carrollite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

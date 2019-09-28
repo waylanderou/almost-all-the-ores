@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:native_tin"
+                }
+            ], 
+            "name": "native_tin", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

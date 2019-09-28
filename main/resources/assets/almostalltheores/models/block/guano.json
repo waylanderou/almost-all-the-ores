@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/guano"
+    }, 
+    "parent": "block/cube_all"
+}

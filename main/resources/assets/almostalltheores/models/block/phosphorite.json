@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/phosphorite"
+    }, 
+    "parent": "block/cube_all"
+}

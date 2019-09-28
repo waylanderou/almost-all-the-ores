@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:chalcocite"
+                }
+            ], 
+            "name": "chalcocite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

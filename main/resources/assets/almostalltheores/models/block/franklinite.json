@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/franklinite"
+    }, 
+    "parent": "block/cube_all"
+}

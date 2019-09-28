@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/freibergite"
+    }, 
+    "parent": "block/cube_all"
+}

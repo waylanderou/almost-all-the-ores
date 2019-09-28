@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/orpiment"
+    }, 
+    "parent": "block/cube_all"
+}

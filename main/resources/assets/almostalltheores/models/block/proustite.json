@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/proustite"
+    }, 
+    "parent": "block/cube_all"
+}

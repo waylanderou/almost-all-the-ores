@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/calcite"
+    }, 
+    "parent": "block/cube_all"
+}

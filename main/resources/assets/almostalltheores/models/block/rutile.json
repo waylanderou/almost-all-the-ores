@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/rutile"
+    }, 
+    "parent": "block/cube_all"
+}

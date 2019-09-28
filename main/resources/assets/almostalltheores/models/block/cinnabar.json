@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/cinnabar"
+    }, 
+    "parent": "block/cube_all"
+}

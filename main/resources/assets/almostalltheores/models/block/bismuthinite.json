@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/bismuthinite"
+    }, 
+    "parent": "block/cube_all"
+}

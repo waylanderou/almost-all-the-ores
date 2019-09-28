@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/rare_platinum_group_metals"
+    }, 
+    "parent": "block/cube_all"
+}

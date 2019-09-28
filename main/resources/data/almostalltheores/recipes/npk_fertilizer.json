@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "almostalltheores:guano"
+    },	
+	{
+      "item": "almostalltheores:phosphorite"
+    },
+    {
+      "tag": "forge:ores/potash"
+    }
+  ],
+  "result": {
+    "item": "almostalltheores:fertilizer",
+	"count": 6
+  }
+}

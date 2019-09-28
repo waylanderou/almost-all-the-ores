@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/anthracite_ore"
+    }, 
+    "parent": "block/cube_all"
+}

@@ -1,0 +1,12 @@
+{
+    "values": [
+        "almostalltheores:pyrolusite", 
+        "almostalltheores:rhodochrosite", 
+        "almostalltheores:hollandite", 
+        "almostalltheores:manganite", 
+        "almostalltheores:hausmannite", 
+        "almostalltheores:alabandite", 
+        "almostalltheores:rhodonite"
+    ], 
+    "replace": false
+}

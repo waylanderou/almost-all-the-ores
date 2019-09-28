@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/molybdenite"
+    }, 
+    "parent": "block/cube_all"
+}

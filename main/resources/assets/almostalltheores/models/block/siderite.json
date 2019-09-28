@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/siderite"
+    }, 
+    "parent": "block/cube_all"
+}

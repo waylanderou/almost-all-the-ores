@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/unakite_ore"
+    }, 
+    "parent": "block/cube_all"
+}

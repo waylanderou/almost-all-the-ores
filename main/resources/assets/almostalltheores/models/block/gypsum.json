@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/gypsum"
+    }, 
+    "parent": "block/cube_all"
+}

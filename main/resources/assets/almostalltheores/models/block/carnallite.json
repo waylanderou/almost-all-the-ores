@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/carnallite"
+    }, 
+    "parent": "block/cube_all"
+}

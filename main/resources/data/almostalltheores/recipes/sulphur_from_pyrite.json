@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "almostalltheores:pyrite"
+    },
+	{
+      "item": "almostalltheores:pyrite"
+    },
+	{
+      "item": "almostalltheores:pyrite"
+    }
+  ],
+  "result": {
+    "item": "almostalltheores:sulphur_dust",
+	"count": 1
+  }
+}

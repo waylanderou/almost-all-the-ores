@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/uraninite"
+    }, 
+    "parent": "block/cube_all"
+}

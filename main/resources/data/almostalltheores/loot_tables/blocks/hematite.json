@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:hematite"
+                }
+            ], 
+            "name": "hematite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

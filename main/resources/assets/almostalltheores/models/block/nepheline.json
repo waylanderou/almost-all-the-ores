@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/nepheline"
+    }, 
+    "parent": "block/cube_all"
+}

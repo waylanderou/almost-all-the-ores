@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:rods/wooden"
+    },
+    "X": [
+      {
+        "item": "almostalltheores:anthracite"
+      },
+      {
+        "item": "almostalltheores:lignite"
+      },
+	  {
+		"item": "almostalltheores:bituminous_coal"
+	  }
+    ]
+  },
+  "result": {
+    "item": "minecraft:torch",
+    "count": 4
+  }
+}

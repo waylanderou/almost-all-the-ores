@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/leucite"
+    }, 
+    "parent": "block/cube_all"
+}

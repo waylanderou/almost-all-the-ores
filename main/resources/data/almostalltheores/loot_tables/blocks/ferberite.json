@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:ferberite"
+                }
+            ], 
+            "name": "ferberite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

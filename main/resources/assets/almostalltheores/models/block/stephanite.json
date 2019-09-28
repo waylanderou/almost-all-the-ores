@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/stephanite"
+    }, 
+    "parent": "block/cube_all"
+}

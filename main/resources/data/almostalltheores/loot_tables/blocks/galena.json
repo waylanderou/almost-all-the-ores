@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:galena"
+                }
+            ], 
+            "name": "galena", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

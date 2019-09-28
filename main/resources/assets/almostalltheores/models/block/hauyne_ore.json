@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/hauyne_ore"
+    }, 
+    "parent": "block/cube_all"
+}

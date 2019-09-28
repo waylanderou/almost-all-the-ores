@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:boulangerite"
+                }
+            ], 
+            "name": "boulangerite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

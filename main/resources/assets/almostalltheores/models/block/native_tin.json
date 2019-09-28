@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/native_tin"
+    }, 
+    "parent": "block/cube_all"
+}

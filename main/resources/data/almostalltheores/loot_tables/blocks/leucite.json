@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:leucite"
+                }
+            ], 
+            "name": "leucite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

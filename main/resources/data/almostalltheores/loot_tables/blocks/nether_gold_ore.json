@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:nether_gold_ore"
+                }
+            ], 
+            "name": "nether_gold_ore", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

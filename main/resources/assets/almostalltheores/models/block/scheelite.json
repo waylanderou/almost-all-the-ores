@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/scheelite"
+    }, 
+    "parent": "block/cube_all"
+}

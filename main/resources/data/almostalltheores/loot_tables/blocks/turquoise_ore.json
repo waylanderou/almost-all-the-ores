@@ -1,0 +1,46 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:alternatives", 
+                    "children": [
+                        {
+                            "conditions": [
+                                {
+                                    "predicate": {
+                                        "enchantments": [
+                                            {
+                                                "enchantment": "minecraft:silk_touch", 
+                                                "levels": {
+                                                    "min": 1
+                                                }
+                                            }
+                                        ]
+                                    }, 
+                                    "condition": "minecraft:match_tool"
+                                }
+                            ], 
+                            "type": "minecraft:item", 
+                            "name": "almostalltheores:turquoise_ore"
+                        }, 
+                        {
+                            "functions": [
+                                {
+                                    "function": "minecraft:apply_bonus", 
+                                    "enchantment": "minecraft:fortune", 
+                                    "formula": "minecraft:ore_drops"
+                                }
+                            ], 
+                            "type": "minecraft:item", 
+                            "name": "almostalltheores:turquoise"
+                        }
+                    ]
+                }
+            ], 
+            "name": "turquoise_ore", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

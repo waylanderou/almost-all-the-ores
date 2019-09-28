@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/millerite"
+    }, 
+    "parent": "block/cube_all"
+}

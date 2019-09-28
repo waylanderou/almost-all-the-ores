@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/boulangerite"
+    }, 
+    "parent": "block/cube_all"
+}

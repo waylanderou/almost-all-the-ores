@@ -1,0 +1,11 @@
+{
+    "values": [
+        "almostalltheores:sphalerite", 
+        "almostalltheores:smithsonite", 
+        "almostalltheores:hemimorphite", 
+        "almostalltheores:franklinite", 
+        "almostalltheores:zincite", 
+        "almostalltheores:hydrozincite"
+    ], 
+    "replace": false
+}

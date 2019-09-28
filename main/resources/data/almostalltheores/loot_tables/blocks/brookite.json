@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:brookite"
+                }
+            ], 
+            "name": "brookite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

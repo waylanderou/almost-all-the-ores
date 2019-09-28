@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/smithsonite"
+    }, 
+    "parent": "block/cube_all"
+}

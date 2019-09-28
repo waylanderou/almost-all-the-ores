@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/strontianite"
+    }, 
+    "parent": "block/cube_all"
+}

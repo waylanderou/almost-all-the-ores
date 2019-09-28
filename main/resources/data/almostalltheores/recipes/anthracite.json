@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "almostalltheores:anthracite_block"
+    }
+  ],
+  "result": {
+    "item": "almostalltheores:anthracite",
+	"count": 9
+  }
+}

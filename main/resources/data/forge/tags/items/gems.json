@@ -1,0 +1,32 @@
+{
+    "values": [
+        "#forge:gems/sapphire", 
+        "#forge:gems/ruby", 
+        "#forge:gems/spinel", 
+        "#forge:gems/amethyst", 
+        "#forge:gems/jade", 
+        "#forge:gems/tourmaline", 
+        "#forge:gems/sugilite", 
+        "#forge:gems/peridot", 
+        "#forge:gems/agate", 
+        "#forge:gems/carnelian", 
+        "#forge:gems/chrysoprase", 
+        "#forge:gems/heliotrope", 
+        "#forge:gems/topaz", 
+        "#forge:gems/unakite", 
+        "#forge:gems/tanzanite", 
+        "#forge:gems/hauyne", 
+        "#forge:gems/onyx", 
+        "#forge:gems/opal", 
+        "#forge:gems/moonstone", 
+        "#forge:gems/turquoise", 
+        "#forge:gems/amazonite", 
+        "#forge:gems/chrysocolla", 
+        "#forge:gems/almandine", 
+        "#forge:gems/spessartine", 
+        "#forge:gems/pyrope", 
+        "#forge:gems/tsavorite", 
+        "#forge:gems/andradite"
+    ], 
+    "replace": false
+}

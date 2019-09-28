@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/telluric_iron"
+    }, 
+    "parent": "block/cube_all"
+}

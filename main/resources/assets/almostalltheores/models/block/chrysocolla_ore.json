@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/chrysocolla_ore"
+    }, 
+    "parent": "block/cube_all"
+}

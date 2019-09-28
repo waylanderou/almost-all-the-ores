@@ -1,0 +1,10 @@
+{
+    "values": [
+        "almostalltheores:rutile", 
+        "almostalltheores:ilmenite", 
+        "almostalltheores:anatase", 
+        "almostalltheores:brookite", 
+        "almostalltheores:titanite"
+    ], 
+    "replace": false
+}

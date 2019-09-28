@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:stephanite"
+                }
+            ], 
+            "name": "stephanite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

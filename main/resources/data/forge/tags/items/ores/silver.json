@@ -1,0 +1,10 @@
+{
+    "values": [
+        "almostalltheores:native_silver", 
+        "almostalltheores:acanthite", 
+        "almostalltheores:stephanite", 
+        "almostalltheores:proustite", 
+        "almostalltheores:freibergite"
+    ], 
+    "replace": false
+}

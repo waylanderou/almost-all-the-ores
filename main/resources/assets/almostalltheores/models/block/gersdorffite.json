@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/gersdorffite"
+    }, 
+    "parent": "block/cube_all"
+}

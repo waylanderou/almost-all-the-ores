@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "layer0": "almostalltheores:item/sulphur_dust"
+    }, 
+    "parent": "item/generated"
+}

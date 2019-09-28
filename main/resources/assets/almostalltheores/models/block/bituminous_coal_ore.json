@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/bituminous_coal_ore"
+    }, 
+    "parent": "block/cube_all"
+}

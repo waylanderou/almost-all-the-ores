@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/tsavorite_ore"
+    }, 
+    "parent": "block/cube_all"
+}

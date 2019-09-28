@@ -1,0 +1,10 @@
+{
+    "values": [
+        "almostalltheores:hematite", 
+        "almostalltheores:magnetite", 
+        "almostalltheores:limonite", 
+        "almostalltheores:siderite", 
+        "almostalltheores:telluric_iron"
+    ], 
+    "replace": false
+}

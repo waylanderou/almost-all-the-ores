@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:phosphorite"
+                }
+            ], 
+            "name": "phosphorite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

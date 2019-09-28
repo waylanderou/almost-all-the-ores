@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/hollandite"
+    }, 
+    "parent": "block/cube_all"
+}

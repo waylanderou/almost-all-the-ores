@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:tetrahedrite"
+                }
+            ], 
+            "name": "tetrahedrite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

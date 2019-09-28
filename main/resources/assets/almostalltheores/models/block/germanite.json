@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/germanite"
+    }, 
+    "parent": "block/cube_all"
+}

@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/cassiterite"
+    }, 
+    "parent": "block/cube_all"
+}

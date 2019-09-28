@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/chalcopyrite"
+    }, 
+    "parent": "block/cube_all"
+}

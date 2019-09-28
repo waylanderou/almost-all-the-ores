@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:telluric_iron"
+                }
+            ], 
+            "name": "telluric_iron", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

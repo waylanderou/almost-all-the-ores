@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/bornite"
+    }, 
+    "parent": "block/cube_all"
+}

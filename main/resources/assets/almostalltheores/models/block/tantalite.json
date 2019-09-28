@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/tantalite"
+    }, 
+    "parent": "block/cube_all"
+}

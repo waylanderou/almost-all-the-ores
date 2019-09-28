@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/hydrozincite"
+    }, 
+    "parent": "block/cube_all"
+}

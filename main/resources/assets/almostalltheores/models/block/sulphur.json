@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/sulphur"
+    }, 
+    "parent": "block/cube_all"
+}

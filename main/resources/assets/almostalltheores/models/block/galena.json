@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/galena"
+    }, 
+    "parent": "block/cube_all"
+}

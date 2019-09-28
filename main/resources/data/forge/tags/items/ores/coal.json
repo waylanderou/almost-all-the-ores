@@ -1,0 +1,8 @@
+{
+    "values": [
+        "almostalltheores:bituminous_coal_ore", 
+        "almostalltheores:anthracite_ore",
+		"almostalltheores:nether_coal_ore"
+    ], 
+    "replace": false
+}

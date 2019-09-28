@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/kainite"
+    }, 
+    "parent": "block/cube_all"
+}

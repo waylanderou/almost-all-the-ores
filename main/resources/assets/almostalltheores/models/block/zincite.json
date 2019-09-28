@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/zincite"
+    }, 
+    "parent": "block/cube_all"
+}

@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/spessartine_ore"
+    }, 
+    "parent": "block/cube_all"
+}

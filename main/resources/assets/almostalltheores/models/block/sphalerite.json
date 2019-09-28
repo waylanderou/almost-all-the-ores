@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/sphalerite"
+    }, 
+    "parent": "block/cube_all"
+}

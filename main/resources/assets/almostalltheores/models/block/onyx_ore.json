@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/onyx_ore"
+    }, 
+    "parent": "block/cube_all"
+}

@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/covellite"
+    }, 
+    "parent": "block/cube_all"
+}

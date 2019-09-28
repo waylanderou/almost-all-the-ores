@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:bismite"
+                }
+            ], 
+            "name": "bismite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

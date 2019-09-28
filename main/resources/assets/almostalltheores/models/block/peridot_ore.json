@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/peridot_ore"
+    }, 
+    "parent": "block/cube_all"
+}

@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:otavite"
+                }
+            ], 
+            "name": "otavite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

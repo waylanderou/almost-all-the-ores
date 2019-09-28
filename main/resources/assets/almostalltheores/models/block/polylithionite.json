@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/polylithionite"
+    }, 
+    "parent": "block/cube_all"
+}

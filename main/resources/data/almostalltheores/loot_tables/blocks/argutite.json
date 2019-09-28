@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:argutite"
+                }
+            ], 
+            "name": "argutite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

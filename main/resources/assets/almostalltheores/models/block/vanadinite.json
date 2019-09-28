@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/vanadinite"
+    }, 
+    "parent": "block/cube_all"
+}

@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:mithril_ore"
+                }
+            ], 
+            "name": "mithril_ore", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

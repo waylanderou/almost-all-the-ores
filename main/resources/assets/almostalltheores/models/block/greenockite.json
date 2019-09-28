@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/greenockite"
+    }, 
+    "parent": "block/cube_all"
+}

@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/titanite"
+    }, 
+    "parent": "block/cube_all"
+}

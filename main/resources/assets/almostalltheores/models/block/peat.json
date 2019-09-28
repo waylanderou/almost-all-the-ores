@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/peat"
+    }, 
+    "parent": "block/cube_all"
+}

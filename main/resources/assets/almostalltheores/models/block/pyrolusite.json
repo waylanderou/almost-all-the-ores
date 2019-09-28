@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/pyrolusite"
+    }, 
+    "parent": "block/cube_all"
+}

@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/stibnite"
+    }, 
+    "parent": "block/cube_all"
+}

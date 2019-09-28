@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/anatase"
+    }, 
+    "parent": "block/cube_all"
+}

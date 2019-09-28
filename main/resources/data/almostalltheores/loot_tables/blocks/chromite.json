@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:chromite"
+                }
+            ], 
+            "name": "chromite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

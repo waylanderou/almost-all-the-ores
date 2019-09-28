@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/chrysoprase_ore"
+    }, 
+    "parent": "block/cube_all"
+}

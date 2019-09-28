@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/lollingite"
+    }, 
+    "parent": "block/cube_all"
+}

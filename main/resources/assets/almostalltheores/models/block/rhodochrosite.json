@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/rhodochrosite"
+    }, 
+    "parent": "block/cube_all"
+}

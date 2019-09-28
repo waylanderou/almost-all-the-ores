@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/magnetite"
+    }, 
+    "parent": "block/cube_all"
+}

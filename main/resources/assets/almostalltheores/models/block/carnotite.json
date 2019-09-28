@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/carnotite"
+    }, 
+    "parent": "block/cube_all"
+}

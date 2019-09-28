@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/lignite_ore"
+    }, 
+    "parent": "block/cube_all"
+}

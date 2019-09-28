@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/tetrahedrite"
+    }, 
+    "parent": "block/cube_all"
+}

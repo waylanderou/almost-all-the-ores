@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:graphite"
+                }
+            ], 
+            "name": "graphite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/hematite"
+    }, 
+    "parent": "block/cube_all"
+}

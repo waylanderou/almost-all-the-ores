@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/nitratine"
+    }, 
+    "parent": "block/cube_all"
+}

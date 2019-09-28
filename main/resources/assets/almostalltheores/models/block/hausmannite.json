@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/hausmannite"
+    }, 
+    "parent": "block/cube_all"
+}

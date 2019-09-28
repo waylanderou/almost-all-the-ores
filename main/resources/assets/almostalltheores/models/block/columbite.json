@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/columbite"
+    }, 
+    "parent": "block/cube_all"
+}
