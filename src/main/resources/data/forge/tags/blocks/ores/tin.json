@@ -1,0 +1,10 @@
+{
+    "values": [
+        "almostalltheores:cassiterite", 
+        "almostalltheores:teallite", 
+        "almostalltheores:stannite", 
+        "almostalltheores:native_tin", 
+        "almostalltheores:kesterite"
+    ], 
+    "replace": false
+}

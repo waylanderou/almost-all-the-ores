@@ -1,0 +1,10 @@
+{
+    "values": [
+        "almostalltheores:galena", 
+        "almostalltheores:cerussite", 
+        "almostalltheores:anglesite", 
+        "almostalltheores:boulangerite", 
+        "almostalltheores:pyromorphite"
+    ], 
+    "replace": false
+}

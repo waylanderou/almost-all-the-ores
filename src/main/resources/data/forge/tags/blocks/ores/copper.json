@@ -1,0 +1,16 @@
+{
+    "values": [
+        "almostalltheores:native_copper", 
+        "almostalltheores:chalcopyrite", 
+        "almostalltheores:chalcocite", 
+        "almostalltheores:bornite", 
+        "almostalltheores:enargite", 
+        "almostalltheores:tennantite", 
+        "almostalltheores:tetrahedrite", 
+        "almostalltheores:covellite", 
+        "almostalltheores:azurite", 
+        "almostalltheores:malachite", 
+        "almostalltheores:cuprite"
+    ], 
+    "replace": false
+}

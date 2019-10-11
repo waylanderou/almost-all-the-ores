@@ -1,22 +1,23 @@
 package waylanderou.almostalltheores;
 
-import java.nio.file.Path;
-
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.loading.FMLPaths;
 
 public class Config {
-	
+
 	private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();	
 	public static ForgeConfigSpec spec;
-	
+	private static boolean enableTinkersDefault = false;
+	private static boolean enableToolsforaatogemsMaterials = false;
+
 	public static ForgeConfigSpec.BooleanValue hookAll;
 	public static ForgeConfigSpec.BooleanValue hookNether;
 	public static ForgeConfigSpec.BooleanValue hookEnd;
 	public static ForgeConfigSpec.BooleanValue hookVanillaGenOnly;
-	
+
 	public static ForgeConfigSpec.BooleanValue enablePyrite; 
 	public static ForgeConfigSpec.IntValue VeinSizePyrite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkPyrite; 
@@ -58,7 +59,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkLignite_ore; 
 	public static ForgeConfigSpec.IntValue MinHeightLignite_ore; 
 	public static ForgeConfigSpec.IntValue MaxHeightLignite_ore;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableBituminous_coal_ore; 
 	public static ForgeConfigSpec.IntValue VeinSizeBituminous_coal_ore; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkBituminous_coal_ore; 
@@ -148,7 +149,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkTeallite; 
 	public static ForgeConfigSpec.IntValue MinHeightTeallite; 
 	public static ForgeConfigSpec.IntValue MaxHeightTeallite; 
-	
+
 	public static ForgeConfigSpec.BooleanValue enableStannite; 
 	public static ForgeConfigSpec.IntValue VeinSizeStannite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkStannite; 
@@ -172,7 +173,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkGalena; 
 	public static ForgeConfigSpec.IntValue MinHeightGalena; 
 	public static ForgeConfigSpec.IntValue MaxHeightGalena; 
-	
+
 	public static ForgeConfigSpec.BooleanValue enableCerussite; 
 	public static ForgeConfigSpec.IntValue VeinSizeCerussite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkCerussite; 
@@ -196,7 +197,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkPyromorphite; 
 	public static ForgeConfigSpec.IntValue MinHeightPyromorphite; 
 	public static ForgeConfigSpec.IntValue MaxHeightPyromorphite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableBauxite; 
 	public static ForgeConfigSpec.IntValue VeinSizeBauxite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkBauxite; 
@@ -226,7 +227,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkSmithsonite; 
 	public static ForgeConfigSpec.IntValue MinHeightSmithsonite; 
 	public static ForgeConfigSpec.IntValue MaxHeightSmithsonite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableHemimorphite; 
 	public static ForgeConfigSpec.IntValue VeinSizeHemimorphite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkHemimorphite; 
@@ -268,7 +269,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkCinnabar; 
 	public static ForgeConfigSpec.IntValue MinHeightCinnabar; 
 	public static ForgeConfigSpec.IntValue MaxHeightCinnabar;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableNative_copper; 
 	public static ForgeConfigSpec.IntValue VeinSizeNative_copper; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkNative_copper; 
@@ -310,7 +311,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkTetrahedrite; 
 	public static ForgeConfigSpec.IntValue MinHeightTetrahedrite; 
 	public static ForgeConfigSpec.IntValue MaxHeightTetrahedrite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableCovellite; 
 	public static ForgeConfigSpec.IntValue VeinSizeCovellite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkCovellite; 
@@ -346,7 +347,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkAcanthite; 
 	public static ForgeConfigSpec.IntValue MinHeightAcanthite; 
 	public static ForgeConfigSpec.IntValue MaxHeightAcanthite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableStephanite; 
 	public static ForgeConfigSpec.IntValue VeinSizeStephanite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkStephanite; 
@@ -382,7 +383,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkNepouite; 
 	public static ForgeConfigSpec.IntValue MinHeightNepouite; 
 	public static ForgeConfigSpec.IntValue MaxHeightNepouite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableMillerite; 
 	public static ForgeConfigSpec.IntValue VeinSizeMillerite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkMillerite; 
@@ -430,7 +431,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkLimonite; 
 	public static ForgeConfigSpec.IntValue MinHeightLimonite; 
 	public static ForgeConfigSpec.IntValue MaxHeightLimonite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableSiderite; 
 	public static ForgeConfigSpec.IntValue VeinSizeSiderite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkSiderite; 
@@ -472,7 +473,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkHausmannite; 
 	public static ForgeConfigSpec.IntValue MinHeightHausmannite; 
 	public static ForgeConfigSpec.IntValue MaxHeightHausmannite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableAlabandite; 
 	public static ForgeConfigSpec.IntValue VeinSizeAlabandite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkAlabandite; 
@@ -520,7 +521,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkHubnerite; 
 	public static ForgeConfigSpec.IntValue MinHeightHubnerite; 
 	public static ForgeConfigSpec.IntValue MaxHeightHubnerite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableVanadinite; 
 	public static ForgeConfigSpec.IntValue VeinSizeVanadinite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkVanadinite; 
@@ -568,7 +569,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkBrookite; 
 	public static ForgeConfigSpec.IntValue MinHeightBrookite; 
 	public static ForgeConfigSpec.IntValue MaxHeightBrookite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableTitanite; 
 	public static ForgeConfigSpec.IntValue VeinSizeTitanite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkTitanite; 
@@ -610,7 +611,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkKieserite; 
 	public static ForgeConfigSpec.IntValue MinHeightKieserite; 
 	public static ForgeConfigSpec.IntValue MaxHeightKieserite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableBrucite; 
 	public static ForgeConfigSpec.IntValue VeinSizeBrucite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkBrucite; 
@@ -652,7 +653,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkCelestine; 
 	public static ForgeConfigSpec.IntValue MinHeightCelestine; 
 	public static ForgeConfigSpec.IntValue MaxHeightCelestine;
-	
+
 	public static ForgeConfigSpec.BooleanValue enablePolylithionite; 
 	public static ForgeConfigSpec.IntValue VeinSizePolylithionite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkPolylithionite; 
@@ -700,7 +701,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkNitratine; 
 	public static ForgeConfigSpec.IntValue MinHeightNitratine; 
 	public static ForgeConfigSpec.IntValue MaxHeightNitratine;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableHalite; 
 	public static ForgeConfigSpec.IntValue VeinSizeHalite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkHalite; 
@@ -742,7 +743,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkTourmaline_ore; 
 	public static ForgeConfigSpec.IntValue MinHeightTourmaline_ore; 
 	public static ForgeConfigSpec.IntValue MaxHeightTourmaline_ore;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableSugilite_ore; 
 	public static ForgeConfigSpec.IntValue VeinSizeSugilite_ore; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkSugilite_ore; 
@@ -784,7 +785,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkTopaz_ore; 
 	public static ForgeConfigSpec.IntValue MinHeightTopaz_ore; 
 	public static ForgeConfigSpec.IntValue MaxHeightTopaz_ore;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableUnakite_ore; 
 	public static ForgeConfigSpec.IntValue VeinSizeUnakite_ore; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkUnakite_ore; 
@@ -820,7 +821,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkMoonstone_ore; 
 	public static ForgeConfigSpec.IntValue MinHeightMoonstone_ore; 
 	public static ForgeConfigSpec.IntValue MaxHeightMoonstone_ore;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableTurquoise_ore; 
 	public static ForgeConfigSpec.IntValue VeinSizeTurquoise_ore; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkTurquoise_ore; 
@@ -856,7 +857,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkPyrope_ore; 
 	public static ForgeConfigSpec.IntValue MinHeightPyrope_ore; 
 	public static ForgeConfigSpec.IntValue MaxHeightPyrope_ore;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableTsavorite_ore; 
 	public static ForgeConfigSpec.IntValue VeinSizeTsavorite_ore; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkTsavorite_ore; 
@@ -868,13 +869,13 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkAndradite_ore; 
 	public static ForgeConfigSpec.IntValue MinHeightAndradite_ore; 
 	public static ForgeConfigSpec.IntValue MaxHeightAndradite_ore;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableMithril_ore; 
 	public static ForgeConfigSpec.IntValue VeinSizeMithril_ore; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkMithril_ore; 
 	public static ForgeConfigSpec.IntValue MinHeightMithril_ore; 
 	public static ForgeConfigSpec.IntValue MaxHeightMithril_ore;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableSulphurOres;
 	public static ForgeConfigSpec.BooleanValue enableSeleniumOres;
 	public static ForgeConfigSpec.BooleanValue enableCoalOres;
@@ -917,106 +918,106 @@ public class Config {
 	public static ForgeConfigSpec.BooleanValue enableAllGems;
 	public static ForgeConfigSpec.BooleanValue enablePGMs;
 	public static ForgeConfigSpec.BooleanValue enableRarePGMs;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableGold; 
 	public static ForgeConfigSpec.IntValue VeinSizeGold; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkGold; 
 	public static ForgeConfigSpec.IntValue MinHeightGold; 
 	public static ForgeConfigSpec.IntValue MaxHeightGold;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableBadlandsGold; 
 	public static ForgeConfigSpec.IntValue VeinSizeBadlandsGold; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkBadlandsGold; 
 	public static ForgeConfigSpec.IntValue MinHeightBadlandsGold; 
 	public static ForgeConfigSpec.IntValue MaxHeightBadlandsGold;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableRedstone; 
 	public static ForgeConfigSpec.IntValue VeinSizeRedstone; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkRedstone; 
 	public static ForgeConfigSpec.IntValue MinHeightRedstone; 
 	public static ForgeConfigSpec.IntValue MaxHeightRedstone;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableDiamond; 
 	public static ForgeConfigSpec.IntValue VeinSizeDiamond; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkDiamond; 
 	public static ForgeConfigSpec.IntValue MinHeightDiamond; 
 	public static ForgeConfigSpec.IntValue MaxHeightDiamond;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableLapis; 
 	public static ForgeConfigSpec.IntValue VeinSizeLapis; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkLapis; 
 	public static ForgeConfigSpec.IntValue DepthAverageLapis; 
-	
+
 	public static ForgeConfigSpec.BooleanValue enableDirt; 
 	public static ForgeConfigSpec.IntValue VeinSizeDirt; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkDirt; 
 	public static ForgeConfigSpec.IntValue MinHeightDirt; 
 	public static ForgeConfigSpec.IntValue MaxHeightDirt;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableGravel; 
 	public static ForgeConfigSpec.IntValue VeinSizeGravel; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkGravel; 
 	public static ForgeConfigSpec.IntValue MinHeightGravel; 
 	public static ForgeConfigSpec.IntValue MaxHeightGravel;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableGranite; 
 	public static ForgeConfigSpec.IntValue VeinSizeGranite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkGranite; 
 	public static ForgeConfigSpec.IntValue MinHeightGranite; 
 	public static ForgeConfigSpec.IntValue MaxHeightGranite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableDiorite; 
 	public static ForgeConfigSpec.IntValue VeinSizeDiorite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkDiorite; 
 	public static ForgeConfigSpec.IntValue MinHeightDiorite; 
 	public static ForgeConfigSpec.IntValue MaxHeightDiorite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableAndesite; 
 	public static ForgeConfigSpec.IntValue VeinSizeAndesite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkAndesite; 
 	public static ForgeConfigSpec.IntValue MinHeightAndesite; 
 	public static ForgeConfigSpec.IntValue MaxHeightAndesite;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableInfestedStone; 
 	public static ForgeConfigSpec.IntValue VeinSizeInfestedStone; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkInfestedStone; 
 	public static ForgeConfigSpec.IntValue MinHeightInfestedStone; 
 	public static ForgeConfigSpec.IntValue MaxHeightInfestedStone;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableAdditionalPeat; 
 	public static ForgeConfigSpec.IntValue VeinSizeAdditionalPeat; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkAdditionalPeat; 
 	public static ForgeConfigSpec.IntValue MinHeightAdditionalPeat; 
 	public static ForgeConfigSpec.IntValue MaxHeightAdditionalPeat;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableNetherCoal; 
 	public static ForgeConfigSpec.IntValue VeinSizeNetherCoal; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkNetherCoal; 
 	public static ForgeConfigSpec.IntValue MinHeightNetherCoal; 
 	public static ForgeConfigSpec.IntValue MaxHeightNetherCoal;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableNetherGold; 
 	public static ForgeConfigSpec.IntValue VeinSizeNetherGold; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkNetherGold; 
 	public static ForgeConfigSpec.IntValue MinHeightNetherGold; 
 	public static ForgeConfigSpec.IntValue MaxHeightNetherGold;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableNetherMithril; 
 	public static ForgeConfigSpec.IntValue VeinSizeNetherMithril; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkNetherMithril; 
 	public static ForgeConfigSpec.IntValue MinHeightNetherMithril; 
 	public static ForgeConfigSpec.IntValue MaxHeightNetherMithril;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableNetherSulphur; 
 	public static ForgeConfigSpec.IntValue VeinSizeNetherSulphur; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkNetherSulphur; 
 	public static ForgeConfigSpec.IntValue MinHeightNetherSulphur; 
 	public static ForgeConfigSpec.IntValue MaxHeightNetherSulphur;
-	
+
 	public static ForgeConfigSpec.BooleanValue enableEmerald;
 
 	public static ForgeConfigSpec.BooleanValue All;
-		
+
 	static {
 		BUILDER.comment("General settings").push("general");
 		hookAll = BUILDER.comment("Choose whether or not the mod should handle all overworld underground ore generation, including the removal of ores from other mods."
@@ -1024,9 +1025,9 @@ public class Config {
 		hookVanillaGenOnly = BUILDER.comment("Set this to true if you just want to handle vanilla generation (allow other mods to generate their ores). Only effective if you disable the 'hookAll' option.").define("hookVanillaOnly", false);
 		hookNether = BUILDER.comment("Handle all underground ore generation in Nether dimension. Currently does nothing. (true/false | default: true)").define("hookNether", false);
 		hookEnd = BUILDER.comment("Handle all underground ore generation in End dimension. Currently does nothing. (true/false | default: false)").define("hookEnd", false);
-						
+
 		BUILDER.pop();
-		
+
 		BUILDER.comment("Simplified overworld generation settings for modded ores.").push("overworldSimplified");
 		enableSulphurOres = BUILDER.comment("Enable all sulphur ores. (default: true)").define("enableSulphurOres", true);
 		enableSeleniumOres = BUILDER.comment("Enable all selenium ores. (default: false)").define("enableSeleniumOres", false);
@@ -1071,14 +1072,14 @@ public class Config {
 		enablePGMs = BUILDER.comment("Enable commmon platinum-group metals (platinum, iridium, osmium). (default: false)").define("enablePGMs", false);
 		enableRarePGMs = BUILDER.comment("Enable rare platinum-group metals (ruthenium, rhodium, palladium). (default: false)").define("enableRarePGMs", false);				
 		BUILDER.pop();
-		
-		
+
+
 		BUILDER.comment("Vanilla ores generation settings.").push("vanilla");
-		
+
 		BUILDER.push("emerald_ore");
 		enableEmerald = BUILDER.comment("Enable emerald_ore generation").define("enableEmeraldOre", true);
 		BUILDER.pop();
-		
+
 		BUILDER.push("gold_ore");
 		enableGold = BUILDER.comment("Enable gold ore generation").define("enableGold", true);
 		VeinSizeGold = BUILDER.comment("Vein Size").defineInRange("VeinSizeGold", 9, 0, 50);
@@ -1091,7 +1092,7 @@ public class Config {
 		MinHeightBadlandsGold = BUILDER.comment("Minimum Height badlands gold").defineInRange("MinHeightBadlandsGold", 32, 0, 255);
 		MaxHeightBadlandsGold = BUILDER.comment("Maximum Height badlands gold").defineInRange("MaxHeightBadlandsGold", 80, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("redstone_ore");
 		enableRedstone = BUILDER.comment("Enable redstone ore generation").define("enableRedstone", true);
 		VeinSizeRedstone = BUILDER.comment("Vein Size").defineInRange("VeinSizeRedstone", 8, 0, 50);
@@ -1099,7 +1100,7 @@ public class Config {
 		MinHeightRedstone = BUILDER.comment("Minimum Height").defineInRange("MinHeightRedstone", 0, 0, 255);
 		MaxHeightRedstone = BUILDER.comment("Maximum Height").defineInRange("MaxHeightRedstone", 16, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("diamond_ore");
 		enableDiamond = BUILDER.comment("Enable diamond ore generation").define("enableDiamond", true);
 		VeinSizeDiamond = BUILDER.comment("Vein Size").defineInRange("VeinSizeDiamond", 8, 0, 50);
@@ -1107,14 +1108,14 @@ public class Config {
 		MinHeightDiamond = BUILDER.comment("Minimum Height").defineInRange("MinHeightDiamond", 0, 0, 255);
 		MaxHeightDiamond = BUILDER.comment("Maximum Height").defineInRange("MaxHeightDiamond", 16, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("lapis_lazuli_ore");
 		enableLapis = BUILDER.comment("Enable lapis lazuli ore generation").define("enableLapis", true);
 		VeinSizeLapis = BUILDER.comment("Vein Size").defineInRange("VeinSizeLapis", 7, 0, 50);
 		VeinsPerChunkLapis = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkLapis", 1, 0, 50);
 		DepthAverageLapis = BUILDER.comment("Depth average of lapis lazuli ores").defineInRange("DepthAverageLapis", 16, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("dirt");
 		enableDirt = BUILDER.comment("Enable underground dirt pockets generation").define("enableDirt", true);
 		VeinSizeDirt = BUILDER.comment("Vein Size").defineInRange("VeinSizeDirt", 33, 0, 50);
@@ -1122,7 +1123,7 @@ public class Config {
 		MinHeightDirt = BUILDER.comment("Minimum Height").defineInRange("MinHeightDirt", 0, 0, 255);
 		MaxHeightDirt = BUILDER.comment("Maximum Height").defineInRange("MaxHeightDirt", 255, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("gravel");
 		enableGravel = BUILDER.comment("Enable underground gravel generation").define("enableGravel", true);
 		VeinSizeGravel = BUILDER.comment("Vein Size").defineInRange("VeinSizeGravel", 33, 0, 50);
@@ -1130,7 +1131,7 @@ public class Config {
 		MinHeightGravel = BUILDER.comment("Minimum Height").defineInRange("MinHeightGravel", 0, 0, 255);
 		MaxHeightGravel = BUILDER.comment("Maximum Height").defineInRange("MaxHeightGravel", 255, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("granite");
 		enableGranite = BUILDER.comment("Enable granite generation").define("enableGranite", true);
 		VeinSizeGranite = BUILDER.comment("Vein Size").defineInRange("VeinSizeGranite", 33, 0, 50);
@@ -1138,7 +1139,7 @@ public class Config {
 		MinHeightGranite = BUILDER.comment("Minimum Height").defineInRange("MinHeightGranite", 10, 0, 255);
 		MaxHeightGranite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightGranite", 80, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("diorite");
 		enableDiorite = BUILDER.comment("Enable diorite generation").define("enableDiorite", true);
 		VeinSizeDiorite = BUILDER.comment("Vein Size").defineInRange("VeinSizeDiorite", 33, 0, 50);
@@ -1146,7 +1147,7 @@ public class Config {
 		MinHeightDiorite = BUILDER.comment("Minimum Height").defineInRange("MinHeightDiorite", 10, 0, 255);
 		MaxHeightDiorite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightDiorite", 80, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("andesite");
 		enableAndesite = BUILDER.comment("Enable andesite generation").define("enableAndesite", true);
 		VeinSizeAndesite = BUILDER.comment("Vein Size").defineInRange("VeinSizeAndesite", 33, 0, 50);
@@ -1154,7 +1155,7 @@ public class Config {
 		MinHeightAndesite = BUILDER.comment("Minimum Height").defineInRange("MinHeightAndesite", 10, 0, 255);
 		MaxHeightAndesite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightAndesite", 80, 0, 255);
 		BUILDER.pop();	
-		
+
 		BUILDER.push("infested_stone");
 		enableInfestedStone = BUILDER.comment("Enable infested stone generation").define("enableInfestedStone", true);
 		VeinSizeInfestedStone  = BUILDER.comment("Vein Size").defineInRange("VeinSizeInfestedStone", 9, 0, 50);
@@ -1162,12 +1163,12 @@ public class Config {
 		MinHeightInfestedStone = BUILDER.comment("Minimum Height").defineInRange("MinHeightInfestedStone", 0, 0, 255);
 		MaxHeightInfestedStone = BUILDER.comment("Maximum Height").defineInRange("MaxHeightInfestedStone", 64, 0, 255);		
 		BUILDER.pop();
-		
+
 		BUILDER.pop();
-		
-		
+
+
 		BUILDER.comment("Expert overworld generation settings").push("overworldExpert");		
-		
+
 		BUILDER.push("pyrite");
 		enablePyrite = BUILDER.comment("Enable pyrite generation").define("enablePyrite", false);
 		VeinSizePyrite = BUILDER.comment("Vein Size").defineInRange("VeinSizePyrite", 6, 0, 50);
@@ -1175,7 +1176,7 @@ public class Config {
 		MinHeightPyrite = BUILDER.comment("Minimum Height").defineInRange("MinHeightPyrite", 30, 0, 255);
 		MaxHeightPyrite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightPyrite", 128, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("sulphur");
 		enableSulphur = BUILDER.comment("Enable sulphur generation").define("enableSulphur", false);
 		VeinSizeSulphur = BUILDER.comment("Vein Size").defineInRange("VeinSizeSulphur", 6, 0, 50);
@@ -1183,7 +1184,7 @@ public class Config {
 		MinHeightSulphur = BUILDER.comment("Minimum Height").defineInRange("MinHeightSulphur", 40, 0, 255);
 		MaxHeightSulphur = BUILDER.comment("Maximum Height").defineInRange("MaxHeightSulphur", 255, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("clausthalite");
 		enableClausthalite = BUILDER.comment("Enable clausthalite generation").define("enableClausthalite", false);
 		VeinSizeClausthalite = BUILDER.comment("Vein Size").defineInRange("VeinSizeClausthalite", 6, 0, 50);
@@ -1367,7 +1368,7 @@ public class Config {
 		MinHeightKesterite = BUILDER.comment("Minimum Height").defineInRange("MinHeightKesterite", 20, 0, 255);
 		MaxHeightKesterite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightKesterite", 50, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("galena");
 		enableGalena = BUILDER.comment("Enable galena generation").define("enableGalena", false);
 		VeinSizeGalena = BUILDER.comment("Vein Size").defineInRange("VeinSizeGalena", 5, 0, 50);
@@ -1463,7 +1464,7 @@ public class Config {
 		MinHeightFranklinite = BUILDER.comment("Minimum Height").defineInRange("MinHeightFranklinite", 20, 0, 255);
 		MaxHeightFranklinite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightFranklinite", 50, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("zincite");
 		enableZincite = BUILDER.comment("Enable zincite generation").define("enableZincite", false);
 		VeinSizeZincite = BUILDER.comment("Vein Size").defineInRange("VeinSizeZincite", 6, 0, 50);
@@ -1543,7 +1544,7 @@ public class Config {
 		MinHeightEnargite = BUILDER.comment("Minimum Height").defineInRange("MinHeightEnargite", 30, 0, 255);
 		MaxHeightEnargite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightEnargite", 65, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("tennantite");
 		enableTennantite = BUILDER.comment("Enable tennantite generation").define("enableTennantite", false);
 		VeinSizeTennantite = BUILDER.comment("Vein Size").defineInRange("VeinSizeTennantite", 5, 0, 50);
@@ -1639,7 +1640,7 @@ public class Config {
 		MinHeightNickeline = BUILDER.comment("Minimum Height").defineInRange("MinHeightNickeline", 20, 0, 255);
 		MaxHeightNickeline = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNickeline", 40, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("pentlandite");
 		enablePentlandite = BUILDER.comment("Enable pentlandite generation").define("enablePentlandite", false);
 		VeinSizePentlandite = BUILDER.comment("Vein Size").defineInRange("VeinSizePentlandite", 6, 0, 50);
@@ -1735,7 +1736,7 @@ public class Config {
 		MinHeightTelluric_iron = BUILDER.comment("Minimum Height").defineInRange("MinHeightTelluric_iron", 5, 0, 255);
 		MaxHeightTelluric_iron = BUILDER.comment("Maximum Height").defineInRange("MaxHeightTelluric_iron", 64, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("pyrolusite");
 		enablePyrolusite = BUILDER.comment("Enable pyrolusite generation").define("enablePyrolusite", false);
 		VeinSizePyrolusite = BUILDER.comment("Vein Size").defineInRange("VeinSizePyrolusite", 8, 0, 50);
@@ -1855,7 +1856,7 @@ public class Config {
 		MinHeightDescloizite = BUILDER.comment("Minimum Height").defineInRange("MinHeightDescloizite", 5, 0, 255);
 		MaxHeightDescloizite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightDescloizite", 25, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("columbite");
 		enableColumbite = BUILDER.comment("Enable columbite generation").define("enableColumbite", false);
 		VeinSizeColumbite = BUILDER.comment("Vein Size").defineInRange("VeinSizeColumbite", 8, 0, 50);
@@ -2015,7 +2016,7 @@ public class Config {
 		MinHeightCelestine = BUILDER.comment("Minimum Height").defineInRange("MinHeightCelestine", 15, 0, 255);
 		MaxHeightCelestine = BUILDER.comment("Maximum Height").defineInRange("MaxHeightCelestine", 30, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("polylithionite");
 		enablePolylithionite = BUILDER.comment("Enable polylithionite generation").define("enablePolylithionite", false);
 		VeinSizePolylithionite = BUILDER.comment("Vein Size").defineInRange("VeinSizePolylithionite", 8, 0, 50);
@@ -2151,7 +2152,7 @@ public class Config {
 		MinHeightPeridot_ore = BUILDER.comment("Minimum Height").defineInRange("MinHeightPeridot_ore", 4, 0, 255);
 		MaxHeightPeridot_ore = BUILDER.comment("Maximum Height").defineInRange("MaxHeightPeridot_ore", 45, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("agate_ore");
 		enableAgate_ore = BUILDER.comment("Enable agate generation").define("enableAgate_ore", false);
 		VeinSizeAgate_ore = BUILDER.comment("Vein Size").defineInRange("VeinSizeAgate_ore", 7, 0, 50);
@@ -2303,7 +2304,7 @@ public class Config {
 		MinHeightAndradite_ore = BUILDER.comment("Minimum Height").defineInRange("MinHeightAndradite_ore", 4, 0, 255);
 		MaxHeightAndradite_ore = BUILDER.comment("Maximum Height").defineInRange("MaxHeightAndradite_ore", 35, 0, 255);
 		BUILDER.pop();
-		
+
 		BUILDER.push("mithril_ore");
 		enableMithril_ore = BUILDER.comment("Enable mithril generation").define("enableMithril_ore", false);
 		VeinSizeMithril_ore = BUILDER.comment("Vein Size").defineInRange("VeinSizeMithril_ore", 7, 0, 50);
@@ -2311,7 +2312,7 @@ public class Config {
 		MinHeightMithril_ore = BUILDER.comment("Minimum Height").defineInRange("MinHeightMithril_ore", 4, 0, 255);
 		MaxHeightMithril_ore = BUILDER.comment("Maximum Height").defineInRange("MaxHeightMithril_ore", 35, 0, 255);
 		BUILDER.pop();		
-		
+
 		BUILDER.push("additional_peat");
 		enableAdditionalPeat = BUILDER.comment("Enable additional peat generation in swamps").define("enableAdditionalPeat", false);
 		VeinSizeAdditionalPeat = BUILDER.comment("Vein Size").defineInRange("VeinSizeAdditionalPeat", 18, 0, 50);
@@ -2319,12 +2320,12 @@ public class Config {
 		MinHeightAdditionalPeat = BUILDER.comment("Minimum Height").defineInRange("MinHeightAdditionalPeat", 48, 0, 255);
 		MaxHeightAdditionalPeat = BUILDER.comment("Maximum Height").defineInRange("MaxHeightAdditionalPeat", 70, 0, 255);
 		BUILDER.pop();
-						
+
 		BUILDER.pop();
-		
-		
+
+
 		BUILDER.comment("Nether generation settings").push("nether");
-		
+
 		BUILDER.push("nether_gold");
 		enableNetherGold = BUILDER.comment("Enable gold ore generation in nether. (default: true)").define("enableNetherGold", true);
 		VeinSizeNetherGold = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherGold", 25, 0, 50);
@@ -2332,7 +2333,7 @@ public class Config {
 		MinHeightNetherGold = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherGold", 10, 0, 126);
 		MaxHeightNetherGold = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherGold", 110, 0, 126);
 		BUILDER.pop();
-		
+
 		BUILDER.push("nether_coal");
 		enableNetherCoal = BUILDER.comment("Enable coal ore generation in nether. (default: true)").define("enableNetherCoal", true);
 		VeinSizeNetherCoal = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherCoal", 16, 0, 50);
@@ -2340,7 +2341,7 @@ public class Config {
 		MinHeightNetherCoal = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherCoal", 10, 0, 126);
 		MaxHeightNetherCoal = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherCoal", 110, 0, 126);
 		BUILDER.pop();
-		
+
 		BUILDER.push("nether_mithril");
 		enableNetherMithril = BUILDER.comment("Enable mithril ore generation in nether. (default: false)").define("enableNetherMithril", false);
 		VeinSizeNetherMithril = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherMithril", 9, 0, 50);
@@ -2348,7 +2349,7 @@ public class Config {
 		MinHeightNetherMithril = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherMithril", 10, 0, 126);
 		MaxHeightNetherMithril = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherMithril", 110, 0, 126);
 		BUILDER.pop();
-		
+
 		BUILDER.push("nether_sulphur");
 		enableNetherSulphur = BUILDER.comment("Enable sulphur ore generation in nether. (default: true)").define("enableNetherSulphur", true);
 		VeinSizeNetherSulphur = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherSulphur", 15, 0, 50);
@@ -2356,26 +2357,45 @@ public class Config {
 		MinHeightNetherSulphur = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherSulphur", 10, 0, 126);
 		MaxHeightNetherSulphur = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherSulphur", 110, 0, 126);
 		BUILDER.pop();
-		
+
 		BUILDER.pop();
-		
+
 		BUILDER.comment("Debug options").push("debug");
 		All = BUILDER.comment("Enable all ores in their relative dimensions. ALL of them. For testing purposes. (default: false)")
 				.define("All", false);
 		BUILDER.pop();
-		
-		
+
+
 		spec = BUILDER.build();
 	}
 
-	public static void loadConfig(ForgeConfigSpec spec, Path resolve) {		
-		final CommentedFileConfig configData = CommentedFileConfig.builder(resolve)
-                .sync()
-                .autosave()
-                .writingMode(WritingMode.REPLACE)
-                .build();
+	public static void loadConfig() {		
+		final CommentedFileConfig configData = CommentedFileConfig.builder(FMLPaths.CONFIGDIR.get().resolve(AlmostAllTheOres.MODID + "-common.toml"))
+				.sync()
+				.autosave()
+				.writingMode(WritingMode.REPLACE)
+				.build();
 
-        configData.load();
-        spec.setConfig(configData);		
+		configData.load();
+		if(enableTinkersDefault) {
+			configData.set("overworldSimplified.enableCopperOres", true);
+			configData.set("overworldSimplified.enableTinOres", true);
+			configData.set("overworldSimplified.enableAluminumOres", true);
+			configData.set("overworldSimplified.enableSilverOres", true);
+			configData.set("overworldSimplified.enableLeadOres", true);
+			configData.set("overworldSimplified.enableZincOres", true);
+		}
+		if(enableToolsforaatogemsMaterials) {
+			configData.set("overworldSimplified.enableSomeGems", true);
+		}
+		spec.setConfig(configData);
+	}	
+
+	public static void enableTinkersDefaultMaterials() {
+		enableTinkersDefault = true;		
+	}
+
+	public static void enableToolsforaatogemsMaterials() {
+		enableToolsforaatogemsMaterials = true;
 	}
 }

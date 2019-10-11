@@ -13,7 +13,7 @@ import net.minecraftforge.registries.ObjectHolder;
 import waylanderou.almostalltheores.AlmostAllTheOres;
 
 public class Ores {
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":pyrite")
 	public static final CustomOre PYRITE = null;
 
@@ -439,37 +439,38 @@ public class Ores {
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":andradite_ore")
 	public static final CustomOre ANDRADITE_ORE = null;
-		
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":mithril_ore")
 	public static final CustomOre MITHRIL_ORE = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":platinum_group_metals")
 	public static final CustomOre PLATINUM_GROUP_METALS = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":rare_platinum_group_metals")
 	public static final CustomOre RARE_PLATINUM_GROUP_METALS = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":anthracite_block")
 	public static final CustomOre ANTHRACITE_BLOCK = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":nether_coal_ore")
 	public static final CustomOre NETHER_COAL_ORE = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":nether_gold_ore")
 	public static final CustomOre NETHER_GOLD_ORE = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":nether_mithril_ore")
 	public static final CustomOre NETHER_MITHRIL_ORE = null;
-	
-	
+
+
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class OresRegistryEvents{		
-	
+
 		@SubscribeEvent
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("guano"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("peat"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("mithril_ore"));			
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("mithril_ore"));
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("nether_mithril_ore"));
 			registerBlock(event, 1, "pyrite");
 			registerBlock(event, 1, "sulphur");
 			registerBlock(event, 1, "clausthalite");
@@ -614,10 +615,9 @@ public class Ores {
 			registerBlock(event, 3, "rare_platinum_group_metals");
 			registerBlock(event, 0, "anthracite_block");
 			registerBlock(event, 2, "nether_gold_ore");
-			registerBlock(event, 0, "nether_coal_ore");
-			registerBlock(event, 3, "nether_mithril_ore");
+			registerBlock(event, 0, "nether_coal_ore");			
 		}
-				
+
 		@SubscribeEvent
 		public static void registerItems(RegistryEvent.Register<Item> event) {			
 			registerItemBlock(PYRITE, event);
@@ -770,15 +770,15 @@ public class Ores {
 			registerItemBlock(NETHER_MITHRIL_ORE, event);
 			event.getRegistry().register(new AnthraciteBlockItemBlock(ANTHRACITE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName("anthracite_block"));			
 		}
-		
+
 		private static void registerItemBlock(CustomOre block, RegistryEvent.Register<Item> event) {
-    		event.getRegistry().register(new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName(block.getRegistryName()));
-        }
-		
+			event.getRegistry().register(new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName(block.getRegistryName()));
+		}
+
 		private static void registerBlock(RegistryEvent.Register<Block> event, int harvestLevel, String name) {
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(harvestLevel)).setRegistryName(name));			
 		}
-		
+
 	}
-	
+
 }

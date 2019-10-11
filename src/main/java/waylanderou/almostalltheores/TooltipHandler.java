@@ -47,10 +47,10 @@ public class TooltipHandler {
 	public final String[] mithril = { "mithril_ore" };
 	public final String[] npk = { "guano", "phosphorite", "carnallite", "sylvite", "polyhalite", "kainite", "langbeinite" };
 	public final String[] coal = {"bituminous_coal", "anthracite", "peat_piece", "lignite"};
-			
+
 	public TooltipHandler() {		
 	}
-	
+
 	public void onToolTip(ItemTooltipEvent event) {
 		Item item = event.getItemStack().getItem();
 		List<ITextComponent> tooltip = event.getToolTip();
@@ -252,5 +252,5 @@ public class TooltipHandler {
 			}
 		}
 	}	
-	
+
 }

@@ -13,7 +13,7 @@ public class CustomOre extends Block {
 	public CustomOre(Properties properties) {
 		super(properties);		
 	}
-	
+
 	private int getXP(Random random) {
 		if(this == Ores.PEAT) {
 			return MathHelper.nextInt(random, 0, 2);			
@@ -93,7 +93,7 @@ public class CustomOre extends Block {
 			return 0;			
 		}		
 	}
-	
+
 	@Override
 	public int getExpDrop(BlockState state, IWorldReader reader, BlockPos pos, int fortune, int silktouch) {
 		return silktouch == 0 ? this.getXP(RANDOM) : 0;

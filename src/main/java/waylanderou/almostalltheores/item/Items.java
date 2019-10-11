@@ -10,54 +10,54 @@ import net.minecraftforge.registries.ObjectHolder;
 import waylanderou.almostalltheores.AlmostAllTheOres;
 
 public class Items {
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":peat_piece")
 	public static final Fuel PEAT_PIECE = null;
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":lignite")
 	public static final Fuel LIGNITE = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":bituminous_coal")
 	public static final Fuel BITUMINOUS_COAL = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":anthracite")
 	public static final Fuel ANTHRACITE = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":salt")
 	public static final Item SALT = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":ruthenium")
 	public static final Item RUTHENIUM = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":rhodium")
 	public static final Item RHODIUM = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":palladium")
 	public static final Item PALLADIUM = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":osmium")
 	public static final Item OSMIUM = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":iridium")
 	public static final Item IRIDIUM = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":platinum")
 	public static final Item PLATINUM = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":sulphur_dust")
 	public static final Item SULPHUR_DUST = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":saltpetre")
 	public static final Item SALTPETRE = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":fertilizer")
 	public static final Item FERTILIZER = null;
-		
+
 	//GEMS
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":jet")
 	public static final Item JET = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID +":sapphire")
 	public static final Item SAPPHIRE = null;
 
@@ -138,20 +138,20 @@ public class Items {
 
 	@ObjectHolder(AlmostAllTheOres.MODID +":andradite")
 	public static final Item ANDRADITE = null;
-		
+
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class ItemsRegistryEvents {
-		
+
 		public static final String[] normalItemNames = {
-			"salt", "ruthenium", "rhodium", "palladium", "osmium", "iridium", "platinum", "jet",
-			"sapphire", "ruby", "spinel", "amethyst", "jade", "tourmaline", "sugilite", "peridot", "agate", "carnelian", 
-			"chrysoprase", "heliotrope", "topaz", "unakite", "tanzanite", "hauyne", "onyx", "opal", "moonstone", "turquoise", 
-			"amazonite", "chrysocolla", "almandine", "spessartine", "pyrope", "tsavorite", "andradite", "sulphur_dust", "saltpetre"
+				"salt", "ruthenium", "rhodium", "palladium", "osmium", "iridium", "platinum", "jet",
+				"sapphire", "ruby", "spinel", "amethyst", "jade", "tourmaline", "sugilite", "peridot", "agate", "carnelian", 
+				"chrysoprase", "heliotrope", "topaz", "unakite", "tanzanite", "hauyne", "onyx", "opal", "moonstone", "turquoise", 
+				"amazonite", "chrysocolla", "almandine", "spessartine", "pyrope", "tsavorite", "andradite", "sulphur_dust", "saltpetre"
 		};
 		public static final String[] customItemNames = {
-			"peat_piece", "lignite", "bituminous_coal", "anthracite"	
+				"peat_piece", "lignite", "bituminous_coal", "anthracite"	
 		};
-		
+
 		@SubscribeEvent
 		public static void registerItems(final RegistryEvent.Register<Item> event) {
 			for(String name: normalItemNames) {
@@ -162,7 +162,7 @@ public class Items {
 			}
 			event.getRegistry().register(new BoneMealItem(new Item.Properties().group(ItemGroup.MISC)).setRegistryName("fertilizer"));	      			
 		}
-		
+
 	}
 
 }

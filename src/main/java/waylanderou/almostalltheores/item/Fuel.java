@@ -8,10 +8,10 @@ public class Fuel extends Item {
 	public Fuel(Properties properties) {
 		super(properties);
 	}
-	
+
 	@Override
 	public int getBurnTime(ItemStack itemStack)
-    {
+	{
 		if(this.getItem() == Items.ANTHRACITE) { 
 			return 2000;			
 		} else if(this.getItem() == Items.BITUMINOUS_COAL) {
@@ -23,7 +23,6 @@ public class Fuel extends Item {
 		} else {
 			return 0;
 		}		
-    }	
+	}	
 
 }
- 

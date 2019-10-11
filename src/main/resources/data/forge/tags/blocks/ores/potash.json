@@ -1,0 +1,10 @@
+{
+    "values": [
+        "almostalltheores:carnallite",
+		"almostalltheores:sylvite",
+		"almostalltheores:polyhalite",
+		"almostalltheores:kainite",
+		"almostalltheores:langbeinite"
+    ], 
+    "replace": false
+}
