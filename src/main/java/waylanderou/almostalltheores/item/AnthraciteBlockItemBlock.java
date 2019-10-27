@@ -1,4 +1,4 @@
-package waylanderou.almostalltheores.block;
+package waylanderou.almostalltheores.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;

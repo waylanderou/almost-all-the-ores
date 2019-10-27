@@ -1,0 +1,32 @@
+{
+    "pattern": [
+        "GGG",
+        "XFX",
+		"SSS"
+    ], 
+    "type": "minecraft:crafting_shaped", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:grinding_part"
+    }, 
+    "key": {
+        "X": {
+			"item": "almostalltheores:refiner_mechanism"
+		}, 
+        "G": {
+            "item": "almostalltheores:grinder"
+        },
+		"S": {
+			"item": "minecraft:stone"
+		},
+		"F": {
+			"item": "minecraft:furnace"
+		}
+    },
+	"conditions": [
+		{		
+			"type": "almostalltheores:stoneagecondition",
+			"stoneage": true
+		}
+	]
+}

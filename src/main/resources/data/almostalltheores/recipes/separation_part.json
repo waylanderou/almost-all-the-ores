@@ -1,0 +1,35 @@
+{
+    "pattern": [
+        "FFF",
+        "DXD",
+		"BYB"
+    ], 
+    "type": "minecraft:crafting_shaped", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:separation_part"
+    }, 
+    "key": {
+        "F": {
+			"item": "almostalltheores:filter"
+		}, 
+        "D": {
+            "item": "almostalltheores:digester"
+        },
+		"X": {
+			"item": "almostalltheores:refiner_mechanism"
+		},
+		"B": {
+			"item": "minecraft:barrel"		
+		},
+		"Y": {
+			"item": "almostalltheores:dryer"
+		}
+    },
+	"conditions": [
+		{		
+			"type": "almostalltheores:stoneagecondition",
+			"stoneage": true
+		}
+	]
+}

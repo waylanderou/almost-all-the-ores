@@ -1,0 +1,18 @@
+{
+  "type": "almostalltheores:refiner_serializer",
+  "refiningTime": 200,
+  "experience": 0.8,
+  "ingredient": {
+	"item": "almostalltheores:pyrite"	
+  },
+  "result_a": {
+    "item": "almostalltheores:sulphur_dust",
+    "count": 1
+  },
+  "conditions": [
+	{		
+		"type": "almostalltheores:stoneagecondition",
+		"stoneage": true
+	}
+  ]
+}

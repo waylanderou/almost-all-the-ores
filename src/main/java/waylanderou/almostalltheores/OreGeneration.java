@@ -315,7 +315,7 @@ public class OreGeneration {
 			if(Config.All.get() || Config.enableAmazonite_ore.get() || Config.enableAllGems.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.AMAZONITE_ORE.getDefaultState(), Config.VeinSizeAmazonite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAmazonite_ore.get(), Config.MinHeightAmazonite_ore.get(), 0, Config.MaxHeightAmazonite_ore.get())));
 			}
-			if(Config.All.get() || Config.enableChrysocolla_ore.get() || Config.enableAllGems.get()) {
+			if(Config.All.get() || Config.enableChrysocolla_ore.get() || Config.enableAllGems.get() || Config.enableStoneAge.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHRYSOCOLLA_ORE.getDefaultState(), Config.VeinSizeChrysocolla_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkChrysocolla_ore.get(), Config.MinHeightChrysocolla_ore.get(), 0, Config.MaxHeightChrysocolla_ore.get())));
 			}
 			if(Config.All.get() || Config.enableMithril_ore.get() || Config.enableMithrilOre.get()) {

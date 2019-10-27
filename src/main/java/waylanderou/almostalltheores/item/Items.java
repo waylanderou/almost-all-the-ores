@@ -3,6 +3,7 @@ package waylanderou.almostalltheores.item;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ShearsItem;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -51,7 +52,7 @@ public class Items {
 	public static final Item SALTPETRE = null;
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":fertilizer")
-	public static final Item FERTILIZER = null;
+	public static final Item FERTILIZER = null;	
 
 	//GEMS
 
@@ -139,6 +140,35 @@ public class Items {
 	@ObjectHolder(AlmostAllTheOres.MODID +":andradite")
 	public static final Item ANDRADITE = null;
 
+	//Stone age
+	@ObjectHolder(AlmostAllTheOres.MODID +":filter")
+	public static final Item filter = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID +":grinder")
+	public static final Item GRINDER = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID +":digester")
+	public static final Item DIGESTER = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID +":dryer")
+	public static final Item DRYER = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID +":refiner_mechanism")
+	public static final Item REFINER_MECHANISM = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID +":separation_part")
+	public static final Item SEPARATION_PART = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID +":grinding_part")
+	public static final Item GRINDING_PART = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID +":refined_iron_ore")
+	public static final Item REFINED_IRON_ORE = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID + ":flint_shears")
+	public static final ShearsItem FLINT_SHEARS = null;
+
+
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class ItemsRegistryEvents {
 
@@ -146,7 +176,8 @@ public class Items {
 				"salt", "ruthenium", "rhodium", "palladium", "osmium", "iridium", "platinum", "jet",
 				"sapphire", "ruby", "spinel", "amethyst", "jade", "tourmaline", "sugilite", "peridot", "agate", "carnelian", 
 				"chrysoprase", "heliotrope", "topaz", "unakite", "tanzanite", "hauyne", "onyx", "opal", "moonstone", "turquoise", 
-				"amazonite", "chrysocolla", "almandine", "spessartine", "pyrope", "tsavorite", "andradite", "sulphur_dust", "saltpetre"
+				"amazonite", "chrysocolla", "almandine", "spessartine", "pyrope", "tsavorite", "andradite", "sulphur_dust", "saltpetre",
+				"filter", "grinder", "digester", "dryer", "refiner_mechanism", "separation_part", "grinding_part", "refined_iron_ore"				
 		};
 		public static final String[] customItemNames = {
 				"peat_piece", "lignite", "bituminous_coal", "anthracite"	
@@ -160,7 +191,8 @@ public class Items {
 			for(String name: customItemNames) {
 				event.getRegistry().register(new Fuel(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(name));
 			}
-			event.getRegistry().register(new BoneMealItem(new Item.Properties().group(ItemGroup.MISC)).setRegistryName("fertilizer"));	      			
+			event.getRegistry().register(new BoneMealItem(new Item.Properties().group(ItemGroup.MISC)).setRegistryName("fertilizer"));
+			event.getRegistry().register(new ShearsItem((new Item.Properties()).maxDamage(42).group(ItemGroup.TOOLS)).setRegistryName("flint_shears"));
 		}
 
 	}

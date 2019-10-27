@@ -1,0 +1,26 @@
+{
+    "pattern": [
+        "GSG",
+        "GSG",
+		"GSG"
+    ], 
+    "type": "minecraft:crafting_shaped", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:grinder"
+    }, 
+    "key": {
+        "G": {
+			"item": "minecraft:andesite"
+		}, 
+        "S": {
+            "item": "minecraft:stick"
+        }
+    },
+	"conditions": [
+		{		
+			"type": "almostalltheores:stoneagecondition",
+			"stoneage": true
+		}
+	]
+}

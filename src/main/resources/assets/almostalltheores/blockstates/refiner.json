@@ -1,0 +1,12 @@
+{
+  "variants": {
+	"facing=north,refining=false": { "model": "almostalltheores:block/refiner" },
+    "facing=south,refining=false": { "model": "almostalltheores:block/refiner", "y": 180 },
+    "facing=west,refining=false": { "model": "almostalltheores:block/refiner", "y": 270 },
+    "facing=east,refining=false": { "model": "almostalltheores:block/refiner", "y": 90 },    
+    "facing=north,refining=true": { "model": "almostalltheores:block/refiner_refining" },
+    "facing=south,refining=true": { "model": "almostalltheores:block/refiner_refining", "y": 180 },
+    "facing=west,refining=true": { "model": "almostalltheores:block/refiner_refining", "y": 270 },
+    "facing=east,refining=true": { "model": "almostalltheores:block/refiner_refining", "y": 90 }    
+  }
+}

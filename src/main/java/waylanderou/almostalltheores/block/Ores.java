@@ -11,6 +11,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ObjectHolder;
 import waylanderou.almostalltheores.AlmostAllTheOres;
+import waylanderou.almostalltheores.Config;
+import waylanderou.almostalltheores.item.AnthraciteBlockItemBlock;
 
 public class Ores {
 
@@ -471,6 +473,8 @@ public class Ores {
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("peat"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("mithril_ore"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("nether_mithril_ore"));
+			int harvestlvl = 1;
+			if(Config.enableStoneAge.get()) harvestlvl = 2;
 			registerBlock(event, 1, "pyrite");
 			registerBlock(event, 1, "sulphur");
 			registerBlock(event, 1, "clausthalite");
@@ -508,20 +512,20 @@ public class Ores {
 			registerBlock(event, 2, "franklinite");
 			registerBlock(event, 2, "zincite");
 			registerBlock(event, 2, "hydrozincite");
-			registerBlock(event, 1, "otavite");
-			registerBlock(event, 1, "greenockite");
-			registerBlock(event, 1, "cinnabar");
-			registerBlock(event, 1, "native_copper");
-			registerBlock(event, 1, "chalcopyrite");
-			registerBlock(event, 1, "chalcocite");
-			registerBlock(event, 1, "bornite");
-			registerBlock(event, 1, "enargite");
-			registerBlock(event, 1, "tennantite");
-			registerBlock(event, 1, "tetrahedrite");
-			registerBlock(event, 1, "covellite");
-			registerBlock(event, 1, "azurite");
-			registerBlock(event, 1, "malachite");
-			registerBlock(event, 1, "cuprite");
+			registerBlock(event, harvestlvl, "otavite");
+			registerBlock(event, harvestlvl, "greenockite");
+			registerBlock(event, harvestlvl, "cinnabar");
+			registerBlock(event, harvestlvl, "native_copper");
+			registerBlock(event, harvestlvl, "chalcopyrite");
+			registerBlock(event, harvestlvl, "chalcocite");
+			registerBlock(event, harvestlvl, "bornite");
+			registerBlock(event, harvestlvl, "enargite");
+			registerBlock(event, harvestlvl, "tennantite");
+			registerBlock(event, harvestlvl, "tetrahedrite");
+			registerBlock(event, harvestlvl, "covellite");
+			registerBlock(event, harvestlvl, "azurite");
+			registerBlock(event, harvestlvl, "malachite");
+			registerBlock(event, harvestlvl, "cuprite");
 			registerBlock(event, 2, "native_silver");
 			registerBlock(event, 2, "acanthite");
 			registerBlock(event, 2, "stephanite");

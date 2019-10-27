@@ -1,0 +1,29 @@
+{
+    "pattern": [
+        "PSP",
+        "PGP",
+		"PGP"
+    ], 
+    "type": "minecraft:crafting_shaped", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:filter"
+    }, 
+    "key": {
+        "G": {
+			"item": "minecraft:gravel"
+		}, 
+        "S": {
+            "item": "minecraft:sand"
+        },
+		"P": {
+			"tag": "minecraft:planks"
+		}
+    },
+	"conditions": [
+		{		
+			"type": "almostalltheores:stoneagecondition",
+			"stoneage": true
+		}
+	]
+}

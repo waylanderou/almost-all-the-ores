@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "layer0": "almostalltheores:item/refined_iron_ore"
+    }, 
+    "parent": ":item/generated"
+}

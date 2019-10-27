@@ -1,0 +1,18 @@
+{
+  "type": "almostalltheores:refiner_serializer",
+  "refiningTime": 200,
+  "experience": 5,
+  "ingredient": {
+	"item": "almostalltheores:telluric_iron"	
+  },
+  "result_a": {
+    "item": "almostalltheores:refined_iron_ore",
+    "count": 1
+  },
+  "conditions": [
+	{		
+		"type": "almostalltheores:stoneagecondition",
+		"stoneage": true
+	}
+  ]
+}

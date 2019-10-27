@@ -1,4 +1,4 @@
-package waylanderou.almostalltheores;
+package waylanderou.almostalltheores.client;
 
 import java.util.List;
 

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+	"particle": "almostalltheores:block/refiner",
+	"north": "almostalltheores:block/refiner_front",
+	"south": "almostalltheores:block/refiner",
+	"west": "almostalltheores:block/refiner",
+	"east": "almostalltheores:block/refiner",
+	"up": "almostalltheores:block/refiner_top",
+	"down": "almostalltheores:block/refiner"
+  }
+}

@@ -12,6 +12,8 @@ public class Config {
 	public static ForgeConfigSpec spec;
 	private static boolean enableTinkersDefault = false;
 	private static boolean enableToolsforaatogemsMaterials = false;
+	private static boolean enableExtraGemsMaterials = false;
+	public static ForgeConfigSpec.BooleanValue enableStoneAge;
 
 	public static ForgeConfigSpec.BooleanValue hookAll;
 	public static ForgeConfigSpec.BooleanValue hookNether;
@@ -1025,7 +1027,7 @@ public class Config {
 		hookVanillaGenOnly = BUILDER.comment("Set this to true if you just want to handle vanilla generation (allow other mods to generate their ores). Only effective if you disable the 'hookAll' option.").define("hookVanillaOnly", false);
 		hookNether = BUILDER.comment("Handle all underground ore generation in Nether dimension. Currently does nothing. (true/false | default: true)").define("hookNether", false);
 		hookEnd = BUILDER.comment("Handle all underground ore generation in End dimension. Currently does nothing. (true/false | default: false)").define("hookEnd", false);
-
+		enableStoneAge = BUILDER.comment("Should the stone age be a thing. Disable a few smelting recipes so you have to build a refiner. (default: false)").define("enableStoneAge", false);
 		BUILDER.pop();
 
 		BUILDER.comment("Simplified overworld generation settings for modded ores.").push("overworldSimplified");
@@ -2388,6 +2390,12 @@ public class Config {
 		if(enableToolsforaatogemsMaterials) {
 			configData.set("overworldSimplified.enableSomeGems", true);
 		}
+		if(enableExtraGemsMaterials) {
+			configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
+			configData.set("overworldExpert.sapphire_ore.enableSapphire_ore", true);
+			configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
+			configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
+		}
 		spec.setConfig(configData);
 	}	
 
@@ -2397,5 +2405,9 @@ public class Config {
 
 	public static void enableToolsforaatogemsMaterials() {
 		enableToolsforaatogemsMaterials = true;
+	}
+
+	public static void enableExtraGemsMaterials() {
+		enableExtraGemsMaterials = true;
 	}
 }

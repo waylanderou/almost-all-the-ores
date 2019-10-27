@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+	[
+		{
+			"item": "almostalltheores:magnetite"
+		},	
+		{
+			"item": "almostalltheores:hematite"
+		},
+		{
+			"item": "almostalltheores:siderite"
+		},
+		{
+			"item": "almostalltheores:limonite"
+		},
+		{
+			"item": "almostalltheores:telluric_iron"
+		}
+	]
+  ],
+  "result": {
+    "item": "almostalltheores:refined_iron_ore",
+	"count": 1
+  },
+  "conditions": [
+	{		
+		"type": "almostalltheores:stoneagecondition",
+		"stoneage": false
+	}
+  ]
+}

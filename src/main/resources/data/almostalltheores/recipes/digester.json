@@ -1,0 +1,26 @@
+{
+    "pattern": [
+        "XXX",
+        "XSX",
+		"XSX"
+    ], 
+    "type": "minecraft:crafting_shaped", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:digester"
+    }, 
+    "key": {
+        "X": {
+			"item": "minecraft:brick"
+		}, 
+        "S": {
+            "item": "minecraft:barrel"
+        }
+    },
+	"conditions": [
+		{		
+			"type": "almostalltheores:stoneagecondition",
+			"stoneage": true
+		}
+	]
+}

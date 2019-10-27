@@ -1,0 +1,22 @@
+{
+    "pattern": [
+        "X ",
+        " X"
+    ], 
+    "type": "minecraft:crafting_shaped", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:flint_shears"
+    }, 
+    "key": {
+        "X": {
+			"item": "minecraft:flint"
+		}
+    },
+	"conditions": [
+		{		
+			"type": "almostalltheores:stoneagecondition",
+			"stoneage": true
+		}
+	]
+}

@@ -14,5 +14,11 @@
   "result": {
     "item": "almostalltheores:sulphur_dust",
 	"count": 1
-  }
+  },
+  "conditions": [
+	{		
+		"type": "almostalltheores:stoneagecondition",
+		"stoneage": false
+	}
+  ]
 }

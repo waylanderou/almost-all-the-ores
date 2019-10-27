@@ -1,0 +1,35 @@
+{
+    "pattern": [
+        "XGX",
+        "OSC",
+		"OOO"
+    ], 
+    "type": "minecraft:crafting_shaped", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:refiner"
+    }, 
+    "key": {
+        "X": {
+			"item": "almostalltheores:refiner_mechanism"
+		}, 
+        "G": {
+            "item": "almostalltheores:grinding_part"
+        },
+		"O": {
+			"item": "minecraft:stone"
+		},
+		"S": {
+			"item": "almostalltheores:separation_part"
+		},
+		"C": {
+			"item": "minecraft:chest"
+		}
+    },
+	"conditions": [
+		{		
+			"type": "almostalltheores:stoneagecondition",
+			"stoneage": true
+		}
+	]
+}

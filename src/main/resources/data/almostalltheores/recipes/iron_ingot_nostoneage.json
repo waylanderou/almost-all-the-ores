@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:blasting",
-  "ingredient": [
+	"type": "minecraft:smelting",
+	"ingredient": [
 		{
 			"item": "almostalltheores:hematite"
 		},
@@ -17,7 +17,13 @@
 			"item": "almostalltheores:telluric_iron"
 		}
 	],
-  "result": "minecraft:iron_ingot",
-  "experience": 0.7,
-  "cookingtime": 100
+	"result": "minecraft:iron_ingot",
+	"experience": 0.7,
+	"cookingtime": 200,
+	"conditions": [
+	{		
+		"type": "almostalltheores:stoneagecondition",
+		"stoneage": false
+	}
+  ]
 }

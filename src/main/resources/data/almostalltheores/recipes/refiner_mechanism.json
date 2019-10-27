@@ -1,0 +1,29 @@
+{
+    "pattern": [
+        "XXX",
+        "SRR",
+		"XXX"
+    ], 
+    "type": "minecraft:crafting_shaped", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:refiner_mechanism"
+    }, 
+    "key": {
+        "X": {
+			"item": "almostalltheores:chrysocolla"
+		}, 
+        "R": {
+            "tag": "forge:rods/wooden"
+        },
+		"S": {
+			"item": "minecraft:string"
+		}
+    },
+	"conditions": [
+		{		
+			"type": "almostalltheores:stoneagecondition",
+			"stoneage": true
+		}
+	]
+}

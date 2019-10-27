@@ -1,0 +1,29 @@
+{
+    "pattern": [
+        "PPP",
+        "GSG",
+		"PPP"
+    ], 
+    "type": "minecraft:crafting_shaped", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:dryer"
+    }, 
+    "key": {
+        "G": {
+			"tag": "forge:rods/wooden"
+		}, 
+        "S": {
+            "item": "almostalltheores:chrysocolla"
+        },
+		"P": {
+			"tag": "minecraft:planks"
+		}
+    },
+	"conditions": [
+		{		
+			"type": "almostalltheores:stoneagecondition",		
+			"stoneage": true
+		}
+	]
+}

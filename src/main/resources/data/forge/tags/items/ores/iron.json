@@ -1,10 +1,6 @@
 {
     "values": [
-        "almostalltheores:hematite", 
-        "almostalltheores:magnetite", 
-        "almostalltheores:limonite", 
-        "almostalltheores:siderite", 
-        "almostalltheores:telluric_iron"
+        "almostalltheores:refined_iron_ore"
     ], 
     "replace": false
 }

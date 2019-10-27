@@ -227,5 +227,15 @@
 	"tooltip.almostalltheores.mithril": "Peut être utilisé comme minerai de mithril",
 	"tooltip.almostalltheores.npk": "Utilisé dans la fabrication d'engrais",
 	"tooltip.almostalltheores.coal": "Utilisé comme combustible dans les fours",
-	"tooltip.almostalltheores.limestone": "Plus connu sous le nom de calcaire"
+	"tooltip.almostalltheores.limestone": "Plus connu sous le nom de calcaire",
+	"item.almostalltheores.filter": "Filtre",
+	"item.almostalltheores.grinder": "Broyeur",
+	"item.almostalltheores.dryer": "Ventilateur",
+	"item.almostalltheores.digester": "Cuve",
+	"item.almostalltheores.refiner_mechanism": "Mécanisme interne",
+	"item.almostalltheores.grinding_part": "Partie broyage",
+	"item.almostalltheores.separation_part": "Partie filtrage",
+	"block.almostalltheores.refiner": "Unité de traitement des minerais",
+	"item.almostalltheores.refined_iron_ore": "Minerai de fer traité",
+	"item.almostalltheores.flint_shears": "Cisailles en silex"
 }
