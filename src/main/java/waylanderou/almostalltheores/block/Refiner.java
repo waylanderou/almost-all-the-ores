@@ -17,6 +17,7 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -27,6 +28,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import waylanderou.almostalltheores.RefinerTile;
 
 public class Refiner extends Block {
+
 	public static final BooleanProperty REFINING = BooleanProperty.create("refining");		
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
@@ -55,7 +57,7 @@ public class Refiner extends Block {
 	}
 
 	public static Direction getFacingFromEntity(BlockPos clickedBlock, LivingEntity entity) {
-		return Direction.getFacingFromVector((float) (entity.posX - clickedBlock.getX()), (float) (entity.posY - clickedBlock.getY()), (float) (entity.posZ - clickedBlock.getZ()));
+		return Direction.getFacingFromVector((float) (entity.lastTickPosX - clickedBlock.getX()), (float) (entity.lastTickPosY - clickedBlock.getY()), (float) (entity.lastTickPosZ - clickedBlock.getZ()));
 	}
 
 	@Override
@@ -75,7 +77,7 @@ public class Refiner extends Block {
 	}
 
 	@Override
-	public boolean onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult result) {
+	public ActionResultType func_225533_a_(BlockState p_225533_1_, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
 		if (!world.isRemote) {
 			TileEntity tileEntity = world.getTileEntity(pos);
 			if (tileEntity instanceof INamedContainerProvider) {
@@ -83,9 +85,9 @@ public class Refiner extends Block {
 			} else {
 				throw new IllegalStateException("Named container provider missing");
 			}
-			return true;
+			return ActionResultType.SUCCESS;
 		}
-		return super.onBlockActivated(state, world, pos, player, hand, result);
+		return super.func_225533_a_(p_225533_1_, world, pos, player, hand, p_225533_6_);
 	}
 
 	public int getLightValue(BlockState state) {

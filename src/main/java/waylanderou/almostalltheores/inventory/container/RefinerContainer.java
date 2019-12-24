@@ -154,5 +154,4 @@ public class RefinerContainer extends Container {
 		return this.machineData.get(1);  	
 	}
 
-
 }

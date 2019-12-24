@@ -24,7 +24,7 @@ This mod handles ore generation and adds several minerals for more underground d
     # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
     # The version range of the dependency
-    versionRange="[28,)" #mandatory
+    versionRange="[30,)" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
@@ -33,6 +33,6 @@ This mod handles ore generation and adds several minerals for more underground d
 [[dependencies.almostalltheores]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.14.4]"
+    versionRange="[1.15.1]"
     ordering="NONE"
     side="BOTH"

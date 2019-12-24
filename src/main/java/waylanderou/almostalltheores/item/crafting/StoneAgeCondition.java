@@ -2,7 +2,7 @@ package waylanderou.almostalltheores.item.crafting;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.conditions.ICondition;
-import waylanderou.almostalltheores.Config;
+import waylanderou.almostalltheores.AatoConfig;
 
 public class StoneAgeCondition implements ICondition {
 	public static final ResourceLocation NAME = new ResourceLocation("almostalltheores", "stoneagecondition");
@@ -19,9 +19,9 @@ public class StoneAgeCondition implements ICondition {
 
 	@Override
 	public boolean test() {		
-		if(Config.enableStoneAge.get() && this.stoneage) {			
+		if(AatoConfig.enableStoneAge.get() && this.stoneage) {			
 			return true;
-		} else if(!Config.enableStoneAge.get() && !this.stoneage) {
+		} else if(!AatoConfig.enableStoneAge.get() && !this.stoneage) {
 			return true;
 		} else return false;
 	}

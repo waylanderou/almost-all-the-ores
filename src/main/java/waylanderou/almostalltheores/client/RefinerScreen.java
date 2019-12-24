@@ -41,7 +41,7 @@ public class RefinerScreen extends ContainerScreen<RefinerContainer> {
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.func_227637_a_(1.0F, 1.0F, 1.0F, 1.0F); // color4f let's replace this shit
 		this.minecraft.getTextureManager().bindTexture(GUI);
 		int relX = (this.width - this.xSize) / 2;
 		int relY = (this.height - this.ySize) / 2;

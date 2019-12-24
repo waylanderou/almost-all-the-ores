@@ -290,7 +290,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 		while(i > 0) {
 			int j = ExperienceOrbEntity.getXPSplit(i);
 			i -= j;
-			player.world.addEntity(new ExperienceOrbEntity(player.world, player.posX, player.posY + 0.5D, player.posZ + 0.5D, j));
+			player.world.addEntity(new ExperienceOrbEntity(player.world, player.lastTickPosX, player.lastTickPosY + 0.5D, player.lastTickPosZ + 0.5D, j)); //TODO check if that works
 		}		
 	}
 

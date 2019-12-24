@@ -3,6 +3,7 @@ package waylanderou.almostalltheores;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
@@ -29,25 +30,28 @@ public class OreGeneration {
 
 		for(Biome biome: ForgeRegistries.BIOMES.getValues()) {
 			if(biome.getCategory() == Biome.Category.NETHER) {
-				if(Config.hookNether.get()) {
+				if(AatoConfig.hookNether.get()) {
 					biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();	
 				}
-				if(Config.All.get() || Config.enableSulphur.get() || Config.enableSulphurOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.SULPHUR.getDefaultState(), Config.VeinSizeNetherSulphur.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNetherSulphur.get(), Config.MinHeightNetherSulphur.get(), 0, Config.MaxHeightNetherSulphur.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableSulphur.get() || AatoConfig.enableSulphurOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.SULPHUR.getDefaultState(), AatoConfig.VeinSizeNetherSulphur.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherSulphur.get(), AatoConfig.MinHeightNetherSulphur.get(), 0, AatoConfig.MaxHeightNetherSulphur.get()))));
+
 				}
-				if(Config.All.get() || Config.enableNetherCoal.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_COAL_ORE.getDefaultState(), Config.VeinSizeNetherCoal.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNetherCoal.get(), Config.MinHeightNetherCoal.get(), 0, Config.MaxHeightNetherCoal.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableNetherCoal.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_COAL_ORE.getDefaultState(), AatoConfig.VeinSizeNetherCoal.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherCoal.get(), AatoConfig.MinHeightNetherCoal.get(), 0,AatoConfig.MaxHeightNetherCoal.get()))));
+
 				}
-				if(Config.All.get() || Config.enableNetherGold.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_GOLD_ORE.getDefaultState(), Config.VeinSizeNetherGold.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNetherGold.get(), Config.MinHeightNetherGold.get(), 0, Config.MaxHeightNetherGold.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableNetherGold.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_GOLD_ORE.getDefaultState(), AatoConfig.VeinSizeNetherGold.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherGold.get(), AatoConfig.MinHeightNetherGold.get(), 0,AatoConfig.MaxHeightNetherGold.get()))));
 				}
-				if(Config.All.get() || Config.enableNetherMithril.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_MITHRIL_ORE.getDefaultState(), Config.VeinSizeNetherMithril.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNetherMithril.get(), Config.MinHeightNetherMithril.get(), 0, Config.MaxHeightNetherMithril.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableNetherMithril.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_MITHRIL_ORE.getDefaultState(), AatoConfig.VeinSizeNetherMithril.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherMithril.get(), AatoConfig.MinHeightNetherMithril.get(), 0,AatoConfig.MaxHeightNetherMithril.get()))));
+
 				}
 				continue;
 			}
 			if(biome.getCategory() == Biome.Category.THEEND) {
-				if(Config.hookEnd.get()) {
+				if(AatoConfig.hookEnd.get()) {
 					biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();					
 				}				
 				continue;
@@ -55,13 +59,13 @@ public class OreGeneration {
 
 			//Overworld	
 
-			if(Config.hookAll.get()) {
+			if(AatoConfig.hookAll.get()) {
 				biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();	
 				addVanillaStuff(biome);
 				handleInfestedStone(biome);
-			} else if(Config.hookVanillaGenOnly.get()) {				
-				List<ConfiguredFeature> featuresToRemove = new ArrayList<ConfiguredFeature>();
-				for (ConfiguredFeature<?> feature : biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES)) {					
+			} else if(AatoConfig.hookVanillaGenOnly.get()) {				
+				List<ConfiguredFeature<?, ?>> featuresToRemove = new ArrayList<ConfiguredFeature<?, ?>>();
+				for (ConfiguredFeature<?, ?> feature : biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES)) {					
 					if (((DecoratedFeatureConfig)feature.config).feature.feature instanceof OreFeature) {	
 						Block b = ((OreFeatureConfig)((DecoratedFeatureConfig)feature.config).feature.config).state.getBlock();
 						if (b == Blocks.IRON_ORE || b == Blocks.GOLD_ORE || b == Blocks.COAL_ORE || b == Blocks.DIAMOND_ORE || b == Blocks.EMERALD_ORE || b == Blocks.LAPIS_ORE || b == Blocks.REDSTONE_ORE) {
@@ -78,485 +82,493 @@ public class OreGeneration {
 				}	
 			}
 
-			if(Config.All.get() || Config.enablePyrite.get() || Config.enableSulphurOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PYRITE.getDefaultState(), Config.VeinSizePyrite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPyrite.get(), Config.MinHeightPyrite.get(), 0, Config.MaxHeightPyrite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enablePyrite.get() || AatoConfig.enableSulphurOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PYRITE.getDefaultState(), AatoConfig.VeinSizePyrite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPyrite.get(), AatoConfig.MinHeightPyrite.get(), 0,AatoConfig.MaxHeightPyrite.get()))));
 			}
-			if(Config.All.get() || Config.enableGuano.get() || Config.enableNPKOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GUANO.getDefaultState(), Config.VeinSizeGuano.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGuano.get(), Config.MinHeightGuano.get(), 0, Config.MaxHeightGuano.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableGuano.get() || AatoConfig.enableNPKOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GUANO.getDefaultState(), AatoConfig.VeinSizeGuano.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGuano.get(), AatoConfig.MinHeightGuano.get(), 0,AatoConfig.MaxHeightGuano.get()))));
 			}
-			if(Config.All.get() || Config.enablePhosphorite.get() || Config.enableNPKOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PHOSPHORITE.getDefaultState(), Config.VeinSizePhosphorite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPhosphorite.get(), Config.MinHeightPhosphorite.get(), 0, Config.MaxHeightPhosphorite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enablePhosphorite.get() || AatoConfig.enableNPKOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PHOSPHORITE.getDefaultState(), AatoConfig.VeinSizePhosphorite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPhosphorite.get(), AatoConfig.MinHeightPhosphorite.get(), 0,AatoConfig.MaxHeightPhosphorite.get()))));
 			}
-			if(Config.All.get() || Config.enableLignite_ore.get() || Config.enableCoalOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LIGNITE_ORE.getDefaultState(), Config.VeinSizeLignite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkLignite_ore.get(), Config.MinHeightLignite_ore.get(), 0, Config.MaxHeightLignite_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableLignite_ore.get() || AatoConfig.enableCoalOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LIGNITE_ORE.getDefaultState(), AatoConfig.VeinSizeLignite_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkLignite_ore.get(), AatoConfig.MinHeightLignite_ore.get(), 0,AatoConfig.MaxHeightLignite_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableBituminous_coal_ore.get() || Config.enableCoalOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BITUMINOUS_COAL_ORE.getDefaultState(), Config.VeinSizeBituminous_coal_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBituminous_coal_ore.get(), Config.MinHeightBituminous_coal_ore.get(), 0, Config.MaxHeightBituminous_coal_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableBituminous_coal_ore.get() || AatoConfig.enableCoalOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BITUMINOUS_COAL_ORE.getDefaultState(), AatoConfig.VeinSizeBituminous_coal_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkBituminous_coal_ore.get(), AatoConfig.MinHeightBituminous_coal_ore.get(), 0,AatoConfig.MaxHeightBituminous_coal_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableAnthracite_ore.get() || Config.enableCoalOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANTHRACITE_ORE.getDefaultState(), Config.VeinSizeAnthracite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAnthracite_ore.get(), Config.MinHeightAnthracite_ore.get(), 0, Config.MaxHeightAnthracite_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableAnthracite_ore.get() || AatoConfig.enableCoalOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANTHRACITE_ORE.getDefaultState(), AatoConfig.VeinSizeAnthracite_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAnthracite_ore.get(), AatoConfig.MinHeightAnthracite_ore.get(), 0,AatoConfig.MaxHeightAnthracite_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableGraphite.get() || Config.enableGraphiteOre.get()) { 
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GRAPHITE.getDefaultState(), Config.VeinSizeGraphite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGraphite.get(), Config.MinHeightGraphite.get(), 0, Config.MaxHeightGraphite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableGraphite.get() || AatoConfig.enableCoalOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GRAPHITE.getDefaultState(), AatoConfig.VeinSizeGraphite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGraphite.get(), AatoConfig.MinHeightGraphite.get(), 0,AatoConfig.MaxHeightGraphite.get()))));
 			}
-			if(Config.All.get() || Config.enableArsenopyrite.get() || Config.enableArsenicOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ARSENOPYRITE.getDefaultState(), Config.VeinSizeArsenopyrite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkArsenopyrite.get(), Config.MinHeightArsenopyrite.get(), 0, Config.MaxHeightArsenopyrite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableArsenopyrite.get() || AatoConfig.enableArsenicOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ARSENOPYRITE.getDefaultState(), AatoConfig.VeinSizeArsenopyrite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkArsenopyrite.get(), AatoConfig.MinHeightArsenopyrite.get(), 0,AatoConfig.MaxHeightArsenopyrite.get()))));
 			}
-			if(Config.All.get() || Config.enableStibnite.get() || Config.enableAntimonyOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.STIBNITE.getDefaultState(), Config.VeinSizeStibnite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkStibnite.get(), Config.MinHeightStibnite.get(), 0, Config.MaxHeightStibnite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableStibnite.get() || AatoConfig.enableAntimonyOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.STIBNITE.getDefaultState(), AatoConfig.VeinSizeStibnite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkStibnite.get(), AatoConfig.MinHeightStibnite.get(), 0,AatoConfig.MaxHeightStibnite.get()))));
 			}
-			if(Config.All.get() || Config.enableGermanite.get() || Config.enableGermaniumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GERMANITE.getDefaultState(), Config.VeinSizeGermanite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGermanite.get(), Config.MinHeightGermanite.get(), 0, Config.MaxHeightGermanite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableGermanite.get() || AatoConfig.enableGermaniumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GERMANITE.getDefaultState(), AatoConfig.VeinSizeGermanite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGermanite.get(), AatoConfig.MinHeightGermanite.get(), 0,AatoConfig.MaxHeightGermanite.get()))));
 			}
-			if(Config.All.get() || Config.enableArgutite.get() || Config.enableGermaniumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ARGUTITE.getDefaultState(), Config.VeinSizeArgutite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkArgutite.get(), Config.MinHeightArgutite.get(), 0, Config.MaxHeightArgutite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableArgutite.get() || AatoConfig.enableGermaniumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ARGUTITE.getDefaultState(), AatoConfig.VeinSizeArgutite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkArgutite.get(), AatoConfig.MinHeightArgutite.get(), 0,AatoConfig.MaxHeightArgutite.get()))));
 			}
-			if(Config.All.get() || Config.enableBismuthinite.get() || Config.enableBismuthOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BISMUTHINITE.getDefaultState(), Config.VeinSizeBismuthinite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBismuthinite.get(), Config.MinHeightBismuthinite.get(), 0, Config.MaxHeightBismuthinite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableBismuthinite.get() || AatoConfig.enableBismuthOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BISMUTHINITE.getDefaultState(), AatoConfig.VeinSizeBismuthinite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkBismuthinite.get(), AatoConfig.MinHeightBismuthinite.get(), 0,AatoConfig.MaxHeightBismuthinite.get()))));
 			}
-			if(Config.All.get() || Config.enableNative_bismuth.get() || Config.enableBismuthOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NATIVE_BISMUTH.getDefaultState(), Config.VeinSizeNative_bismuth.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNative_bismuth.get(), Config.MinHeightNative_bismuth.get(), 0, Config.MaxHeightNative_bismuth.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableNative_bismuth.get() || AatoConfig.enableBismuthOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NATIVE_BISMUTH.getDefaultState(), AatoConfig.VeinSizeNative_bismuth.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNative_bismuth.get(), AatoConfig.MinHeightNative_bismuth.get(), 0,AatoConfig.MaxHeightNative_bismuth.get()))));
 			}
-			if(Config.All.get() || Config.enableBismite.get() || Config.enableBismuthOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BISMITE.getDefaultState(), Config.VeinSizeBismite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBismite.get(), Config.MinHeightBismite.get(), 0, Config.MaxHeightBismite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableBismite.get() || AatoConfig.enableBismuthOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BISMITE.getDefaultState(), AatoConfig.VeinSizeBismite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkBismite.get(), AatoConfig.MinHeightBismite.get(), 0,AatoConfig.MaxHeightBismite.get()))));
 			}
-			if(Config.All.get() || Config.enableCassiterite.get() || Config.enableTinOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CASSITERITE.getDefaultState(), Config.VeinSizeCassiterite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCassiterite.get(), Config.MinHeightCassiterite.get(), 0, Config.MaxHeightCassiterite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableCassiterite.get() || AatoConfig.enableTinOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CASSITERITE.getDefaultState(), AatoConfig.VeinSizeCassiterite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCassiterite.get(), AatoConfig.MinHeightCassiterite.get(), 0,AatoConfig.MaxHeightCassiterite.get()))));
 			}
-			if(Config.All.get() || Config.enableNative_tin.get() || Config.enableTinOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NATIVE_TIN.getDefaultState(), Config.VeinSizeNative_tin.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNative_tin.get(), Config.MinHeightNative_tin.get(), 0, Config.MaxHeightNative_tin.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableNative_tin.get() || AatoConfig.enableTinOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NATIVE_TIN.getDefaultState(), AatoConfig.VeinSizeNative_tin.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNative_tin.get(), AatoConfig.MinHeightNative_tin.get(), 0,AatoConfig.MaxHeightNative_tin.get()))));
 			}
-			if(Config.All.get() || Config.enableGalena.get() || Config.enableLeadOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GALENA.getDefaultState(), Config.VeinSizeGalena.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGalena.get(), Config.MinHeightGalena.get(), 0, Config.MaxHeightGalena.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableGalena.get() || AatoConfig.enableLeadOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GALENA.getDefaultState(), AatoConfig.VeinSizeGalena.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGalena.get(), AatoConfig.MinHeightGalena.get(), 0,AatoConfig.MaxHeightGalena.get()))));
 			}
-			if(Config.All.get() || Config.enablePyromorphite.get() || Config.enableLeadOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PYROMORPHITE.getDefaultState(), Config.VeinSizePyromorphite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPyromorphite.get(), Config.MinHeightPyromorphite.get(), 0, Config.MaxHeightPyromorphite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enablePyromorphite.get() || AatoConfig.enableLeadOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PYROMORPHITE.getDefaultState(), AatoConfig.VeinSizePyromorphite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPyromorphite.get(), AatoConfig.MinHeightPyromorphite.get(), 0,AatoConfig.MaxHeightPyromorphite.get()))));
 			}
-			if(Config.All.get() || Config.enableBauxite.get() || Config.enableAluminumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BAUXITE.getDefaultState(), Config.VeinSizeBauxite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBauxite.get(), Config.MinHeightBauxite.get(), 0, Config.MaxHeightBauxite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableBauxite.get() || AatoConfig.enableAluminumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BAUXITE.getDefaultState(), AatoConfig.VeinSizeBauxite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkBauxite.get(), AatoConfig.MinHeightBauxite.get(), 0,AatoConfig.MaxHeightBauxite.get()))));
 			}
-			if(Config.All.get() || Config.enableNepheline.get() || Config.enableAluminumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NEPHELINE.getDefaultState(), Config.VeinSizeNepheline.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNepheline.get(), Config.MinHeightNepheline.get(), 0, Config.MaxHeightNepheline.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableNepheline.get() || AatoConfig.enableAluminumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NEPHELINE.getDefaultState(), AatoConfig.VeinSizeNepheline.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNepheline.get(), AatoConfig.MinHeightNepheline.get(), 0,AatoConfig.MaxHeightNepheline.get()))));
 			}
-			if(Config.All.get() || Config.enableLeucite.get() || Config.enableAluminumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LEUCITE.getDefaultState(), Config.VeinSizeLeucite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkLeucite.get(), Config.MinHeightLeucite.get(), 0, Config.MaxHeightLeucite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableLeucite.get() || AatoConfig.enableAluminumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LEUCITE.getDefaultState(), AatoConfig.VeinSizeLeucite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkLeucite.get(), AatoConfig.MinHeightLeucite.get(), 0,AatoConfig.MaxHeightLeucite.get()))));
 			}
-			if(Config.All.get() || Config.enableSphalerite.get() || Config.enableZincOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SPHALERITE.getDefaultState(), Config.VeinSizeSphalerite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSphalerite.get(), Config.MinHeightSphalerite.get(), 0, Config.MaxHeightSphalerite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableSphalerite.get() || AatoConfig.enableZincOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SPHALERITE.getDefaultState(), AatoConfig.VeinSizeSphalerite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSphalerite.get(), AatoConfig.MinHeightSphalerite.get(), 0,AatoConfig.MaxHeightSphalerite.get()))));
 			}
-			if(Config.All.get() || Config.enableSmithsonite.get() || Config.enableZincOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SMITHSONITE.getDefaultState(), Config.VeinSizeSmithsonite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSmithsonite.get(), Config.MinHeightSmithsonite.get(), 0, Config.MaxHeightSmithsonite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableSmithsonite.get() || AatoConfig.enableZincOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SMITHSONITE.getDefaultState(), AatoConfig.VeinSizeSmithsonite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSmithsonite.get(), AatoConfig.MinHeightSmithsonite.get(), 0,AatoConfig.MaxHeightSmithsonite.get()))));
 			}
-			if(Config.All.get() || Config.enableCinnabar.get() || Config.enableMercuryOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CINNABAR.getDefaultState(), Config.VeinSizeCinnabar.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCinnabar.get(), Config.MinHeightCinnabar.get(), 0, Config.MaxHeightCinnabar.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableCinnabar.get() || AatoConfig.enableMercuryOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CINNABAR.getDefaultState(), AatoConfig.VeinSizeCinnabar.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCinnabar.get(), AatoConfig.MinHeightCinnabar.get(), 0,AatoConfig.MaxHeightCinnabar.get()))));
 			}
-			if(Config.All.get() || Config.enableChalcopyrite.get() || Config.enableCopperOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHALCOPYRITE.getDefaultState(), Config.VeinSizeChalcopyrite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkChalcopyrite.get(), Config.MinHeightChalcopyrite.get(), 0, Config.MaxHeightChalcopyrite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableChalcopyrite.get() || AatoConfig.enableCopperOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHALCOPYRITE.getDefaultState(), AatoConfig.VeinSizeChalcopyrite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkChalcopyrite.get(), AatoConfig.MinHeightChalcopyrite.get(), 0,AatoConfig.MaxHeightChalcopyrite.get()))));
 			}
-			if(Config.All.get() || Config.enableChalcocite.get() || Config.enableCopperOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHALCOCITE.getDefaultState(), Config.VeinSizeChalcocite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkChalcocite.get(), Config.MinHeightChalcocite.get(), 0, Config.MaxHeightChalcocite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableChalcocite.get() || AatoConfig.enableCopperOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHALCOCITE.getDefaultState(), AatoConfig.VeinSizeChalcocite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkChalcocite.get(), AatoConfig.MinHeightChalcocite.get(), 0,AatoConfig.MaxHeightChalcocite.get()))));
 			}
-			if(Config.All.get() || Config.enableMalachite.get() || Config.enableCopperOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MALACHITE.getDefaultState(), Config.VeinSizeMalachite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMalachite.get(), Config.MinHeightMalachite.get(), 0, Config.MaxHeightMalachite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableMalachite.get() || AatoConfig.enableCopperOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MALACHITE.getDefaultState(), AatoConfig.VeinSizeMalachite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkMalachite.get(), AatoConfig.MinHeightMalachite.get(), 0,AatoConfig.MaxHeightMalachite.get()))));
 			}
-			if(Config.All.get() || Config.enableNative_silver.get() || Config.enableSilverOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NATIVE_SILVER.getDefaultState(), Config.VeinSizeNative_silver.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNative_silver.get(), Config.MinHeightNative_silver.get(), 0, Config.MaxHeightNative_silver.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableNative_silver.get() || AatoConfig.enableSilverOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NATIVE_SILVER.getDefaultState(), AatoConfig.VeinSizeNative_silver.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNative_silver.get(), AatoConfig.MinHeightNative_silver.get(), 0,AatoConfig.MaxHeightNative_silver.get()))));
 			}
-			if(Config.All.get() || Config.enableProustite.get() || Config.enableSilverOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PROUSTITE.getDefaultState(), Config.VeinSizeProustite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkProustite.get(), Config.MinHeightProustite.get(), 0, Config.MaxHeightProustite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableProustite.get() || AatoConfig.enableSilverOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PROUSTITE.getDefaultState(), AatoConfig.VeinSizeProustite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkProustite.get(), AatoConfig.MinHeightProustite.get(), 0,AatoConfig.MaxHeightProustite.get()))));
 			}
-			if(Config.All.get() || Config.enableNickeline.get() || Config.enableNickelOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NICKELINE.getDefaultState(), Config.VeinSizeNickeline.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNickeline.get(), Config.MinHeightNickeline.get(), 0, Config.MaxHeightNickeline.get())));
-			}		
-			if(Config.All.get() || Config.enableNepouite.get() || Config.enableNickelOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NEPOUITE.getDefaultState(), Config.VeinSizeNepouite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNepouite.get(), Config.MinHeightNepouite.get(), 0, Config.MaxHeightNepouite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableNickeline.get() || AatoConfig.enableNickelOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NICKELINE.getDefaultState(), AatoConfig.VeinSizeNickeline.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNickeline.get(), AatoConfig.MinHeightNickeline.get(), 0,AatoConfig.MaxHeightNickeline.get()))));
 			}
-			if(Config.All.get() || Config.enableCobaltite.get() || Config.enableCobaltOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.COBALTITE.getDefaultState(), Config.VeinSizeCobaltite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCobaltite.get(), Config.MinHeightCobaltite.get(), 0, Config.MaxHeightCobaltite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableNepouite.get() || AatoConfig.enableNickelOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NEPOUITE.getDefaultState(), AatoConfig.VeinSizeNepouite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNepouite.get(), AatoConfig.MinHeightNepouite.get(), 0,AatoConfig.MaxHeightNepouite.get()))));
 			}
-			if(Config.All.get() || Config.enableHematite.get() || Config.enableIronOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HEMATITE.getDefaultState(), Config.VeinSizeHematite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHematite.get(), Config.MinHeightHematite.get(), 0, Config.MaxHeightHematite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableCobaltite.get() || AatoConfig.enableCobaltOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.COBALTITE.getDefaultState(), AatoConfig.VeinSizeCobaltite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCobaltite.get(), AatoConfig.MinHeightCobaltite.get(), 0,AatoConfig.MaxHeightCobaltite.get()))));
 			}
-			if(Config.All.get() || Config.enableMagnetite.get() || Config.enableIronOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MAGNETITE.getDefaultState(), Config.VeinSizeMagnetite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMagnetite.get(), Config.MinHeightMagnetite.get(), 0, Config.MaxHeightMagnetite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableHematite.get() || AatoConfig.enableIronOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HEMATITE.getDefaultState(), AatoConfig.VeinSizeHematite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHematite.get(), AatoConfig.MinHeightHematite.get(), 0,AatoConfig.MaxHeightHematite.get()))));
 			}
-			if(Config.All.get() || Config.enableLimonite.get() || Config.enableIronOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LIMONITE.getDefaultState(), Config.VeinSizeLimonite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkLimonite.get(), Config.MinHeightLimonite.get(), 0, Config.MaxHeightLimonite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableMagnetite.get() || AatoConfig.enableIronOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MAGNETITE.getDefaultState(), AatoConfig.VeinSizeMagnetite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkMagnetite.get(), AatoConfig.MinHeightMagnetite.get(), 0,AatoConfig.MaxHeightMagnetite.get()))));
 			}
-			if(Config.All.get() || Config.enableSiderite.get() || Config.enableIronOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SIDERITE.getDefaultState(), Config.VeinSizeSiderite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSiderite.get(), Config.MinHeightSiderite.get(), 0, Config.MaxHeightSiderite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableLimonite.get() || AatoConfig.enableIronOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LIMONITE.getDefaultState(), AatoConfig.VeinSizeLimonite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkLimonite.get(), AatoConfig.MinHeightLimonite.get(), 0,AatoConfig.MaxHeightLimonite.get()))));
 			}
-			if(Config.All.get() || Config.enableTelluric_iron.get() || Config.enableIronOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TELLURIC_IRON.getDefaultState(), Config.VeinSizeTelluric_iron.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTelluric_iron.get(), Config.MinHeightTelluric_iron.get(), 0, Config.MaxHeightTelluric_iron.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableSiderite.get() || AatoConfig.enableIronOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SIDERITE.getDefaultState(), AatoConfig.VeinSizeSiderite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSiderite.get(), AatoConfig.MinHeightSiderite.get(), 0,AatoConfig.MaxHeightSiderite.get()))));
 			}
-			if(Config.All.get() || Config.enablePyrolusite.get() || Config.enableManganeseOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PYROLUSITE.getDefaultState(), Config.VeinSizePyrolusite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPyrolusite.get(), Config.MinHeightPyrolusite.get(), 0, Config.MaxHeightPyrolusite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableTelluric_iron.get() || AatoConfig.enableIronOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TELLURIC_IRON.getDefaultState(), AatoConfig.VeinSizeTelluric_iron.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTelluric_iron.get(), AatoConfig.MinHeightTelluric_iron.get(), 0,AatoConfig.MaxHeightTelluric_iron.get()))));
 			}
-			if(Config.All.get() || Config.enableChromite.get() || Config.enableChromiumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHROMITE.getDefaultState(), Config.VeinSizeChromite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkChromite.get(), Config.MinHeightChromite.get(), 0, Config.MaxHeightChromite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enablePyrolusite.get() || AatoConfig.enableManganeseOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PYROLUSITE.getDefaultState(), AatoConfig.VeinSizePyrolusite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPyrolusite.get(), AatoConfig.MinHeightPyrolusite.get(), 0,AatoConfig.MaxHeightPyrolusite.get()))));
 			}
-			if(Config.All.get() || Config.enableMolybdenite.get() || Config.enableMolybdenumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MOLYBDENITE.getDefaultState(), Config.VeinSizeMolybdenite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMolybdenite.get(), Config.MinHeightMolybdenite.get(), 0, Config.MaxHeightMolybdenite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableChromite.get() || AatoConfig.enableChromiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHROMITE.getDefaultState(), AatoConfig.VeinSizeChromite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkChromite.get(), AatoConfig.MinHeightChromite.get(), 0,AatoConfig.MaxHeightChromite.get()))));
 			}
-			if(Config.All.get() || Config.enableWulfenite.get() || Config.enableMolybdenumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.WULFENITE.getDefaultState(), Config.VeinSizeWulfenite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkWulfenite.get(), Config.MinHeightWulfenite.get(), 0, Config.MaxHeightWulfenite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableMolybdenite.get() || AatoConfig.enableMolybdenumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MOLYBDENITE.getDefaultState(), AatoConfig.VeinSizeMolybdenite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkMolybdenite.get(), AatoConfig.MinHeightMolybdenite.get(), 0,AatoConfig.MaxHeightMolybdenite.get()))));
 			}
-			if(Config.All.get() || Config.enableScheelite.get() || Config.enableTungstenOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SCHEELITE.getDefaultState(), Config.VeinSizeScheelite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkScheelite.get(), Config.MinHeightScheelite.get(), 0, Config.MaxHeightScheelite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableWulfenite.get() || AatoConfig.enableMolybdenumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.WULFENITE.getDefaultState(), AatoConfig.VeinSizeWulfenite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkWulfenite.get(), AatoConfig.MinHeightWulfenite.get(), 0,AatoConfig.MaxHeightWulfenite.get()))));
 			}
-			if(Config.All.get() || Config.enableFerberite.get() || Config.enableTungstenOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.FERBERITE.getDefaultState(), Config.VeinSizeFerberite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkFerberite.get(), Config.MinHeightFerberite.get(), 0, Config.MaxHeightFerberite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableScheelite.get() || AatoConfig.enableTungstenOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SCHEELITE.getDefaultState(), AatoConfig.VeinSizeScheelite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkScheelite.get(), AatoConfig.MinHeightScheelite.get(), 0,AatoConfig.MaxHeightScheelite.get()))));
 			}
-			if(Config.All.get() || Config.enableHubnerite.get() || Config.enableTungstenOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HUBNERITE.getDefaultState(), Config.VeinSizeHubnerite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHubnerite.get(), Config.MinHeightHubnerite.get(), 0, Config.MaxHeightHubnerite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableFerberite.get() || AatoConfig.enableTungstenOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.FERBERITE.getDefaultState(), AatoConfig.VeinSizeFerberite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkFerberite.get(), AatoConfig.MinHeightFerberite.get(), 0,AatoConfig.MaxHeightFerberite.get()))));
 			}
-			if(Config.All.get() || Config.enableVanadinite.get() || Config.enableVanadiumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.VANADINITE.getDefaultState(), Config.VeinSizeVanadinite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkVanadinite.get(), Config.MinHeightVanadinite.get(), 0, Config.MaxHeightVanadinite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableHubnerite.get() || AatoConfig.enableTungstenOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HUBNERITE.getDefaultState(), AatoConfig.VeinSizeHubnerite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHubnerite.get(), AatoConfig.MinHeightHubnerite.get(), 0,AatoConfig.MaxHeightHubnerite.get()))));
 			}
-			if(Config.All.get() || Config.enableDescloizite.get() || Config.enableVanadiumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.DESCLOIZITE.getDefaultState(), Config.VeinSizeDescloizite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkDescloizite.get(), Config.MinHeightDescloizite.get(), 0, Config.MaxHeightDescloizite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableVanadinite.get() || AatoConfig.enableVanadiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.VANADINITE.getDefaultState(), AatoConfig.VeinSizeVanadinite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkVanadinite.get(), AatoConfig.MinHeightVanadinite.get(), 0,AatoConfig.MaxHeightVanadinite.get()))));
 			}
-			if(Config.All.get() || Config.enableColumbite.get() || Config.enableNiobiumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.COLUMBITE.getDefaultState(), Config.VeinSizeColumbite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkColumbite.get(), Config.MinHeightColumbite.get(), 0, Config.MaxHeightColumbite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableDescloizite.get() || AatoConfig.enableVanadiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.DESCLOIZITE.getDefaultState(), AatoConfig.VeinSizeDescloizite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDescloizite.get(), AatoConfig.MinHeightDescloizite.get(), 0,AatoConfig.MaxHeightDescloizite.get()))));
 			}
-			if(Config.All.get() || Config.enableTantalite.get() || Config.enableTantalumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TANTALITE.getDefaultState(), Config.VeinSizeTantalite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTantalite.get(), Config.MinHeightTantalite.get(), 0, Config.MaxHeightTantalite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableColumbite.get() || AatoConfig.enableNiobiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.COLUMBITE.getDefaultState(), AatoConfig.VeinSizeColumbite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkColumbite.get(), AatoConfig.MinHeightColumbite.get(), 0,AatoConfig.MaxHeightColumbite.get()))));
 			}
-			if(Config.All.get() || Config.enableRutile.get() || Config.enableTitaniumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.RUTILE.getDefaultState(), Config.VeinSizeRutile.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkRutile.get(), Config.MinHeightRutile.get(), 0, Config.MaxHeightRutile.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableTantalite.get() || AatoConfig.enableTantalumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TANTALITE.getDefaultState(), AatoConfig.VeinSizeTantalite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTantalite.get(), AatoConfig.MinHeightTantalite.get(), 0,AatoConfig.MaxHeightTantalite.get()))));
 			}
-			if(Config.All.get() || Config.enableIlmenite.get() || Config.enableTitaniumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ILMENITE.getDefaultState(), Config.VeinSizeIlmenite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkIlmenite.get(), Config.MinHeightIlmenite.get(), 0, Config.MaxHeightIlmenite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableRutile.get() || AatoConfig.enableTitaniumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.RUTILE.getDefaultState(), AatoConfig.VeinSizeRutile.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkRutile.get(), AatoConfig.MinHeightRutile.get(), 0,AatoConfig.MaxHeightRutile.get()))));
 			}
-			if(Config.All.get() || Config.enableZircon.get() || Config.enableZirconiumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ZIRCON.getDefaultState(), Config.VeinSizeZircon.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkZircon.get(), Config.MinHeightZircon.get(), 0, Config.MaxHeightZircon.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableIlmenite.get() || AatoConfig.enableTitaniumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ILMENITE.getDefaultState(), AatoConfig.VeinSizeIlmenite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkIlmenite.get(), AatoConfig.MinHeightIlmenite.get(), 0,AatoConfig.MaxHeightIlmenite.get()))));
 			}
-			if(Config.All.get() || Config.enableThorite.get() || Config.enableThoriumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.THORITE.getDefaultState(), Config.VeinSizeThorite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkThorite.get(), Config.MinHeightThorite.get(), 0, Config.MaxHeightThorite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableZircon.get() || AatoConfig.enableZirconiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ZIRCON.getDefaultState(), AatoConfig.VeinSizeZircon.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkZircon.get(), AatoConfig.MinHeightZircon.get(), 0,AatoConfig.MaxHeightZircon.get()))));
 			}
-			if(Config.All.get() || Config.enableCarnotite.get() || Config.enableUraniumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CARNOTITE.getDefaultState(), Config.VeinSizeCarnotite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCarnotite.get(), Config.MinHeightCarnotite.get(), 0, Config.MaxHeightCarnotite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableThorite.get() || AatoConfig.enableThoriumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.THORITE.getDefaultState(), AatoConfig.VeinSizeThorite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkThorite.get(), AatoConfig.MinHeightThorite.get(), 0,AatoConfig.MaxHeightThorite.get()))));
 			}
-			if(Config.All.get() || Config.enableUraninite.get() || Config.enableUraniumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.URANINITE.getDefaultState(), Config.VeinSizeUraninite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkUraninite.get(), Config.MinHeightUraninite.get(), 0, Config.MaxHeightUraninite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableCarnotite.get() || AatoConfig.enableUraniumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CARNOTITE.getDefaultState(), AatoConfig.VeinSizeCarnotite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCarnotite.get(), AatoConfig.MinHeightCarnotite.get(), 0,AatoConfig.MaxHeightCarnotite.get()))));
 			}
-			if(Config.All.get() || Config.enableMagnesite.get() || Config.enableMagnesiumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MAGNESITE.getDefaultState(), Config.VeinSizeMagnesite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMagnesite.get(), Config.MinHeightMagnesite.get(), 0, Config.MaxHeightMagnesite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableUraninite.get() || AatoConfig.enableUraniumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.URANINITE.getDefaultState(), AatoConfig.VeinSizeUraninite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkUraninite.get(), AatoConfig.MinHeightUraninite.get(), 0,AatoConfig.MaxHeightUraninite.get()))));
 			}
-			if(Config.All.get() || Config.enableKieserite.get() || Config.enableMagnesiumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.KIESERITE.getDefaultState(), Config.VeinSizeKieserite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkKieserite.get(), Config.MinHeightKieserite.get(), 0, Config.MaxHeightKieserite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableMagnesite.get() || AatoConfig.enableMagnesiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MAGNESITE.getDefaultState(), AatoConfig.VeinSizeMagnesite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkMagnesite.get(), AatoConfig.MinHeightMagnesite.get(), 0,AatoConfig.MaxHeightMagnesite.get()))));
 			}
-			if(Config.All.get() || Config.enableBrucite.get() || Config.enableMagnesiumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BRUCITE.getDefaultState(), Config.VeinSizeBrucite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBrucite.get(), Config.MinHeightBrucite.get(), 0, Config.MaxHeightBrucite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableKieserite.get() || AatoConfig.enableMagnesiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.KIESERITE.getDefaultState(), AatoConfig.VeinSizeKieserite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkKieserite.get(), AatoConfig.MinHeightKieserite.get(), 0,AatoConfig.MaxHeightKieserite.get()))));
 			}
-			if(Config.All.get() || Config.enableCalcite.get() || Config.enableCalciumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CALCITE.getDefaultState(), Config.VeinSizeCalcite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCalcite.get(), Config.MinHeightCalcite.get(), 0, Config.MaxHeightCalcite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableBrucite.get() || AatoConfig.enableMagnesiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BRUCITE.getDefaultState(), AatoConfig.VeinSizeBrucite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkBrucite.get(), AatoConfig.MinHeightBrucite.get(), 0,AatoConfig.MaxHeightBrucite.get()))));
 			}
-			if(Config.All.get() || Config.enableGypsum.get() || Config.enableCalciumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GYPSUM.getDefaultState(), Config.VeinSizeGypsum.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGypsum.get(), Config.MinHeightGypsum.get(), 0, Config.MaxHeightGypsum.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableCalcite.get() || AatoConfig.enableCalciumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CALCITE.getDefaultState(), AatoConfig.VeinSizeCalcite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCalcite.get(), AatoConfig.MinHeightCalcite.get(), 0,AatoConfig.MaxHeightCalcite.get()))));
 			}
-			if(Config.All.get() || Config.enableAnhydrite.get() || Config.enableCalciumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANHYDRITE.getDefaultState(), Config.VeinSizeAnhydrite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAnhydrite.get(), Config.MinHeightAnhydrite.get(), 0, Config.MaxHeightAnhydrite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableGypsum.get() || AatoConfig.enableCalciumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GYPSUM.getDefaultState(), AatoConfig.VeinSizeGypsum.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGypsum.get(), AatoConfig.MinHeightGypsum.get(), 0,AatoConfig.MaxHeightGypsum.get()))));
 			}
-			if(Config.All.get() || Config.enableDolomite.get() || Config.enableCalciumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.DOLOMITE.getDefaultState(), Config.VeinSizeDolomite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkDolomite.get(), Config.MinHeightDolomite.get(), 0, Config.MaxHeightDolomite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableAnhydrite.get() || AatoConfig.enableCalciumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANHYDRITE.getDefaultState(), AatoConfig.VeinSizeAnhydrite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAnhydrite.get(), AatoConfig.MinHeightAnhydrite.get(), 0,AatoConfig.MaxHeightAnhydrite.get()))));
 			}
-			if(Config.All.get() || Config.enableStrontianite.get() || Config.enableStrontiumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.STRONTIANITE.getDefaultState(), Config.VeinSizeStrontianite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkStrontianite.get(), Config.MinHeightStrontianite.get(), 0, Config.MaxHeightStrontianite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableDolomite.get() || AatoConfig.enableCalciumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.DOLOMITE.getDefaultState(), AatoConfig.VeinSizeDolomite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDolomite.get(), AatoConfig.MinHeightDolomite.get(), 0,AatoConfig.MaxHeightDolomite.get()))));
 			}
-			if(Config.All.get() || Config.enablePolylithionite.get() || Config.enableLithiumOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.POLYLITHIONITE.getDefaultState(), Config.VeinSizePolylithionite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPolylithionite.get(), Config.MinHeightPolylithionite.get(), 0, Config.MaxHeightPolylithionite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableStrontianite.get() || AatoConfig.enableStrontiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.STRONTIANITE.getDefaultState(), AatoConfig.VeinSizeStrontianite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkStrontianite.get(), AatoConfig.MinHeightStrontianite.get(), 0,AatoConfig.MaxHeightStrontianite.get()))));
 			}
-			if(Config.All.get() || Config.enableCarnallite.get() || Config.enableNPKOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CARNALLITE.getDefaultState(), Config.VeinSizeCarnallite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCarnallite.get(), Config.MinHeightCarnallite.get(), 0, Config.MaxHeightCarnallite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enablePolylithionite.get() || AatoConfig.enableLithiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.POLYLITHIONITE.getDefaultState(), AatoConfig.VeinSizePolylithionite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPolylithionite.get(), AatoConfig.MinHeightPolylithionite.get(), 0,AatoConfig.MaxHeightPolylithionite.get()))));
 			}
-			if(Config.All.get() || Config.enableSylvite.get() || Config.enableNPKOres.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SYLVITE.getDefaultState(), Config.VeinSizeSylvite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSylvite.get(), Config.MinHeightSylvite.get(), 0, Config.MaxHeightSylvite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableCarnallite.get() || AatoConfig.enableNPKOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CARNALLITE.getDefaultState(), AatoConfig.VeinSizeCarnallite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCarnallite.get(), AatoConfig.MinHeightCarnallite.get(), 0,AatoConfig.MaxHeightCarnallite.get()))));
 			}
-			if(Config.All.get() || Config.enableHalite.get() || Config.enableSaltOre.get()) { 
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HALITE.getDefaultState(), Config.VeinSizeHalite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHalite.get(), Config.MinHeightHalite.get(), 0, Config.MaxHeightHalite.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableSylvite.get() || AatoConfig.enableNPKOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SYLVITE.getDefaultState(), AatoConfig.VeinSizeSylvite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSylvite.get(), AatoConfig.MinHeightSylvite.get(), 0,AatoConfig.MaxHeightSylvite.get()))));
 			}
-			if(Config.All.get() || Config.enableSapphire_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SAPPHIRE_ORE.getDefaultState(), Config.VeinSizeSapphire_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSapphire_ore.get(), Config.MinHeightSapphire_ore.get(), 0, Config.MaxHeightSapphire_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableHalite.get() || AatoConfig.enableSaltOre.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HALITE.getDefaultState(), AatoConfig.VeinSizeHalite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHalite.get(), AatoConfig.MinHeightHalite.get(), 0,AatoConfig.MaxHeightHalite.get()))));
 			}
-			if(Config.All.get() || Config.enableRuby_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.RUBY_ORE.getDefaultState(), Config.VeinSizeRuby_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkRuby_ore.get(), Config.MinHeightRuby_ore.get(), 0, Config.MaxHeightRuby_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableSapphire_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SAPPHIRE_ORE.getDefaultState(), AatoConfig.VeinSizeSapphire_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSapphire_ore.get(), AatoConfig.MinHeightSapphire_ore.get(), 0,AatoConfig.MaxHeightSapphire_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableAmethyst_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.AMETHYST_ORE.getDefaultState(), Config.VeinSizeAmethyst_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAmethyst_ore.get(), Config.MinHeightAmethyst_ore.get(), 0, Config.MaxHeightAmethyst_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableRuby_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.RUBY_ORE.getDefaultState(), AatoConfig.VeinSizeRuby_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkRuby_ore.get(), AatoConfig.MinHeightRuby_ore.get(), 0,AatoConfig.MaxHeightRuby_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableJade_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.JADE_ORE.getDefaultState(), Config.VeinSizeJade_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkJade_ore.get(), Config.MinHeightJade_ore.get(), 0, Config.MaxHeightJade_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableAmethyst_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.AMETHYST_ORE.getDefaultState(), AatoConfig.VeinSizeAmethyst_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAmethyst_ore.get(), AatoConfig.MinHeightAmethyst_ore.get(), 0,AatoConfig.MaxHeightAmethyst_ore.get()))));
 			}
-			if(Config.All.get() || Config.enablePeridot_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PERIDOT_ORE.getDefaultState(), Config.VeinSizePeridot_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPeridot_ore.get(), Config.MinHeightPeridot_ore.get(), 0, Config.MaxHeightPeridot_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableJade_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.JADE_ORE.getDefaultState(), AatoConfig.VeinSizeJade_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkJade_ore.get(), AatoConfig.MinHeightJade_ore.get(), 0,AatoConfig.MaxHeightJade_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableAgate_ore.get() || Config.enableAllGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.AGATE_ORE.getDefaultState(), Config.VeinSizeAgate_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAgate_ore.get(), Config.MinHeightAgate_ore.get(), 0, Config.MaxHeightAgate_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enablePeridot_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PERIDOT_ORE.getDefaultState(), AatoConfig.VeinSizePeridot_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPeridot_ore.get(), AatoConfig.MinHeightPeridot_ore.get(), 0,AatoConfig.MaxHeightPeridot_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableCarnelian_ore.get() || Config.enableAllGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CARNELIAN_ORE.getDefaultState(), Config.VeinSizeCarnelian_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCarnelian_ore.get(), Config.MinHeightCarnelian_ore.get(), 0, Config.MaxHeightCarnelian_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableAgate_ore.get() || AatoConfig.enableAllGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.AGATE_ORE.getDefaultState(), AatoConfig.VeinSizeAgate_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAgate_ore.get(), AatoConfig.MinHeightAgate_ore.get(), 0,AatoConfig.MaxHeightAgate_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableHeliotrope_ore.get() || Config.enableAllGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HELIOTROPE_ORE.getDefaultState(), Config.VeinSizeHeliotrope_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHeliotrope_ore.get(), Config.MinHeightHeliotrope_ore.get(), 0, Config.MaxHeightHeliotrope_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableCarnelian_ore.get() || AatoConfig.enableAllGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CARNELIAN_ORE.getDefaultState(), AatoConfig.VeinSizeCarnelian_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCarnelian_ore.get(), AatoConfig.MinHeightCarnelian_ore.get(), 0,AatoConfig.MaxHeightCarnelian_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableTopaz_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TOPAZ_ORE.getDefaultState(), Config.VeinSizeTopaz_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTopaz_ore.get(), Config.MinHeightTopaz_ore.get(), 0, Config.MaxHeightTopaz_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableHeliotrope_ore.get() || AatoConfig.enableAllGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HELIOTROPE_ORE.getDefaultState(), AatoConfig.VeinSizeHeliotrope_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHeliotrope_ore.get(), AatoConfig.MinHeightHeliotrope_ore.get(), 0,AatoConfig.MaxHeightHeliotrope_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableUnakite_ore.get() || Config.enableAllGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.UNAKITE_ORE.getDefaultState(), Config.VeinSizeUnakite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkUnakite_ore.get(), Config.MinHeightUnakite_ore.get(), 0, Config.MaxHeightUnakite_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableTopaz_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TOPAZ_ORE.getDefaultState(), AatoConfig.VeinSizeTopaz_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTopaz_ore.get(), AatoConfig.MinHeightTopaz_ore.get(), 0,AatoConfig.MaxHeightTopaz_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableOnyx_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ONYX_ORE.getDefaultState(), Config.VeinSizeOnyx_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkOnyx_ore.get(), Config.MinHeightOnyx_ore.get(), 0, Config.MaxHeightOnyx_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableUnakite_ore.get() || AatoConfig.enableAllGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.UNAKITE_ORE.getDefaultState(), AatoConfig.VeinSizeUnakite_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkUnakite_ore.get(), AatoConfig.MinHeightUnakite_ore.get(), 0,AatoConfig.MaxHeightUnakite_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableTurquoise_ore.get() || Config.enableAllGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TURQUOISE_ORE.getDefaultState(), Config.VeinSizeTurquoise_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTurquoise_ore.get(), Config.MinHeightTurquoise_ore.get(), 0, Config.MaxHeightTurquoise_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableOnyx_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ONYX_ORE.getDefaultState(), AatoConfig.VeinSizeOnyx_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkOnyx_ore.get(), AatoConfig.MinHeightOnyx_ore.get(), 0,AatoConfig.MaxHeightOnyx_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableAmazonite_ore.get() || Config.enableAllGems.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.AMAZONITE_ORE.getDefaultState(), Config.VeinSizeAmazonite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAmazonite_ore.get(), Config.MinHeightAmazonite_ore.get(), 0, Config.MaxHeightAmazonite_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableTurquoise_ore.get() || AatoConfig.enableAllGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TURQUOISE_ORE.getDefaultState(), AatoConfig.VeinSizeTurquoise_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTurquoise_ore.get(), AatoConfig.MinHeightTurquoise_ore.get(), 0,AatoConfig.MaxHeightTurquoise_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableChrysocolla_ore.get() || Config.enableAllGems.get() || Config.enableStoneAge.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHRYSOCOLLA_ORE.getDefaultState(), Config.VeinSizeChrysocolla_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkChrysocolla_ore.get(), Config.MinHeightChrysocolla_ore.get(), 0, Config.MaxHeightChrysocolla_ore.get())));
+			if(AatoConfig.All.get() || AatoConfig.enableAmazonite_ore.get() || AatoConfig.enableAllGems.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.AMAZONITE_ORE.getDefaultState(), AatoConfig.VeinSizeAmazonite_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAmazonite_ore.get(), AatoConfig.MinHeightAmazonite_ore.get(), 0,AatoConfig.MaxHeightAmazonite_ore.get()))));
 			}
-			if(Config.All.get() || Config.enableMithril_ore.get() || Config.enableMithrilOre.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MITHRIL_ORE.getDefaultState(), Config.VeinSizeMithril_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMithril_ore.get(), Config.MinHeightMithril_ore.get(), 0, Config.MaxHeightMithril_ore.get())));			
+			if(AatoConfig.All.get() || AatoConfig.enableChrysocolla_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableStoneAge.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHRYSOCOLLA_ORE.getDefaultState(), AatoConfig.VeinSizeChrysocolla_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkChrysocolla_ore.get(), AatoConfig.MinHeightChrysocolla_ore.get(), 0,AatoConfig.MaxHeightChrysocolla_ore.get()))));
 			}
+			if(AatoConfig.All.get() || AatoConfig.enableMithril_ore.get() || AatoConfig.enableMithrilOre.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MITHRIL_ORE.getDefaultState(), AatoConfig.VeinSizeMithril_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkMithril_ore.get(), AatoConfig.MinHeightMithril_ore.get(), 0,AatoConfig.MaxHeightMithril_ore.get()))));
+			}
+
 			//MEDIUM biomes TempCategory and OCEAN
 			if(biome.getTempCategory() == TempCategory.OCEAN || biome.getTempCategory() == TempCategory.MEDIUM) {
-				if(Config.All.get() || Config.enableClausthalite.get() || Config.enableSeleniumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CLAUSTHALITE.getDefaultState(), Config.VeinSizeClausthalite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkClausthalite.get(), Config.MinHeightClausthalite.get(), 0, Config.MaxHeightClausthalite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableClausthalite.get() || AatoConfig.enableSeleniumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CLAUSTHALITE.getDefaultState(), AatoConfig.VeinSizeClausthalite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkClausthalite.get(), AatoConfig.MinHeightClausthalite.get(), 0,AatoConfig.MaxHeightClausthalite.get()))));
 				}
-				if(Config.All.get() || Config.enableOrpiment.get() || Config.enableArsenicOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ORPIMENT.getDefaultState(), Config.VeinSizeOrpiment.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkOrpiment.get(), Config.MinHeightOrpiment.get(), 0, Config.MaxHeightOrpiment.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableOrpiment.get() || AatoConfig.enableArsenicOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ORPIMENT.getDefaultState(), AatoConfig.VeinSizeOrpiment.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkOrpiment.get(), AatoConfig.MinHeightOrpiment.get(), 0,AatoConfig.MaxHeightOrpiment.get()))));
 				}
-				if(Config.All.get() || Config.enableStannite.get() || Config.enableTinOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.STANNITE.getDefaultState(), Config.VeinSizeStannite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkStannite.get(), Config.MinHeightStannite.get(), 0, Config.MaxHeightStannite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableStannite.get() || AatoConfig.enableTinOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.STANNITE.getDefaultState(), AatoConfig.VeinSizeStannite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkStannite.get(), AatoConfig.MinHeightStannite.get(), 0,AatoConfig.MaxHeightStannite.get()))));
 				}
-				if(Config.All.get() || Config.enableBoulangerite.get() || Config.enableLeadOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BOULANGERITE.getDefaultState(), Config.VeinSizeBoulangerite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBoulangerite.get(), Config.MinHeightBoulangerite.get(), 0, Config.MaxHeightBoulangerite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableBoulangerite.get() || AatoConfig.enableLeadOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BOULANGERITE.getDefaultState(), AatoConfig.VeinSizeBoulangerite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkBoulangerite.get(), AatoConfig.MinHeightBoulangerite.get(), 0,AatoConfig.MaxHeightBoulangerite.get()))));
 				}
-				if(Config.All.get() || Config.enableHemimorphite.get() || Config.enableZincOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HEMIMORPHITE.getDefaultState(), Config.VeinSizeHemimorphite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHemimorphite.get(), Config.MinHeightHemimorphite.get(), 0, Config.MaxHeightHemimorphite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableHemimorphite.get() || AatoConfig.enableZincOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HEMIMORPHITE.getDefaultState(), AatoConfig.VeinSizeHemimorphite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHemimorphite.get(), AatoConfig.MinHeightHemimorphite.get(), 0,AatoConfig.MaxHeightHemimorphite.get()))));
 				}
-				if(Config.All.get() || Config.enableFranklinite.get() || Config.enableZincOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.FRANKLINITE.getDefaultState(), Config.VeinSizeFranklinite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkFranklinite.get(), Config.MinHeightFranklinite.get(), 0, Config.MaxHeightFranklinite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableFranklinite.get() || AatoConfig.enableZincOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.FRANKLINITE.getDefaultState(), AatoConfig.VeinSizeFranklinite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkFranklinite.get(), AatoConfig.MinHeightFranklinite.get(), 0,AatoConfig.MaxHeightFranklinite.get()))));
 				}
-				if(Config.All.get() || Config.enableGreenockite.get() || Config.enableCadmiumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GREENOCKITE.getDefaultState(), Config.VeinSizeGreenockite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGreenockite.get(), Config.MinHeightGreenockite.get(), 0, Config.MaxHeightGreenockite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableGreenockite.get() || AatoConfig.enableCadmiumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GREENOCKITE.getDefaultState(), AatoConfig.VeinSizeGreenockite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGreenockite.get(), AatoConfig.MinHeightGreenockite.get(), 0,AatoConfig.MaxHeightGreenockite.get()))));
 				}
-				if(Config.All.get() || Config.enableNative_copper.get() || Config.enableCopperOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NATIVE_COPPER.getDefaultState(), Config.VeinSizeNative_copper.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNative_copper.get(), Config.MinHeightNative_copper.get(), 0, Config.MaxHeightNative_copper.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableNative_copper.get() || AatoConfig.enableCopperOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NATIVE_COPPER.getDefaultState(), AatoConfig.VeinSizeNative_copper.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNative_copper.get(), AatoConfig.MinHeightNative_copper.get(), 0,AatoConfig.MaxHeightNative_copper.get()))));
 				}
-				if(Config.All.get() || Config.enableBornite.get() || Config.enableCopperOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BORNITE.getDefaultState(), Config.VeinSizeBornite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBornite.get(), Config.MinHeightBornite.get(), 0, Config.MaxHeightBornite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableBornite.get() || AatoConfig.enableCopperOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BORNITE.getDefaultState(), AatoConfig.VeinSizeBornite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkBornite.get(), AatoConfig.MinHeightBornite.get(), 0,AatoConfig.MaxHeightBornite.get()))));
 				}
-				if(Config.All.get() || Config.enableAzurite.get() || Config.enableCopperOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.AZURITE.getDefaultState(), Config.VeinSizeAzurite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAzurite.get(), Config.MinHeightAzurite.get(), 0, Config.MaxHeightAzurite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableAzurite.get() || AatoConfig.enableCopperOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.AZURITE.getDefaultState(), AatoConfig.VeinSizeAzurite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAzurite.get(), AatoConfig.MinHeightAzurite.get(), 0,AatoConfig.MaxHeightAzurite.get()))));
 				}
-				if(Config.All.get() || Config.enableFreibergite.get() || Config.enableSilverOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.FREIBERGITE.getDefaultState(), Config.VeinSizeFreibergite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkFreibergite.get(), Config.MinHeightFreibergite.get(), 0, Config.MaxHeightFreibergite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableFreibergite.get() || AatoConfig.enableSilverOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.FREIBERGITE.getDefaultState(), AatoConfig.VeinSizeFreibergite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkFreibergite.get(), AatoConfig.MinHeightFreibergite.get(), 0,AatoConfig.MaxHeightFreibergite.get()))));
 				}
-				if(Config.All.get() || Config.enablePentlandite.get() || Config.enableNickelOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PENTLANDITE.getDefaultState(), Config.VeinSizePentlandite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPentlandite.get(), Config.MinHeightPentlandite.get(), 0, Config.MaxHeightPentlandite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enablePentlandite.get() || AatoConfig.enableNickelOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PENTLANDITE.getDefaultState(), AatoConfig.VeinSizePentlandite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPentlandite.get(), AatoConfig.MinHeightPentlandite.get(), 0,AatoConfig.MaxHeightPentlandite.get()))));
 				}
-				if(Config.All.get() || Config.enableCarrollite.get() || Config.enableCobaltOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CARROLLITE.getDefaultState(), Config.VeinSizeCarrollite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCarrollite.get(), Config.MinHeightCarrollite.get(), 0, Config.MaxHeightCarrollite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableCarrollite.get() || AatoConfig.enableCobaltOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CARROLLITE.getDefaultState(), AatoConfig.VeinSizeCarrollite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCarrollite.get(), AatoConfig.MinHeightCarrollite.get(), 0,AatoConfig.MaxHeightCarrollite.get()))));
 				}
-				if(Config.All.get() || Config.enableRhodochrosite.get() || Config.enableManganeseOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.RHODOCHROSITE.getDefaultState(), Config.VeinSizeRhodochrosite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkRhodochrosite.get(), Config.MinHeightRhodochrosite.get(), 0, Config.MaxHeightRhodochrosite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableRhodochrosite.get() || AatoConfig.enableManganeseOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.RHODOCHROSITE.getDefaultState(), AatoConfig.VeinSizeRhodochrosite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkRhodochrosite.get(), AatoConfig.MinHeightRhodochrosite.get(), 0,AatoConfig.MaxHeightRhodochrosite.get()))));
 				}
-				if(Config.All.get() || Config.enableHollandite.get() || Config.enableManganeseOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HOLLANDITE.getDefaultState(), Config.VeinSizeHollandite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHollandite.get(), Config.MinHeightHollandite.get(), 0, Config.MaxHeightHollandite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableHollandite.get() || AatoConfig.enableManganeseOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HOLLANDITE.getDefaultState(), AatoConfig.VeinSizeHollandite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHollandite.get(), AatoConfig.MinHeightHollandite.get(), 0,AatoConfig.MaxHeightHollandite.get()))));
 				}
-				if(Config.All.get() || Config.enableBrookite.get() || Config.enableTitaniumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BROOKITE.getDefaultState(), Config.VeinSizeBrookite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBrookite.get(), Config.MinHeightBrookite.get(), 0, Config.MaxHeightBrookite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableBrookite.get() || AatoConfig.enableTitaniumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BROOKITE.getDefaultState(), AatoConfig.VeinSizeBrookite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkBrookite.get(), AatoConfig.MinHeightBrookite.get(), 0,AatoConfig.MaxHeightBrookite.get()))));
 				}
-				if(Config.All.get() || Config.enableCelestine.get() || Config.enableStrontiumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CELESTINE.getDefaultState(), Config.VeinSizeCelestine.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCelestine.get(), Config.MinHeightCelestine.get(), 0, Config.MaxHeightCelestine.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableCelestine.get() || AatoConfig.enableStrontiumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CELESTINE.getDefaultState(), AatoConfig.VeinSizeCelestine.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCelestine.get(), AatoConfig.MinHeightCelestine.get(), 0,AatoConfig.MaxHeightCelestine.get()))));
 				}
-				if(Config.All.get() || Config.enablePolyhalite.get() || Config.enableNPKOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.POLYHALITE.getDefaultState(), Config.VeinSizePolyhalite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPolyhalite.get(), Config.MinHeightPolyhalite.get(), 0, Config.MaxHeightPolyhalite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enablePolyhalite.get() || AatoConfig.enableNPKOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.POLYHALITE.getDefaultState(), AatoConfig.VeinSizePolyhalite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPolyhalite.get(), AatoConfig.MinHeightPolyhalite.get(), 0,AatoConfig.MaxHeightPolyhalite.get()))));
 				}
-				if(Config.All.get() || Config.enableHauyne_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HAUYNE_ORE.getDefaultState(), Config.VeinSizeHauyne_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHauyne_ore.get(), Config.MinHeightHauyne_ore.get(), 0, Config.MaxHeightHauyne_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableHauyne_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HAUYNE_ORE.getDefaultState(), AatoConfig.VeinSizeHauyne_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHauyne_ore.get(), AatoConfig.MinHeightHauyne_ore.get(), 0,AatoConfig.MaxHeightHauyne_ore.get()))));
 				}
-				if(Config.All.get() || Config.enableMoonstone_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MOONSTONE_ORE.getDefaultState(), Config.VeinSizeMoonstone_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMoonstone_ore.get(), Config.MinHeightMoonstone_ore.get(), 0, Config.MaxHeightMoonstone_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableMoonstone_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MOONSTONE_ORE.getDefaultState(), AatoConfig.VeinSizeMoonstone_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkMoonstone_ore.get(), AatoConfig.MinHeightMoonstone_ore.get(), 0,AatoConfig.MaxHeightMoonstone_ore.get()))));
 				}
-				if(Config.All.get() || Config.enableAlmandine_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ALMANDINE_ORE.getDefaultState(), Config.VeinSizeAlmandine_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAlmandine_ore.get(), Config.MinHeightAlmandine_ore.get(), 0, Config.MaxHeightAlmandine_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableAlmandine_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ALMANDINE_ORE.getDefaultState(), AatoConfig.VeinSizeAlmandine_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAlmandine_ore.get(), AatoConfig.MinHeightAlmandine_ore.get(), 0,AatoConfig.MaxHeightAlmandine_ore.get()))));
 				}
+
 			}
 
 			if(biome.getTempCategory() == TempCategory.OCEAN || biome.getTempCategory() == TempCategory.WARM) {
-				if(Config.All.get() || Config.enableSulphur.get() || Config.enableSulphurOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SULPHUR.getDefaultState(), Config.VeinSizeSulphur.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSulphur.get(), Config.MinHeightSulphur.get(), 0, Config.MaxHeightSulphur.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableSulphur.get() || AatoConfig.enableSulphurOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SULPHUR.getDefaultState(), AatoConfig.VeinSizeSulphur.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSulphur.get(), AatoConfig.MinHeightSulphur.get(), 0,AatoConfig.MaxHeightSulphur.get()))));
 				}
-				if(Config.All.get() || Config.enableRealgar.get() || Config.enableArsenicOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.REALGAR.getDefaultState(), Config.VeinSizeRealgar.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkRealgar.get(), Config.MinHeightRealgar.get(), 0, Config.MaxHeightRealgar.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableRealgar.get() || AatoConfig.enableArsenicOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.REALGAR.getDefaultState(), AatoConfig.VeinSizeRealgar.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkRealgar.get(), AatoConfig.MinHeightRealgar.get(), 0,AatoConfig.MaxHeightRealgar.get()))));
 				}
-				if(Config.All.get() || Config.enableTeallite.get() || Config.enableTinOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TEALLITE.getDefaultState(), Config.VeinSizeTeallite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTeallite.get(), Config.MinHeightTeallite.get(), 0, Config.MaxHeightTeallite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableTeallite.get() || AatoConfig.enableTinOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TEALLITE.getDefaultState(), AatoConfig.VeinSizeTeallite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTeallite.get(), AatoConfig.MinHeightTeallite.get(), 0,AatoConfig.MaxHeightTeallite.get()))));
 				}
-				if(Config.All.get() || Config.enableAnglesite.get() || Config.enableLeadOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANGLESITE.getDefaultState(), Config.VeinSizeAnglesite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAnglesite.get(), Config.MinHeightAnglesite.get(), 0, Config.MaxHeightAnglesite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableAnglesite.get() || AatoConfig.enableLeadOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANGLESITE.getDefaultState(), AatoConfig.VeinSizeAnglesite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAnglesite.get(), AatoConfig.MinHeightAnglesite.get(), 0,AatoConfig.MaxHeightAnglesite.get()))));
 				}
-				if(Config.All.get() || Config.enableZincite.get() || Config.enableZincOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ZINCITE.getDefaultState(), Config.VeinSizeZincite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkZincite.get(), Config.MinHeightZincite.get(), 0, Config.MaxHeightZincite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableZincite.get() || AatoConfig.enableZincOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ZINCITE.getDefaultState(), AatoConfig.VeinSizeZincite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkZincite.get(), AatoConfig.MinHeightZincite.get(), 0,AatoConfig.MaxHeightZincite.get()))));
 				}
-				if(Config.All.get() || Config.enableHydrozincite.get() || Config.enableZincOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HYDROZINCITE.getDefaultState(), Config.VeinSizeHydrozincite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHydrozincite.get(), Config.MinHeightHydrozincite.get(), 0, Config.MaxHeightHydrozincite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableHydrozincite.get() || AatoConfig.enableZincOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HYDROZINCITE.getDefaultState(), AatoConfig.VeinSizeHydrozincite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHydrozincite.get(), AatoConfig.MinHeightHydrozincite.get(), 0,AatoConfig.MaxHeightHydrozincite.get()))));
 				}
-				if(Config.All.get() || Config.enableOtavite.get() || Config.enableCadmiumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.OTAVITE.getDefaultState(), Config.VeinSizeOtavite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkOtavite.get(), Config.MinHeightOtavite.get(), 0, Config.MaxHeightOtavite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableOtavite.get() || AatoConfig.enableCadmiumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.OTAVITE.getDefaultState(), AatoConfig.VeinSizeOtavite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkOtavite.get(), AatoConfig.MinHeightOtavite.get(), 0,AatoConfig.MaxHeightOtavite.get()))));
 				}
-				if(Config.All.get() || Config.enableTennantite.get() || Config.enableCopperOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TENNANTITE.getDefaultState(), Config.VeinSizeTennantite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTennantite.get(), Config.MinHeightTennantite.get(), 0, Config.MaxHeightTennantite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableTennantite.get() || AatoConfig.enableCopperOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TENNANTITE.getDefaultState(), AatoConfig.VeinSizeTennantite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTennantite.get(), AatoConfig.MinHeightTennantite.get(), 0,AatoConfig.MaxHeightTennantite.get()))));
 				}
-				if(Config.All.get() || Config.enableTetrahedrite.get() || Config.enableCopperOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TETRAHEDRITE.getDefaultState(), Config.VeinSizeTetrahedrite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTetrahedrite.get(), Config.MinHeightTetrahedrite.get(), 0, Config.MaxHeightTetrahedrite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableTetrahedrite.get() || AatoConfig.enableCopperOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TETRAHEDRITE.getDefaultState(), AatoConfig.VeinSizeTetrahedrite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTetrahedrite.get(), AatoConfig.MinHeightTetrahedrite.get(), 0,AatoConfig.MaxHeightTetrahedrite.get()))));
 				}
-				if(Config.All.get() || Config.enableStephanite.get() || Config.enableSilverOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.STEPHANITE.getDefaultState(), Config.VeinSizeStephanite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkStephanite.get(), Config.MinHeightStephanite.get(), 0, Config.MaxHeightStephanite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableStephanite.get() || AatoConfig.enableSilverOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.STEPHANITE.getDefaultState(), AatoConfig.VeinSizeStephanite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkStephanite.get(), AatoConfig.MinHeightStephanite.get(), 0,AatoConfig.MaxHeightStephanite.get()))));
 				}
-				if(Config.All.get() || Config.enableGersdorffite.get() || Config.enableNickelOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GERSDORFFITE.getDefaultState(), Config.VeinSizeGersdorffite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGersdorffite.get(), Config.MinHeightGersdorffite.get(), 0, Config.MaxHeightGersdorffite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableGersdorffite.get() || AatoConfig.enableNickelOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GERSDORFFITE.getDefaultState(), AatoConfig.VeinSizeGersdorffite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGersdorffite.get(), AatoConfig.MinHeightGersdorffite.get(), 0,AatoConfig.MaxHeightGersdorffite.get()))));
 				}
-				if(Config.All.get() || Config.enableCarrollite.get() || Config.enableCobaltOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CARROLLITE.getDefaultState(), Config.VeinSizeCarrollite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCarrollite.get(), Config.MinHeightCarrollite.get(), 0, Config.MaxHeightCarrollite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableCarrollite.get() || AatoConfig.enableCobaltOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CARROLLITE.getDefaultState(), AatoConfig.VeinSizeCarrollite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCarrollite.get(), AatoConfig.MinHeightCarrollite.get(), 0,AatoConfig.MaxHeightCarrollite.get()))));
 				}
-				if(Config.All.get() || Config.enableManganite.get() || Config.enableManganeseOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MANGANITE.getDefaultState(), Config.VeinSizeManganite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkManganite.get(), Config.MinHeightManganite.get(), 0, Config.MaxHeightManganite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableManganite.get() || AatoConfig.enableManganeseOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MANGANITE.getDefaultState(), AatoConfig.VeinSizeManganite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkManganite.get(), AatoConfig.MinHeightManganite.get(), 0,AatoConfig.MaxHeightManganite.get()))));
 				}
-				if(Config.All.get() || Config.enableHausmannite.get() || Config.enableManganeseOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HAUSMANNITE.getDefaultState(), Config.VeinSizeHausmannite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHausmannite.get(), Config.MinHeightHausmannite.get(), 0, Config.MaxHeightHausmannite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableHausmannite.get() || AatoConfig.enableManganeseOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HAUSMANNITE.getDefaultState(), AatoConfig.VeinSizeHausmannite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHausmannite.get(), AatoConfig.MinHeightHausmannite.get(), 0,AatoConfig.MaxHeightHausmannite.get()))));
 				}
-				if(Config.All.get() || Config.enableTitanite.get() || Config.enableTitaniumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TITANITE.getDefaultState(), Config.VeinSizeTitanite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTitanite.get(), Config.MinHeightTitanite.get(), 0, Config.MaxHeightTitanite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableTitanite.get() || AatoConfig.enableTitaniumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TITANITE.getDefaultState(), AatoConfig.VeinSizeTitanite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTitanite.get(), AatoConfig.MinHeightTitanite.get(), 0,AatoConfig.MaxHeightTitanite.get()))));
 				}
-				if(Config.All.get() || Config.enableCelestine.get() || Config.enableStrontiumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CELESTINE.getDefaultState(), Config.VeinSizeCelestine.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCelestine.get(), Config.MinHeightCelestine.get(), 0, Config.MaxHeightCelestine.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableCelestine.get() || AatoConfig.enableStrontiumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CELESTINE.getDefaultState(), AatoConfig.VeinSizeCelestine.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCelestine.get(), AatoConfig.MinHeightCelestine.get(), 0,AatoConfig.MaxHeightCelestine.get()))));
 				}
-				if(Config.All.get() || Config.enablePetalite.get() || Config.enableLithiumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PETALITE.getDefaultState(), Config.VeinSizePetalite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPetalite.get(), Config.MinHeightPetalite.get(), 0, Config.MaxHeightPetalite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enablePetalite.get() || AatoConfig.enableLithiumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PETALITE.getDefaultState(), AatoConfig.VeinSizePetalite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPetalite.get(), AatoConfig.MinHeightPetalite.get(), 0,AatoConfig.MaxHeightPetalite.get()))));
 				}
-				if(Config.All.get() || Config.enableKainite.get() || Config.enableNPKOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.KAINITE.getDefaultState(), Config.VeinSizeKainite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkKainite.get(), Config.MinHeightKainite.get(), 0, Config.MaxHeightKainite.get())));
-				}				
-				if(Config.All.get() || Config.enableSpinel_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SPINEL_ORE.getDefaultState(), Config.VeinSizeSpinel_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSpinel_ore.get(), Config.MinHeightSpinel_ore.get(), 0, Config.MaxHeightSpinel_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableKainite.get() || AatoConfig.enableNPKOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.KAINITE.getDefaultState(), AatoConfig.VeinSizeKainite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkKainite.get(), AatoConfig.MinHeightKainite.get(), 0,AatoConfig.MaxHeightKainite.get()))));
 				}
-				if(Config.All.get() || Config.enableTourmaline_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TOURMALINE_ORE.getDefaultState(), Config.VeinSizeTourmaline_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTourmaline_ore.get(), Config.MinHeightTourmaline_ore.get(), 0, Config.MaxHeightTourmaline_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableNitratine.get() || AatoConfig.enableSaltpetreOre.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NITRATINE.getDefaultState(), AatoConfig.VeinSizeNitratine.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNitratine.get(), AatoConfig.MinHeightNitratine.get(), 0,AatoConfig.MaxHeightNitratine.get()))));
 				}
-				if(Config.All.get() || Config.enableTanzanite_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TANZANITE_ORE.getDefaultState(), Config.VeinSizeTanzanite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTanzanite_ore.get(), Config.MinHeightTanzanite_ore.get(), 0, Config.MaxHeightTanzanite_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableSpinel_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SPINEL_ORE.getDefaultState(), AatoConfig.VeinSizeSpinel_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSpinel_ore.get(), AatoConfig.MinHeightSpinel_ore.get(), 0,AatoConfig.MaxHeightSpinel_ore.get()))));
 				}
-				if(Config.All.get() || Config.enableOpal_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.OPAL_ORE.getDefaultState(), Config.VeinSizeOpal_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkOpal_ore.get(), Config.MinHeightOpal_ore.get(), 0, Config.MaxHeightOpal_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableTourmaline_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TOURMALINE_ORE.getDefaultState(), AatoConfig.VeinSizeTourmaline_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTourmaline_ore.get(), AatoConfig.MinHeightTourmaline_ore.get(), 0,AatoConfig.MaxHeightTourmaline_ore.get()))));
 				}
-				if(Config.All.get() || Config.enablePyrope_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PYROPE_ORE.getDefaultState(), Config.VeinSizePyrope_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPyrope_ore.get(), Config.MinHeightPyrope_ore.get(), 0, Config.MaxHeightPyrope_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableTanzanite_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TANZANITE_ORE.getDefaultState(), AatoConfig.VeinSizeTanzanite_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTanzanite_ore.get(), AatoConfig.MinHeightTanzanite_ore.get(), 0,AatoConfig.MaxHeightTanzanite_ore.get()))));
 				}
-				if(Config.All.get() || Config.enableAndradite_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANDRADITE_ORE.getDefaultState(), Config.VeinSizeAndradite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAndradite_ore.get(), Config.MinHeightAndradite_ore.get(), 0, Config.MaxHeightAndradite_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableOpal_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.OPAL_ORE.getDefaultState(), AatoConfig.VeinSizeOpal_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkOpal_ore.get(), AatoConfig.MinHeightOpal_ore.get(), 0,AatoConfig.MaxHeightOpal_ore.get()))));
 				}
+				if(AatoConfig.All.get() || AatoConfig.enablePyrope_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PYROPE_ORE.getDefaultState(), AatoConfig.VeinSizePyrope_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPyrope_ore.get(), AatoConfig.MinHeightPyrope_ore.get(), 0,AatoConfig.MaxHeightPyrope_ore.get()))));
+				}
+				if(AatoConfig.All.get() || AatoConfig.enableAndradite_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANDRADITE_ORE.getDefaultState(), AatoConfig.VeinSizeAndradite_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAndradite_ore.get(), AatoConfig.MinHeightAndradite_ore.get(), 0,AatoConfig.MaxHeightAndradite_ore.get()))));
+				}
+
 			}
 
 			if(biome.getTempCategory() == TempCategory.OCEAN || biome.getTempCategory() == TempCategory.COLD) {
-				if(Config.All.get() || Config.enableSulphur.get() || Config.enableSulphurOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SULPHUR.getDefaultState(), Config.VeinSizeSulphur.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSulphur.get(), Config.MinHeightSulphur.get(), 0, Config.MaxHeightSulphur.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableSulphur.get() || AatoConfig.enableSulphurOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SULPHUR.getDefaultState(), AatoConfig.VeinSizeSulphur.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSulphur.get(), AatoConfig.MinHeightSulphur.get(), 0,AatoConfig.MaxHeightSulphur.get()))));
 				}
-				if(Config.All.get() || Config.enableClausthalite.get() || Config.enableSeleniumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CLAUSTHALITE.getDefaultState(), Config.VeinSizeClausthalite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkClausthalite.get(), Config.MinHeightClausthalite.get(), 0, Config.MaxHeightClausthalite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableClausthalite.get() || AatoConfig.enableSeleniumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CLAUSTHALITE.getDefaultState(), AatoConfig.VeinSizeClausthalite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkClausthalite.get(), AatoConfig.MinHeightClausthalite.get(), 0,AatoConfig.MaxHeightClausthalite.get()))));
 				}
-				if(Config.All.get() || Config.enableLollingite.get() || Config.enableArsenicOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LOLLINGITE.getDefaultState(), Config.VeinSizeLollingite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkLollingite.get(), Config.MinHeightLollingite.get(), 0, Config.MaxHeightLollingite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableLollingite.get() || AatoConfig.enableArsenicOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LOLLINGITE.getDefaultState(), AatoConfig.VeinSizeLollingite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkLollingite.get(), AatoConfig.MinHeightLollingite.get(), 0,AatoConfig.MaxHeightLollingite.get()))));
 				}
-				if(Config.All.get() || Config.enableKesterite.get() || Config.enableTinOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.KESTERITE.getDefaultState(), Config.VeinSizeKesterite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkKesterite.get(), Config.MinHeightKesterite.get(), 0, Config.MaxHeightKesterite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableKesterite.get() || AatoConfig.enableTinOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.KESTERITE.getDefaultState(), AatoConfig.VeinSizeKesterite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkKesterite.get(), AatoConfig.MinHeightKesterite.get(), 0,AatoConfig.MaxHeightKesterite.get()))));
 				}
-				if(Config.All.get() || Config.enableCerussite.get() || Config.enableLeadOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CERUSSITE.getDefaultState(), Config.VeinSizeCerussite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCerussite.get(), Config.MinHeightCerussite.get(), 0, Config.MaxHeightCerussite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableCerussite.get() || AatoConfig.enableLeadOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CERUSSITE.getDefaultState(), AatoConfig.VeinSizeCerussite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCerussite.get(), AatoConfig.MinHeightCerussite.get(), 0,AatoConfig.MaxHeightCerussite.get()))));
 				}
-				if(Config.All.get() || Config.enableHemimorphite.get() || Config.enableZincOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HEMIMORPHITE.getDefaultState(), Config.VeinSizeHemimorphite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHemimorphite.get(), Config.MinHeightHemimorphite.get(), 0, Config.MaxHeightHemimorphite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableHemimorphite.get() || AatoConfig.enableZincOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HEMIMORPHITE.getDefaultState(), AatoConfig.VeinSizeHemimorphite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHemimorphite.get(), AatoConfig.MinHeightHemimorphite.get(), 0,AatoConfig.MaxHeightHemimorphite.get()))));
 				}
-				if(Config.All.get() || Config.enableFranklinite.get() || Config.enableZincOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.FRANKLINITE.getDefaultState(), Config.VeinSizeFranklinite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkFranklinite.get(), Config.MinHeightFranklinite.get(), 0, Config.MaxHeightFranklinite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableFranklinite.get() || AatoConfig.enableZincOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.FRANKLINITE.getDefaultState(), AatoConfig.VeinSizeFranklinite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkFranklinite.get(), AatoConfig.MinHeightFranklinite.get(), 0,AatoConfig.MaxHeightFranklinite.get()))));
 				}
-				if(Config.All.get() || Config.enableGreenockite.get() || Config.enableCadmiumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GREENOCKITE.getDefaultState(), Config.VeinSizeGreenockite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGreenockite.get(), Config.MinHeightGreenockite.get(), 0, Config.MaxHeightGreenockite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableGreenockite.get() || AatoConfig.enableCadmiumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GREENOCKITE.getDefaultState(), AatoConfig.VeinSizeGreenockite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGreenockite.get(), AatoConfig.MinHeightGreenockite.get(), 0,AatoConfig.MaxHeightGreenockite.get()))));
 				}
-				if(Config.All.get() || Config.enableEnargite.get() || Config.enableCopperOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ENARGITE.getDefaultState(), Config.VeinSizeEnargite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkEnargite.get(), Config.MinHeightEnargite.get(), 0, Config.MaxHeightEnargite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableEnargite.get() || AatoConfig.enableCopperOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ENARGITE.getDefaultState(), AatoConfig.VeinSizeEnargite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkEnargite.get(), AatoConfig.MinHeightEnargite.get(), 0,AatoConfig.MaxHeightEnargite.get()))));
 				}
-				if(Config.All.get() || Config.enableCovellite.get() || Config.enableCopperOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.COVELLITE.getDefaultState(), Config.VeinSizeCovellite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCovellite.get(), Config.MinHeightCovellite.get(), 0, Config.MaxHeightCovellite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableCovellite.get() || AatoConfig.enableCopperOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.COVELLITE.getDefaultState(), AatoConfig.VeinSizeCovellite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCovellite.get(), AatoConfig.MinHeightCovellite.get(), 0,AatoConfig.MaxHeightCovellite.get()))));
 				}
-				if(Config.All.get() || Config.enableCuprite.get() || Config.enableCopperOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CUPRITE.getDefaultState(), Config.VeinSizeCuprite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkCuprite.get(), Config.MinHeightCuprite.get(), 0, Config.MaxHeightCuprite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableCuprite.get() || AatoConfig.enableCopperOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CUPRITE.getDefaultState(), AatoConfig.VeinSizeCuprite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkCuprite.get(), AatoConfig.MinHeightCuprite.get(), 0,AatoConfig.MaxHeightCuprite.get()))));
 				}
-				if(Config.All.get() || Config.enableAcanthite.get() || Config.enableSilverOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ACANTHITE.getDefaultState(), Config.VeinSizeAcanthite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAcanthite.get(), Config.MinHeightAcanthite.get(), 0, Config.MaxHeightAcanthite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableAcanthite.get() || AatoConfig.enableSilverOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ACANTHITE.getDefaultState(), AatoConfig.VeinSizeAcanthite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAcanthite.get(), AatoConfig.MinHeightAcanthite.get(), 0,AatoConfig.MaxHeightAcanthite.get()))));
 				}
-				if(Config.All.get() || Config.enableMillerite.get() || Config.enableNickelOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MILLERITE.getDefaultState(), Config.VeinSizeMillerite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMillerite.get(), Config.MinHeightMillerite.get(), 0, Config.MaxHeightMillerite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableMillerite.get() || AatoConfig.enableNickelOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MILLERITE.getDefaultState(), AatoConfig.VeinSizeMillerite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkMillerite.get(), AatoConfig.MinHeightMillerite.get(), 0,AatoConfig.MaxHeightMillerite.get()))));
 				}
-				if(Config.All.get() || Config.enableSkutterudite.get() || Config.enableCobaltOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SKUTTERUDITE.getDefaultState(), Config.VeinSizeSkutterudite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSkutterudite.get(), Config.MinHeightSkutterudite.get(), 0, Config.MaxHeightSkutterudite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableSkutterudite.get() || AatoConfig.enableCobaltOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SKUTTERUDITE.getDefaultState(), AatoConfig.VeinSizeSkutterudite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSkutterudite.get(), AatoConfig.MinHeightSkutterudite.get(), 0,AatoConfig.MaxHeightSkutterudite.get()))));
 				}
-				if(Config.All.get() || Config.enableAlabandite.get() || Config.enableManganeseOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ALABANDITE.getDefaultState(), Config.VeinSizeAlabandite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAlabandite.get(), Config.MinHeightAlabandite.get(), 0, Config.MaxHeightAlabandite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableAlabandite.get() || AatoConfig.enableManganeseOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ALABANDITE.getDefaultState(), AatoConfig.VeinSizeAlabandite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAlabandite.get(), AatoConfig.MinHeightAlabandite.get(), 0,AatoConfig.MaxHeightAlabandite.get()))));
 				}
-				if(Config.All.get() || Config.enableRhodonite.get() || Config.enableManganeseOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.RHODONITE.getDefaultState(), Config.VeinSizeRhodonite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkRhodonite.get(), Config.MinHeightRhodonite.get(), 0, Config.MaxHeightRhodonite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableRhodonite.get() || AatoConfig.enableManganeseOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.RHODONITE.getDefaultState(), AatoConfig.VeinSizeRhodonite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkRhodonite.get(), AatoConfig.MinHeightRhodonite.get(), 0,AatoConfig.MaxHeightRhodonite.get()))));
 				}
-				if(Config.All.get() || Config.enableAnatase.get() || Config.enableTitaniumOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANATASE.getDefaultState(), Config.VeinSizeAnatase.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAnatase.get(), Config.MinHeightAnatase.get(), 0, Config.MaxHeightAnatase.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableAnatase.get() || AatoConfig.enableTitaniumOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANATASE.getDefaultState(), AatoConfig.VeinSizeAnatase.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAnatase.get(), AatoConfig.MinHeightAnatase.get(), 0,AatoConfig.MaxHeightAnatase.get()))));
 				}
-				if(Config.All.get() || Config.enableLangbeinite.get() || Config.enableNPKOres.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LANGBEINITE.getDefaultState(), Config.VeinSizeLangbeinite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkLangbeinite.get(), Config.MinHeightLangbeinite.get(), 0, Config.MaxHeightLangbeinite.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableLangbeinite.get() || AatoConfig.enableNPKOres.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LANGBEINITE.getDefaultState(), AatoConfig.VeinSizeLangbeinite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkLangbeinite.get(), AatoConfig.MinHeightLangbeinite.get(), 0,AatoConfig.MaxHeightLangbeinite.get()))));
 				}
-				if(Config.All.get() || Config.enableSugilite_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SUGILITE_ORE.getDefaultState(), Config.VeinSizeSugilite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSugilite_ore.get(), Config.MinHeightSugilite_ore.get(), 0, Config.MaxHeightSugilite_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableSugilite_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SUGILITE_ORE.getDefaultState(), AatoConfig.VeinSizeSugilite_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSugilite_ore.get(), AatoConfig.MinHeightSugilite_ore.get(), 0,AatoConfig.MaxHeightSugilite_ore.get()))));
 				}
-				if(Config.All.get() || Config.enableChrysoprase_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHRYSOPRASE_ORE.getDefaultState(), Config.VeinSizeChrysoprase_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkChrysoprase_ore.get(), Config.MinHeightChrysoprase_ore.get(), 0, Config.MaxHeightChrysoprase_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableChrysoprase_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CHRYSOPRASE_ORE.getDefaultState(), AatoConfig.VeinSizeChrysoprase_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkChrysoprase_ore.get(), AatoConfig.MinHeightChrysoprase_ore.get(), 0,AatoConfig.MaxHeightChrysoprase_ore.get()))));
 				}
-				if(Config.All.get() || Config.enableHauyne_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HAUYNE_ORE.getDefaultState(), Config.VeinSizeHauyne_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkHauyne_ore.get(), Config.MinHeightHauyne_ore.get(), 0, Config.MaxHeightHauyne_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableHauyne_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.HAUYNE_ORE.getDefaultState(), AatoConfig.VeinSizeHauyne_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkHauyne_ore.get(), AatoConfig.MinHeightHauyne_ore.get(), 0,AatoConfig.MaxHeightHauyne_ore.get()))));
 				}
-				if(Config.All.get() || Config.enableOpal_ore.get() || Config.enableAllGems.get() || Config.enableSomeGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.OPAL_ORE.getDefaultState(), Config.VeinSizeOpal_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkOpal_ore.get(), Config.MinHeightOpal_ore.get(), 0, Config.MaxHeightOpal_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableOpal_ore.get() || AatoConfig.enableAllGems.get() || AatoConfig.enableSomeGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.OPAL_ORE.getDefaultState(), AatoConfig.VeinSizeOpal_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkOpal_ore.get(), AatoConfig.MinHeightOpal_ore.get(), 0,AatoConfig.MaxHeightOpal_ore.get()))));
 				}
-				if(Config.All.get() || Config.enableSpessartine_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SPESSARTINE_ORE.getDefaultState(), Config.VeinSizeSpessartine_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSpessartine_ore.get(), Config.MinHeightSpessartine_ore.get(), 0, Config.MaxHeightSpessartine_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableSpessartine_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SPESSARTINE_ORE.getDefaultState(), AatoConfig.VeinSizeSpessartine_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSpessartine_ore.get(), AatoConfig.MinHeightSpessartine_ore.get(), 0,AatoConfig.MaxHeightSpessartine_ore.get()))));
 				}
-				if(Config.All.get() || Config.enableTsavorite_ore.get() || Config.enableAllGems.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TSAVORITE_ORE.getDefaultState(), Config.VeinSizeTsavorite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTsavorite_ore.get(), Config.MinHeightTsavorite_ore.get(), 0, Config.MaxHeightTsavorite_ore.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableTsavorite_ore.get() || AatoConfig.enableAllGems.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TSAVORITE_ORE.getDefaultState(), AatoConfig.VeinSizeTsavorite_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTsavorite_ore.get(), AatoConfig.MinHeightTsavorite_ore.get(), 0,AatoConfig.MaxHeightTsavorite_ore.get()))));
 				}
+
 			}
 			if(biome.getDownfall() < 0.25F) {
-				if(Config.All.get() || Config.enableNitratine.get() || Config.enableSaltpetreOre.get()) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NITRATINE.getDefaultState(), Config.VeinSizeNitratine.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkNitratine.get(), Config.MinHeightNitratine.get(), 0, Config.MaxHeightNitratine.get())));
+				if(AatoConfig.All.get() || AatoConfig.enableNitratine.get() || AatoConfig.enableSaltpetreOre.get()) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.NITRATINE.getDefaultState(), AatoConfig.VeinSizeNitratine.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkNitratine.get(), AatoConfig.MinHeightNitratine.get(), 0,AatoConfig.MaxHeightNitratine.get()))));
 				}				
 			}
 			if(biome.getTempCategory() != TempCategory.WARM && biome.getTempCategory() != TempCategory.OCEAN && biome.getDownfall() > 0.75F) { //forest 0.8 ...
-				if(Config.All.get() || Config.enablePeat.get() || Config.enableCoalOres.get()) {					
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PEAT.getDefaultState(), Config.VeinSizePeat.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPeat.get(), Config.MinHeightPeat.get(), 0, Config.MaxHeightPeat.get())));	
+				if(AatoConfig.All.get() || AatoConfig.enablePeat.get() || AatoConfig.enableCoalOres.get()) {					
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PEAT.getDefaultState(), AatoConfig.VeinSizePeat.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkPeat.get(), AatoConfig.MinHeightPeat.get(), 0,AatoConfig.MaxHeightPeat.get()))));
 				}
-				if((biome.isHighHumidity() || biome.getCategory() == Biome.Category.SWAMP) && (Config.All.get() || Config.enableAdditionalPeat.get() || Config.enableCoalOres.get())) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PEAT.getDefaultState(), Config.VeinSizeAdditionalPeat.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAdditionalPeat.get(), Config.MinHeightAdditionalPeat.get(), 0, Config.MaxHeightAdditionalPeat.get())));						
+				if((biome.isHighHumidity() || biome.getCategory() == Biome.Category.SWAMP) && (AatoConfig.All.get() || AatoConfig.enableAdditionalPeat.get() || AatoConfig.enableCoalOres.get())) {
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PEAT.getDefaultState(), AatoConfig.VeinSizeAdditionalPeat.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAdditionalPeat.get(), AatoConfig.MinHeightAdditionalPeat.get(), 0,AatoConfig.MaxHeightAdditionalPeat.get()))));
+
 				}
 			}
 		}		
 	}
 
 	private static void handleInfestedStone(Biome biome) {
-		List<ConfiguredFeature> featuresToRemove = new ArrayList<ConfiguredFeature>();
+		List<ConfiguredFeature<?, ?>> featuresToRemove = new ArrayList<ConfiguredFeature<?, ?>>();
 		if(biome == Biomes.GRAVELLY_MOUNTAINS || biome == Biomes.MODIFIED_GRAVELLY_MOUNTAINS || biome == Biomes.MOUNTAIN_EDGE || biome == Biomes.MOUNTAINS || biome == Biomes.WOODED_MOUNTAINS) {
-			for (ConfiguredFeature<?> feature : biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)) {					
+			for (ConfiguredFeature<?, ?> feature : biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)) {					
 				if (((DecoratedFeatureConfig)feature.config).feature.feature instanceof OreFeature) {	
 					Block b = ((OreFeatureConfig)((DecoratedFeatureConfig)feature.config).feature.config).state.getBlock();
 					if (b == Blocks.INFESTED_STONE) {
@@ -565,51 +577,51 @@ public class OreGeneration {
 				}
 			}
 			if(biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).removeAll(featuresToRemove)) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.INFESTED_STONE.getDefaultState(), Config.VeinSizeInfestedStone.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkInfestedStone.get(), Config.MinHeightInfestedStone.get(), 0, Config.MaxHeightInfestedStone.get())));
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.INFESTED_STONE.getDefaultState(), AatoConfig.VeinSizeInfestedStone.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkInfestedStone.get(), AatoConfig.MinHeightInfestedStone.get(), 0,AatoConfig.MaxHeightInfestedStone.get()))));
 			}        	
 		}				
 	}
 
 	private static void addVanillaStuff(Biome biome) {
-		if(Config.enableGold.get()) {
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.GOLD_ORE.getDefaultState(), Config.VeinSizeGold.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGold.get(), Config.MinHeightGold.get(), 0, Config.MaxHeightGold.get())));			   	
+		if(AatoConfig.enableGold.get()) {
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.GOLD_ORE.getDefaultState(), AatoConfig.VeinSizeGold.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGold.get(), AatoConfig.MinHeightGold.get(), 0,AatoConfig.MaxHeightGold.get()))));
 		}
-		if(Config.enableRedstone.get()) {
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.REDSTONE_ORE.getDefaultState(), Config.VeinSizeRedstone.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkRedstone.get(), Config.MinHeightRedstone.get(), 0, Config.MaxHeightRedstone.get())));		
+		if(AatoConfig.enableRedstone.get()) {
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.REDSTONE_ORE.getDefaultState(), AatoConfig.VeinSizeRedstone.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkRedstone.get(), AatoConfig.MinHeightRedstone.get(), 0,AatoConfig.MaxHeightRedstone.get()))));
 		}
-		if(Config.enableDiamond.get()) {			
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIAMOND_ORE.getDefaultState(), Config.VeinSizeDiamond.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkDiamond.get(), Config.MinHeightDiamond.get(), 0, Config.MaxHeightDiamond.get())));			  			
+		if(AatoConfig.enableDiamond.get()) {			
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIAMOND_ORE.getDefaultState(), AatoConfig.VeinSizeDiamond.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDiamond.get(), AatoConfig.MinHeightDiamond.get(), 0,AatoConfig.MaxHeightDiamond.get()))));
 		}
-		if(Config.enableLapis.get()) {			
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.LAPIS_ORE.getDefaultState(), Config.VeinSizeLapis.get()), Placement.COUNT_DEPTH_AVERAGE, new DepthAverageConfig(Config.VeinsPerChunkLapis.get(), Config.DepthAverageLapis.get(), Config.DepthAverageLapis.get())));		 			
+		if(AatoConfig.enableLapis.get()) {			
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.LAPIS_ORE.getDefaultState(), AatoConfig.VeinSizeLapis.get())).func_227228_a_(Placement.COUNT_DEPTH_AVERAGE.func_227446_a_(new DepthAverageConfig(AatoConfig.VeinsPerChunkLapis.get(), AatoConfig.DepthAverageLapis.get(), AatoConfig.DepthAverageLapis.get()))));
 		}
-		if(Config.enableDirt.get()) {			
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIRT.getDefaultState(), Config.VeinSizeDirt.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkDirt.get(), Config.MinHeightDirt.get(), 0, Config.MaxHeightDirt.get())));	    			
+		if(AatoConfig.enableDirt.get()) {
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIRT.getDefaultState(), AatoConfig.VeinSizeDirt.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDirt.get(), AatoConfig.MinHeightDirt.get(), 0,AatoConfig.MaxHeightDirt.get()))));
 		}
-		if(Config.enableGravel.get()) {
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.GRAVEL.getDefaultState(), Config.VeinSizeGravel.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGravel.get(), Config.MinHeightGravel.get(), 0, Config.MaxHeightGravel.get())));		    			
+		if(AatoConfig.enableGravel.get()) {
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.GRAVEL.getDefaultState(), AatoConfig.VeinSizeGravel.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGravel.get(), AatoConfig.MinHeightGravel.get(), 0,AatoConfig.MaxHeightGravel.get()))));
 		}
-		if(Config.enableGranite.get()) {	
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.GRANITE.getDefaultState(), Config.VeinSizeGranite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGranite.get(), Config.MinHeightGranite.get(), 0, Config.MaxHeightGranite.get())));			   			
+		if(AatoConfig.enableGranite.get()) {	
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.GRANITE.getDefaultState(), AatoConfig.VeinSizeGranite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGranite.get(), AatoConfig.MinHeightGranite.get(), 0,AatoConfig.MaxHeightGranite.get()))));
 		}
-		if(Config.enableDiorite.get()) {
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIORITE.getDefaultState(), Config.VeinSizeDiorite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkDiorite.get(), Config.MinHeightDiorite.get(), 0, Config.MaxHeightDiorite.get())));			   			
+		if(AatoConfig.enableDiorite.get()) {
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIORITE.getDefaultState(), AatoConfig.VeinSizeDiorite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDiorite.get(), AatoConfig.MinHeightDiorite.get(), 0,AatoConfig.MaxHeightDiorite.get()))));
 		}
-		if(Config.enableAndesite.get()) {
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.ANDESITE.getDefaultState(), Config.VeinSizeAndesite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAndesite.get(), Config.MinHeightAndesite.get(), 0, Config.MaxHeightAndesite.get())));			   						
+		if(AatoConfig.enableAndesite.get()) {
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.ANDESITE.getDefaultState(), AatoConfig.VeinSizeAndesite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAndesite.get(), AatoConfig.MinHeightAndesite.get(), 0,AatoConfig.MaxHeightAndesite.get()))));
 		}
 		DefaultBiomeFeatures.addSedimentDisks(biome);
 		if(biome.getCategory() == Biome.Category.SWAMP) {
 			DefaultBiomeFeatures.addSwampClayDisks(biome);
 		}	    
 		if(biome == Biomes.BADLANDS || biome == Biomes.BADLANDS_PLATEAU || biome == Biomes.ERODED_BADLANDS || biome == Biomes.MODIFIED_BADLANDS_PLATEAU || biome == Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU || biome == Biomes.WOODED_BADLANDS_PLATEAU) {
-			if(Config.enableBadlandsGold.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.GOLD_ORE.getDefaultState(), Config.VeinSizeBadlandsGold.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBadlandsGold.get(), Config.MinHeightBadlandsGold.get(), Config.MinHeightBadlandsGold.get(), Config.MaxHeightBadlandsGold.get())));	   			   			   			   		   		   			
+			if(AatoConfig.enableBadlandsGold.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.GOLD_ORE.getDefaultState(), AatoConfig.VeinSizeBadlandsGold.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkBadlandsGold.get(), AatoConfig.MinHeightBadlandsGold.get(), 0,AatoConfig.MaxHeightBadlandsGold.get()))));
 			}
 		}
 		if(biome == Biomes.GRAVELLY_MOUNTAINS || biome == Biomes.MODIFIED_GRAVELLY_MOUNTAINS || biome == Biomes.MOUNTAIN_EDGE || biome == Biomes.MOUNTAINS || biome == Biomes.WOODED_MOUNTAINS) {
-			if(Config.enableEmerald.get()) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.EMERALD_ORE, new ReplaceBlockConfig(Blocks.STONE.getDefaultState(), Blocks.EMERALD_ORE.getDefaultState()), Placement.EMERALD_ORE, IPlacementConfig.NO_PLACEMENT_CONFIG));	   	  	   			   			
+			if(AatoConfig.enableEmerald.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.EMERALD_ORE.func_225566_b_(new ReplaceBlockConfig(Blocks.STONE.getDefaultState(), Blocks.EMERALD_ORE.getDefaultState())).func_227228_a_(Placement.EMERALD_ORE.func_227446_a_(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 			}
 		}	   	
 	}

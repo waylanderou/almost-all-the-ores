@@ -11,7 +11,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ObjectHolder;
 import waylanderou.almostalltheores.AlmostAllTheOres;
-import waylanderou.almostalltheores.Config;
+import waylanderou.almostalltheores.AatoConfig;
 import waylanderou.almostalltheores.item.AnthraciteBlockItemBlock;
 
 public class Ores {
@@ -474,7 +474,7 @@ public class Ores {
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("mithril_ore"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("nether_mithril_ore"));
 			int harvestlvl = 1;
-			if(Config.enableStoneAge.get()) harvestlvl = 2;
+			if(AatoConfig.enableStoneAge.get()) harvestlvl = 2;
 			registerBlock(event, 1, "pyrite");
 			registerBlock(event, 1, "sulphur");
 			registerBlock(event, 1, "clausthalite");

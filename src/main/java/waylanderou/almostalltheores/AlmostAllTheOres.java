@@ -1,9 +1,15 @@
 package waylanderou.almostalltheores;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import net.minecraft.block.Block;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -22,34 +28,49 @@ public class AlmostAllTheOres
 {    
 	public static final String MODID = "almostalltheores";
 	public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
+	private static final Logger LOGGER = LogManager.getLogger();
 
 	public AlmostAllTheOres() {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(EventPriority.LOWEST, this::setup);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);		
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.spec);
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AatoConfig.spec);
 
 		if(ModList.get().isLoaded("tconstruct")) {
-			Config.enableTinkersDefaultMaterials();     	        	
+			AatoConfig.enableTinkersDefaultMaterials();     	        	
 		}
 		if(ModList.get().isLoaded("toolsforaatogems")) {
-			Config.enableToolsforaatogemsMaterials();       	
+			AatoConfig.enableToolsforaatogemsMaterials();       	
 		}
 		if(ModList.get().isLoaded("extragems")) {
-			Config.enableExtraGemsMaterials();
+			AatoConfig.enableExtraGemsMaterials();
 		}
-		Config.loadConfig();                               
+		AatoConfig.loadConfig();
+
+
 	}
 
-	private void setup(final FMLCommonSetupEvent event) {    	
+	private void setup(final FMLCommonSetupEvent event)
+	{
 		OreGeneration.setup(); 
 		proxy.init();
 	}
 
 	private void doClientStuff(final FMLClientSetupEvent event) {
+		LOGGER.info("Alpha version: might contain bugs.");
 		TooltipHandler handler = new TooltipHandler();
 		IEventBus eventbus = MinecraftForge.EVENT_BUS;
-		eventbus.addListener(EventPriority.NORMAL, false, ItemTooltipEvent.class, handler::onToolTip);		   	
+		eventbus.addListener(EventPriority.NORMAL, false, ItemTooltipEvent.class, handler::onToolTip);
 	}	
 
+	// You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
+	// Event bus for receiving Registry Events)
+	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+	public static class RegistryEvents {
+		@SubscribeEvent
+		public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
+			// register a new block here
+			//LOGGER.info("HELLO from Register Block");
+		}
+	}
 }
