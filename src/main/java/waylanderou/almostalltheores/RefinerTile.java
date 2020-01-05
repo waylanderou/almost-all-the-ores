@@ -24,6 +24,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.common.ForgeHooks;
 import waylanderou.almostalltheores.block.Refiner;
 import waylanderou.almostalltheores.inventory.container.RefinerContainer;
 import waylanderou.almostalltheores.item.crafting.RefinerRecipe;
@@ -331,9 +332,8 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 		if (itemstack.isEmpty()) {
 			return 0;
 		} else {
-			Item item = itemstack.getItem();
 			int ret = itemstack.getBurnTime();
-			return net.minecraftforge.event.ForgeEventFactory.getItemBurnTime(itemstack, ret == -1 ? AbstractFurnaceTileEntity.getBurnTimes().getOrDefault(item, 0) : ret);
+			return net.minecraftforge.event.ForgeEventFactory.getItemBurnTime(itemstack, ret == -1 ? ForgeHooks.getBurnTime(itemstack): ret); 
 		}
 	}
 
