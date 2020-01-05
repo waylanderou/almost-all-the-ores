@@ -19,6 +19,8 @@ public class Config {
 	public static ForgeConfigSpec.BooleanValue hookNether;
 	public static ForgeConfigSpec.BooleanValue hookEnd;
 	public static ForgeConfigSpec.BooleanValue hookVanillaGenOnly;
+	public static ForgeConfigSpec.BooleanValue dontLikeNewCoals;
+	public static ForgeConfigSpec.BooleanValue dontLikeNewIronOres;
 
 	public static ForgeConfigSpec.BooleanValue enablePyrite; 
 	public static ForgeConfigSpec.IntValue VeinSizePyrite; 
@@ -1016,6 +1018,29 @@ public class Config {
 	public static ForgeConfigSpec.IntValue MinHeightNetherSulphur; 
 	public static ForgeConfigSpec.IntValue MaxHeightNetherSulphur;
 
+	public static ForgeConfigSpec.IntValue VeinSizeCoal;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkCoal;
+	public static ForgeConfigSpec.IntValue MinHeightCoal;	
+	public static ForgeConfigSpec.IntValue MaxHeightCoal;
+
+	public static ForgeConfigSpec.IntValue VeinSizeIron;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkIron;
+	public static ForgeConfigSpec.IntValue MinHeightIron;
+	public static ForgeConfigSpec.IntValue MaxHeightIron;
+
+	public static ForgeConfigSpec.BooleanValue enabledPGMs; 
+	public static ForgeConfigSpec.IntValue VeinSizePGMs; 
+	public static ForgeConfigSpec.IntValue VeinsPerChunkPGMs; 
+	public static ForgeConfigSpec.IntValue MinHeightPGMs; 
+	public static ForgeConfigSpec.IntValue MaxHeightPGMs;
+
+	public static ForgeConfigSpec.BooleanValue enabledRarePGMs; 
+	public static ForgeConfigSpec.IntValue VeinSizeRarePGMs; 
+	public static ForgeConfigSpec.IntValue VeinsPerChunkRarePGMs; 
+	public static ForgeConfigSpec.IntValue MinHeightRarePGMs; 
+	public static ForgeConfigSpec.IntValue MaxHeightRarePGMs;
+
+
 	public static ForgeConfigSpec.BooleanValue enableEmerald;
 
 	public static ForgeConfigSpec.BooleanValue All;
@@ -1028,6 +1053,8 @@ public class Config {
 		hookNether = BUILDER.comment("Handle all underground ore generation in Nether dimension. Currently does nothing. (true/false | default: true)").define("hookNether", false);
 		hookEnd = BUILDER.comment("Handle all underground ore generation in End dimension. Currently does nothing. (true/false | default: false)").define("hookEnd", false);
 		enableStoneAge = BUILDER.comment("Should the stone age be a thing. Disable a few smelting recipes so you have to build a refiner. (default: false)").define("enableStoneAge", false);
+		dontLikeNewCoals = BUILDER.comment("You prefer Minecraft Coal Ore over the mod replacements ? Note: it does not affect peat generation.").define("dontLikeNewCoals", false);
+		dontLikeNewIronOres = BUILDER.comment("You prefer Minecraft Iron Ore over the mod replacements ?").define("dontLikeNewIronOres", false);
 		BUILDER.pop();
 
 		BUILDER.comment("Simplified overworld generation settings for modded ores.").push("overworldSimplified");
@@ -2321,6 +2348,36 @@ public class Config {
 		VeinsPerChunkAdditionalPeat = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkAdditionalPeat", 9, 0, 50);
 		MinHeightAdditionalPeat = BUILDER.comment("Minimum Height").defineInRange("MinHeightAdditionalPeat", 48, 0, 255);
 		MaxHeightAdditionalPeat = BUILDER.comment("Maximum Height").defineInRange("MaxHeightAdditionalPeat", 70, 0, 255);
+		BUILDER.pop();
+
+		BUILDER.comment("In case you use Minecraft Coal instead of Aato's").push("coal");
+		VeinSizeCoal = BUILDER.comment("Coal Ore Vein Size").defineInRange("VeinSizeCoalOre", 17, 0, 50);
+		VeinsPerChunkCoal = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkCoalOre", 20, 0, 50);
+		MinHeightCoal = BUILDER.comment("Minimum Height").defineInRange("MinHeightCoalOre", 0, 0, 255);
+		MaxHeightCoal = BUILDER.comment("Maximum Height").defineInRange("MaxHeightCoalOre", 128, 0, 255);
+		BUILDER.pop();
+
+		BUILDER.comment("In case you use Minecraft Iron instead of Aato's").push("iron");
+		VeinSizeIron = BUILDER.comment("Iron Ore Vein Size").defineInRange("VeinSizeIronOre", 9, 0, 50);
+		VeinsPerChunkIron = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkIronOre", 20, 0, 50);
+		MinHeightIron = BUILDER.comment("Minimum Height").defineInRange("MinHeightIronOre", 0, 0, 255);
+		MaxHeightIron = BUILDER.comment("Maximum Height").defineInRange("MaxHeightIronOre", 64, 0, 255);
+		BUILDER.pop();
+
+		BUILDER.push("Common PGMs platinum group metals");
+		enabledPGMs = BUILDER.comment("Enable Common platinum group metals (platinum, osmium, iridium)").define("enableCommonPGMs", false);
+		VeinSizePGMs = BUILDER.comment("Vein Size").defineInRange("VeinSizeCommonPGMs", 5, 0, 50);
+		VeinsPerChunkPGMs = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkCommonPGMs", 2, 0, 50);
+		MinHeightPGMs = BUILDER.comment("Minimum Height").defineInRange("MinHeightCommonPGMs", 4, 0, 255);
+		MaxHeightPGMs = BUILDER.comment("Maximum Height").defineInRange("MaxHeightCommonPGMs", 12, 0, 255);
+		BUILDER.pop();
+
+		BUILDER.push("Rare PGMS platinum group metals");
+		enabledRarePGMs = BUILDER.comment("Enable rare platinum group metals (rhodium, palladium, ruthenium)").define("enableRarePGMs", false);
+		VeinSizeRarePGMs = BUILDER.comment("Vein Size").defineInRange("VeinSizeRarePGMs", 4, 0, 50);
+		VeinsPerChunkRarePGMs = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkRarePGMs", 1, 0, 50);
+		MinHeightRarePGMs = BUILDER.comment("Minimum Height").defineInRange("MinHeightRarePGMs", 4, 0, 255);
+		MaxHeightRarePGMs = BUILDER.comment("Maximum Height").defineInRange("MaxHeightRarePGMs", 12, 0, 255);
 		BUILDER.pop();
 
 		BUILDER.pop();
