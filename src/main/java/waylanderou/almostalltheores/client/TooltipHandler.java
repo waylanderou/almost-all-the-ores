@@ -1,5 +1,6 @@
 package waylanderou.almostalltheores.client;
 
+import java.util.HashMap;
 import java.util.List;
 
 import net.minecraft.item.Item;
@@ -48,7 +49,47 @@ public class TooltipHandler {
 	public final String[] npk = { "guano", "phosphorite", "carnallite", "sylvite", "polyhalite", "kainite", "langbeinite" };
 	public final String[] coal = {"bituminous_coal", "anthracite", "peat_piece", "lignite"};
 
-	public TooltipHandler() {		
+	HashMap<String[], String> tooltips = new HashMap<String[], String>();
+
+	public TooltipHandler() {
+		tooltips.put(iron, "tooltip.almostalltheores.iron");
+		tooltips.put(arsenic, "tooltip.almostalltheores.arsenic");
+		tooltips.put(selenium, "tooltip.almostalltheores.selenium");
+		tooltips.put(antimony, "tooltip.almostalltheores.antimony");
+		tooltips.put(germanium, "tooltip.almostalltheores.germanium");
+		tooltips.put(bismuth, "tooltip.almostalltheores.bismuth");
+		tooltips.put(tin, "tooltip.almostalltheores.tin");
+		tooltips.put(lead, "tooltip.almostalltheores.lead");
+		tooltips.put(aluminium, "tooltip.almostalltheores.aluminium");
+		tooltips.put(zinc, "tooltip.almostalltheores.zinc");
+		tooltips.put(cadmium, "tooltip.almostalltheores.cadmium");
+		tooltips.put(mercury, "tooltip.almostalltheores.mercury");
+		tooltips.put(copper, "tooltip.almostalltheores.copper");
+		tooltips.put(silver, "tooltip.almostalltheores.silver");
+		tooltips.put(nickel, "tooltip.almostalltheores.nickel");
+		tooltips.put(cobalt, "tooltip.almostalltheores.cobalt");
+		tooltips.put(manganese, "tooltip.almostalltheores.manganese");
+		tooltips.put(chromium, "tooltip.almostalltheores.chromium");
+		tooltips.put(molybdenum, "tooltip.almostalltheores.molybdenum");
+		tooltips.put(tungsten, "tooltip.almostalltheores.tungsten");
+		tooltips.put(vanadium, "tooltip.almostalltheores.vanadium");
+		tooltips.put(niobium, "tooltip.almostalltheores.niobium");
+		tooltips.put(tantalum, "tooltip.almostalltheores.tantalum");
+		tooltips.put(titanium, "tooltip.almostalltheores.titanium");
+		tooltips.put(zirconium, "tooltip.almostalltheores.zirconium");
+		tooltips.put(thorium, "tooltip.almostalltheores.thorium");
+		tooltips.put(uranium, "tooltip.almostalltheores.uranium");
+		tooltips.put(magnesium, "tooltip.almostalltheores.magnesium");
+		tooltips.put(calcium, "tooltip.almostalltheores.calcium");
+		tooltips.put(limestone, "tooltip.almostalltheores.limestone");
+		tooltips.put(strontium, "tooltip.almostalltheores.strontium");
+		tooltips.put(lithium,"tooltip.almostalltheores.lithium");
+		tooltips.put(potassium, "tooltip.almostalltheores.potassium");
+		tooltips.put(saltpetre, "tooltip.almostalltheores.saltpetre");
+		tooltips.put(salt, "tooltip.almostalltheores.salt");
+		tooltips.put(mithril, "tooltip.almostalltheores.mithril");
+		tooltips.put(npk, "tooltip.almostalltheores.npk");
+		tooltips.put(coal, "tooltip.almostalltheores.coal");
 	}
 
 	public void onToolTip(ItemTooltipEvent event) {
@@ -61,196 +102,15 @@ public class TooltipHandler {
 
 	private void addTooltips(Item item, List<ITextComponent> tooltip) {
 		String itemName = item.getRegistryName().toString().split(":")[1];
-		for(String name: iron) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.iron").applyTextStyle(TextFormatting.BLUE));		
+
+		for(String[] array : tooltips.keySet()) {
+			for(String name: array) {
+				if(name.equals(itemName)) {
+					String translationKey = tooltips.get(array);
+					tooltip.add(new TranslationTextComponent(translationKey).applyTextStyle(TextFormatting.BLUE));
+				}
 			}
-		}		
-		for(String name: arsenic) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.arsenic").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: selenium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.selenium").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: antimony) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.antimony").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: germanium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.germanium").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: bismuth) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.bismuth").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: tin) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.tin").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: lead) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.lead").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: aluminium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.aluminium").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: zinc) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.zinc").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: cadmium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.cadmium").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: mercury) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.mercury").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: copper) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.copper").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: silver) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.silver").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: nickel) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.nickel").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: cobalt) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.cobalt").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: manganese) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.manganese").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: chromium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.chromium").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: molybdenum) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.molybdenum").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: tungsten) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.tungsten").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: vanadium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.vanadium").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: niobium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.niobium").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: tantalum) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.tantalum").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: titanium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.titanium").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: zirconium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.zirconium").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: thorium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.thorium").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: uranium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.uranium").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: magnesium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.magnesium").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: calcium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.calcium").applyTextStyle(TextFormatting.BLUE));		
-			}			
-		}
-		for(String name: strontium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.strontium").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: lithium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.lithium").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: potassium) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.potassium").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: saltpetre) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.saltpetre").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: salt) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.salt").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: mithril) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.mithril").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: npk) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.npk").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: coal) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.coal").applyTextStyle(TextFormatting.BLUE));		
-			}
-		}
-		for(String name: limestone) {
-			if(name.equals(itemName)) {
-				tooltip.add(new TranslationTextComponent("tooltip.almostalltheores.limestone").applyTextStyle(TextFormatting.BLUE));
-			}
-		}
+		}	
 	}	
 
 }

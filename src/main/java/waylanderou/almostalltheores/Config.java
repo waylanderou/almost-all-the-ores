@@ -15,12 +15,10 @@ public class Config {
 	private static boolean enableExtraGemsMaterials = false;
 	public static ForgeConfigSpec.BooleanValue enableStoneAge;
 
-	public static ForgeConfigSpec.BooleanValue hookAll;
-	public static ForgeConfigSpec.BooleanValue hookNether;
-	public static ForgeConfigSpec.BooleanValue hookEnd;
-	public static ForgeConfigSpec.BooleanValue hookVanillaGenOnly;
-	public static ForgeConfigSpec.BooleanValue dontLikeNewCoals;
-	public static ForgeConfigSpec.BooleanValue dontLikeNewIronOres;
+	public static ForgeConfigSpec.BooleanValue enableVanillaCoalOre;
+	public static ForgeConfigSpec.BooleanValue enableVanillaIronOre;
+	public static ForgeConfigSpec.BooleanValue handleEverythingInOverworld;
+	public static ForgeConfigSpec.BooleanValue disableAatoGeneration;
 
 	public static ForgeConfigSpec.BooleanValue enablePyrite; 
 	public static ForgeConfigSpec.IntValue VeinSizePyrite; 
@@ -1047,14 +1045,9 @@ public class Config {
 
 	static {
 		BUILDER.comment("General settings").push("general");
-		hookAll = BUILDER.comment("Choose whether or not the mod should handle all overworld underground ore generation, including the removal of ores from other mods."
-				+ "The mod is designed to run that way. (true/false | default: true)").define("hookAll", true) ;
-		hookVanillaGenOnly = BUILDER.comment("Set this to true if you just want to handle vanilla generation (allow other mods to generate their ores). Only effective if you disable the 'hookAll' option.").define("hookVanillaOnly", false);
-		hookNether = BUILDER.comment("Handle all underground ore generation in Nether dimension. Currently does nothing. (true/false | default: true)").define("hookNether", false);
-		hookEnd = BUILDER.comment("Handle all underground ore generation in End dimension. Currently does nothing. (true/false | default: false)").define("hookEnd", false);
-		enableStoneAge = BUILDER.comment("Should the stone age be a thing. Disable a few smelting recipes so you have to build a refiner. (default: false)").define("enableStoneAge", false);
-		dontLikeNewCoals = BUILDER.comment("You prefer Minecraft Coal Ore over the mod replacements ? Note: it does not affect peat generation.").define("dontLikeNewCoals", false);
-		dontLikeNewIronOres = BUILDER.comment("You prefer Minecraft Iron Ore over the mod replacements ?").define("dontLikeNewIronOres", false);
+		handleEverythingInOverworld = BUILDER.comment("Should Aato remove ores from other mods to prevent 'duplicate' ores in the overworld.").define("handleEverythingInOverworld", true);
+		disableAatoGeneration = BUILDER.comment("Set this to true if you only want to use this mod to tune vanilla ores spawning. Nothing from this mod will spawn in any dimension.").define("disableAatoGeneration", false);
+		enableStoneAge = BUILDER.comment("Activate the stone age. Disable a few smelting recipes so you have to build a refiner in order to have iron. It really changes the way you have to play early game. (default: false)").define("enableStoneAge", false);		
 		BUILDER.pop();
 
 		BUILDER.comment("Simplified overworld generation settings for modded ores.").push("overworldSimplified");
@@ -1104,6 +1097,22 @@ public class Config {
 
 
 		BUILDER.comment("Vanilla ores generation settings.").push("vanilla");
+		
+		BUILDER.comment("If you want vanilla's coal ore to spawn").push("coal");
+		enableVanillaCoalOre = BUILDER.comment("Should vanilla coal ore spawn.").define("enableVanillaCoalOre", false);
+		VeinSizeCoal = BUILDER.comment("Coal Ore Vein Size").defineInRange("VeinSizeCoalOre", 17, 0, 50);
+		VeinsPerChunkCoal = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkCoalOre", 20, 0, 50);
+		MinHeightCoal = BUILDER.comment("Minimum Height").defineInRange("MinHeightCoalOre", 0, 0, 255);
+		MaxHeightCoal = BUILDER.comment("Maximum Height").defineInRange("MaxHeightCoalOre", 128, 0, 255);
+		BUILDER.pop();
+
+		BUILDER.comment("If you want vanilla's iron ore to spawn").push("iron");
+		enableVanillaIronOre = BUILDER.comment("Should vanilla iron ore spawn.").define("enableVanillaIronOre", false);
+		VeinSizeIron = BUILDER.comment("Iron Ore Vein Size").defineInRange("VeinSizeIronOre", 9, 0, 50);
+		VeinsPerChunkIron = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkIronOre", 20, 0, 50);
+		MinHeightIron = BUILDER.comment("Minimum Height").defineInRange("MinHeightIronOre", 0, 0, 255);
+		MaxHeightIron = BUILDER.comment("Maximum Height").defineInRange("MaxHeightIronOre", 64, 0, 255);
+		BUILDER.pop();
 
 		BUILDER.push("emerald_ore");
 		enableEmerald = BUILDER.comment("Enable emerald_ore generation").define("enableEmeraldOre", true);
@@ -2350,20 +2359,6 @@ public class Config {
 		MaxHeightAdditionalPeat = BUILDER.comment("Maximum Height").defineInRange("MaxHeightAdditionalPeat", 70, 0, 255);
 		BUILDER.pop();
 
-		BUILDER.comment("In case you use Minecraft Coal instead of Aato's").push("coal");
-		VeinSizeCoal = BUILDER.comment("Coal Ore Vein Size").defineInRange("VeinSizeCoalOre", 17, 0, 50);
-		VeinsPerChunkCoal = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkCoalOre", 20, 0, 50);
-		MinHeightCoal = BUILDER.comment("Minimum Height").defineInRange("MinHeightCoalOre", 0, 0, 255);
-		MaxHeightCoal = BUILDER.comment("Maximum Height").defineInRange("MaxHeightCoalOre", 128, 0, 255);
-		BUILDER.pop();
-
-		BUILDER.comment("In case you use Minecraft Iron instead of Aato's").push("iron");
-		VeinSizeIron = BUILDER.comment("Iron Ore Vein Size").defineInRange("VeinSizeIronOre", 9, 0, 50);
-		VeinsPerChunkIron = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkIronOre", 20, 0, 50);
-		MinHeightIron = BUILDER.comment("Minimum Height").defineInRange("MinHeightIronOre", 0, 0, 255);
-		MaxHeightIron = BUILDER.comment("Maximum Height").defineInRange("MaxHeightIronOre", 64, 0, 255);
-		BUILDER.pop();
-
 		BUILDER.push("Common PGMs platinum group metals");
 		enabledPGMs = BUILDER.comment("Enable Common platinum group metals (platinum, osmium, iridium)").define("enableCommonPGMs", false);
 		VeinSizePGMs = BUILDER.comment("Vein Size").defineInRange("VeinSizeCommonPGMs", 5, 0, 50);
@@ -2420,7 +2415,7 @@ public class Config {
 		BUILDER.pop();
 
 		BUILDER.comment("Debug options").push("debug");
-		All = BUILDER.comment("Enable all ores in their relative dimensions. ALL of them. For testing purposes. (default: false)")
+		All = BUILDER.comment("Enable all AatO ores in their relative dimensions. ALL of them. For testing purposes. (default: false)")
 				.define("All", false);
 		BUILDER.pop();
 
