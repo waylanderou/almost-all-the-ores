@@ -52,7 +52,10 @@ public class Items {
 	public static final Item SALTPETRE = null;
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":fertilizer")
-	public static final Item FERTILIZER = null;	
+	public static final Item FERTILIZER = null;
+	
+	@ObjectHolder(AlmostAllTheOres.MODID + ":sulphuric_acid")
+	public static final Item SULPHURIC_ACID = null;	
 
 	//GEMS
 
@@ -177,7 +180,7 @@ public class Items {
 				"sapphire", "ruby", "spinel", "amethyst", "jade", "tourmaline", "sugilite", "peridot", "agate", "carnelian", 
 				"chrysoprase", "heliotrope", "topaz", "unakite", "tanzanite", "hauyne", "onyx", "opal", "moonstone", "turquoise", 
 				"amazonite", "chrysocolla", "almandine", "spessartine", "pyrope", "tsavorite", "andradite", "sulphur_dust", "saltpetre",
-				"filter", "grinder", "digester", "dryer", "refiner_mechanism", "separation_part", "grinding_part", "refined_iron_ore"				
+				"filter", "grinder", "digester", "dryer", "refiner_mechanism", "separation_part", "grinding_part", "refined_iron_ore", "sulphuric_acid"				
 		};
 		public static final String[] customItemNames = {
 				"peat_piece", "lignite", "bituminous_coal", "anthracite"	

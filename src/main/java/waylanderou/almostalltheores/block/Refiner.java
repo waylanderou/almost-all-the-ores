@@ -91,7 +91,7 @@ public class Refiner extends Block {
 	}
 
 	public int getLightValue(BlockState state) {
-		return state.get(Refiner.REFINING) ? super.getLightValue(state) : 0;
+		return state.get(Refiner.REFINING) ? state.getLightValue() : 0; //super.getLightValue(state) : 0;
 	}
 
 }

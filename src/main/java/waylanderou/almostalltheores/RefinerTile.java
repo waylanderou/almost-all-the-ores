@@ -11,7 +11,6 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.nbt.CompoundNBT;
@@ -89,7 +88,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 
 	public RefinerTile() {
 		super(RefinerRegistryEvents.REFINER_TILE);
-		this.recipeType = RefinerRecipe.refining;
+		this.recipeType = RefinerRecipe.REFINING;
 	}
 
 	@Nullable
@@ -210,7 +209,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 						turnOff();
 					}
 				} else {
-					RefinerRecipe recipe = this.world.getRecipeManager().getRecipe(RefinerRecipe.refining, this, this.world).orElse(null);					 
+					RefinerRecipe recipe = this.world.getRecipeManager().getRecipe(RefinerRecipe.REFINING, this, this.world).orElse(null);					 
 					if(AbstractFurnaceTileEntity.isFuel(fuelStack) && canRefine(recipe)) {						
 						this.fuelTimeLeft = getBurnTimes(fuelStack);	
 						this.itemBurnTime = getBurnTimes(fuelStack);
@@ -241,8 +240,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 					world.setBlockState(pos, blockState.with(Refiner.REFINING, true), 3);
 					this.fuelTimeLeft--; 
 					this.hasBeenRefinedFor++;
-					this.secondCounter--;
-
+					this.secondCounter--; //TODO make tile use acid. 800 ticks ? 1 per REE ? Maybe no counter is needed then...
 					if(this.hasBeenRefinedFor >= this.refineTimeNeeded) {
 						RefinerRecipe r = (RefinerRecipe) this.world.getRecipeManager().getRecipe(this.recipeLocation).orElse(null);
 						checkRecipeAndSpawnOutput(r);
@@ -251,7 +249,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 						markDirty();
 					}										
 				} else {	
-					RefinerRecipe recipe = this.world.getRecipeManager().getRecipe(RefinerRecipe.refining, this, this.world).orElse(null);
+					RefinerRecipe recipe = this.world.getRecipeManager().getRecipe(RefinerRecipe.REFINING, this, this.world).orElse(null);
 					if(canRefine(recipe)) {
 						this.recipeLocation = recipe.getId();
 						this.refineTimeNeeded = recipe.getRefiningTime();
