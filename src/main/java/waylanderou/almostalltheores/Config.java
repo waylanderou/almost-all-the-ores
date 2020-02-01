@@ -1037,7 +1037,15 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkRarePGMs; 
 	public static ForgeConfigSpec.IntValue MinHeightRarePGMs; 
 	public static ForgeConfigSpec.IntValue MaxHeightRarePGMs;
-
+	
+	public static ForgeConfigSpec.IntValue copperHL;
+	public static ForgeConfigSpec.IntValue tinHL;
+	public static ForgeConfigSpec.IntValue zincHL;
+	public static ForgeConfigSpec.IntValue leadHL;
+	public static ForgeConfigSpec.IntValue cadmiumHL;
+	public static ForgeConfigSpec.IntValue mercuryHL;
+	public static ForgeConfigSpec.IntValue aluminiumHL;
+	public static ForgeConfigSpec.BooleanValue overwriteAutoStoneAgeValues;
 
 	public static ForgeConfigSpec.BooleanValue enableEmerald;
 
@@ -1048,6 +1056,18 @@ public class Config {
 		handleEverythingInOverworld = BUILDER.comment("Should Aato remove ores from other mods to prevent 'duplicate' ores in the overworld.").define("handleEverythingInOverworld", true);
 		disableAatoGeneration = BUILDER.comment("Set this to true if you only want to use this mod to tune vanilla ores spawning. Nothing from this mod will spawn in any dimension.").define("disableAatoGeneration", false);
 		enableStoneAge = BUILDER.comment("Activate the stone age. Disable a few smelting recipes so you have to build a refiner in order to have iron. It really changes the way you have to play early game. (default: false)").define("enableStoneAge", false);		
+		BUILDER.pop();
+		
+		BUILDER.comment("Harvest Levels. Wood, Stone, Iron, Diamond : 0, 1, 2, 3. Above 3 is modded materials stronger than diamond.").push("harvestlevels");
+		overwriteAutoStoneAgeValues = BUILDER.comment("Should the mod use customized harvest levels in"
+				+ "instead of its default/automatic values").define("useCustomHarvestLevelValues", false);
+		copperHL = BUILDER.comment("Copper ores harvest level").defineInRange("copperHarvestLevel", 1, 0, 5);
+		tinHL = BUILDER.comment("Tin ores harvest level").defineInRange("tinHarvestLevel", 2, 0, 5);
+		zincHL = BUILDER.comment("Zinc ores harvest level").defineInRange("zincHarvestLevel", 2, 0, 5);
+		leadHL = BUILDER.comment("Lead ores harvest level").defineInRange("leadHarvestLevel", 2, 0, 5);
+		cadmiumHL = BUILDER.comment("Cadmium ores harvest level").defineInRange("cadmiumHarvestLevel", 1, 0, 5);
+		mercuryHL = BUILDER.comment("Mercury ores harvest level").defineInRange("mercuryHarvestLevel", 1, 0, 5);
+		aluminiumHL = BUILDER.comment("Aluminium ores harvest level").defineInRange("aluminiumHarvestLevel", 2, 0, 5);
 		BUILDER.pop();
 
 		BUILDER.comment("Simplified overworld generation settings for modded ores.").push("overworldSimplified");

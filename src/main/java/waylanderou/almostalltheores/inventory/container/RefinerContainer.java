@@ -99,7 +99,7 @@ public class RefinerContainer extends Container {
 	}	
 
 	private boolean hasRecipe(ItemStack stack) {		
-		return this.world.getRecipeManager().getRecipe((IRecipeType)RefinerRecipe.refining, new Inventory(ItemStack.EMPTY, ItemStack.EMPTY, stack), this.world).isPresent();		
+		return this.world.getRecipeManager().getRecipe((IRecipeType<RefinerRecipe>)RefinerRecipe.REFINING, new Inventory(ItemStack.EMPTY, ItemStack.EMPTY, stack), this.world).isPresent();		
 	}
 
 	private int addSlotRange(PlayerInventory playerInventory, int index, int x, int y, int amount, int dx) {

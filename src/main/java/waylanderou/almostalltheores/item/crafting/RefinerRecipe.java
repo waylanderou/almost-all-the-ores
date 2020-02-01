@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
 
 public class RefinerRecipe implements IRecipe<IInventory> {
-	public static final IRecipeType<RefinerRecipe> refining = IRecipeType.register("refining");
+	public static final IRecipeType<RefinerRecipe> REFINING = IRecipeType.register("refining");
 	private final IRecipeType<?> type;
 	private final ResourceLocation id;
 	final String group;
@@ -33,7 +33,7 @@ public class RefinerRecipe implements IRecipe<IInventory> {
 
 	public RefinerRecipe(ResourceLocation resourceLocation, String group, Ingredient ingredient, ItemStack a, ItemStack b, ItemStack c, 
 			ItemStack d, ItemStack e, ItemStack f, ItemStack g, ItemStack h, ItemStack i, float experience, int refiningTime) {
-		type = refining;
+		type = REFINING;
 		id = resourceLocation;
 		this.group = group;
 		this.ingredient = ingredient;
@@ -52,8 +52,10 @@ public class RefinerRecipe implements IRecipe<IInventory> {
 	}
 
 	@Override
-	public boolean matches(IInventory inv, World worldIn) {		
-		//TODO for recipes needing acid, add something like: this.id.getPath().contains("acid");
+	public boolean matches(IInventory inv, World worldIn) {
+		if(isREERecipe()) {
+			return this.ingredient.test(inv.getStackInSlot(2)) && (inv.getStackInSlot(1).getItem() == waylanderou.almostalltheores.item.Items.SULPHURIC_ACID);
+		}
 		return this.ingredient.test(inv.getStackInSlot(2));
 	}
 
@@ -89,6 +91,13 @@ public class RefinerRecipe implements IRecipe<IInventory> {
 		}
 	}
 
+	public boolean isREERecipe() {
+		if(this.id.getPath().contains("acid")) {
+			return true;
+		}
+		return false;
+	}
+
 	@Override
 	public ResourceLocation getId() {
 		return id;
@@ -110,6 +119,10 @@ public class RefinerRecipe implements IRecipe<IInventory> {
 		NonNullList<Ingredient> nonnulllist = NonNullList.create();
 		nonnulllist.add(this.ingredient);
 		return nonnulllist;
+	}
+
+	public Ingredient getInput() {
+		return this.ingredient;
 	}
 
 	@Override
