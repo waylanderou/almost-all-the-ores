@@ -237,5 +237,8 @@
 	"item.almostalltheores.separation_part": "Separation Part",
 	"block.almostalltheores.refiner": "Ore Refiner",
 	"item.almostalltheores.refined_iron_ore": "Refined Iron Ore",
-	"item.almostalltheores.flint_shears": "Flint Shears"
+	"item.almostalltheores.flint_shears": "Flint Shears",
+	"item.almostalltheores.sulphuric_acid": "Sulfuric Acid",
+	"item.almostalltheores.so2": "Sulfur Dioxide",
+	"item.almostalltheores.so3": "Sulfur Trioxide"
 }

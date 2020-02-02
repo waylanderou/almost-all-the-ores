@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "almostalltheores:so2"
+  },
+  "result": "almostalltheores:so3",
+  "experience": 0.9,
+  "cookingtime": 200
+}

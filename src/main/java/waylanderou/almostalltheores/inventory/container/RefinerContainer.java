@@ -13,6 +13,7 @@ import net.minecraft.util.IntArray;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
+import waylanderou.almostalltheores.item.Items;
 import waylanderou.almostalltheores.item.crafting.RefinerRecipe;
 
 public class RefinerContainer extends Container {
@@ -72,11 +73,14 @@ public class RefinerContainer extends Container {
 					if (!this.mergeItemStack(stack, 0, 1, false)) {
 						return ItemStack.EMPTY;
 					}
+				} else if(stack.getItem() == Items.SULPHURIC_ACID) {
+					if (!this.mergeItemStack(stack, 1, 2, false)) {
+						return ItemStack.EMPTY;
+					}
 				} else if(this.hasRecipe(stack)) {
 					if (!this.mergeItemStack(stack, 2, 3, false)) {
 						return ItemStack.EMPTY;
 					}
-					//TODO do something for acid
 				} else if (index < 39) {
 					if (!this.mergeItemStack(stack, 39, 48, false)) { 
 						return ItemStack.EMPTY;
@@ -98,8 +102,14 @@ public class RefinerContainer extends Container {
 		return itemstack;
 	}	
 
-	private boolean hasRecipe(ItemStack stack) {		
-		return this.world.getRecipeManager().getRecipe((IRecipeType<RefinerRecipe>)RefinerRecipe.REFINING, new Inventory(ItemStack.EMPTY, ItemStack.EMPTY, stack), this.world).isPresent();
+	private boolean hasRecipe(ItemStack stack) {
+		boolean flag = false;
+		for(ItemStack s : this.getInventory()) {
+			if(s.getItem() == Items.SULPHURIC_ACID) {
+				flag = this.world.getRecipeManager().getRecipe((IRecipeType<RefinerRecipe>)RefinerRecipe.REFINING, new Inventory(ItemStack.EMPTY, new ItemStack(Items.SULPHURIC_ACID), stack), this.world).isPresent();
+			}
+		}		
+		return flag || this.world.getRecipeManager().getRecipe((IRecipeType<RefinerRecipe>)RefinerRecipe.REFINING, new Inventory(ItemStack.EMPTY, ItemStack.EMPTY, stack), this.world).isPresent();
 	}
 
 	private int addSlotRange(PlayerInventory playerInventory, int index, int x, int y, int amount, int dx) {
@@ -146,7 +156,7 @@ public class RefinerContainer extends Container {
 		return this.machineData.get(0);
 	}
 
-	public int getSecondCounter() { //Not used for now, will probably use it as an 'acid gauge'
+	public int getSecondCounter() { 
 		return this.machineData.get(2);    	
 	}
 

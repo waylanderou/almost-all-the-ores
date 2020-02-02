@@ -26,6 +26,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.ForgeHooks;
 import waylanderou.almostalltheores.block.Refiner;
 import waylanderou.almostalltheores.inventory.container.RefinerContainer;
+import waylanderou.almostalltheores.item.Items;
 import waylanderou.almostalltheores.item.crafting.RefinerRecipe;
 
 public class RefinerTile extends TileEntity implements ITickableTileEntity, INamedContainerProvider, ISidedInventory {
@@ -161,8 +162,8 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 	public boolean isItemValidForSlot(int index, ItemStack stack) {
 		if(index == 0 && AbstractFurnaceTileEntity.isFuel(stack)) {
 			return true;
-		} else if(index == 1) { //Currently not used, future acid slot
-			return false;			
+		} else if(index == 1 && stack.getItem() == waylanderou.almostalltheores.item.Items.SULPHURIC_ACID) { 
+			return true;			
 		} else if(index == 2) {
 			return true;			
 		} else {
@@ -210,7 +211,13 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 					}
 				} else {
 					RefinerRecipe recipe = this.world.getRecipeManager().getRecipe(RefinerRecipe.REFINING, this, this.world).orElse(null);					 
-					if(AbstractFurnaceTileEntity.isFuel(fuelStack) && canRefine(recipe)) {						
+					if(AbstractFurnaceTileEntity.isFuel(fuelStack) && canRefine(recipe)) {	
+						if(recipe.isREERecipe()) {
+							if(this.secondCounter == 0) {
+								this.items.get(1).shrink(1);
+								this.secondCounter = 800;
+							}						
+						}
 						this.fuelTimeLeft = getBurnTimes(fuelStack);	
 						this.itemBurnTime = getBurnTimes(fuelStack);
 						this.recipeLocation = recipe.getId();
@@ -240,7 +247,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 					world.setBlockState(pos, blockState.with(Refiner.REFINING, true), 3);
 					this.fuelTimeLeft--; 
 					this.hasBeenRefinedFor++;
-					this.secondCounter--; //TODO make tile use acid. 800 ticks ? 1 per REE ? Maybe no counter is needed then...
+					if(this.recipeLocation.getPath().contains("acid")) this.secondCounter--;
 					if(this.hasBeenRefinedFor >= this.refineTimeNeeded) {
 						RefinerRecipe r = (RefinerRecipe) this.world.getRecipeManager().getRecipe(this.recipeLocation).orElse(null);
 						checkRecipeAndSpawnOutput(r);
@@ -251,6 +258,14 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 				} else {	
 					RefinerRecipe recipe = this.world.getRecipeManager().getRecipe(RefinerRecipe.REFINING, this, this.world).orElse(null);
 					if(canRefine(recipe)) {
+
+						if(recipe.isREERecipe()) {
+							if(this.secondCounter == 0) {
+								this.items.get(1).shrink(1);
+								this.secondCounter = 800;
+							}						
+						}
+
 						this.recipeLocation = recipe.getId();
 						this.refineTimeNeeded = recipe.getRefiningTime();
 						ItemStack itembeingRefinedLocal = items.get(2);						
@@ -273,7 +288,14 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 	}	
 
 	private boolean canRefine(RefinerRecipe recipe) {
-		if(!this.items.get(2).isEmpty() && recipe != null) {			
+		if(!this.items.get(2).isEmpty() && recipe != null) {
+			if(recipe.isREERecipe()) {
+				if(this.items.get(1).getItem() == Items.SULPHURIC_ACID || this.secondCounter > 0) {
+					return true;
+				} else {
+					return false;
+				}
+			}	
 			if(recipe.hasRecipeOutput()) return true;									
 		}		
 		return false;
@@ -363,7 +385,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 		compound.putInt("hasBurntFor", this.hasBeenRefinedFor);
 		compound.putString("itemBurning", this.itemBeingRefined);
 		if(this.recipeLocation != null) {
-			compound.putString("recipeLocation", this.recipeLocation.toString());//			
+			compound.putString("recipeLocation", this.recipeLocation.toString());		
 		} else {
 			compound.putString("recipeLocation", "");
 		}
