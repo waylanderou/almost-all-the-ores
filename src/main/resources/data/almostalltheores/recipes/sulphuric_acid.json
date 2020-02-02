@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "almostalltheores:so3"
+    },
+	{
+      "item": "almostalltheores:so3"
+    },
+	{
+      "item": "almostalltheores:so3"
+    },
+	{
+		"item": "minecraft:water_bucket"
+	}		
+  ],
+  "result": {
+    "item": "almostalltheores:sulphuric_acid",
+	"count": 4
+  }
+}

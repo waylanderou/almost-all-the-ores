@@ -16,6 +16,7 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import waylanderou.almostalltheores.AlmostAllTheOres;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
@@ -36,9 +37,9 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 	public RefinerRecipeCategory(IGuiHelper guiHelper) {
 		background = guiHelper.createDrawable(REFINER_GUI, 0, 0, width, height);
 		icon = guiHelper.createDrawableIngredient(new ItemStack(RefinerRegistryEvents.REFINER));		
-		staticFlame = guiHelper.createDrawable(REFINER_GUI, 130, 0, 14, 14); // 82, 114, 14, 14
+		staticFlame = guiHelper.createDrawable(REFINER_GUI, 130, 0, 14, 14); 
 		animatedFlame = guiHelper.createAnimatedDrawable(staticFlame, 300, IDrawableAnimated.StartDirection.TOP, true);
-		arrow = guiHelper.drawableBuilder(REFINER_GUI, 130, 14, 24, 17) //82, 128
+		arrow = guiHelper.drawableBuilder(REFINER_GUI, 130, 14, 24, 17) 
 				.buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
 	}
 
@@ -69,8 +70,8 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 
 	@Override
 	public void draw(RefinerRecipe recipe, double mouseX, double mouseY) {
-		animatedFlame.draw(18, 26);//1, 20
-		arrow.draw(41, 24);//24, 18
+		animatedFlame.draw(18, 26);
+		arrow.draw(41, 24);
 
 		float experience = recipe.getExperience();
 		if (experience > 0) {
@@ -86,7 +87,7 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 	public void setIngredients(RefinerRecipe recipe, IIngredients ingredients) {	
 
 		List<ItemStack> oreSlot = new ArrayList<ItemStack>();
-		oreSlot = Arrays.asList(recipe.getInput().getMatchingStacks()); //TODO maybe this is causing problems in 1.14.4 ?
+		oreSlot = Arrays.asList(recipe.getInput().getMatchingStacks()); 
 
 		List<ItemStack> acidSlot = new ArrayList<ItemStack>();
 		if(recipe.isREERecipe()) {
@@ -98,7 +99,7 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 		List<ItemStack> outputSlots = new ArrayList<ItemStack>();		
 		for(int i=3; i<12; i++) {
 			ItemStack stack = recipe.getRecipeOutput(i);
-			if(stack != ItemStack.EMPTY) {
+			if(stack != ItemStack.EMPTY && stack.getItem() != Items.AIR) { 
 				outputSlots.add(stack);
 			}
 		}
@@ -130,7 +131,7 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 
 		for(int i=3; i<12; i++) {
 			ItemStack stack = recipe.getRecipeOutput(i);
-			if(stack != ItemStack.EMPTY) {
+			if(stack != ItemStack.EMPTY && stack.getItem() != Items.AIR) { 
 				itemStacks.set(i, stack);
 			}
 		}

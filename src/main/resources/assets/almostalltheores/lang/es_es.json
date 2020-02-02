@@ -167,5 +167,8 @@
     "block.almostalltheores.chalcocite": "Calcosina", 
     "block.almostalltheores.tanzanite_ore": "Mena de Tanzanita", 
     "item.almostalltheores.unakite": "Unakita", 
-    "block.almostalltheores.millerite": "Millerita"
+    "block.almostalltheores.millerite": "Millerita",
+	"item.almostalltheores.so2": "Dióxido de Azufre",
+	"item.almostalltheores.so3": "Trióxido de Azufre",
+	"item.almostalltheores.sulphuric_acid": "Ácido Sulfúrico"
 }

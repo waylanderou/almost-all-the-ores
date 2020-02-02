@@ -237,5 +237,8 @@
 	"item.almostalltheores.separation_part": "Partie filtrage",
 	"block.almostalltheores.refiner": "Unité de traitement des minerais",
 	"item.almostalltheores.refined_iron_ore": "Minerai de fer traité",
-	"item.almostalltheores.flint_shears": "Cisailles en silex"
+	"item.almostalltheores.flint_shears": "Cisailles en silex",
+	"item.almostalltheores.so2": "Dioxyde de soufre",
+	"item.almostalltheores.so3": "Trioxyde de soufre",
+	"item.almostalltheores.sulphuric_acid": "Acide sulfurique"
 }

@@ -52,10 +52,7 @@ public class RefinerRecipe implements IRecipe<IInventory> {
 	}
 
 	@Override
-	public boolean matches(IInventory inv, World worldIn) {
-		if(isREERecipe()) {
-			return this.ingredient.test(inv.getStackInSlot(2)) && (inv.getStackInSlot(1).getItem() == waylanderou.almostalltheores.item.Items.SULPHURIC_ACID);
-		}
+	public boolean matches(IInventory inv, World worldIn) {		
 		return this.ingredient.test(inv.getStackInSlot(2));
 	}
 
