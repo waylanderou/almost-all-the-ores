@@ -45,6 +45,7 @@ public class TooltipHandler {
 	public final String[] potassium = { "carnallite", "sylvite", "polyhalite", "kainite", "langbeinite" };
 	public final String[] saltpetre = { "nitratine" };
 	public final String[] salt = { "halite" };
+	public final String[] sulphur = { "pyrite", "sulphur" };
 	public final String[] mithril = { "mithril_ore" };
 	public final String[] npk = { "guano", "phosphorite", "carnallite", "sylvite", "polyhalite", "kainite", "langbeinite" };
 	public final String[] coal = {"bituminous_coal", "anthracite", "peat_piece", "lignite"};
@@ -87,6 +88,7 @@ public class TooltipHandler {
 		tooltips.put(potassium, "tooltip.almostalltheores.potassium");
 		tooltips.put(saltpetre, "tooltip.almostalltheores.saltpetre");
 		tooltips.put(salt, "tooltip.almostalltheores.salt");
+		tooltips.put(sulphur, "tooltip.almostalltheores.sulphur");
 		tooltips.put(mithril, "tooltip.almostalltheores.mithril");
 		tooltips.put(npk, "tooltip.almostalltheores.npk");
 		tooltips.put(coal, "tooltip.almostalltheores.coal");

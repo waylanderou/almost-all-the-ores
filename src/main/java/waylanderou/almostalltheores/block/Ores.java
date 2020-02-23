@@ -473,7 +473,7 @@ public class Ores {
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("peat"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("mithril_ore"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("nether_mithril_ore"));
-			
+
 			int copperHL = 1;
 			int leadHL = 2;
 			int zincHL = 2;
@@ -481,7 +481,14 @@ public class Ores {
 			int cadmiumHL = 1;
 			int mercuryHL = 1;
 			int aluminiumHL = 2;
-			
+			int silverHL = 2;
+			int manganeseHL = 2;
+			int titaniumHL = 2;
+			int tungstenHL = 2;
+			int nickelHL = 2;
+			int carnotiteHL = 2;
+			int uraniniteHL = 3;
+
 			if(AatoConfig.enableStoneAge.get() && !AatoConfig.overwriteAutoStoneAgeValues.get()) {
 				tinHL = 2;
 				cadmiumHL = 2;
@@ -494,6 +501,13 @@ public class Ores {
 				cadmiumHL = AatoConfig.cadmiumHL.get();
 				mercuryHL = AatoConfig.mercuryHL.get();
 				aluminiumHL = AatoConfig.aluminiumHL.get();
+				silverHL = AatoConfig.silverHL.get();
+				manganeseHL = AatoConfig.manganeseHL.get();
+				titaniumHL = AatoConfig.titaniumHL.get();
+				tungstenHL = AatoConfig.tungstenHL.get();
+				nickelHL = AatoConfig.nickelHL.get();
+				carnotiteHL = AatoConfig.carnotiteHL.get();
+				uraniniteHL = AatoConfig.uraniniteHL.get();
 			}
 			registerBlock(event, 1, "pyrite");
 			registerBlock(event, 1, "sulphur");
@@ -546,16 +560,16 @@ public class Ores {
 			registerBlock(event, copperHL, "azurite");
 			registerBlock(event, copperHL, "malachite");
 			registerBlock(event, copperHL, "cuprite");
-			registerBlock(event, 2, "native_silver");
-			registerBlock(event, 2, "acanthite");
-			registerBlock(event, 2, "stephanite");
-			registerBlock(event, 2, "proustite");
-			registerBlock(event, 2, "freibergite");
-			registerBlock(event, 2, "nickeline");
-			registerBlock(event, 2, "pentlandite");
-			registerBlock(event, 2, "nepouite");
-			registerBlock(event, 2, "millerite");
-			registerBlock(event, 2, "gersdorffite");
+			registerBlock(event, silverHL, "native_silver");
+			registerBlock(event, silverHL, "acanthite");
+			registerBlock(event, silverHL, "stephanite");
+			registerBlock(event, silverHL, "proustite");
+			registerBlock(event, silverHL, "freibergite");
+			registerBlock(event, nickelHL, "nickeline");
+			registerBlock(event, nickelHL, "pentlandite");
+			registerBlock(event, nickelHL, "nepouite");
+			registerBlock(event, nickelHL, "millerite");
+			registerBlock(event, nickelHL, "gersdorffite");
 			registerBlock(event, 2, "cobaltite");
 			registerBlock(event, 2, "carrollite");
 			registerBlock(event, 2, "skutterudite");
@@ -564,32 +578,32 @@ public class Ores {
 			registerBlock(event, 1, "limonite");
 			registerBlock(event, 1, "siderite");
 			registerBlock(event, 1, "telluric_iron");
-			registerBlock(event, 2, "pyrolusite");
-			registerBlock(event, 2, "rhodochrosite");
-			registerBlock(event, 2, "hollandite");
-			registerBlock(event, 2, "manganite");
-			registerBlock(event, 2, "hausmannite");
-			registerBlock(event, 2, "alabandite");
-			registerBlock(event, 2, "rhodonite");
+			registerBlock(event, manganeseHL, "pyrolusite");
+			registerBlock(event, manganeseHL, "rhodochrosite");
+			registerBlock(event, manganeseHL, "hollandite");
+			registerBlock(event, manganeseHL, "manganite");
+			registerBlock(event, manganeseHL, "hausmannite");
+			registerBlock(event, manganeseHL, "alabandite");
+			registerBlock(event, manganeseHL, "rhodonite");
 			registerBlock(event, 2, "chromite");
 			registerBlock(event, 2, "molybdenite");
 			registerBlock(event, 2, "wulfenite");
-			registerBlock(event, 2, "scheelite");
-			registerBlock(event, 2, "ferberite");
-			registerBlock(event, 2, "hubnerite");
+			registerBlock(event, tungstenHL, "scheelite");
+			registerBlock(event, tungstenHL, "ferberite");
+			registerBlock(event, tungstenHL, "hubnerite");
 			registerBlock(event, 2, "vanadinite");
 			registerBlock(event, 2, "descloizite");
 			registerBlock(event, 3, "columbite");
 			registerBlock(event, 2, "tantalite");
-			registerBlock(event, 2, "rutile");
-			registerBlock(event, 2, "ilmenite");
-			registerBlock(event, 2, "anatase");
-			registerBlock(event, 2, "brookite");
-			registerBlock(event, 2, "titanite");
+			registerBlock(event, titaniumHL, "rutile");
+			registerBlock(event, titaniumHL, "ilmenite");
+			registerBlock(event, titaniumHL, "anatase");
+			registerBlock(event, titaniumHL, "brookite");
+			registerBlock(event, titaniumHL, "titanite");
 			registerBlock(event, 3, "zircon");
 			registerBlock(event, 3, "thorite");
-			registerBlock(event, 2, "carnotite");
-			registerBlock(event, 3, "uraninite");
+			registerBlock(event, carnotiteHL, "carnotite");
+			registerBlock(event, uraniniteHL, "uraninite");
 			registerBlock(event, 1, "magnesite");
 			registerBlock(event, 1, "kieserite");
 			registerBlock(event, 1, "brucite");
