@@ -64,7 +64,7 @@ public class OreGeneration {
 		}
 	}
 
-	private static void addAatoOverworldGeneration(Biome biome) {
+	private static void addAatoOverworldGeneration(Biome biome) {		
 		if(Config.All.get() || Config.enablePGMs.get() || Config.enabledPGMs.get()) {
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.PLATINUM_GROUP_METALS.getDefaultState(), Config.VeinSizePGMs.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkPGMs.get(), Config.MinHeightPGMs.get(), 0, Config.MaxHeightPGMs.get())));
 		}

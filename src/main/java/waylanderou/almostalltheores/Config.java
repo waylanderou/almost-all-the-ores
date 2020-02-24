@@ -13,7 +13,11 @@ public class Config {
 	private static boolean enableTinkersDefault = false;
 	private static boolean enableToolsforaatogemsMaterials = false;
 	private static boolean enableExtraGemsMaterials = false;
+	private static boolean enableEasySteelMaterials = false;
+	private static boolean enableUndergroundMaterialsMaterials = false;
+	private static boolean enableSilentsGemsMaterials = false;
 	public static ForgeConfigSpec.BooleanValue enableStoneAge;
+	public static ForgeConfigSpec.BooleanValue enablePlugAndPlay;
 
 	public static ForgeConfigSpec.BooleanValue enableVanillaCoalOre;
 	public static ForgeConfigSpec.BooleanValue enableVanillaIronOre;
@@ -919,7 +923,7 @@ public class Config {
 	public static ForgeConfigSpec.BooleanValue enableSomeGems;
 	public static ForgeConfigSpec.BooleanValue enableAllGems;
 	public static ForgeConfigSpec.BooleanValue enablePGMs;
-	public static ForgeConfigSpec.BooleanValue enableRarePGMs;
+	public static ForgeConfigSpec.BooleanValue enableRarePGMs;	
 
 	public static ForgeConfigSpec.BooleanValue enableGold; 
 	public static ForgeConfigSpec.IntValue VeinSizeGold; 
@@ -1037,7 +1041,7 @@ public class Config {
 	public static ForgeConfigSpec.IntValue VeinsPerChunkRarePGMs; 
 	public static ForgeConfigSpec.IntValue MinHeightRarePGMs; 
 	public static ForgeConfigSpec.IntValue MaxHeightRarePGMs;
-	
+
 	public static ForgeConfigSpec.IntValue copperHL;
 	public static ForgeConfigSpec.IntValue tinHL;
 	public static ForgeConfigSpec.IntValue zincHL;
@@ -1045,7 +1049,15 @@ public class Config {
 	public static ForgeConfigSpec.IntValue cadmiumHL;
 	public static ForgeConfigSpec.IntValue mercuryHL;
 	public static ForgeConfigSpec.IntValue aluminiumHL;
+	public static ForgeConfigSpec.IntValue silverHL;
+	public static ForgeConfigSpec.IntValue manganeseHL;
+	public static ForgeConfigSpec.IntValue titaniumHL;
+	public static ForgeConfigSpec.IntValue tungstenHL;
+	public static ForgeConfigSpec.IntValue nickelHL;
+	public static ForgeConfigSpec.IntValue carnotiteHL;
+	public static ForgeConfigSpec.IntValue uraniniteHL;
 	public static ForgeConfigSpec.BooleanValue overwriteAutoStoneAgeValues;
+
 
 	public static ForgeConfigSpec.BooleanValue enableEmerald;
 
@@ -1053,13 +1065,15 @@ public class Config {
 
 	static {
 		BUILDER.comment("General settings").push("general");
-		handleEverythingInOverworld = BUILDER.comment("Should Aato remove ores from other mods to prevent 'duplicate' ores in the overworld.").define("handleEverythingInOverworld", true);
+		handleEverythingInOverworld = BUILDER.comment("Should Aato remove all ores from other mods to prevent 'duplicate' ores in the overworld.").define("handleEverythingInOverworld", true);
 		disableAatoGeneration = BUILDER.comment("Set this to true if you only want to use this mod to tune vanilla ores spawning. Nothing from this mod will spawn in any dimension.").define("disableAatoGeneration", false);
-		enableStoneAge = BUILDER.comment("Activate the stone age. Disable a few smelting recipes so you have to build a refiner in order to have iron. It really changes the way you have to play early game. (default: false)").define("enableStoneAge", false);		
+		enableStoneAge = BUILDER.comment("Activate the stone age. Disable a few smelting recipes so you have to build a refiner in order to have iron. It really changes the way you have to play early game. (default: false)").define("enableStoneAge", false);
+		enablePlugAndPlay = BUILDER.comment("If for some reason you don't want the mod to automatically enable ore generation for mods supported by the plug and play feature, set this to false"
+				+ " WARNING : you will have to enable everything by yourself.").define("enablePlugAndPlay", true);
 		BUILDER.pop();
-		
+
 		BUILDER.comment("Harvest Levels. Wood, Stone, Iron, Diamond : 0, 1, 2, 3. Above 3 is modded materials stronger than diamond.").push("harvestlevels");
-		overwriteAutoStoneAgeValues = BUILDER.comment("Should the mod use customized harvest levels in"
+		overwriteAutoStoneAgeValues = BUILDER.comment("Should the mod use customized harvest levels "
 				+ "instead of its default/automatic values").define("useCustomHarvestLevelValues", false);
 		copperHL = BUILDER.comment("Copper ores harvest level").defineInRange("copperHarvestLevel", 1, 0, 5);
 		tinHL = BUILDER.comment("Tin ores harvest level").defineInRange("tinHarvestLevel", 2, 0, 5);
@@ -1068,6 +1082,15 @@ public class Config {
 		cadmiumHL = BUILDER.comment("Cadmium ores harvest level").defineInRange("cadmiumHarvestLevel", 1, 0, 5);
 		mercuryHL = BUILDER.comment("Mercury ores harvest level").defineInRange("mercuryHarvestLevel", 1, 0, 5);
 		aluminiumHL = BUILDER.comment("Aluminium ores harvest level").defineInRange("aluminiumHarvestLevel", 2, 0, 5);
+		silverHL = BUILDER.comment("Silver ores harvest level").defineInRange("silverHarvestLevel", 2, 0, 5);
+		manganeseHL = BUILDER.comment("Manganese ores harvest level").defineInRange("manganeseHarvestLevel", 2, 0, 5);
+		titaniumHL = BUILDER.comment("Titanium ores harvest level").defineInRange("titaniumHarvestLevel", 2, 0, 5);
+		tungstenHL = BUILDER.comment("Tungsten ores harvest level").defineInRange("tungstenHarvestLevel", 2, 0, 5);
+		nickelHL = BUILDER.comment("Nickel ores harvest level").defineInRange("nickelHarvestLevel", 2, 0, 5);
+		BUILDER.comment("Uranium Ores harvest level").push("uraniumOresHarvestLevels");
+		carnotiteHL = BUILDER.comment("Carnotite harvest level").defineInRange("carnotiteHarvestLevel", 2, 0, 5);
+		uraniniteHL = BUILDER.comment("Uraninite harvest level").defineInRange("uraniniteHarvestLevel", 3, 0, 5);
+		BUILDER.pop();
 		BUILDER.pop();
 
 		BUILDER.comment("Simplified overworld generation settings for modded ores.").push("overworldSimplified");
@@ -1117,7 +1140,7 @@ public class Config {
 
 
 		BUILDER.comment("Vanilla ores generation settings.").push("vanilla");
-		
+
 		BUILDER.comment("If you want vanilla's coal ore to spawn").push("coal");
 		enableVanillaCoalOre = BUILDER.comment("Should vanilla coal ore spawn.").define("enableVanillaCoalOre", false);
 		VeinSizeCoal = BUILDER.comment("Coal Ore Vein Size").defineInRange("VeinSizeCoalOre", 17, 0, 50);
@@ -2468,6 +2491,37 @@ public class Config {
 			configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
 			configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
 		}
+		if(enableEasySteelMaterials) {
+			configData.set("overworldSimplified.enableCopperOres", true);
+			configData.set("overworldSimplified.enableTinOres", true);
+			configData.set("overworldSimplified.enableTitaniumOres", true);
+			configData.set("overworldSimplified.enableTungstenOres", true);
+		}
+		if(enableUndergroundMaterialsMaterials) {
+			configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
+			configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
+			configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
+			configData.set("overworldSimplified.enableCobaltOres", true);
+			configData.set("overworldSimplified.enableCalciumOres", true);			
+		}
+		if(enableSilentsGemsMaterials) {
+			configData.set("overworldExpert.ruby_ore.enableSapphire_ore", true);
+			configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
+			configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableSpinel_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableJade_ore", true);
+			configData.set("overworldExpert.ruby_ore.enablePeridot_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableAgate_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableCarnelian_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableChrysoprase_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableTanzanite_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableOnyx_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableOpal_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableMoonstone_ore", true);
+			configData.set("overworldExpert.ruby_ore.enableTurquoise_ore", true);
+			configData.set("overworldExpert.ruby_ore.enablePyrope_ore", true);			
+		}
 		spec.setConfig(configData);
 	}	
 
@@ -2481,5 +2535,15 @@ public class Config {
 
 	public static void enableExtraGemsMaterials() {
 		enableExtraGemsMaterials = true;
+	}
+
+	public static void enableEasySteelMaterials() {
+		enableEasySteelMaterials = true;
+	}
+	public static void enableUndergroundMaterialsMaterials() {
+		enableUndergroundMaterialsMaterials = true;
+	}
+	public static void enableSilentsGemsMaterials() {
+		enableSilentsGemsMaterials = true;
 	}
 }

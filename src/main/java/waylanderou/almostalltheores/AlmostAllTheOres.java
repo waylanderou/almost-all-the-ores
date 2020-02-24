@@ -28,15 +28,25 @@ public class AlmostAllTheOres
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);		
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.spec);
-
-		if(ModList.get().isLoaded("tconstruct")) {
-			Config.enableTinkersDefaultMaterials();     	        	
-		}
-		if(ModList.get().isLoaded("toolsforaatogems")) {
-			Config.enableToolsforaatogemsMaterials();       	
-		}
-		if(ModList.get().isLoaded("extragems")) {
-			Config.enableExtraGemsMaterials();
+		if(Config.enablePlugAndPlay.get()) {
+			if(ModList.get().isLoaded("tconstruct")) {
+				Config.enableTinkersDefaultMaterials();     	        	
+			}
+			if(ModList.get().isLoaded("toolsforaatogems")) {
+				Config.enableToolsforaatogemsMaterials();       	
+			}
+			if(ModList.get().isLoaded("extragems")) {
+				Config.enableExtraGemsMaterials();
+			}
+			if(ModList.get().isLoaded("easy_steel")) {
+				Config.enableEasySteelMaterials();
+			}
+			if(ModList.get().isLoaded("undermat")) {
+				Config.enableUndergroundMaterialsMaterials();
+			}
+			if(ModList.get().isLoaded("silentgems")) {
+				Config.enableSilentsGemsMaterials();
+			}
 		}
 		Config.loadConfig();                               
 	}
