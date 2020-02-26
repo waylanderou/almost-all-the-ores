@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:dysprosium_m"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:dysprosium_s"
+        }, 
+        {
+            "item": "almostalltheores:dysprosium_s"
+        }, 
+        {
+            "item": "almostalltheores:dysprosium_s"
+        }, 
+        {
+            "item": "almostalltheores:dysprosium_s"
+        }, 
+        {
+            "item": "almostalltheores:dysprosium_s"
+        }, 
+        {
+            "item": "almostalltheores:dysprosium_s"
+        }
+    ]
+}

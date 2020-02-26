@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:gadolinium_m"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:gadolinium_s"
+        }, 
+        {
+            "item": "almostalltheores:gadolinium_s"
+        }, 
+        {
+            "item": "almostalltheores:gadolinium_s"
+        }, 
+        {
+            "item": "almostalltheores:gadolinium_s"
+        }, 
+        {
+            "item": "almostalltheores:gadolinium_s"
+        }, 
+        {
+            "item": "almostalltheores:gadolinium_s"
+        }
+    ]
+}

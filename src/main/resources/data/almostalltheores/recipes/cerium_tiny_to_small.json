@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:cerium_m"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:cerium_s"
+        }, 
+        {
+            "item": "almostalltheores:cerium_s"
+        }, 
+        {
+            "item": "almostalltheores:cerium_s"
+        }, 
+        {
+            "item": "almostalltheores:cerium_s"
+        }, 
+        {
+            "item": "almostalltheores:cerium_s"
+        }, 
+        {
+            "item": "almostalltheores:cerium_s"
+        }
+    ]
+}

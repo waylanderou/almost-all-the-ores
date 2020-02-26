@@ -16,11 +16,5 @@
         "S": {
             "item": "minecraft:barrel"
         }
-    },
-	"conditions": [
-		{		
-			"type": "almostalltheores:stoneagecondition",
-			"stoneage": true
-		}
-	]
+    }
 }

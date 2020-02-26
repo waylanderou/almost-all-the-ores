@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:thorium"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:thorium_m"
+        }, 
+        {
+            "item": "almostalltheores:thorium_m"
+        }, 
+        {
+            "item": "almostalltheores:thorium_m"
+        }, 
+        {
+            "item": "almostalltheores:thorium_m"
+        }
+    ]
+}

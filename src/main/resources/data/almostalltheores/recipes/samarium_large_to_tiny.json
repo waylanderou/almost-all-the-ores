@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 24, 
+        "item": "almostalltheores:samarium_s"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:samarium"
+        }
+    ]
+}

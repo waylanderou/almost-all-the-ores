@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:bastnasite_la"
+                }
+            ], 
+            "name": "bastnasite_la", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

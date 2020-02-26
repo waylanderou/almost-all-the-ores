@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "layer0": "almostalltheores:item/ytterbium"
+    }, 
+    "parent": "item/generated"
+}

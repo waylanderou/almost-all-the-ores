@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:lanthanum"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:lanthanum_m"
+        }, 
+        {
+            "item": "almostalltheores:lanthanum_m"
+        }, 
+        {
+            "item": "almostalltheores:lanthanum_m"
+        }, 
+        {
+            "item": "almostalltheores:lanthanum_m"
+        }
+    ]
+}

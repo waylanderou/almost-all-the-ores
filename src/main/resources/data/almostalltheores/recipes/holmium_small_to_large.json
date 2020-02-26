@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:holmium"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:holmium_m"
+        }, 
+        {
+            "item": "almostalltheores:holmium_m"
+        }, 
+        {
+            "item": "almostalltheores:holmium_m"
+        }, 
+        {
+            "item": "almostalltheores:holmium_m"
+        }
+    ]
+}

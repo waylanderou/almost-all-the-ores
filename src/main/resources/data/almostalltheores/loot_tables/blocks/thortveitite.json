@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:thortveitite"
+                }
+            ], 
+            "name": "thortveitite", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

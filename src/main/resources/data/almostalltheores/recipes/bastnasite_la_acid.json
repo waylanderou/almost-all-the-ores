@@ -1,0 +1,16 @@
+{
+  "type": "almostalltheores:refiner_serializer",
+  "refiningTime": 400,
+  "experience": 1.2,
+  "ingredient": {
+	"item": "almostalltheores:bastnasite_la"	
+  },
+  "result_a": {
+    "item": "almostalltheores:lanthanum",
+    "count": 1
+  },
+  "result_b": {
+    "item": "almostalltheores:cerium",
+    "count": 1
+  }
+}

@@ -4,6 +4,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -51,11 +52,11 @@ public class AlmostAllTheOres
 		}
 		AatoConfig.loadConfig();
 
-
 	}
 
 	private void setup(final FMLCommonSetupEvent event)
 	{
+		//DeferredWorkQueue.runLater(OreGeneration::setup);
 		OreGeneration.setup(); 
 		proxy.init();
 	}

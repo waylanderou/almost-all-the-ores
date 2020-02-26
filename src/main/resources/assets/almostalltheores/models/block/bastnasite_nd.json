@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/bastnasite"
+    }, 
+    "parent": "block/cube_all"
+}

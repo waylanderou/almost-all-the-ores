@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:terbium_m"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:terbium_s"
+        }, 
+        {
+            "item": "almostalltheores:terbium_s"
+        }, 
+        {
+            "item": "almostalltheores:terbium_s"
+        }, 
+        {
+            "item": "almostalltheores:terbium_s"
+        }, 
+        {
+            "item": "almostalltheores:terbium_s"
+        }, 
+        {
+            "item": "almostalltheores:terbium_s"
+        }
+    ]
+}

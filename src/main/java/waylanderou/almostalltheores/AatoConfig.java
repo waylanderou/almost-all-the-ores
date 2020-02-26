@@ -18,11 +18,66 @@ public class AatoConfig {
 	private static boolean enableSilentsGemsMaterials = false;
 	public static ForgeConfigSpec.BooleanValue enableStoneAge;
 	public static ForgeConfigSpec.BooleanValue enablePlugAndPlay;
+	public static ForgeConfigSpec.BooleanValue clearNether;
 
 	public static ForgeConfigSpec.BooleanValue enableVanillaCoalOre;
 	public static ForgeConfigSpec.BooleanValue enableVanillaIronOre;
 	public static ForgeConfigSpec.BooleanValue handleEverythingInOverworld;
 	public static ForgeConfigSpec.BooleanValue disableAatoGeneration;
+
+	public static ForgeConfigSpec.BooleanValue enableBastnasite_la;
+	public static ForgeConfigSpec.IntValue VeinSizeBastnasite_la;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkBastnasite_la;
+	public static ForgeConfigSpec.IntValue MinHeightBastnasite_la;
+	public static ForgeConfigSpec.IntValue MaxHeightBastnasite_la;
+
+	public static ForgeConfigSpec.BooleanValue enableMonazite_la;
+	public static ForgeConfigSpec.IntValue VeinSizeMonazite_la;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkMonazite_la;
+	public static ForgeConfigSpec.IntValue MinHeightMonazite_la;
+	public static ForgeConfigSpec.IntValue MaxHeightMonazite_la;
+
+	public static ForgeConfigSpec.BooleanValue enableBastnasite_ce;
+	public static ForgeConfigSpec.IntValue VeinSizeBastnasite_ce;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkBastnasite_ce;
+	public static ForgeConfigSpec.IntValue MinHeightBastnasite_ce;
+	public static ForgeConfigSpec.IntValue MaxHeightBastnasite_ce;
+
+	public static ForgeConfigSpec.BooleanValue enableMonazite_ce;
+	public static ForgeConfigSpec.IntValue VeinSizeMonazite_ce;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkMonazite_ce;
+	public static ForgeConfigSpec.IntValue MinHeightMonazite_ce;
+	public static ForgeConfigSpec.IntValue MaxHeightMonazite_ce;
+
+	public static ForgeConfigSpec.BooleanValue enableBastnasite_nd;
+	public static ForgeConfigSpec.IntValue VeinSizeBastnasite_nd;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkBastnasite_nd;
+	public static ForgeConfigSpec.IntValue MinHeightBastnasite_nd;
+	public static ForgeConfigSpec.IntValue MaxHeightBastnasite_nd;
+
+	public static ForgeConfigSpec.BooleanValue enableMonazite_nd;
+	public static ForgeConfigSpec.IntValue VeinSizeMonazite_nd;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkMonazite_nd;
+	public static ForgeConfigSpec.IntValue MinHeightMonazite_nd;
+	public static ForgeConfigSpec.IntValue MaxHeightMonazite_nd;
+
+	public static ForgeConfigSpec.BooleanValue enableBastnasite_y;
+	public static ForgeConfigSpec.IntValue VeinSizeBastnasite_y;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkBastnasite_y;
+	public static ForgeConfigSpec.IntValue MinHeightBastnasite_y;
+	public static ForgeConfigSpec.IntValue MaxHeightBastnasite_y;
+
+	public static ForgeConfigSpec.BooleanValue enableSamarskite_y;
+	public static ForgeConfigSpec.IntValue VeinSizeSamarskite_y;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkSamarskite_y;
+	public static ForgeConfigSpec.IntValue MinHeightSamarskite_y;
+	public static ForgeConfigSpec.IntValue MaxHeightSamarskite_y;
+
+	public static ForgeConfigSpec.BooleanValue enableThortveitite;
+	public static ForgeConfigSpec.IntValue VeinSizeThortveitite;
+	public static ForgeConfigSpec.IntValue VeinsPerChunkThortveitite;
+	public static ForgeConfigSpec.IntValue MinHeightThortveitite;
+	public static ForgeConfigSpec.IntValue MaxHeightThortveitite;
 
 	public static ForgeConfigSpec.BooleanValue enablePyrite; 
 	public static ForgeConfigSpec.IntValue VeinSizePyrite; 
@@ -924,6 +979,7 @@ public class AatoConfig {
 	public static ForgeConfigSpec.BooleanValue enableAllGems;
 	public static ForgeConfigSpec.BooleanValue enablePGMs;
 	public static ForgeConfigSpec.BooleanValue enableRarePGMs;	
+	public static ForgeConfigSpec.BooleanValue enableREEs;
 
 	public static ForgeConfigSpec.BooleanValue enableGold; 
 	public static ForgeConfigSpec.IntValue VeinSizeGold; 
@@ -1065,11 +1121,12 @@ public class AatoConfig {
 
 	static {
 		BUILDER.comment("General settings").push("general");
-		handleEverythingInOverworld = BUILDER.comment("Should Aato remove all ores from other mods to prevent 'duplicate' ores in the overworld.").define("handleEverythingInOverworld", true);
+		handleEverythingInOverworld = BUILDER.comment("Should Aato remove ALL ores from other mods to prevent 'duplicate' ores in the overworld.").define("handleEverythingInOverworld", true);
 		disableAatoGeneration = BUILDER.comment("Set this to true if you only want to use this mod to tune vanilla ores spawning. Nothing from this mod will spawn in any dimension.").define("disableAatoGeneration", false);
 		enableStoneAge = BUILDER.comment("Activate the stone age. Disable a few smelting recipes so you have to build a refiner in order to have iron. It really changes the way you have to play early game. (default: false)").define("enableStoneAge", false);
 		enablePlugAndPlay = BUILDER.comment("If for some reason you don't want the mod to automatically enable ore generation for mods supported by the plug and play feature, set this to false"
-				+ "WARNING : you will have to enable everything by yourself.").define("enablePlugAndPlay", true);
+				+ " WARNING : you will have to enable everything by yourself.").define("enablePlugAndPlay", true);
+		clearNether = BUILDER.comment("Should Nether be cleared of all ore generation from vanilla and other mods.").define("clearNether", false);
 		BUILDER.pop();
 
 		BUILDER.comment("Harvest Levels. Wood, Stone, Iron, Diamond : 0, 1, 2, 3. Above 3 is modded materials stronger than diamond.").push("harvestlevels");
@@ -1135,7 +1192,8 @@ public class AatoConfig {
 		enableSomeGems = BUILDER.comment("Enable a few gems ore generation (Sapphire, Ruby, Spinel, Amethyst, Jade, Peridot, Topaz, Tanzanite, Onyx, Opal). (default: false)").define("enableSomeGems", false); 
 		enableAllGems = BUILDER.comment("Enable ALL gems. (default: false)").define("enableAllGems", false);
 		enablePGMs = BUILDER.comment("Enable commmon platinum-group metals (platinum, iridium, osmium). (default: false)").define("enablePGMs", false);
-		enableRarePGMs = BUILDER.comment("Enable rare platinum-group metals (ruthenium, rhodium, palladium). (default: false)").define("enableRarePGMs", false);				
+		enableRarePGMs = BUILDER.comment("Enable rare platinum-group metals (ruthenium, rhodium, palladium). (default: false)").define("enableRarePGMs", false);
+		enableREEs = BUILDER.comment("Enable rare-earth elements ores (Bastnasite La, Ce, Y, Nd, Monazite La, Ce, Nd, Samarskite Y, Thortveitite.). (default: false)").define("enableREEs", false);
 		BUILDER.pop();
 
 
@@ -2453,9 +2511,76 @@ public class AatoConfig {
 		VeinsPerChunkNetherSulphur = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherSulphur", 15, 0, 50);
 		MinHeightNetherSulphur = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherSulphur", 10, 0, 126);
 		MaxHeightNetherSulphur = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherSulphur", 110, 0, 126);
-		BUILDER.pop();
+		BUILDER.pop();		
 
 		BUILDER.pop();
+
+		BUILDER.comment("Rare-earth elements").push("rees");
+		BUILDER.push("bastnasite_la");
+		enableBastnasite_la = BUILDER.comment("Enable Bastnasite La generation.").define("enableBastnasite_la", false);
+		VeinSizeBastnasite_la = BUILDER.comment("Vein Size").defineInRange("VeinSizeBastnasite_la", 6, 0, 50);	
+		VeinsPerChunkBastnasite_la = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkBastnasite_la", 2, 0, 50);
+		MinHeightBastnasite_la = BUILDER.comment("Minimum Height").defineInRange("MinHeightBastnasite_la", 3, 0, 255);
+		MaxHeightBastnasite_la = BUILDER.comment("Maximum Height").defineInRange("MaxHeightBastnasite_la", 60, 0, 255);
+		BUILDER.pop();
+		BUILDER.push("monazite_la");
+		enableMonazite_la = BUILDER.comment("Enable Monazite La generation.").define("enableMonazite_la", false);
+		VeinSizeMonazite_la = BUILDER.comment("Vein Size").defineInRange("VeinSizeMonazite_la", 8, 0, 50);	
+		VeinsPerChunkMonazite_la = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkMonazite_la", 1, 0, 50);
+		MinHeightMonazite_la = BUILDER.comment("Minimum Height").defineInRange("MinHeightMonazite_la", 3, 0, 255);
+		MaxHeightMonazite_la = BUILDER.comment("Maximum Height").defineInRange("MaxHeightMonazite_la", 60, 0, 255);
+		BUILDER.pop();
+		BUILDER.push("bastnasite_ce");
+		enableBastnasite_ce = BUILDER.comment("Enable Bastnasite Ce generation.").define("enableBastnasite_ce", false);
+		VeinSizeBastnasite_ce = BUILDER.comment("Vein Size").defineInRange("VeinSizeBastnasite_ce", 6, 0, 50);	
+		VeinsPerChunkBastnasite_ce = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkBastnasite_ce", 2, 0, 50);
+		MinHeightBastnasite_ce = BUILDER.comment("Minimum Height").defineInRange("MinHeightBastnasite_ce", 3, 0, 255);
+		MaxHeightBastnasite_ce = BUILDER.comment("Maximum Height").defineInRange("MaxHeightBastnasite_ce", 60, 0, 255);
+		BUILDER.pop();
+		BUILDER.push("monazite_ce");
+		enableMonazite_ce = BUILDER.comment("Enable Monazite Ce generation.").define("enableMonazite_ce", false);
+		VeinSizeMonazite_ce = BUILDER.comment("Vein Size").defineInRange("VeinSizeMonazite_ce", 8, 0, 50);	
+		VeinsPerChunkMonazite_ce = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkMonazite_ce", 1, 0, 50);
+		MinHeightMonazite_ce = BUILDER.comment("Minimum Height").defineInRange("MinHeightMonazite_ce", 3, 0, 255);
+		MaxHeightMonazite_ce = BUILDER.comment("Maximum Height").defineInRange("MaxHeightMonazite_ce", 60, 0, 255);
+		BUILDER.pop();
+		BUILDER.push("bastnasite_nd");
+		enableBastnasite_nd = BUILDER.comment("Enable Bastnasite Nd generation.").define("enableBastnasite_nd", false);
+		VeinSizeBastnasite_nd = BUILDER.comment("Vein Size").defineInRange("VeinSizeBastnasite_nd", 9, 0, 50);	
+		VeinsPerChunkBastnasite_nd = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkBastnasite_nd", 1, 0, 50);
+		MinHeightBastnasite_nd = BUILDER.comment("Minimum Height").defineInRange("MinHeightBastnasite_nd", 3, 0, 255);
+		MaxHeightBastnasite_nd = BUILDER.comment("Maximum Height").defineInRange("MaxHeightBastnasite_nd", 60, 0, 255);
+		BUILDER.pop();
+		BUILDER.push("monazite_nd");
+		enableMonazite_nd = BUILDER.comment("Enable Monazite Nd generation.").define("enableMonazite_nd", false);
+		VeinSizeMonazite_nd = BUILDER.comment("Vein Size").defineInRange("VeinSizeMonazite_nd", 7, 0, 50);	
+		VeinsPerChunkMonazite_nd = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkMonazite_nd", 1, 0, 50);
+		MinHeightMonazite_nd = BUILDER.comment("Minimum Height").defineInRange("MinHeightMonazite_nd", 3, 0, 255);
+		MaxHeightMonazite_nd = BUILDER.comment("Maximum Height").defineInRange("MaxHeightMonazite_nd", 60, 0, 255);
+		BUILDER.pop();
+		BUILDER.push("bastnasite_y");
+		enableBastnasite_y = BUILDER.comment("Enable Bastnasite Y generation.").define("enableBastnasite_y", false);
+		VeinSizeBastnasite_y = BUILDER.comment("Vein Size").defineInRange("VeinSizeBastnasite_y", 6, 0, 50);	
+		VeinsPerChunkBastnasite_y = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkBastnasite_y", 2, 0, 50);
+		MinHeightBastnasite_y = BUILDER.comment("Minimum Height").defineInRange("MinHeightBastnasite_y", 3, 0, 255);
+		MaxHeightBastnasite_y = BUILDER.comment("Maximum Height").defineInRange("MaxHeightBastnasite_y", 60, 0, 255);
+		BUILDER.pop();
+		BUILDER.push("samarskite_y");
+		enableSamarskite_y = BUILDER.comment("Enable Samarskite Y generation.").define("enableSamarskite_y", false);
+		VeinSizeSamarskite_y = BUILDER.comment("Vein Size").defineInRange("VeinSizeSamarskite_y", 7, 0, 50);	
+		VeinsPerChunkSamarskite_y = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkSamarskite_y", 2, 0, 50);
+		MinHeightSamarskite_y = BUILDER.comment("Minimum Height").defineInRange("MinHeightSamarskite_y", 3, 0, 255);
+		MaxHeightSamarskite_y = BUILDER.comment("Maximum Height").defineInRange("MaxHeightSamarskite_y", 60, 0, 255);
+		BUILDER.pop();
+		BUILDER.push("thortveitite");
+		enableThortveitite = BUILDER.comment("Enable Thortveitite generation.").define("enableThortveitite", false);
+		VeinSizeThortveitite = BUILDER.comment("Vein Size").defineInRange("VeinSizeThortveitite", 8, 0, 50);	
+		VeinsPerChunkThortveitite = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkThortveitite", 2, 0, 50);
+		MinHeightThortveitite = BUILDER.comment("Minimum Height").defineInRange("MinHeightThortveitite", 3, 0, 255);
+		MaxHeightThortveitite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightThortveitite", 60, 0, 255);
+		BUILDER.pop();
+		BUILDER.pop();
+
 
 		BUILDER.comment("Debug options").push("debug");
 		All = BUILDER.comment("Enable all AatO ores in their relative dimensions. ALL of them. For testing purposes. (default: false)")

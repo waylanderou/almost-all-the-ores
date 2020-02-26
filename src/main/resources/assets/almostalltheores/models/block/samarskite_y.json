@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/samarskite_y"
+    }, 
+    "parent": "block/cube_all"
+}

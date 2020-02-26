@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:yttrium"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:yttrium_m"
+        }, 
+        {
+            "item": "almostalltheores:yttrium_m"
+        }, 
+        {
+            "item": "almostalltheores:yttrium_m"
+        }, 
+        {
+            "item": "almostalltheores:yttrium_m"
+        }
+    ]
+}

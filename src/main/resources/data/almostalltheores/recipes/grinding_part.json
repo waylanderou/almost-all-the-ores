@@ -22,11 +22,5 @@
 		"F": {
 			"item": "minecraft:furnace"
 		}
-    },
-	"conditions": [
-		{		
-			"type": "almostalltheores:stoneagecondition",
-			"stoneage": true
-		}
-	]
+    }
 }

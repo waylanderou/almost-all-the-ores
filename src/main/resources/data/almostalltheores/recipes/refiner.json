@@ -25,11 +25,5 @@
 		"C": {
 			"item": "minecraft:chest"
 		}
-    },
-	"conditions": [
-		{		
-			"type": "almostalltheores:stoneagecondition",
-			"stoneage": true
-		}
-	]
+    }
 }

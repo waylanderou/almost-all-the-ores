@@ -25,11 +25,5 @@
 		"Y": {
 			"item": "almostalltheores:dryer"
 		}
-    },
-	"conditions": [
-		{		
-			"type": "almostalltheores:stoneagecondition",
-			"stoneage": true
-		}
-	]
+    }
 }

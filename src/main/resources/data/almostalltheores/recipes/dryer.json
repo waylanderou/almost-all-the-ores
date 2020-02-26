@@ -19,11 +19,5 @@
 		"P": {
 			"tag": "minecraft:planks"
 		}
-    },
-	"conditions": [
-		{		
-			"type": "almostalltheores:stoneagecondition",		
-			"stoneage": true
-		}
-	]
+    }
 }

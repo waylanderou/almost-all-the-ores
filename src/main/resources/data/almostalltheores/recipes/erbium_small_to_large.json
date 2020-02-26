@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:erbium"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:erbium_m"
+        }, 
+        {
+            "item": "almostalltheores:erbium_m"
+        }, 
+        {
+            "item": "almostalltheores:erbium_m"
+        }, 
+        {
+            "item": "almostalltheores:erbium_m"
+        }
+    ]
+}

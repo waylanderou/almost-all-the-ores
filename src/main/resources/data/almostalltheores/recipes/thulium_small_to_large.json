@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:thulium"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:thulium_m"
+        }, 
+        {
+            "item": "almostalltheores:thulium_m"
+        }, 
+        {
+            "item": "almostalltheores:thulium_m"
+        }, 
+        {
+            "item": "almostalltheores:thulium_m"
+        }
+    ]
+}
