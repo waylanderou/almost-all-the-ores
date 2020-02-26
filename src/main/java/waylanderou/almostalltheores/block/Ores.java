@@ -463,6 +463,33 @@ public class Ores {
 	@ObjectHolder(AlmostAllTheOres.MODID + ":nether_mithril_ore")
 	public static final CustomOre NETHER_MITHRIL_ORE = null;
 
+	@ObjectHolder(AlmostAllTheOres.MODID + ":bastnasite_la")
+	public static final CustomOre BASTNASITE_LA = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID + ":monazite_la")
+	public static final CustomOre MONAZITE_LA = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID + ":bastnasite_ce")
+	public static final CustomOre BASTNASITE_CE = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID + ":monazite_ce")
+	public static final CustomOre MONAZITE_CE = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID + ":bastnasite_nd")
+	public static final CustomOre BASTNASITE_ND = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID + ":monazite_nd")
+	public static final CustomOre MONAZITE_ND = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID + ":bastnasite_y")
+	public static final CustomOre BASTNASITE_Y = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID + ":samarskite_y")
+	public static final CustomOre SAMARSKITE_Y = null;
+
+	@ObjectHolder(AlmostAllTheOres.MODID + ":thortveitite")
+	public static final CustomOre THORTVEITITE = null;
+
 
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class OresRegistryEvents{		
@@ -653,12 +680,15 @@ public class Ores {
 			registerBlock(event, 0, "anthracite_block");
 			registerBlock(event, 2, "nether_gold_ore");
 			registerBlock(event, 0, "nether_coal_ore");	
-			registerBlock(event, 3, "platinum_ore");
-			registerBlock(event, 3, "osmium_ore");
-			registerBlock(event, 3, "iridium_ore");
-			registerBlock(event, 3, "rhodium_ore");
-			registerBlock(event, 3, "palladium_ore");
-			registerBlock(event, 3, "ruthenium_ore");
+			registerBlock(event, 2, "bastnasite_la");
+			registerBlock(event, 2, "monazite_la");
+			registerBlock(event, 2, "bastnasite_ce");
+			registerBlock(event, 2, "monazite_ce");
+			registerBlock(event, 2, "bastnasite_nd");
+			registerBlock(event, 2, "monazite_nd");
+			registerBlock(event, 2, "bastnasite_y");
+			registerBlock(event, 2, "samarskite_y");
+			registerBlock(event, 2, "thortveitite");
 		}
 
 		@SubscribeEvent
@@ -811,6 +841,15 @@ public class Ores {
 			registerItemBlock(NETHER_GOLD_ORE, event);
 			registerItemBlock(NETHER_COAL_ORE, event);
 			registerItemBlock(NETHER_MITHRIL_ORE, event);
+			registerItemBlock(BASTNASITE_LA, event);
+			registerItemBlock(MONAZITE_LA, event);
+			registerItemBlock(BASTNASITE_CE, event);
+			registerItemBlock(MONAZITE_CE, event);
+			registerItemBlock(BASTNASITE_ND, event);
+			registerItemBlock(MONAZITE_ND, event);
+			registerItemBlock(BASTNASITE_Y, event);
+			registerItemBlock(SAMARSKITE_Y, event);
+			registerItemBlock(THORTVEITITE, event);
 			event.getRegistry().register(new AnthraciteBlockItemBlock(ANTHRACITE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName("anthracite_block"));			
 		}
 

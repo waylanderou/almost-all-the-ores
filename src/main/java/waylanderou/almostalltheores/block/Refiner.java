@@ -46,7 +46,7 @@ public class Refiner extends Block {
 				InventoryHelper.dropInventoryItems(worldIn, pos, (RefinerTile)tileentity);
 				worldIn.updateComparatorOutputLevel(pos, this);
 			}
-			super.onReplaced(state, worldIn, pos, newState, isMoving);
+			super.onReplaced(state, worldIn, pos, newState, isMoving);			
 		}
 	}
 

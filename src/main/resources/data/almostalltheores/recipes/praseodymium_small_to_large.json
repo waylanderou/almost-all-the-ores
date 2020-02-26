@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:praseodymium"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:praseodymium_m"
+        }, 
+        {
+            "item": "almostalltheores:praseodymium_m"
+        }, 
+        {
+            "item": "almostalltheores:praseodymium_m"
+        }, 
+        {
+            "item": "almostalltheores:praseodymium_m"
+        }
+    ]
+}

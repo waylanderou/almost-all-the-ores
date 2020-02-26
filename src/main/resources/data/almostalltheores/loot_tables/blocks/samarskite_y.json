@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item", 
+                    "name": "almostalltheores:samarskite_y"
+                }
+            ], 
+            "name": "samarskite_y", 
+            "rolls": 1
+        }
+    ], 
+    "type": "minecraft:block"
+}

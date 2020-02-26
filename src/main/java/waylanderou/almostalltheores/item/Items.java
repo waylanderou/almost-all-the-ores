@@ -56,12 +56,113 @@ public class Items {
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":sulphuric_acid")
 	public static final Item SULPHURIC_ACID = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":so2")
 	public static final Item SO2 = null;
-	
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":so3")
 	public static final Item SO3 = null;
+
+	//REE
+
+	@ObjectHolder(AlmostAllTheOres.MODID + ":scandium")
+	public static final Item scandium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":yttrium")
+	public static final Item yttrium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":yttrium_m")
+	public static final Item yttrium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":yttrium_s")
+	public static final Item yttrium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":lanthanum")
+	public static final Item lanthanum = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":lanthanum_m")
+	public static final Item lanthanum_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":lanthanum_s")
+	public static final Item lanthanum_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":cerium")
+	public static final Item cerium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":cerium_m")
+	public static final Item cerium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":cerium_s")
+	public static final Item cerium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":praseodymium")
+	public static final Item praseodymium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":praseodymium_m")
+	public static final Item praseodymium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":praseodymium_s")
+	public static final Item praseodymium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":neodymium")
+	public static final Item neodymium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":neodymium_m")
+	public static final Item neodymium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":neodymium_s")
+	public static final Item neodymium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":samarium")
+	public static final Item samarium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":samarium_m")
+	public static final Item samarium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":samarium_s")
+	public static final Item samarium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":europium")
+	public static final Item europium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":europium_m")
+	public static final Item europium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":europium_s")
+	public static final Item europium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":gadolinium")
+	public static final Item gadolinium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":gadolinium_m")
+	public static final Item gadolinium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":gadolinium_s")
+	public static final Item gadolinium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":terbium")
+	public static final Item terbium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":terbium_m")
+	public static final Item terbium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":terbium_s")
+	public static final Item terbium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":dysprosium")
+	public static final Item dysprosium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":dysprosium_m")
+	public static final Item dysprosium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":dysprosium_s")
+	public static final Item dysprosium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":holmium")
+	public static final Item holmium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":holmium_m")
+	public static final Item holmium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":holmium_s")
+	public static final Item holmium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":erbium")
+	public static final Item erbium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":erbium_m")
+	public static final Item erbium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":erbium_s")
+	public static final Item erbium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":thulium")
+	public static final Item thulim = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":thulium_m")
+	public static final Item thulim_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":thulium_s")
+	public static final Item thulim_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":ytterbium")
+	public static final Item ytterbium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":ytterbium_m")
+	public static final Item ytterbium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":ytterbium_s")
+	public static final Item ytterbium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":lutetium")
+	public static final Item lutetium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":lutetium_m")
+	public static final Item lutetium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":lutetium_s")
+	public static final Item lutetium_s = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":thorium")
+	public static final Item thorium = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":thorium_m")
+	public static final Item thorium_m = null;
+	@ObjectHolder(AlmostAllTheOres.MODID + ":thorium_s")
+	public static final Item thorium_s = null;
 
 	//GEMS
 
@@ -186,7 +287,13 @@ public class Items {
 				"sapphire", "ruby", "spinel", "amethyst", "jade", "tourmaline", "sugilite", "peridot", "agate", "carnelian", 
 				"chrysoprase", "heliotrope", "topaz", "unakite", "tanzanite", "hauyne", "onyx", "opal", "moonstone", "turquoise", 
 				"amazonite", "chrysocolla", "almandine", "spessartine", "pyrope", "tsavorite", "andradite", "sulphur_dust", "saltpetre",
-				"filter", "grinder", "digester", "dryer", "refiner_mechanism", "separation_part", "grinding_part", "refined_iron_ore", "sulphuric_acid", "so2", "so3"				
+				"filter", "grinder", "digester", "dryer", "refiner_mechanism", "separation_part", "grinding_part", "refined_iron_ore", "sulphuric_acid", "so2", "so3",
+				"scandium", "yttrium", "yttrium_m", "yttrium_s", "lanthanum", "lanthanum_m", "lanthanum_s", "cerium", "cerium_m", 
+				"cerium_s", "praseodymium", "praseodymium_m", "praseodymium_s", "neodymium", "neodymium_m", "neodymium_s", "samarium", "samarium_m", 
+				"samarium_s", "europium", "europium_m", "europium_s", "gadolinium", "gadolinium_m", "gadolinium_s", "terbium", "terbium_m", "terbium_s", 
+				"dysprosium", "dysprosium_m", "dysprosium_s", "holmium", "holmium_m", "holmium_s", "erbium", "erbium_m", "erbium_s", "thulium", 
+				"thulium_m", "thulium_s", "ytterbium", "ytterbium_m", "ytterbium_s", "lutetium", "lutetium_m", "lutetium_s", "thorium", "thorium_m", 
+				"thorium_s"
 		};
 		public static final String[] customItemNames = {
 				"peat_piece", "lignite", "bituminous_coal", "anthracite"	

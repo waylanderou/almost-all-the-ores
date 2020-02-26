@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:ytterbium"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:ytterbium_m"
+        }, 
+        {
+            "item": "almostalltheores:ytterbium_m"
+        }, 
+        {
+            "item": "almostalltheores:ytterbium_m"
+        }, 
+        {
+            "item": "almostalltheores:ytterbium_m"
+        }
+    ]
+}

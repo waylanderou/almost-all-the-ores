@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "layer0": "almostalltheores:item/cerium_s"
+    }, 
+    "parent": "item/generated"
+}

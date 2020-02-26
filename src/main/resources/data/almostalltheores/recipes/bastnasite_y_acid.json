@@ -1,0 +1,44 @@
+{
+  "type": "almostalltheores:refiner_serializer",
+  "refiningTime": 400,
+  "experience": 1.6,
+  "ingredient": {
+	"item": "almostalltheores:bastnasite_y"
+  },
+  "result_a": {
+    "item": "almostalltheores:yttrium",
+    "count": 1
+  },
+  "result_b": {
+    "item": "almostalltheores:samarium_s",
+    "count": 1
+  },
+  "result_c": {
+    "item": "almostalltheores:europium_s",
+    "count": 1
+  },
+  "result_d": {
+    "item": "almostalltheores:gadolinium_m",
+    "count": 1
+  },
+  "result_e": {
+    "item": "almostalltheores:lutetium_s",
+    "count": 1
+  },
+  "result_f": {
+    "item": "almostalltheores:dysprosium_m",
+    "count": 1
+  },
+  "result_g": {
+    "item": "almostalltheores:holmium_s",
+    "count": 1
+  },
+  "result_h": {
+    "item": "almostalltheores:thulium_s",
+    "count": 1
+  },
+  "result_i": {
+    "item": "almostalltheores:ytterbium_s",
+    "count": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "almostalltheores:refiner_serializer",
+  "refiningTime": 400,
+  "experience": 1.8,
+  "ingredient": {
+	"item": "almostalltheores:thortveitite"
+  },
+  "result_a": {
+    "item": "almostalltheores:scandium",
+    "count": 1
+  },
+  "result_b": {
+    "item": "almostalltheores:ytterbium_s",
+    "count": 1
+  },
+  "result_c": {
+    "item": "almostalltheores:erbium_s",
+    "count": 1
+  },
+  "result_d": {
+    "item": "almostalltheores:lutetium_s",
+    "count": 1
+  }
+}

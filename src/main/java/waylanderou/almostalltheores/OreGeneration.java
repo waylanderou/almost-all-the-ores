@@ -31,6 +31,9 @@ public class OreGeneration {
 				if(!Config.disableAatoGeneration.get()) {
 					addNetherOres(biome);
 				}
+				if(Config.clearNether.get()) {
+					biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();
+				}
 				continue;
 			}
 			if(biome.getCategory() == Biome.Category.THEEND) {								
@@ -314,7 +317,13 @@ public class OreGeneration {
 		if(Config.All.get() || Config.enableMithril_ore.get() || Config.enableMithrilOre.get()) {
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MITHRIL_ORE.getDefaultState(), Config.VeinSizeMithril_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMithril_ore.get(), Config.MinHeightMithril_ore.get(), 0, Config.MaxHeightMithril_ore.get())));			
 		}
-		if(biome.getTempCategory() == TempCategory.OCEAN || biome.getTempCategory() == TempCategory.MEDIUM) {
+		if(biome.getTempCategory() == TempCategory.MEDIUM) {
+			if(Config.All.get() || Config.enableBastnasite_ce.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BASTNASITE_CE.getDefaultState(), Config.VeinSizeBastnasite_ce.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBastnasite_ce.get(), Config.MinHeightBastnasite_ce.get(), 0,Config.MaxHeightBastnasite_ce.get())));			
+			}
+			if(Config.All.get() || Config.enableBastnasite_la.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BASTNASITE_LA.getDefaultState(), Config.VeinSizeBastnasite_la.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBastnasite_la.get(), Config.MinHeightBastnasite_la.get(), 0,Config.MaxHeightBastnasite_la.get())));			
+			}
 			if(Config.All.get() || Config.enableClausthalite.get() || Config.enableSeleniumOres.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CLAUSTHALITE.getDefaultState(), Config.VeinSizeClausthalite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkClausthalite.get(), Config.MinHeightClausthalite.get(), 0, Config.MaxHeightClausthalite.get())));
 			}
@@ -379,7 +388,16 @@ public class OreGeneration {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ALMANDINE_ORE.getDefaultState(), Config.VeinSizeAlmandine_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAlmandine_ore.get(), Config.MinHeightAlmandine_ore.get(), 0, Config.MaxHeightAlmandine_ore.get())));
 			}
 		}
-		if(biome.getTempCategory() == TempCategory.OCEAN || biome.getTempCategory() == TempCategory.WARM) {
+		if(biome.getTempCategory() == TempCategory.WARM) {
+			if(Config.All.get() || Config.enableBastnasite_y.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BASTNASITE_Y.getDefaultState(), Config.VeinSizeBastnasite_y.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBastnasite_y.get(), Config.MinHeightBastnasite_y.get(), 0,Config.MaxHeightBastnasite_y.get())));			
+			}
+			if(Config.All.get() || Config.enableMonazite_la.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MONAZITE_LA.getDefaultState(), Config.VeinSizeMonazite_la.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMonazite_la.get(), Config.MinHeightMonazite_la.get(), 0,Config.MaxHeightMonazite_la.get())));			
+			}		
+			if(Config.All.get() || Config.enableMonazite_ce.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MONAZITE_CE.getDefaultState(), Config.VeinSizeMonazite_ce.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMonazite_ce.get(), Config.MinHeightMonazite_ce.get(), 0,Config.MaxHeightMonazite_ce.get())));			
+			}
 			if(Config.All.get() || Config.enableSulphur.get() || Config.enableSulphurOres.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SULPHUR.getDefaultState(), Config.VeinSizeSulphur.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSulphur.get(), Config.MinHeightSulphur.get(), 0, Config.MaxHeightSulphur.get())));
 			}
@@ -453,7 +471,19 @@ public class OreGeneration {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANDRADITE_ORE.getDefaultState(), Config.VeinSizeAndradite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkAndradite_ore.get(), Config.MinHeightAndradite_ore.get(), 0, Config.MaxHeightAndradite_ore.get())));
 			}
 		}
-		if(biome.getTempCategory() == TempCategory.OCEAN || biome.getTempCategory() == TempCategory.COLD) {
+		if(biome.getTempCategory() == TempCategory.COLD) {
+			if(Config.All.get() || Config.enableSamarskite_y.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SAMARSKITE_Y.getDefaultState(), Config.VeinSizeSamarskite_y.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSamarskite_y.get(), Config.MinHeightSamarskite_y.get(), 0,Config.MaxHeightSamarskite_y.get())));			
+			}
+			if(Config.All.get() || Config.enableThortveitite.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.THORTVEITITE.getDefaultState(), Config.VeinSizeThortveitite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkThortveitite.get(), Config.MinHeightThortveitite.get(), 0,Config.MaxHeightThortveitite.get())));			
+			}
+			if(Config.All.get() || Config.enableBastnasite_nd.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BASTNASITE_ND.getDefaultState(), Config.VeinSizeBastnasite_nd.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBastnasite_nd.get(), Config.MinHeightBastnasite_nd.get(), 0,Config.MaxHeightBastnasite_nd.get())));			
+			}
+			if(Config.All.get() || Config.enableMonazite_nd.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MONAZITE_ND.getDefaultState(), Config.VeinSizeMonazite_nd.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkMonazite_nd.get(), Config.MinHeightMonazite_nd.get(), 0,Config.MaxHeightMonazite_nd.get())));			
+			}
 			if(Config.All.get() || Config.enableSulphur.get() || Config.enableSulphurOres.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SULPHUR.getDefaultState(), Config.VeinSizeSulphur.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkSulphur.get(), Config.MinHeightSulphur.get(), 0, Config.MaxHeightSulphur.get())));
 			}
@@ -526,6 +556,20 @@ public class OreGeneration {
 			if(Config.All.get() || Config.enableTsavorite_ore.get() || Config.enableAllGems.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TSAVORITE_ORE.getDefaultState(), Config.VeinSizeTsavorite_ore.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkTsavorite_ore.get(), Config.MinHeightTsavorite_ore.get(), 0, Config.MaxHeightTsavorite_ore.get())));
 			}
+		}
+		if(biome.getTempCategory() == TempCategory.OCEAN) {
+			if(Config.All.get() || Config.enableBastnasite_ce.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BASTNASITE_CE.getDefaultState(), Config.VeinSizeBastnasite_ce.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBastnasite_ce.get(), Config.MinHeightBastnasite_ce.get(), 0,Config.MaxHeightBastnasite_ce.get())));			
+			}
+			if(Config.All.get() || Config.enableBastnasite_la.get() || Config.enableREEs.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BASTNASITE_LA.getDefaultState(), Config.VeinSizeBastnasite_la.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkBastnasite_la.get(), Config.MinHeightBastnasite_la.get(), 0,Config.MaxHeightBastnasite_la.get())));			
+			}
+			if(Config.All.get() || Config.enableClausthalite.get() || Config.enableSeleniumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.CLAUSTHALITE.getDefaultState(), Config.VeinSizeClausthalite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkClausthalite.get(), Config.MinHeightClausthalite.get(), 0, Config.MaxHeightClausthalite.get())));
+			}
+			if(Config.All.get() || Config.enableGreenockite.get() || Config.enableCadmiumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GREENOCKITE.getDefaultState(), Config.VeinSizeGreenockite.get()), Placement.COUNT_RANGE, new CountRangeConfig(Config.VeinsPerChunkGreenockite.get(), Config.MinHeightGreenockite.get(), 0, Config.MaxHeightGreenockite.get())));
+			}			
 		}
 		if(biome.getDownfall() < 0.25F) {
 			if(Config.All.get() || Config.enableNitratine.get() || Config.enableSaltpetreOre.get()) {

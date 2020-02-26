@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:europium"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:europium_m"
+        }, 
+        {
+            "item": "almostalltheores:europium_m"
+        }, 
+        {
+            "item": "almostalltheores:europium_m"
+        }, 
+        {
+            "item": "almostalltheores:europium_m"
+        }
+    ]
+}

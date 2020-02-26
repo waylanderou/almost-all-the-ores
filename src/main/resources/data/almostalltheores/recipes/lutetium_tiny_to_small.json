@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:lutetium_m"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:lutetium_s"
+        }, 
+        {
+            "item": "almostalltheores:lutetium_s"
+        }, 
+        {
+            "item": "almostalltheores:lutetium_s"
+        }, 
+        {
+            "item": "almostalltheores:lutetium_s"
+        }, 
+        {
+            "item": "almostalltheores:lutetium_s"
+        }, 
+        {
+            "item": "almostalltheores:lutetium_s"
+        }
+    ]
+}

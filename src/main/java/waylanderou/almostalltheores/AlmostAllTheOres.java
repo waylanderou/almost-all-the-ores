@@ -4,6 +4,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -17,6 +18,7 @@ import waylanderou.almostalltheores.proxy.ClientProxy;
 import waylanderou.almostalltheores.proxy.IProxy;
 import waylanderou.almostalltheores.proxy.ServerProxy;
 
+@SuppressWarnings("deprecation")
 @Mod("almostalltheores")
 public class AlmostAllTheOres
 {    
@@ -51,8 +53,8 @@ public class AlmostAllTheOres
 		Config.loadConfig();                               
 	}
 
-	private void setup(final FMLCommonSetupEvent event) {    	
-		OreGeneration.setup(); 
+	private void setup(final FMLCommonSetupEvent event) { 
+		DeferredWorkQueue.runLater(OreGeneration::setup);
 		proxy.init();
 	}
 

@@ -1,0 +1,44 @@
+{
+  "type": "almostalltheores:refiner_serializer",
+  "refiningTime": 400,
+  "experience": 1.3,
+  "ingredient": {
+	"item": "almostalltheores:monazite_la"	
+  },
+  "result_a": {
+    "item": "almostalltheores:lanthanum",
+    "count": 1
+  },
+  "result_b": {
+    "item": "almostalltheores:cerium",
+    "count": 1
+  },
+  "result_c": {
+    "item": "almostalltheores:praseodymium_s",
+    "count": 1
+  },
+  "result_d": {
+    "item": "almostalltheores:neodymium_m",
+    "count": 1
+  },
+  "result_e": {
+    "item": "almostalltheores:samarium_s",
+    "count": 1
+  },
+  "result_f": {
+    "item": "almostalltheores:gadolinium_s",
+    "count": 1
+  },
+  "result_g": {
+    "item": "almostalltheores:terbium_s",
+    "count": 1
+  },
+  "result_h": {
+    "item": "almostalltheores:thulium_s",
+    "count": 1
+  },
+  "result_i": {
+    "item": "almostalltheores:thorium_m",
+    "count": 1
+  }
+}

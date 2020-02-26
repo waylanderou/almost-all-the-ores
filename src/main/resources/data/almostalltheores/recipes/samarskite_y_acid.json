@@ -1,0 +1,24 @@
+{
+  "type": "almostalltheores:refiner_serializer",
+  "refiningTime": 400,
+  "experience": 1.6,
+  "ingredient": {
+	"item": "almostalltheores:samarskite_y"
+  },
+  "result_a": {
+    "item": "almostalltheores:yttrium_s",
+    "count": 1
+  },
+  "result_b": {
+    "item": "almostalltheores:dysprosium_s",
+    "count": 1
+  },
+  "result_c": {
+    "item": "almostalltheores:erbium_m",
+    "count": 1
+  },
+  "result_d": {
+    "item": "almostalltheores:thorium_s",
+    "count": 1
+  }
+}

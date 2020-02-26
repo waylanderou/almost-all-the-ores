@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless", 
+    "result": {
+        "count": 1, 
+        "item": "almostalltheores:neodymium"
+    }, 
+    "ingredients": [
+        {
+            "item": "almostalltheores:neodymium_m"
+        }, 
+        {
+            "item": "almostalltheores:neodymium_m"
+        }, 
+        {
+            "item": "almostalltheores:neodymium_m"
+        }, 
+        {
+            "item": "almostalltheores:neodymium_m"
+        }
+    ]
+}
