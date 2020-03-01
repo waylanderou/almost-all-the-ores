@@ -223,14 +223,12 @@ public class TooltipHandler {
 	}
 
 	public void addTooltips(String name, List<ITextComponent> tooltip) {		
-		for(String[] tooltipKeys : tooltips.keySet()) {
-			for(String key: tooltipKeys) {
-				if(key.equals(name)) {					
-					String translationKey = tooltips.get(tooltipKeys);
-					tooltip.add(new TranslationTextComponent(translationKey).applyTextStyle(TextFormatting.GRAY));				
-				}
+		tooltips.forEach((keys, tsKey) -> {			
+			for(String key : keys) {
+				if(key.equals(name))
+					tooltip.add(new TranslationTextComponent(tsKey).applyTextStyle(TextFormatting.GRAY));
 			}
-		}
+		});
 	}	
 
 }

@@ -25,8 +25,7 @@ public class RefinerScreen extends ContainerScreen<RefinerContainer> {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {		
-		int j = container.getFuelLeft();	
-		//TODO ? translationTextComponents
+		int j = container.getFuelLeft();
 		drawString(Minecraft.getInstance().fontRenderer, "Refiner : ", 5, 5, 0xffffff);
 		if(this.container.isProcessingOre()) {
 			drawString(Minecraft.getInstance().fontRenderer, "refining ore...", 52, 5, 0xffffff);
@@ -41,7 +40,7 @@ public class RefinerScreen extends ContainerScreen<RefinerContainer> {
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		GlStateManager.func_227637_a_(1.0F, 1.0F, 1.0F, 1.0F); // color4f let's replace this shit
+		GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.minecraft.getTextureManager().bindTexture(GUI);
 		int relX = (this.width - this.xSize) / 2;
 		int relY = (this.height - this.ySize) / 2;

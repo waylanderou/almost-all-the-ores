@@ -11,14 +11,15 @@ import waylanderou.almostalltheores.client.TooltipHandler;
 public class BlockInformationProvider implements IComponentProvider {
 
 	static final BlockInformationProvider INSTANCE = new BlockInformationProvider();
+	TooltipHandler handler = new TooltipHandler();
 
 	@Override
 	public void appendBody(List<ITextComponent> tooltip, IDataAccessor accessor, IPluginConfig config) {		
-		if(!accessor.getBlock().getTranslationKey().contains("almostalltheores")) { //|| !tooltip.isEmpty() doesn't change anything
+		if(!accessor.getBlock().getTranslationKey().contains("almostalltheores")) { 
 			return;
 		} 
 		String name = accessor.getBlock().getRegistryName().toString().split(":")[1];
-		new TooltipHandler().addTooltips(name, tooltip);		
+		handler.addTooltips(name, tooltip);
 
 	}
 

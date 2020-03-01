@@ -2599,53 +2599,58 @@ public class AatoConfig {
 				.build();
 
 		configData.load();
-		if(enableTinkersDefault) {
-			configData.set("overworldSimplified.enableCopperOres", true);
-			configData.set("overworldSimplified.enableTinOres", true);
-			configData.set("overworldSimplified.enableAluminumOres", true);
-			configData.set("overworldSimplified.enableSilverOres", true);
-			configData.set("overworldSimplified.enableLeadOres", true);
-			configData.set("overworldSimplified.enableZincOres", true);
-		}
-		if(enableToolsforaatogemsMaterials) {
-			configData.set("overworldSimplified.enableSomeGems", true);
-		}
-		if(enableExtraGemsMaterials) {
-			configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
-			configData.set("overworldExpert.sapphire_ore.enableSapphire_ore", true);
-			configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
-			configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
-		}
-		if(enableEasySteelMaterials) {
-			configData.set("overworldSimplified.enableCopperOres", true);
-			configData.set("overworldSimplified.enableTinOres", true);
-			configData.set("overworldSimplified.enableTitaniumOres", true);
-			configData.set("overworldSimplified.enableTungstenOres", true);
-		}
-		if(enableUndergroundMaterialsMaterials) {
-			configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
-			configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
-			configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
-			configData.set("overworldSimplified.enableCobaltOres", true);
-			configData.set("overworldSimplified.enableCalciumOres", true);			
-		}
-		if(enableSilentsGemsMaterials) {
-			configData.set("overworldExpert.ruby_ore.enableSapphire_ore", true);
-			configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
-			configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableSpinel_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableJade_ore", true);
-			configData.set("overworldExpert.ruby_ore.enablePeridot_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableAgate_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableCarnelian_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableChrysoprase_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableTanzanite_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableOnyx_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableOpal_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableMoonstone_ore", true);
-			configData.set("overworldExpert.ruby_ore.enableTurquoise_ore", true);
-			configData.set("overworldExpert.ruby_ore.enablePyrope_ore", true);			
+		
+		if(configData.contains("general.enablePlugAndPlay")) {
+			if((boolean) configData.get("general.enablePlugAndPlay")) {
+				if(enableTinkersDefault) {
+					configData.set("overworldSimplified.enableCopperOres", true);
+					configData.set("overworldSimplified.enableTinOres", true);
+					configData.set("overworldSimplified.enableAluminumOres", true);
+					configData.set("overworldSimplified.enableSilverOres", true);
+					configData.set("overworldSimplified.enableLeadOres", true);
+					configData.set("overworldSimplified.enableZincOres", true);
+				}
+				if(enableToolsforaatogemsMaterials) {
+					configData.set("overworldSimplified.enableSomeGems", true);
+				}
+				if(enableExtraGemsMaterials) {
+					configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
+					configData.set("overworldExpert.sapphire_ore.enableSapphire_ore", true);
+					configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
+					configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
+				}
+				if(enableEasySteelMaterials) {
+					configData.set("overworldSimplified.enableCopperOres", true);
+					configData.set("overworldSimplified.enableTinOres", true);
+					configData.set("overworldSimplified.enableTitaniumOres", true);
+					configData.set("overworldSimplified.enableTungstenOres", true);
+				}
+				if(enableUndergroundMaterialsMaterials) {
+					configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
+					configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
+					configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
+					configData.set("overworldSimplified.enableCobaltOres", true);
+					configData.set("overworldSimplified.enableCalciumOres", true);			
+				}
+				if(enableSilentsGemsMaterials) {
+					configData.set("overworldExpert.ruby_ore.enableSapphire_ore", true);
+					configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
+					configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableSpinel_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableJade_ore", true);
+					configData.set("overworldExpert.ruby_ore.enablePeridot_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableAgate_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableCarnelian_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableChrysoprase_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableTanzanite_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableOnyx_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableOpal_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableMoonstone_ore", true);
+					configData.set("overworldExpert.ruby_ore.enableTurquoise_ore", true);
+					configData.set("overworldExpert.ruby_ore.enablePyrope_ore", true);			
+				}
+			}
 		}
 		spec.setConfig(configData);
 	}	

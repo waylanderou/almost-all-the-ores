@@ -77,7 +77,7 @@ public class Refiner extends Block {
 	}
 
 	@Override
-	public ActionResultType func_225533_a_(BlockState p_225533_1_, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
+	public ActionResultType onBlockActivated(BlockState p_225533_1_, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
 		if (!world.isRemote) {
 			TileEntity tileEntity = world.getTileEntity(pos);
 			if (tileEntity instanceof INamedContainerProvider) {
@@ -87,11 +87,11 @@ public class Refiner extends Block {
 			}
 			return ActionResultType.SUCCESS;
 		}
-		return super.func_225533_a_(p_225533_1_, world, pos, player, hand, p_225533_6_);
+		return super.onBlockActivated(p_225533_1_, world, pos, player, hand, p_225533_6_);
 	}
 
 	public int getLightValue(BlockState state) {
-		return state.get(Refiner.REFINING) ? state.getLightValue() : 0; //super.getLightValue(state) : 0;
+		return state.get(Refiner.REFINING) ? state.getLightValue() : 0;
 	}
 
 }

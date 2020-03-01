@@ -28,27 +28,24 @@ public class AlmostAllTheOres
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(EventPriority.LOWEST, this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AatoConfig.spec);
-		if(AatoConfig.enablePlugAndPlay.get()) {
-			if(ModList.get().isLoaded("tconstruct")) {
-				AatoConfig.enableTinkersDefaultMaterials();     	        	
-			}
-			if(ModList.get().isLoaded("toolsforaatogems")) {
-				AatoConfig.enableToolsforaatogemsMaterials();       	
-			}
-			if(ModList.get().isLoaded("extragems")) {
-				AatoConfig.enableExtraGemsMaterials();
-			}
-			if(ModList.get().isLoaded("easy_steel")) {
-				AatoConfig.enableEasySteelMaterials();
-			}
-			if(ModList.get().isLoaded("undermat")) {
-				AatoConfig.enableUndergroundMaterialsMaterials();
-			}
-			if(ModList.get().isLoaded("silentgems")) {
-				AatoConfig.enableSilentsGemsMaterials();
-			}
-
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AatoConfig.spec);		
+		if(ModList.get().isLoaded("tconstruct")) {
+			AatoConfig.enableTinkersDefaultMaterials();     	        	
+		}
+		if(ModList.get().isLoaded("toolsforaatogems")) {
+			AatoConfig.enableToolsforaatogemsMaterials();       	
+		}
+		if(ModList.get().isLoaded("extragems")) {
+			AatoConfig.enableExtraGemsMaterials();
+		}
+		if(ModList.get().isLoaded("easy_steel")) {
+			AatoConfig.enableEasySteelMaterials();
+		}
+		if(ModList.get().isLoaded("undermat")) {
+			AatoConfig.enableUndergroundMaterialsMaterials();
+		}
+		if(ModList.get().isLoaded("silentgems")) {
+			AatoConfig.enableSilentsGemsMaterials();
 		}
 		AatoConfig.loadConfig();
 
@@ -56,8 +53,7 @@ public class AlmostAllTheOres
 
 	private void setup(final FMLCommonSetupEvent event)
 	{
-		//DeferredWorkQueue.runLater(OreGeneration::setup);
-		OreGeneration.setup(); 
+		DeferredWorkQueue.runLater(OreGeneration::setup);	
 		proxy.init();
 	}
 
