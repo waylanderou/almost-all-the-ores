@@ -216,21 +216,18 @@ public class TooltipHandler {
 		Item item = event.getItemStack().getItem();
 		List<ITextComponent> tooltip = event.getToolTip();
 		if ("almostalltheores".equals(item.getCreatorModId(event.getItemStack()))) {
-			addTooltips(item, tooltip);
+			String itemName = item.getRegistryName().toString().split(":")[1];
+			addTooltips(itemName, tooltip);
 		} 		
 	}
 
-	private void addTooltips(Item item, List<ITextComponent> tooltip) {
-		String itemName = item.getRegistryName().toString().split(":")[1];
-
-		for(String[] array : tooltips.keySet()) {
-			for(String name: array) {
-				if(name.equals(itemName)) {
-					String translationKey = tooltips.get(array);
-					tooltip.add(new TranslationTextComponent(translationKey).applyTextStyle(TextFormatting.BLUE));
-				}
+	public void addTooltips(String name, List<ITextComponent> tooltip) {		
+		tooltips.forEach((keys, tsKey) -> {			
+			for(String key : keys) {
+				if(key.equals(name))
+					tooltip.add(new TranslationTextComponent(tsKey).applyTextStyle(TextFormatting.GRAY));
 			}
-		}	
+		});
 	}	
 
 }

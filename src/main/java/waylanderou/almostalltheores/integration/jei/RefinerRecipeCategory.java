@@ -1,4 +1,4 @@
-package waylanderou.almostalltheores.jei;
+package waylanderou.almostalltheores.integration.jei;
 
 import java.util.ArrayList;
 import java.util.Arrays;

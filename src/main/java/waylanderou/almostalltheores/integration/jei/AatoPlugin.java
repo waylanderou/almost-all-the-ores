@@ -1,4 +1,4 @@
-package waylanderou.almostalltheores.jei;
+package waylanderou.almostalltheores.integration.jei;
 
 import java.util.List;
 import java.util.stream.Collectors;
