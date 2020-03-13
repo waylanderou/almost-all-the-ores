@@ -29,12 +29,12 @@ public class OreGeneration {
 	public static void setup() {
 		for(Biome biome: ForgeRegistries.BIOMES.getValues()) {			
 			if(biome.getCategory() == Biome.Category.NETHER) {	
-				if(!AatoConfig.disableAatoGeneration.get()) {
-					addNetherOres(biome);
-				}
 				if(AatoConfig.clearNether.get()) {
 					biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();
 				}
+				if(!AatoConfig.disableAatoGeneration.get()) {
+					addNetherOres(biome);
+				}				
 				continue;
 			}
 			if(biome.getCategory() == Biome.Category.THEEND) {								
@@ -78,7 +78,7 @@ public class OreGeneration {
 		if(AatoConfig.All.get() || AatoConfig.enableAnthracite_ore.get() || AatoConfig.enableCoalOres.get()) {
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.ANTHRACITE_ORE.getDefaultState(), AatoConfig.VeinSizeAnthracite_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkAnthracite_ore.get(), AatoConfig.MinHeightAnthracite_ore.get(), 0,AatoConfig.MaxHeightAnthracite_ore.get()))));
 		}
-		if(AatoConfig.All.get() || AatoConfig.enableGraphite.get() || AatoConfig.enableCoalOres.get()) {
+		if(AatoConfig.All.get() || AatoConfig.enableGraphite.get() || AatoConfig.enableGraphiteOre.get()) {
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.GRAPHITE.getDefaultState(), AatoConfig.VeinSizeGraphite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkGraphite.get(), AatoConfig.MinHeightGraphite.get(), 0,AatoConfig.MaxHeightGraphite.get()))));
 		}
 		if(AatoConfig.All.get() || AatoConfig.enableArsenopyrite.get() || AatoConfig.enableArsenicOres.get()) {
@@ -578,7 +578,7 @@ public class OreGeneration {
 	private static void removeVanillaStuff(Biome biome) {
 		List<ConfiguredFeature<?, ?>> featuresToRemove = new ArrayList<ConfiguredFeature<?, ?>>();
 		for (ConfiguredFeature<?, ?> feature : biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES)) {					
-			if (((DecoratedFeatureConfig)feature.config).feature.feature instanceof OreFeature) {	
+			if (feature.feature instanceof OreFeature) {		
 				Block b = ((OreFeatureConfig)((DecoratedFeatureConfig)feature.config).feature.config).state.getBlock();
 				if (b == Blocks.IRON_ORE || b == Blocks.GOLD_ORE || b == Blocks.COAL_ORE || b == Blocks.DIAMOND_ORE || b == Blocks.EMERALD_ORE || b == Blocks.LAPIS_ORE || b == Blocks.REDSTONE_ORE) {
 					featuresToRemove.add(feature);	                    	
@@ -612,8 +612,8 @@ public class OreGeneration {
 	private static void handleInfestedStone(Biome biome) {
 		List<ConfiguredFeature<?, ?>> featuresToRemove = new ArrayList<ConfiguredFeature<?, ?>>();
 		if(biome == Biomes.GRAVELLY_MOUNTAINS || biome == Biomes.MODIFIED_GRAVELLY_MOUNTAINS || biome == Biomes.MOUNTAIN_EDGE || biome == Biomes.MOUNTAINS || biome == Biomes.WOODED_MOUNTAINS) {
-			for (ConfiguredFeature<?, ?> feature : biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)) {					
-				if (((DecoratedFeatureConfig)feature.config).feature.feature instanceof OreFeature) {	
+			for (ConfiguredFeature<?, ?> feature : biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)) {				
+				if (feature.feature instanceof OreFeature) {
 					Block b = ((OreFeatureConfig)((DecoratedFeatureConfig)feature.config).feature.config).state.getBlock();
 					if (b == Blocks.INFESTED_STONE) {
 						featuresToRemove.add(feature);	                	
