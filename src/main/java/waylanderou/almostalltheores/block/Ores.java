@@ -518,7 +518,8 @@ public class Ores {
 			if(Config.enableStoneAge.get() && !Config.overwriteAutoStoneAgeValues.get()) {
 				tinHL = 2;
 				cadmiumHL = 2;
-				mercuryHL = 2;				
+				mercuryHL = 2;
+				copperHL = 2;
 			} else if(Config.overwriteAutoStoneAgeValues.get()) {				
 				copperHL = Config.copperHL.get();
 				leadHL = Config.leadHL.get();

@@ -1,5 +1,8 @@
 package waylanderou.almostalltheores;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 
@@ -19,6 +22,51 @@ public class Config {
 	public static ForgeConfigSpec.BooleanValue enableStoneAge;
 	public static ForgeConfigSpec.BooleanValue enablePlugAndPlay;
 	public static ForgeConfigSpec.BooleanValue clearNether;
+	
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistGoldOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistRedstoneOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistDiamondOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistLapisOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistCopperOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistIronOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistAnthraciteOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistBituminousCoalOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistLigniteOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistPeatOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistTinOres;	
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistSulfurOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistNPKOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistLeadOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistAluminiumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistZincOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistCadmiumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistMercuryOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistSilverOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistNickelOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistCommonPGMsOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistRarePGMsOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistManganeseOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistChromiumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistMolybdenumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistTungstenOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistVanadiumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistNiobiumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistTantalumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistTitaniumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistZirconiumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistThoriumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistUraniumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistMagnesiumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistCalciumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistStrontiumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistLithiumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistPotassiumOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistSaltOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistSaltpetreOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistMithrilOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistCobaltOres;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistGraphiteOre;
+	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistChrysocollaOre;
 
 	public static ForgeConfigSpec.BooleanValue enableVanillaCoalOre;
 	public static ForgeConfigSpec.BooleanValue enableVanillaIronOre;
@@ -1148,6 +1196,54 @@ public class Config {
 		carnotiteHL = BUILDER.comment("Carnotite harvest level").defineInRange("carnotiteHarvestLevel", 2, 0, 5);
 		uraniniteHL = BUILDER.comment("Uraninite harvest level").defineInRange("uraniniteHarvestLevel", 3, 0, 5);
 		BUILDER.pop();
+		BUILDER.pop();
+		
+		BUILDER.comment("Here you can blacklist biomes you don't want a group of ores to spawn in. You should put biomes registry names, e.g."
+				+ " minecraft:plains or whatevermod:whateverbiome. See github wiki for examples. Works in all biomes except Nether and End.").push("blacklists");
+		blacklistGoldOre = BUILDER.comment("Gold ore biomes blacklist").define("biomesBlacklistGoldOre", new ArrayList<String>());
+		blacklistDiamondOre = BUILDER.comment("Diamond ore biomes blacklist").define("biomesBlacklistDiamondOre", new ArrayList<String>());
+		blacklistLapisOre = BUILDER.comment("Lapis lazuli ore biomes blacklist").define("biomesBlacklistLapislazuliOre", new ArrayList<String>());
+		blacklistRedstoneOre = BUILDER.comment("Redstone ore biomes blacklist").define("biomesBlacklistRedstoneOre", new ArrayList<String>());
+		blacklistCopperOres = BUILDER.comment("Copper ores biomes blacklist").define("biomesBlacklistCopperOres", new ArrayList<String>());		
+		blacklistIronOres = BUILDER.comment("Iron ores biomes blacklist. Also works for vanilla iron ore if you enabled it.").define("biomesBlacklistIronOres", new ArrayList<String>());
+		blacklistAnthraciteOre = BUILDER.comment("Anthracite ore biomes blacklist").define("biomesBlacklistAnthraciteOre", new ArrayList<String>());
+		blacklistBituminousCoalOre = BUILDER.comment("Bituminous coal ore biomes blacklist. Also works for vanilla coal ore if you enabled it.").define("biomesBlacklistBituminousCoalOre", new ArrayList<String>());
+		blacklistPeatOre = BUILDER.comment("Peat biomes blacklist").define("biomesBlacklistPeat", new ArrayList<String>());
+		blacklistLigniteOre = BUILDER.comment("Lignite ore biomes blacklist").define("biomesBlacklistLigniteOre", new ArrayList<String>());
+		blacklistTinOres = BUILDER.comment("Tin ores biomes blacklist").define("biomesBlacklistTinOres", new ArrayList<String>());	
+		blacklistSulfurOres = BUILDER.comment("Sulfur ores biomes blacklist").define("biomesBlacklistSulfurOres", new ArrayList<String>());
+		blacklistNPKOres = BUILDER.comment("NPK ores (used for making fertilizer) biomes blacklist").define("biomesBlacklistNPKOres", new ArrayList<String>());
+		blacklistLeadOres = BUILDER.comment("Lead ores biomes blacklist").define("biomesBlacklistLeadOres", new ArrayList<String>());
+		blacklistAluminiumOres = BUILDER.comment("Aluminium ores biomes blacklist").define("biomesBlacklistAluminiumOres", new ArrayList<String>());
+		blacklistZincOres = BUILDER.comment("Zinc ores biomes blacklist").define("biomesBlacklistZincOres", new ArrayList<String>());
+		blacklistCadmiumOres = BUILDER.comment("Cadmium ores biomes blacklist").define("biomesBlacklistCadmiumOres", new ArrayList<String>());
+		blacklistMercuryOres = BUILDER.comment("Mercury ores biomes blacklist").define("biomesBlacklistMercuryOres", new ArrayList<String>());
+		blacklistSilverOres = BUILDER.comment("Silver ores biomes blacklist").define("biomesBlacklistSilverOres", new ArrayList<String>());
+		blacklistNickelOres = BUILDER.comment("Nickel ores biomes blacklist").define("biomesBlacklistNickelOres", new ArrayList<String>());
+		blacklistCommonPGMsOres = BUILDER.comment("Common PGMs (platinum, iridium, osmium) ores biomes blacklist").define("biomesBlacklistCommonPGMsOres", new ArrayList<String>());
+		blacklistRarePGMsOres = BUILDER.comment("Rare PGMs (palladium, rhodium, ruthenium) ores biomes blacklist").define("biomesBlacklistRarePGMsOres", new ArrayList<String>());
+		blacklistManganeseOres = BUILDER.comment("Manganese ores biomes blacklist").define("biomesBlacklistManganeseOres", new ArrayList<String>());
+		blacklistChromiumOres = BUILDER.comment("Chromium ores biomes blacklist").define("biomesBlacklistChromiumOres", new ArrayList<String>());
+		blacklistMolybdenumOres = BUILDER.comment("Molybdenum ores biomes blacklist").define("biomesBlacklistMolybdenumOres", new ArrayList<String>());
+		blacklistTungstenOres = BUILDER.comment("Tungsten ores biomes blacklist").define("biomesBlacklistTungstenOres", new ArrayList<String>());
+		blacklistVanadiumOres = BUILDER.comment("Vanadium ores biomes blacklist").define("biomesBlacklistVanadiumOres", new ArrayList<String>());
+		blacklistNiobiumOres = BUILDER.comment("Niobium ores biomes blacklist").define("biomesBlacklistNiobiumOres", new ArrayList<String>());
+		blacklistTantalumOres = BUILDER.comment("Tantalum ores biomes blacklist").define("biomesBlacklistTantalumOres", new ArrayList<String>());
+		blacklistTitaniumOres = BUILDER.comment("Titanium ores biomes blacklist").define("biomesBlacklistTitaniumOres", new ArrayList<String>());
+		blacklistZirconiumOres = BUILDER.comment("Zirconium ores biomes blacklist").define("biomesBlacklistZirconiumOres", new ArrayList<String>());
+		blacklistThoriumOres = BUILDER.comment("Thorium ores biomes blacklist").define("biomesBlacklistThoriumOres", new ArrayList<String>());
+		blacklistUraniumOres = BUILDER.comment("Uranium ores biomes blacklist").define("biomesBlacklistUraniumOres", new ArrayList<String>());
+		blacklistMagnesiumOres = BUILDER.comment("Magnesium ores biomes blacklist").define("biomesBlacklistMagnesiumOres", new ArrayList<String>());
+		blacklistCalciumOres = BUILDER.comment("Calcium ores biomes blacklist").define("biomesBlacklistCalciumOres", new ArrayList<String>());
+		blacklistStrontiumOres = BUILDER.comment("Strontium ores biomes blacklist").define("biomesBlacklistStrontiumOres", new ArrayList<String>());
+		blacklistLithiumOres = BUILDER.comment("Lithium ores biomes blacklist").define("biomesBlacklistLithiumOres", new ArrayList<String>());
+		blacklistPotassiumOres = BUILDER.comment("Potassium ores biomes blacklist").define("biomesBlacklistPotassiumOres", new ArrayList<String>());
+		blacklistSaltOre = BUILDER.comment("Salt ore (halite) biomes blacklist").define("biomesBlacklistSaltOre", new ArrayList<String>());
+		blacklistSaltpetreOre = BUILDER.comment("Saltpetre ore (nitratine) biomes blacklist").define("biomesBlacklistSaltpetreOre", new ArrayList<String>());
+		blacklistMithrilOre = BUILDER.comment("Mithril ore biomes blacklist").define("biomesBlacklistMithrilOre", new ArrayList<String>());
+		blacklistCobaltOres = BUILDER.comment("Cobalt ores biomes blacklist").define("biomesBlacklistCobaltOres", new ArrayList<String>());
+		blacklistGraphiteOre = BUILDER.comment("Graphite biomes blacklist").define("biomesBlacklistGraphite", new ArrayList<String>());
+		blacklistChrysocollaOre = BUILDER.comment("Chrysocolla (gem used to make a refiner) biomes blacklist").define("biomesBlacklistChrysocollaOre", new ArrayList<String>());
 		BUILDER.pop();
 
 		BUILDER.comment("Simplified overworld generation settings for modded ores.").push("overworldSimplified");
@@ -2483,8 +2579,8 @@ public class Config {
 
 		BUILDER.push("nether_gold");
 		enableNetherGold = BUILDER.comment("Enable gold ore generation in nether. (default: true)").define("enableNetherGold", true);
-		VeinSizeNetherGold = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherGold", 25, 0, 50);
-		VeinsPerChunkNetherGold = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherGold", 5, 0, 50);
+		VeinSizeNetherGold = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherGold", 21, 0, 50);
+		VeinsPerChunkNetherGold = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherGold", 4, 0, 50);
 		MinHeightNetherGold = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherGold", 10, 0, 126);
 		MaxHeightNetherGold = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherGold", 110, 0, 126);
 		BUILDER.pop();
@@ -2492,7 +2588,7 @@ public class Config {
 		BUILDER.push("nether_coal");
 		enableNetherCoal = BUILDER.comment("Enable coal ore generation in nether. (default: true)").define("enableNetherCoal", true);
 		VeinSizeNetherCoal = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherCoal", 16, 0, 50);
-		VeinsPerChunkNetherCoal = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherCoal", 6, 0, 50);
+		VeinsPerChunkNetherCoal = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherCoal", 5, 0, 50);
 		MinHeightNetherCoal = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherCoal", 10, 0, 126);
 		MaxHeightNetherCoal = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherCoal", 110, 0, 126);
 		BUILDER.pop();
@@ -2508,7 +2604,7 @@ public class Config {
 		BUILDER.push("nether_sulphur");
 		enableNetherSulphur = BUILDER.comment("Enable sulphur ore generation in nether. (default: true)").define("enableNetherSulphur", true);
 		VeinSizeNetherSulphur = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherSulphur", 15, 0, 50);
-		VeinsPerChunkNetherSulphur = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherSulphur", 15, 0, 50);
+		VeinsPerChunkNetherSulphur = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherSulphur", 11, 0, 50);
 		MinHeightNetherSulphur = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherSulphur", 10, 0, 126);
 		MaxHeightNetherSulphur = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherSulphur", 110, 0, 126);
 		BUILDER.pop();		
