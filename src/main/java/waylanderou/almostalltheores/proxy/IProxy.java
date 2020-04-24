@@ -11,4 +11,6 @@ public interface IProxy {
 
 	PlayerEntity getClientPlayer();
 
+	boolean isClient();
+
 }

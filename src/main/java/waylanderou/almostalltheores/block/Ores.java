@@ -501,45 +501,26 @@ public class Ores {
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("guano"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("peat"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("mithril_ore"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("nether_mithril_ore"));
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).lightValue(7)).setRegistryName("mithril_ore"));
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).lightValue(7)).setRegistryName("nether_mithril_ore"));
 
-			int copperHL = 1;
-			int leadHL = 2;
-			int zincHL = 2;
-			int tinHL = 2;
-			int cadmiumHL = 1;
-			int mercuryHL = 1;
-			int aluminiumHL = 2;
-			int silverHL = 2;
-			int manganeseHL = 2;
-			int titaniumHL = 2;
-			int tungstenHL = 2;
-			int nickelHL = 2;
-			int carnotiteHL = 2;
-			int uraniniteHL = 3;
-
-			if(AatoConfig.enableStoneAge.get() && !AatoConfig.overwriteAutoStoneAgeValues.get()) {
-				tinHL = 2;
-				cadmiumHL = 2;
-				mercuryHL = 2;
-				copperHL = 2;
-			} else if(AatoConfig.overwriteAutoStoneAgeValues.get()) {				
-				copperHL = AatoConfig.copperHL.get();
-				leadHL = AatoConfig.leadHL.get();
-				zincHL = AatoConfig.zincHL.get();
-				tinHL = AatoConfig.tinHL.get();
-				cadmiumHL = AatoConfig.cadmiumHL.get();
-				mercuryHL = AatoConfig.mercuryHL.get();
-				aluminiumHL = AatoConfig.aluminiumHL.get();
-				silverHL = AatoConfig.silverHL.get();
-				manganeseHL = AatoConfig.manganeseHL.get();
-				titaniumHL = AatoConfig.titaniumHL.get();
-				tungstenHL = AatoConfig.tungstenHL.get();
-				nickelHL = AatoConfig.nickelHL.get();
-				carnotiteHL = AatoConfig.carnotiteHL.get();
-				uraniniteHL = AatoConfig.uraniniteHL.get();
-			}
+			final int copperHL = AatoConfig.copperHL.get();
+			final int leadHL = AatoConfig.leadHL.get();
+			final int zincHL = AatoConfig.zincHL.get();
+			final int tinHL = AatoConfig.tinHL.get();
+			final int cadmiumHL = AatoConfig.cadmiumHL.get();
+			final int mercuryHL = AatoConfig.mercuryHL.get();
+			final int aluminiumHL = AatoConfig.aluminiumHL.get();
+			final int silverHL = AatoConfig.silverHL.get();
+			final int manganeseHL = AatoConfig.manganeseHL.get();
+			final int titaniumHL = AatoConfig.titaniumHL.get();
+			final int tungstenHL = AatoConfig.tungstenHL.get();
+			final int nickelHL = AatoConfig.nickelHL.get();
+			final int carnotiteHL = AatoConfig.carnotiteHL.get();
+			final int uraniniteHL = AatoConfig.uraniniteHL.get();
+			final int molybdenumHL = AatoConfig.molybdenumHL.get();
+			final int ironHL = AatoConfig.ironHL.get();
+			
 			registerBlock(event, 1, "pyrite");
 			registerBlock(event, 1, "sulphur");
 			registerBlock(event, 1, "clausthalite");
@@ -604,11 +585,11 @@ public class Ores {
 			registerBlock(event, 2, "cobaltite");
 			registerBlock(event, 2, "carrollite");
 			registerBlock(event, 2, "skutterudite");
-			registerBlock(event, 1, "hematite");
-			registerBlock(event, 1, "magnetite");
-			registerBlock(event, 1, "limonite");
-			registerBlock(event, 1, "siderite");
-			registerBlock(event, 1, "telluric_iron");
+			registerBlock(event, ironHL, "hematite");
+			registerBlock(event, ironHL, "magnetite");
+			registerBlock(event, ironHL, "limonite");
+			registerBlock(event, ironHL, "siderite");
+			registerBlock(event, ironHL, "telluric_iron");
 			registerBlock(event, manganeseHL, "pyrolusite");
 			registerBlock(event, manganeseHL, "rhodochrosite");
 			registerBlock(event, manganeseHL, "hollandite");
@@ -616,9 +597,9 @@ public class Ores {
 			registerBlock(event, manganeseHL, "hausmannite");
 			registerBlock(event, manganeseHL, "alabandite");
 			registerBlock(event, manganeseHL, "rhodonite");
-			registerBlock(event, 2, "chromite");
-			registerBlock(event, 2, "molybdenite");
-			registerBlock(event, 2, "wulfenite");
+			registerBlock(event, AatoConfig.chromiumHL.get(), "chromite");
+			registerBlock(event, molybdenumHL, "molybdenite");
+			registerBlock(event, molybdenumHL, "wulfenite");
 			registerBlock(event, tungstenHL, "scheelite");
 			registerBlock(event, tungstenHL, "ferberite");
 			registerBlock(event, tungstenHL, "hubnerite");
@@ -651,8 +632,8 @@ public class Ores {
 			registerBlock(event, 1, "polyhalite");
 			registerBlock(event, 1, "kainite");
 			registerBlock(event, 1, "langbeinite");
-			registerBlock(event, 1, "nitratine");
-			registerBlock(event, 1, "halite");
+			registerBlock(event, AatoConfig.nitratineHL.get(), "nitratine");
+			registerBlock(event, AatoConfig.haliteHL.get(), "halite");
 			registerBlock(event, 2, "sapphire_ore");
 			registerBlock(event, 2, "ruby_ore");
 			registerBlock(event, 2, "spinel_ore");
@@ -680,8 +661,8 @@ public class Ores {
 			registerBlock(event, 1, "pyrope_ore");
 			registerBlock(event, 1, "tsavorite_ore");
 			registerBlock(event, 1, "andradite_ore");
-			registerBlock(event, 3, "platinum_group_metals");
-			registerBlock(event, 3, "rare_platinum_group_metals");
+			registerBlock(event, AatoConfig.commonPgmsHL.get(), "platinum_group_metals");
+			registerBlock(event, AatoConfig.rarePgmsHL.get(), "rare_platinum_group_metals");
 			registerBlock(event, 0, "anthracite_block");
 			registerBlock(event, 2, "nether_gold_ore");
 			registerBlock(event, 0, "nether_coal_ore");	

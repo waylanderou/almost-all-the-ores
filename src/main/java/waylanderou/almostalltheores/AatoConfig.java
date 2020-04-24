@@ -1158,9 +1158,16 @@ public class AatoConfig {
 	public static ForgeConfigSpec.IntValue titaniumHL;
 	public static ForgeConfigSpec.IntValue tungstenHL;
 	public static ForgeConfigSpec.IntValue nickelHL;
+	public static ForgeConfigSpec.IntValue mithrilHL;
+	public static ForgeConfigSpec.IntValue nitratineHL;
+	public static ForgeConfigSpec.IntValue ironHL;
+	public static ForgeConfigSpec.IntValue haliteHL;
+	public static ForgeConfigSpec.IntValue chromiumHL;
+	public static ForgeConfigSpec.IntValue molybdenumHL;
 	public static ForgeConfigSpec.IntValue carnotiteHL;
 	public static ForgeConfigSpec.IntValue uraniniteHL;
-	public static ForgeConfigSpec.BooleanValue overwriteAutoStoneAgeValues;
+	public static ForgeConfigSpec.IntValue commonPgmsHL;
+	public static ForgeConfigSpec.IntValue rarePgmsHL;
 
 
 	public static ForgeConfigSpec.BooleanValue enableEmerald;
@@ -1178,8 +1185,14 @@ public class AatoConfig {
 		BUILDER.pop();
 
 		BUILDER.comment("Harvest Levels. Wood, Stone, Iron, Diamond : 0, 1, 2, 3. Above 3 is modded materials stronger than diamond.").push("harvestlevels");
-		overwriteAutoStoneAgeValues = BUILDER.comment("Should the mod use customized harvest levels "
-				+ "instead of its default/automatic values").define("useCustomHarvestLevelValues", false);
+		commonPgmsHL = BUILDER.comment("Common PGMs (platinum, iridium, osmium) harvest level").defineInRange("nitratineHavestLevel", 3, 0, 5);
+		rarePgmsHL = BUILDER.comment("Rare PGMs (palladium, ruthenium, rhodium) harvest level").defineInRange("nitratineHavestLevel", 3, 0, 5);
+		nitratineHL = BUILDER.comment("Nitratine (salpetre ore) harvest level").defineInRange("nitratineHavestLevel", 1, 0, 5);
+		ironHL = BUILDER.comment("Iron ores harvest level. Only works with modded iron ores, i.e. hematite, limonite...").defineInRange("ironHarvestLevel", 1, 0, 5);
+		haliteHL = BUILDER.comment("Halite (salt ore) harvest level").defineInRange("haliteHarvestLevel", 1, 0, 5);
+		chromiumHL = BUILDER.comment("Chromium ores harvest level").defineInRange("chromiumHarvestLevel", 2, 0, 5);
+		molybdenumHL = BUILDER.comment("Molybdenum ores harvest level").defineInRange("molybdenumHarvestLevel", 2, 0, 5);
+		mithrilHL = BUILDER.comment("Mithril ores harvest level").defineInRange("mithrilHarvestLevel", 3, 0, 5);
 		copperHL = BUILDER.comment("Copper ores harvest level").defineInRange("copperHarvestLevel", 1, 0, 5);
 		tinHL = BUILDER.comment("Tin ores harvest level").defineInRange("tinHarvestLevel", 2, 0, 5);
 		zincHL = BUILDER.comment("Zinc ores harvest level").defineInRange("zincHarvestLevel", 2, 0, 5);

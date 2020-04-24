@@ -22,4 +22,9 @@ public class ServerProxy implements IProxy {
 		throw new IllegalStateException("Trying to call getClientPlayer on server...");
 	}
 
+	@Override
+	public boolean isClient() {
+		return false;
+	}
+
 }
