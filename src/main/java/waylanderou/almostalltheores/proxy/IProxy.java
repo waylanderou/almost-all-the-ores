@@ -10,5 +10,7 @@ public interface IProxy {
 	World getClientWorld();
 
 	PlayerEntity getClientPlayer();
+	
+	boolean isClient();
 
 }

@@ -29,7 +29,7 @@ public class AlmostAllTheOres
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(EventPriority.LOWEST, this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);		
 
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.spec);		
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.spec);
 		if(ModList.get().isLoaded("tconstruct")) {
 			Config.enableTinkersDefaultMaterials();     	        	
 		}

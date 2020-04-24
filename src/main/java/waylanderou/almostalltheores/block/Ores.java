@@ -498,44 +498,26 @@ public class Ores {
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("guano"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("peat"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("mithril_ore"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(3).lightValue(7)).setRegistryName("nether_mithril_ore"));
-			int copperHL = 1;
-			int leadHL = 2;
-			int zincHL = 2;
-			int tinHL = 2;
-			int cadmiumHL = 1;
-			int mercuryHL = 1;
-			int aluminiumHL = 2;
-			int silverHL = 2;
-			int manganeseHL = 2;
-			int titaniumHL = 2;
-			int tungstenHL = 2;
-			int nickelHL = 2;
-			int carnotiteHL = 2;
-			int uraniniteHL = 3;
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(Config.mithrilHL.get()).lightValue(7)).setRegistryName("mithril_ore"));
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(Config.mithrilHL.get()).lightValue(7)).setRegistryName("nether_mithril_ore"));
 
-			if(Config.enableStoneAge.get() && !Config.overwriteAutoStoneAgeValues.get()) {
-				tinHL = 2;
-				cadmiumHL = 2;
-				mercuryHL = 2;
-				copperHL = 2;
-			} else if(Config.overwriteAutoStoneAgeValues.get()) {				
-				copperHL = Config.copperHL.get();
-				leadHL = Config.leadHL.get();
-				zincHL = Config.zincHL.get();
-				tinHL = Config.tinHL.get();
-				cadmiumHL = Config.cadmiumHL.get();
-				mercuryHL = Config.mercuryHL.get();
-				aluminiumHL = Config.aluminiumHL.get();
-				silverHL = Config.silverHL.get();
-				manganeseHL = Config.manganeseHL.get();
-				titaniumHL = Config.titaniumHL.get();
-				tungstenHL = Config.tungstenHL.get();
-				nickelHL = Config.nickelHL.get();
-				carnotiteHL = Config.carnotiteHL.get();
-				uraniniteHL = Config.uraniniteHL.get();
-			}
+			final int copperHL = Config.copperHL.get();
+			final int leadHL = Config.leadHL.get();
+			final int zincHL = Config.zincHL.get();
+			final int tinHL = Config.tinHL.get();
+			final int cadmiumHL = Config.cadmiumHL.get();
+			final int mercuryHL = Config.mercuryHL.get();
+			final int aluminiumHL = Config.aluminiumHL.get();
+			final int silverHL = Config.silverHL.get();
+			final int manganeseHL = Config.manganeseHL.get();
+			final int titaniumHL = Config.titaniumHL.get();
+			final int tungstenHL = Config.tungstenHL.get();
+			final int nickelHL = Config.nickelHL.get();
+			final int carnotiteHL = Config.carnotiteHL.get();
+			final int uraniniteHL = Config.uraniniteHL.get();
+			final int molybdenumHL = Config.molybdenumHL.get();
+			final int ironHL = Config.ironHL.get();
+
 			registerBlock(event, 1, "pyrite");
 			registerBlock(event, 1, "sulphur");
 			registerBlock(event, 1, "clausthalite");
@@ -600,11 +582,11 @@ public class Ores {
 			registerBlock(event, 2, "cobaltite");
 			registerBlock(event, 2, "carrollite");
 			registerBlock(event, 2, "skutterudite");
-			registerBlock(event, 1, "hematite");
-			registerBlock(event, 1, "magnetite");
-			registerBlock(event, 1, "limonite");
-			registerBlock(event, 1, "siderite");
-			registerBlock(event, 1, "telluric_iron");
+			registerBlock(event, ironHL, "hematite");
+			registerBlock(event, ironHL, "magnetite");
+			registerBlock(event, ironHL, "limonite");
+			registerBlock(event, ironHL, "siderite");
+			registerBlock(event, ironHL, "telluric_iron");
 			registerBlock(event, manganeseHL, "pyrolusite");
 			registerBlock(event, manganeseHL, "rhodochrosite");
 			registerBlock(event, manganeseHL, "hollandite");
@@ -612,9 +594,9 @@ public class Ores {
 			registerBlock(event, manganeseHL, "hausmannite");
 			registerBlock(event, manganeseHL, "alabandite");
 			registerBlock(event, manganeseHL, "rhodonite");
-			registerBlock(event, 2, "chromite");
-			registerBlock(event, 2, "molybdenite");
-			registerBlock(event, 2, "wulfenite");
+			registerBlock(event, Config.chromiumHL.get(), "chromite");
+			registerBlock(event, molybdenumHL, "molybdenite");
+			registerBlock(event, molybdenumHL, "wulfenite");
 			registerBlock(event, tungstenHL, "scheelite");
 			registerBlock(event, tungstenHL, "ferberite");
 			registerBlock(event, tungstenHL, "hubnerite");
@@ -647,8 +629,8 @@ public class Ores {
 			registerBlock(event, 1, "polyhalite");
 			registerBlock(event, 1, "kainite");
 			registerBlock(event, 1, "langbeinite");
-			registerBlock(event, 1, "nitratine");
-			registerBlock(event, 1, "halite");
+			registerBlock(event, Config.nitratineHL.get(), "nitratine");
+			registerBlock(event, Config.haliteHL.get(), "halite");
 			registerBlock(event, 2, "sapphire_ore");
 			registerBlock(event, 2, "ruby_ore");
 			registerBlock(event, 2, "spinel_ore");
@@ -676,8 +658,8 @@ public class Ores {
 			registerBlock(event, 1, "pyrope_ore");
 			registerBlock(event, 1, "tsavorite_ore");
 			registerBlock(event, 1, "andradite_ore");
-			registerBlock(event, 3, "platinum_group_metals");
-			registerBlock(event, 3, "rare_platinum_group_metals");
+			registerBlock(event, Config.commonPgmsHL.get(), "platinum_group_metals");
+			registerBlock(event, Config.rarePgmsHL.get(), "rare_platinum_group_metals");
 			registerBlock(event, 0, "anthracite_block");
 			registerBlock(event, 2, "nether_gold_ore");
 			registerBlock(event, 0, "nether_coal_ore");	
