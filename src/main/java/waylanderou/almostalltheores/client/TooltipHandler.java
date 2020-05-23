@@ -8,6 +8,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import waylanderou.almostalltheores.AatoConfig;
 
 public class TooltipHandler {
 	public final String[] iron = { "hematite", "magnetite", "limonite", "siderite", "telluric_iron" };
@@ -222,7 +223,9 @@ public class TooltipHandler {
 		} 		
 	}
 
-	public void addTooltips(String name, List<ITextComponent> tooltip) {		
+	public void addTooltips(String name, List<ITextComponent> tooltip) {
+		if(AatoConfig.mineralogistOption.get())
+			return;
 		tooltips.forEach((keys, tsKey) -> {			
 			for(String key : keys) {
 				if(key.equals(name))

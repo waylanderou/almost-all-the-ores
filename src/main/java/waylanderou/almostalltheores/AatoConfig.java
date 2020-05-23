@@ -22,7 +22,9 @@ public class AatoConfig {
 	public static ForgeConfigSpec.BooleanValue enableStoneAge;
 	public static ForgeConfigSpec.BooleanValue enablePlugAndPlay;
 	public static ForgeConfigSpec.BooleanValue clearNether;
-	
+	public static ForgeConfigSpec.BooleanValue hideJEI;
+	public static ForgeConfigSpec.BooleanValue mineralogistOption;
+
 	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistGoldOre;
 	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistRedstoneOre;
 	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistDiamondOre;
@@ -1178,10 +1180,12 @@ public class AatoConfig {
 		BUILDER.comment("General settings").push("general");
 		handleEverythingInOverworld = BUILDER.comment("Should Aato remove ALL ores from other mods to prevent 'duplicate' ores in the overworld.").define("handleEverythingInOverworld", true);
 		disableAatoGeneration = BUILDER.comment("Set this to true if you only want to use this mod to tune vanilla ores spawning. Nothing from this mod will spawn in any dimension.").define("disableAatoGeneration", false);
+		hideJEI = BUILDER.comment("Should blocks and items from this mod be hidden in JEI. Useful if you only use this mod to tune vanilla ores.").define("hideEverythingInJEI", false);
 		enableStoneAge = BUILDER.comment("Activate the stone age. Disable a few smelting recipes so you have to build a refiner in order to have iron. It really changes the way you have to play early game. (default: false)").define("enableStoneAge", false);
 		enablePlugAndPlay = BUILDER.comment("If for some reason you don't want the mod to automatically enable ore generation for mods supported by the plug and play feature, set this to false"
 				+ " WARNING : you will have to enable everything by yourself.").define("enablePlugAndPlay", true);
 		clearNether = BUILDER.comment("Should Nether be cleared of all ore generation from vanilla and other mods.").define("clearNether", false);
+		mineralogistOption = BUILDER.comment("If you are a geologist or a mineralogist at heart, turn this on. No tooltips will be shown. Also recommended for hardcore players.").define("noTooltips", false);
 		BUILDER.pop();
 
 		BUILDER.comment("Harvest Levels. Wood, Stone, Iron, Diamond : 0, 1, 2, 3. Above 3 is modded materials stronger than diamond.").push("harvestlevels");
@@ -1210,7 +1214,7 @@ public class AatoConfig {
 		uraniniteHL = BUILDER.comment("Uraninite harvest level").defineInRange("uraniniteHarvestLevel", 3, 0, 5);
 		BUILDER.pop();
 		BUILDER.pop();
-		
+
 		BUILDER.comment("Here you can blacklist biomes you don't want a group of ores to spawn in. You should put biomes registry names, e.g."
 				+ " minecraft:plains or whatevermod:whateverbiome. See github wiki for examples. Works in all biomes except Nether and End.").push("blacklists");
 		blacklistGoldOre = BUILDER.comment("Gold ore biomes blacklist").define("biomesBlacklistGoldOre", new ArrayList<String>());
@@ -1258,7 +1262,7 @@ public class AatoConfig {
 		blacklistGraphiteOre = BUILDER.comment("Graphite biomes blacklist").define("biomesBlacklistGraphite", new ArrayList<String>());
 		blacklistChrysocollaOre = BUILDER.comment("Chrysocolla (gem used to make a refiner) biomes blacklist").define("biomesBlacklistChrysocollaOre", new ArrayList<String>());
 		BUILDER.pop();
-		
+
 		BUILDER.comment("Simplified overworld generation settings for modded ores.").push("overworldSimplified");
 		enableSulphurOres = BUILDER.comment("Enable all sulphur ores. (default: true)").define("enableSulphurOres", true);
 		enableSeleniumOres = BUILDER.comment("Enable all selenium ores. (default: false)").define("enableSeleniumOres", false);
@@ -2708,7 +2712,7 @@ public class AatoConfig {
 				.build();
 
 		configData.load();
-		
+
 		if(configData.contains("general.enablePlugAndPlay")) {
 			if((boolean) configData.get("general.enablePlugAndPlay")) {
 				if(enableTinkersDefault) {
