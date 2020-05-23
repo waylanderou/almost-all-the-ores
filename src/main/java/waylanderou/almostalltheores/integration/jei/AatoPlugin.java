@@ -1,19 +1,23 @@
 package waylanderou.almostalltheores.integration.jei;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.ResourceLocation;
 import waylanderou.almostalltheores.AlmostAllTheOres;
+import waylanderou.almostalltheores.Config;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
 import waylanderou.almostalltheores.item.crafting.RefinerRecipe;
 
@@ -44,6 +48,18 @@ public class AatoPlugin implements IModPlugin {
 		return Minecraft.getInstance().world.getRecipeManager().getRecipes().stream()
 				.filter(r -> r.getType() == recipeType)
 				.collect(Collectors.toList());
+	}
+
+	@Override
+	public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
+		if(!Config.hideJEI.get())
+			return;
+		List<ItemStack> itemsToBeHidden = new ArrayList<ItemStack>();
+		jeiRuntime.getIngredientManager().getAllIngredients(VanillaTypes.ITEM).forEach(item -> {
+			if(item.getItem().getRegistryName().toString().contains("almostalltheores"))
+				itemsToBeHidden.add(item);
+		});
+		jeiRuntime.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM, itemsToBeHidden);
 	}
 
 }
