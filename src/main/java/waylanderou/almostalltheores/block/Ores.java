@@ -501,8 +501,12 @@ public class Ores {
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("guano"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("peat"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).lightValue(7)).setRegistryName("mithril_ore"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).lightValue(7)).setRegistryName("nether_mithril_ore"));
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).func_235838_a_((x) -> {
+				return 7;
+			})).setRegistryName("mithril_ore"));
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).func_235838_a_((x) -> {
+				return 7;
+			})).setRegistryName("nether_mithril_ore"));
 
 			final int copperHL = AatoConfig.copperHL.get();
 			final int leadHL = AatoConfig.leadHL.get();
@@ -520,7 +524,7 @@ public class Ores {
 			final int uraniniteHL = AatoConfig.uraniniteHL.get();
 			final int molybdenumHL = AatoConfig.molybdenumHL.get();
 			final int ironHL = AatoConfig.ironHL.get();
-			
+
 			registerBlock(event, 1, "pyrite");
 			registerBlock(event, 1, "sulphur");
 			registerBlock(event, 1, "clausthalite");

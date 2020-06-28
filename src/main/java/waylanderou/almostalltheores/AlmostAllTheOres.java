@@ -22,7 +22,7 @@ import waylanderou.almostalltheores.proxy.ServerProxy;
 public class AlmostAllTheOres
 {    
 	public static final String MODID = "almostalltheores";
-	public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());	
+	public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
 
 	public AlmostAllTheOres() {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(EventPriority.LOWEST, this::setup);

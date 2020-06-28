@@ -35,8 +35,9 @@ public class Refiner extends Block {
 	public Refiner() {
 		super(Properties.create(Material.IRON)				
 				.sound(SoundType.METAL)
-				.hardnessAndResistance(2.0F)
-				.lightValue(10));
+				.hardnessAndResistance(2.0F).func_235838_a_((x) -> {
+					return 10;
+				}));
 		setRegistryName("refiner");
 		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(Refiner.REFINING, Boolean.valueOf(false)));
 	}	

@@ -229,7 +229,7 @@ public class TooltipHandler {
 		tooltips.forEach((keys, tsKey) -> {			
 			for(String key : keys) {
 				if(key.equals(name))
-					tooltip.add(new TranslationTextComponent(tsKey).applyTextStyle(TextFormatting.GRAY));
+					tooltip.add(new TranslationTextComponent(tsKey).func_240699_a_(TextFormatting.GRAY));
 			}
 		});
 	}	

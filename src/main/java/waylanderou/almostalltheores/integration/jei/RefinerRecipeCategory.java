@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
+
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -69,9 +71,9 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 	}
 
 	@Override
-	public void draw(RefinerRecipe recipe, double mouseX, double mouseY) {
-		animatedFlame.draw(18, 26);
-		arrow.draw(41, 24);
+	public void draw(RefinerRecipe recipe, MatrixStack matrixstack, double mouseX, double mouseY) {
+		animatedFlame.draw(matrixstack, 18, 26);
+		arrow.draw(matrixstack, 41, 24);
 
 		float experience = recipe.getExperience();
 		if (experience > 0) {
@@ -79,7 +81,7 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 			Minecraft minecraft = Minecraft.getInstance();
 			FontRenderer fontRenderer = minecraft.fontRenderer;
 			int stringWidth = fontRenderer.getStringWidth(experienceString);
-			fontRenderer.drawString(experienceString, background.getWidth() - stringWidth - 61, 46, 0xFF808080);
+			fontRenderer.func_238421_b_(matrixstack, experienceString, background.getWidth() - stringWidth - 61, 46, 0xFF808080);
 		}
 	}
 

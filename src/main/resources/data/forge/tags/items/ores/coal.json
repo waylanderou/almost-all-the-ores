@@ -2,7 +2,10 @@
     "values": [
         "almostalltheores:bituminous_coal_ore", 
         "almostalltheores:anthracite_ore",
-		"almostalltheores:nether_coal_ore"
+		"almostalltheores:nether_coal_ore",
+		"almostalltheores:lignite",
+		"almostalltheores:graphite",
+		"almostalltheores:jet"
     ], 
     "replace": false
 }

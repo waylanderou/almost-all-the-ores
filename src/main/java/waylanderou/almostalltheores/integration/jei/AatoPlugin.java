@@ -31,7 +31,6 @@ public class AatoPlugin implements IModPlugin {
 
 	@Override
 	public void registerRecipes(IRecipeRegistration registration) {
-		registration.getIngredientManager();
 		registration.addRecipes(getRecipesOfType(RefinerRecipe.REFINING), RefinerRecipeCategory.UID);
 	}
 
