@@ -28,10 +28,12 @@ public class OreGeneration {
 
 	public static void setup() {
 		for(Biome biome: ForgeRegistries.BIOMES.getValues()) {			
-			if(biome.getCategory() == Biome.Category.NETHER) {	
+			if(biome.getCategory() == Biome.Category.NETHER) {
+				removeVanillaNetherOres(biome);
 				if(AatoConfig.clearNether.get()) {
 					biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();
-					removeNetherQuartz(biome);
+				} else {
+					addVanillaNetherOres(biome);
 				}
 				if(!AatoConfig.disableAatoGeneration.get()) {
 					addNetherOres(biome);
@@ -54,13 +56,13 @@ public class OreGeneration {
 		}		
 	}
 
-	private static void removeNetherQuartz(Biome biome) {
+	private static void removeVanillaNetherOres(Biome biome) {
 		List<ConfiguredFeature<?, ?>> featuresToRemove = new ArrayList<ConfiguredFeature<?, ?>>();
 		for(ConfiguredFeature<?, ?> feature : biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION)) {
 			if (feature.config instanceof DecoratedFeatureConfig) {
 				if(((DecoratedFeatureConfig)feature.config).feature.feature instanceof OreFeature) {
 					Block b = ((OreFeatureConfig)((DecoratedFeatureConfig)feature.config).feature.config).state.getBlock();
-					if (b == Blocks.NETHER_QUARTZ_ORE) {						
+					if (b == Blocks.NETHER_QUARTZ_ORE || b == Blocks.field_235334_I_) {						
 						featuresToRemove.add(feature);	                	
 					}
 				}
@@ -723,20 +725,23 @@ public class OreGeneration {
 	}
 
 	private static void addNetherOres(Biome biome) {
-		if(AatoConfig.All.get() || AatoConfig.enableSulphur.get() || AatoConfig.enableSulphurOres.get()) {
+		if(AatoConfig.All.get() || AatoConfig.enableNetherSulphur.get() || AatoConfig.enableSulphurOres.get()) {
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.SULPHUR.getDefaultState(), AatoConfig.VeinSizeNetherSulphur.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherSulphur.get(), AatoConfig.MinHeightNetherSulphur.get(), 0, AatoConfig.MaxHeightNetherSulphur.get()))));
-
 		}
 		if(AatoConfig.All.get() || AatoConfig.enableNetherCoal.get()) {
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_COAL_ORE.getDefaultState(), AatoConfig.VeinSizeNetherCoal.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherCoal.get(), AatoConfig.MinHeightNetherCoal.get(), 0,AatoConfig.MaxHeightNetherCoal.get()))));
-
-		}
-		if(AatoConfig.All.get() || AatoConfig.enableNetherGold.get()) {
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_GOLD_ORE.getDefaultState(), AatoConfig.VeinSizeNetherGold.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherGold.get(), AatoConfig.MinHeightNetherGold.get(), 0,AatoConfig.MaxHeightNetherGold.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_COAL_ORE.getDefaultState(), AatoConfig.VeinSizeNetherCoal.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherCoal.get(), AatoConfig.MinHeightNetherCoal.get(), 0, AatoConfig.MaxHeightNetherCoal.get()))));
 		}
 		if(AatoConfig.All.get() || AatoConfig.enableNetherMithril.get()) {
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_MITHRIL_ORE.getDefaultState(), AatoConfig.VeinSizeNetherMithril.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherMithril.get(), AatoConfig.MinHeightNetherMithril.get(), 0,AatoConfig.MaxHeightNetherMithril.get()))));
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Ores.NETHER_MITHRIL_ORE.getDefaultState(), AatoConfig.VeinSizeNetherMithril.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherMithril.get(), AatoConfig.MinHeightNetherMithril.get(), 0, AatoConfig.MaxHeightNetherMithril.get()))));
+		}
+	}
 
+	private static void addVanillaNetherOres(Biome biome) {
+		if(AatoConfig.All.get() || AatoConfig.enableNetherGold.get()) {
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Blocks.field_235334_I_.getDefaultState(), AatoConfig.VeinSizeNetherGold.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherGold.get(), AatoConfig.MinHeightNetherGold.get(), 0, AatoConfig.MaxHeightNetherGold.get()))));
+		}
+		if(AatoConfig.All.get() || AatoConfig.enableNetherQuartz.get()) {
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Blocks.NETHER_QUARTZ_ORE.getDefaultState(), AatoConfig.VeinSizeNetherQuartz.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkNetherQuartz.get(), AatoConfig.MinHeightNetherQuartz.get(), 0, AatoConfig.MaxHeightNetherQuartz.get()))));
 		}
 	}
 

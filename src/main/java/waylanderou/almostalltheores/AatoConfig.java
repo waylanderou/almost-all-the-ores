@@ -7,6 +7,9 @@ import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
+import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
+import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 public class AatoConfig {
@@ -19,1172 +22,1179 @@ public class AatoConfig {
 	private static boolean enableEasySteelMaterials = false;
 	private static boolean enableUndergroundMaterialsMaterials = false;
 	private static boolean enableSilentsGemsMaterials = false;
-	public static ForgeConfigSpec.BooleanValue enableStoneAge;
-	public static ForgeConfigSpec.BooleanValue enablePlugAndPlay;
-	public static ForgeConfigSpec.BooleanValue clearNether;
-	public static ForgeConfigSpec.BooleanValue hideJEI;
-	public static ForgeConfigSpec.BooleanValue mineralogistOption;
-
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistGoldOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistRedstoneOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistDiamondOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistLapisOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistCopperOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistIronOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistAnthraciteOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistBituminousCoalOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistLigniteOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistPeatOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistTinOres;	
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistSulfurOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistNPKOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistLeadOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistAluminiumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistZincOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistCadmiumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistMercuryOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistSilverOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistNickelOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistCommonPGMsOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistRarePGMsOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistManganeseOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistChromiumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistMolybdenumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistTungstenOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistVanadiumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistNiobiumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistTantalumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistTitaniumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistZirconiumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistThoriumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistUraniumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistMagnesiumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistCalciumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistStrontiumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistLithiumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistPotassiumOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistSaltOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistSaltpetreOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistMithrilOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistCobaltOres;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistGraphiteOre;
-	public static ForgeConfigSpec.ConfigValue<List<String>> blacklistChrysocollaOre;
-
-	public static ForgeConfigSpec.BooleanValue enableVanillaCoalOre;
-	public static ForgeConfigSpec.BooleanValue enableVanillaIronOre;
-	public static ForgeConfigSpec.BooleanValue handleEverythingInOverworld;
-	public static ForgeConfigSpec.BooleanValue disableAatoGeneration;
-
-	public static ForgeConfigSpec.BooleanValue enableBastnasite_la;
-	public static ForgeConfigSpec.IntValue VeinSizeBastnasite_la;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBastnasite_la;
-	public static ForgeConfigSpec.IntValue MinHeightBastnasite_la;
-	public static ForgeConfigSpec.IntValue MaxHeightBastnasite_la;
-
-	public static ForgeConfigSpec.BooleanValue enableMonazite_la;
-	public static ForgeConfigSpec.IntValue VeinSizeMonazite_la;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkMonazite_la;
-	public static ForgeConfigSpec.IntValue MinHeightMonazite_la;
-	public static ForgeConfigSpec.IntValue MaxHeightMonazite_la;
-
-	public static ForgeConfigSpec.BooleanValue enableBastnasite_ce;
-	public static ForgeConfigSpec.IntValue VeinSizeBastnasite_ce;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBastnasite_ce;
-	public static ForgeConfigSpec.IntValue MinHeightBastnasite_ce;
-	public static ForgeConfigSpec.IntValue MaxHeightBastnasite_ce;
-
-	public static ForgeConfigSpec.BooleanValue enableMonazite_ce;
-	public static ForgeConfigSpec.IntValue VeinSizeMonazite_ce;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkMonazite_ce;
-	public static ForgeConfigSpec.IntValue MinHeightMonazite_ce;
-	public static ForgeConfigSpec.IntValue MaxHeightMonazite_ce;
-
-	public static ForgeConfigSpec.BooleanValue enableBastnasite_nd;
-	public static ForgeConfigSpec.IntValue VeinSizeBastnasite_nd;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBastnasite_nd;
-	public static ForgeConfigSpec.IntValue MinHeightBastnasite_nd;
-	public static ForgeConfigSpec.IntValue MaxHeightBastnasite_nd;
-
-	public static ForgeConfigSpec.BooleanValue enableMonazite_nd;
-	public static ForgeConfigSpec.IntValue VeinSizeMonazite_nd;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkMonazite_nd;
-	public static ForgeConfigSpec.IntValue MinHeightMonazite_nd;
-	public static ForgeConfigSpec.IntValue MaxHeightMonazite_nd;
-
-	public static ForgeConfigSpec.BooleanValue enableBastnasite_y;
-	public static ForgeConfigSpec.IntValue VeinSizeBastnasite_y;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBastnasite_y;
-	public static ForgeConfigSpec.IntValue MinHeightBastnasite_y;
-	public static ForgeConfigSpec.IntValue MaxHeightBastnasite_y;
-
-	public static ForgeConfigSpec.BooleanValue enableSamarskite_y;
-	public static ForgeConfigSpec.IntValue VeinSizeSamarskite_y;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSamarskite_y;
-	public static ForgeConfigSpec.IntValue MinHeightSamarskite_y;
-	public static ForgeConfigSpec.IntValue MaxHeightSamarskite_y;
-
-	public static ForgeConfigSpec.BooleanValue enableThortveitite;
-	public static ForgeConfigSpec.IntValue VeinSizeThortveitite;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkThortveitite;
-	public static ForgeConfigSpec.IntValue MinHeightThortveitite;
-	public static ForgeConfigSpec.IntValue MaxHeightThortveitite;
-
-	public static ForgeConfigSpec.BooleanValue enablePyrite; 
-	public static ForgeConfigSpec.IntValue VeinSizePyrite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPyrite; 
-	public static ForgeConfigSpec.IntValue MinHeightPyrite; 
-	public static ForgeConfigSpec.IntValue MaxHeightPyrite; 
-
-	public static ForgeConfigSpec.BooleanValue enableSulphur; 
-	public static ForgeConfigSpec.IntValue VeinSizeSulphur; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSulphur; 
-	public static ForgeConfigSpec.IntValue MinHeightSulphur; 
-	public static ForgeConfigSpec.IntValue MaxHeightSulphur; 
-
-	public static ForgeConfigSpec.BooleanValue enableClausthalite; 
-	public static ForgeConfigSpec.IntValue VeinSizeClausthalite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkClausthalite; 
-	public static ForgeConfigSpec.IntValue MinHeightClausthalite; 
-	public static ForgeConfigSpec.IntValue MaxHeightClausthalite; 
-
-	public static ForgeConfigSpec.BooleanValue enableGuano; 
-	public static ForgeConfigSpec.IntValue VeinSizeGuano; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkGuano; 
-	public static ForgeConfigSpec.IntValue MinHeightGuano; 
-	public static ForgeConfigSpec.IntValue MaxHeightGuano; 
-
-	public static ForgeConfigSpec.BooleanValue enablePhosphorite; 
-	public static ForgeConfigSpec.IntValue VeinSizePhosphorite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPhosphorite; 
-	public static ForgeConfigSpec.IntValue MinHeightPhosphorite; 
-	public static ForgeConfigSpec.IntValue MaxHeightPhosphorite; 
-
-	public static ForgeConfigSpec.BooleanValue enablePeat; 
-	public static ForgeConfigSpec.IntValue VeinSizePeat; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPeat; 
-	public static ForgeConfigSpec.IntValue MinHeightPeat; 
-	public static ForgeConfigSpec.IntValue MaxHeightPeat; 
-
-	public static ForgeConfigSpec.BooleanValue enableLignite_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeLignite_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkLignite_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightLignite_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightLignite_ore;
-
-	public static ForgeConfigSpec.BooleanValue enableBituminous_coal_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeBituminous_coal_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBituminous_coal_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightBituminous_coal_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightBituminous_coal_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableAnthracite_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeAnthracite_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAnthracite_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightAnthracite_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightAnthracite_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableGraphite; 
-	public static ForgeConfigSpec.IntValue VeinSizeGraphite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkGraphite; 
-	public static ForgeConfigSpec.IntValue MinHeightGraphite; 
-	public static ForgeConfigSpec.IntValue MaxHeightGraphite; 
-
-	public static ForgeConfigSpec.BooleanValue enableLollingite; 
-	public static ForgeConfigSpec.IntValue VeinSizeLollingite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkLollingite; 
-	public static ForgeConfigSpec.IntValue MinHeightLollingite; 
-	public static ForgeConfigSpec.IntValue MaxHeightLollingite; 
-
-	public static ForgeConfigSpec.BooleanValue enableRealgar; 
-	public static ForgeConfigSpec.IntValue VeinSizeRealgar; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkRealgar; 
-	public static ForgeConfigSpec.IntValue MinHeightRealgar; 
-	public static ForgeConfigSpec.IntValue MaxHeightRealgar; 
-
-	public static ForgeConfigSpec.BooleanValue enableOrpiment; 
-	public static ForgeConfigSpec.IntValue VeinSizeOrpiment; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkOrpiment; 
-	public static ForgeConfigSpec.IntValue MinHeightOrpiment; 
-	public static ForgeConfigSpec.IntValue MaxHeightOrpiment; 
-
-	public static ForgeConfigSpec.BooleanValue enableArsenopyrite; 
-	public static ForgeConfigSpec.IntValue VeinSizeArsenopyrite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkArsenopyrite; 
-	public static ForgeConfigSpec.IntValue MinHeightArsenopyrite; 
-	public static ForgeConfigSpec.IntValue MaxHeightArsenopyrite; 
-
-	public static ForgeConfigSpec.BooleanValue enableStibnite; 
-	public static ForgeConfigSpec.IntValue VeinSizeStibnite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkStibnite; 
-	public static ForgeConfigSpec.IntValue MinHeightStibnite; 
-	public static ForgeConfigSpec.IntValue MaxHeightStibnite; 
-
-	public static ForgeConfigSpec.BooleanValue enableGermanite; 
-	public static ForgeConfigSpec.IntValue VeinSizeGermanite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkGermanite; 
-	public static ForgeConfigSpec.IntValue MinHeightGermanite; 
-	public static ForgeConfigSpec.IntValue MaxHeightGermanite; 
-
-	public static ForgeConfigSpec.BooleanValue enableArgutite; 
-	public static ForgeConfigSpec.IntValue VeinSizeArgutite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkArgutite; 
-	public static ForgeConfigSpec.IntValue MinHeightArgutite; 
-	public static ForgeConfigSpec.IntValue MaxHeightArgutite; 
-
-	public static ForgeConfigSpec.BooleanValue enableBismuthinite; 
-	public static ForgeConfigSpec.IntValue VeinSizeBismuthinite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBismuthinite; 
-	public static ForgeConfigSpec.IntValue MinHeightBismuthinite; 
-	public static ForgeConfigSpec.IntValue MaxHeightBismuthinite; 
-
-	public static ForgeConfigSpec.BooleanValue enableNative_bismuth; 
-	public static ForgeConfigSpec.IntValue VeinSizeNative_bismuth; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNative_bismuth; 
-	public static ForgeConfigSpec.IntValue MinHeightNative_bismuth; 
-	public static ForgeConfigSpec.IntValue MaxHeightNative_bismuth; 
-
-	public static ForgeConfigSpec.BooleanValue enableBismite; 
-	public static ForgeConfigSpec.IntValue VeinSizeBismite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBismite; 
-	public static ForgeConfigSpec.IntValue MinHeightBismite; 
-	public static ForgeConfigSpec.IntValue MaxHeightBismite; 
-
-	public static ForgeConfigSpec.BooleanValue enableCassiterite; 
-	public static ForgeConfigSpec.IntValue VeinSizeCassiterite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCassiterite; 
-	public static ForgeConfigSpec.IntValue MinHeightCassiterite; 
-	public static ForgeConfigSpec.IntValue MaxHeightCassiterite; 
-
-	public static ForgeConfigSpec.BooleanValue enableTeallite; 
-	public static ForgeConfigSpec.IntValue VeinSizeTeallite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTeallite; 
-	public static ForgeConfigSpec.IntValue MinHeightTeallite; 
-	public static ForgeConfigSpec.IntValue MaxHeightTeallite; 
-
-	public static ForgeConfigSpec.BooleanValue enableStannite; 
-	public static ForgeConfigSpec.IntValue VeinSizeStannite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkStannite; 
-	public static ForgeConfigSpec.IntValue MinHeightStannite; 
-	public static ForgeConfigSpec.IntValue MaxHeightStannite; 
-
-	public static ForgeConfigSpec.BooleanValue enableNative_tin; 
-	public static ForgeConfigSpec.IntValue VeinSizeNative_tin; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNative_tin; 
-	public static ForgeConfigSpec.IntValue MinHeightNative_tin; 
-	public static ForgeConfigSpec.IntValue MaxHeightNative_tin; 
-
-	public static ForgeConfigSpec.BooleanValue enableKesterite; 
-	public static ForgeConfigSpec.IntValue VeinSizeKesterite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkKesterite; 
-	public static ForgeConfigSpec.IntValue MinHeightKesterite; 
-	public static ForgeConfigSpec.IntValue MaxHeightKesterite; 
-
-	public static ForgeConfigSpec.BooleanValue enableGalena; 
-	public static ForgeConfigSpec.IntValue VeinSizeGalena; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkGalena; 
-	public static ForgeConfigSpec.IntValue MinHeightGalena; 
-	public static ForgeConfigSpec.IntValue MaxHeightGalena; 
-
-	public static ForgeConfigSpec.BooleanValue enableCerussite; 
-	public static ForgeConfigSpec.IntValue VeinSizeCerussite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCerussite; 
-	public static ForgeConfigSpec.IntValue MinHeightCerussite; 
-	public static ForgeConfigSpec.IntValue MaxHeightCerussite; 
-
-	public static ForgeConfigSpec.BooleanValue enableAnglesite; 
-	public static ForgeConfigSpec.IntValue VeinSizeAnglesite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAnglesite; 
-	public static ForgeConfigSpec.IntValue MinHeightAnglesite; 
-	public static ForgeConfigSpec.IntValue MaxHeightAnglesite; 
-
-	public static ForgeConfigSpec.BooleanValue enableBoulangerite; 
-	public static ForgeConfigSpec.IntValue VeinSizeBoulangerite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBoulangerite; 
-	public static ForgeConfigSpec.IntValue MinHeightBoulangerite; 
-	public static ForgeConfigSpec.IntValue MaxHeightBoulangerite; 
-
-	public static ForgeConfigSpec.BooleanValue enablePyromorphite; 
-	public static ForgeConfigSpec.IntValue VeinSizePyromorphite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPyromorphite; 
-	public static ForgeConfigSpec.IntValue MinHeightPyromorphite; 
-	public static ForgeConfigSpec.IntValue MaxHeightPyromorphite;
-
-	public static ForgeConfigSpec.BooleanValue enableBauxite; 
-	public static ForgeConfigSpec.IntValue VeinSizeBauxite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBauxite; 
-	public static ForgeConfigSpec.IntValue MinHeightBauxite; 
-	public static ForgeConfigSpec.IntValue MaxHeightBauxite; 
-
-	public static ForgeConfigSpec.BooleanValue enableNepheline; 
-	public static ForgeConfigSpec.IntValue VeinSizeNepheline; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNepheline; 
-	public static ForgeConfigSpec.IntValue MinHeightNepheline; 
-	public static ForgeConfigSpec.IntValue MaxHeightNepheline; 
-
-	public static ForgeConfigSpec.BooleanValue enableLeucite; 
-	public static ForgeConfigSpec.IntValue VeinSizeLeucite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkLeucite; 
-	public static ForgeConfigSpec.IntValue MinHeightLeucite; 
-	public static ForgeConfigSpec.IntValue MaxHeightLeucite; 
-
-	public static ForgeConfigSpec.BooleanValue enableSphalerite; 
-	public static ForgeConfigSpec.IntValue VeinSizeSphalerite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSphalerite; 
-	public static ForgeConfigSpec.IntValue MinHeightSphalerite; 
-	public static ForgeConfigSpec.IntValue MaxHeightSphalerite; 
-
-	public static ForgeConfigSpec.BooleanValue enableSmithsonite; 
-	public static ForgeConfigSpec.IntValue VeinSizeSmithsonite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSmithsonite; 
-	public static ForgeConfigSpec.IntValue MinHeightSmithsonite; 
-	public static ForgeConfigSpec.IntValue MaxHeightSmithsonite;
-
-	public static ForgeConfigSpec.BooleanValue enableHemimorphite; 
-	public static ForgeConfigSpec.IntValue VeinSizeHemimorphite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkHemimorphite; 
-	public static ForgeConfigSpec.IntValue MinHeightHemimorphite; 
-	public static ForgeConfigSpec.IntValue MaxHeightHemimorphite; 
-
-	public static ForgeConfigSpec.BooleanValue enableFranklinite; 
-	public static ForgeConfigSpec.IntValue VeinSizeFranklinite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkFranklinite; 
-	public static ForgeConfigSpec.IntValue MinHeightFranklinite; 
-	public static ForgeConfigSpec.IntValue MaxHeightFranklinite; 
-
-	public static ForgeConfigSpec.BooleanValue enableZincite; 
-	public static ForgeConfigSpec.IntValue VeinSizeZincite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkZincite; 
-	public static ForgeConfigSpec.IntValue MinHeightZincite; 
-	public static ForgeConfigSpec.IntValue MaxHeightZincite; 
-
-	public static ForgeConfigSpec.BooleanValue enableHydrozincite; 
-	public static ForgeConfigSpec.IntValue VeinSizeHydrozincite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkHydrozincite; 
-	public static ForgeConfigSpec.IntValue MinHeightHydrozincite; 
-	public static ForgeConfigSpec.IntValue MaxHeightHydrozincite; 
-
-	public static ForgeConfigSpec.BooleanValue enableOtavite; 
-	public static ForgeConfigSpec.IntValue VeinSizeOtavite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkOtavite; 
-	public static ForgeConfigSpec.IntValue MinHeightOtavite; 
-	public static ForgeConfigSpec.IntValue MaxHeightOtavite; 
-
-	public static ForgeConfigSpec.BooleanValue enableGreenockite; 
-	public static ForgeConfigSpec.IntValue VeinSizeGreenockite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkGreenockite; 
-	public static ForgeConfigSpec.IntValue MinHeightGreenockite; 
-	public static ForgeConfigSpec.IntValue MaxHeightGreenockite; 
-
-	public static ForgeConfigSpec.BooleanValue enableCinnabar; 
-	public static ForgeConfigSpec.IntValue VeinSizeCinnabar; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCinnabar; 
-	public static ForgeConfigSpec.IntValue MinHeightCinnabar; 
-	public static ForgeConfigSpec.IntValue MaxHeightCinnabar;
-
-	public static ForgeConfigSpec.BooleanValue enableNative_copper; 
-	public static ForgeConfigSpec.IntValue VeinSizeNative_copper; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNative_copper; 
-	public static ForgeConfigSpec.IntValue MinHeightNative_copper; 
-	public static ForgeConfigSpec.IntValue MaxHeightNative_copper; 
-
-	public static ForgeConfigSpec.BooleanValue enableChalcopyrite; 
-	public static ForgeConfigSpec.IntValue VeinSizeChalcopyrite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkChalcopyrite; 
-	public static ForgeConfigSpec.IntValue MinHeightChalcopyrite; 
-	public static ForgeConfigSpec.IntValue MaxHeightChalcopyrite; 
-
-	public static ForgeConfigSpec.BooleanValue enableChalcocite; 
-	public static ForgeConfigSpec.IntValue VeinSizeChalcocite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkChalcocite; 
-	public static ForgeConfigSpec.IntValue MinHeightChalcocite; 
-	public static ForgeConfigSpec.IntValue MaxHeightChalcocite; 
-
-	public static ForgeConfigSpec.BooleanValue enableBornite; 
-	public static ForgeConfigSpec.IntValue VeinSizeBornite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBornite; 
-	public static ForgeConfigSpec.IntValue MinHeightBornite; 
-	public static ForgeConfigSpec.IntValue MaxHeightBornite; 
-
-	public static ForgeConfigSpec.BooleanValue enableEnargite; 
-	public static ForgeConfigSpec.IntValue VeinSizeEnargite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkEnargite; 
-	public static ForgeConfigSpec.IntValue MinHeightEnargite; 
-	public static ForgeConfigSpec.IntValue MaxHeightEnargite; 
-
-	public static ForgeConfigSpec.BooleanValue enableTennantite; 
-	public static ForgeConfigSpec.IntValue VeinSizeTennantite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTennantite; 
-	public static ForgeConfigSpec.IntValue MinHeightTennantite; 
-	public static ForgeConfigSpec.IntValue MaxHeightTennantite; 
-
-	public static ForgeConfigSpec.BooleanValue enableTetrahedrite; 
-	public static ForgeConfigSpec.IntValue VeinSizeTetrahedrite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTetrahedrite; 
-	public static ForgeConfigSpec.IntValue MinHeightTetrahedrite; 
-	public static ForgeConfigSpec.IntValue MaxHeightTetrahedrite;
-
-	public static ForgeConfigSpec.BooleanValue enableCovellite; 
-	public static ForgeConfigSpec.IntValue VeinSizeCovellite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCovellite; 
-	public static ForgeConfigSpec.IntValue MinHeightCovellite; 
-	public static ForgeConfigSpec.IntValue MaxHeightCovellite; 
-
-	public static ForgeConfigSpec.BooleanValue enableAzurite; 
-	public static ForgeConfigSpec.IntValue VeinSizeAzurite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAzurite; 
-	public static ForgeConfigSpec.IntValue MinHeightAzurite; 
-	public static ForgeConfigSpec.IntValue MaxHeightAzurite; 
-
-	public static ForgeConfigSpec.BooleanValue enableMalachite; 
-	public static ForgeConfigSpec.IntValue VeinSizeMalachite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkMalachite; 
-	public static ForgeConfigSpec.IntValue MinHeightMalachite; 
-	public static ForgeConfigSpec.IntValue MaxHeightMalachite; 
-
-	public static ForgeConfigSpec.BooleanValue enableCuprite; 
-	public static ForgeConfigSpec.IntValue VeinSizeCuprite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCuprite; 
-	public static ForgeConfigSpec.IntValue MinHeightCuprite; 
-	public static ForgeConfigSpec.IntValue MaxHeightCuprite; 
-
-	public static ForgeConfigSpec.BooleanValue enableNative_silver; 
-	public static ForgeConfigSpec.IntValue VeinSizeNative_silver; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNative_silver; 
-	public static ForgeConfigSpec.IntValue MinHeightNative_silver; 
-	public static ForgeConfigSpec.IntValue MaxHeightNative_silver; 
-
-	public static ForgeConfigSpec.BooleanValue enableAcanthite; 
-	public static ForgeConfigSpec.IntValue VeinSizeAcanthite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAcanthite; 
-	public static ForgeConfigSpec.IntValue MinHeightAcanthite; 
-	public static ForgeConfigSpec.IntValue MaxHeightAcanthite;
-
-	public static ForgeConfigSpec.BooleanValue enableStephanite; 
-	public static ForgeConfigSpec.IntValue VeinSizeStephanite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkStephanite; 
-	public static ForgeConfigSpec.IntValue MinHeightStephanite; 
-	public static ForgeConfigSpec.IntValue MaxHeightStephanite; 
-
-	public static ForgeConfigSpec.BooleanValue enableProustite; 
-	public static ForgeConfigSpec.IntValue VeinSizeProustite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkProustite; 
-	public static ForgeConfigSpec.IntValue MinHeightProustite; 
-	public static ForgeConfigSpec.IntValue MaxHeightProustite; 
-
-	public static ForgeConfigSpec.BooleanValue enableFreibergite; 
-	public static ForgeConfigSpec.IntValue VeinSizeFreibergite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkFreibergite; 
-	public static ForgeConfigSpec.IntValue MinHeightFreibergite; 
-	public static ForgeConfigSpec.IntValue MaxHeightFreibergite; 
-
-	public static ForgeConfigSpec.BooleanValue enableNickeline; 
-	public static ForgeConfigSpec.IntValue VeinSizeNickeline; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNickeline; 
-	public static ForgeConfigSpec.IntValue MinHeightNickeline; 
-	public static ForgeConfigSpec.IntValue MaxHeightNickeline; 
-
-	public static ForgeConfigSpec.BooleanValue enablePentlandite; 
-	public static ForgeConfigSpec.IntValue VeinSizePentlandite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPentlandite; 
-	public static ForgeConfigSpec.IntValue MinHeightPentlandite; 
-	public static ForgeConfigSpec.IntValue MaxHeightPentlandite; 
-
-	public static ForgeConfigSpec.BooleanValue enableNepouite; 
-	public static ForgeConfigSpec.IntValue VeinSizeNepouite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNepouite; 
-	public static ForgeConfigSpec.IntValue MinHeightNepouite; 
-	public static ForgeConfigSpec.IntValue MaxHeightNepouite;
-
-	public static ForgeConfigSpec.BooleanValue enableMillerite; 
-	public static ForgeConfigSpec.IntValue VeinSizeMillerite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkMillerite; 
-	public static ForgeConfigSpec.IntValue MinHeightMillerite; 
-	public static ForgeConfigSpec.IntValue MaxHeightMillerite; 
-
-	public static ForgeConfigSpec.BooleanValue enableGersdorffite; 
-	public static ForgeConfigSpec.IntValue VeinSizeGersdorffite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkGersdorffite; 
-	public static ForgeConfigSpec.IntValue MinHeightGersdorffite; 
-	public static ForgeConfigSpec.IntValue MaxHeightGersdorffite; 
-
-	public static ForgeConfigSpec.BooleanValue enableCobaltite; 
-	public static ForgeConfigSpec.IntValue VeinSizeCobaltite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCobaltite; 
-	public static ForgeConfigSpec.IntValue MinHeightCobaltite; 
-	public static ForgeConfigSpec.IntValue MaxHeightCobaltite; 
-
-	public static ForgeConfigSpec.BooleanValue enableCarrollite; 
-	public static ForgeConfigSpec.IntValue VeinSizeCarrollite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCarrollite; 
-	public static ForgeConfigSpec.IntValue MinHeightCarrollite; 
-	public static ForgeConfigSpec.IntValue MaxHeightCarrollite; 
-
-	public static ForgeConfigSpec.BooleanValue enableSkutterudite; 
-	public static ForgeConfigSpec.IntValue VeinSizeSkutterudite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSkutterudite; 
-	public static ForgeConfigSpec.IntValue MinHeightSkutterudite; 
-	public static ForgeConfigSpec.IntValue MaxHeightSkutterudite; 
-
-	public static ForgeConfigSpec.BooleanValue enableHematite; 
-	public static ForgeConfigSpec.IntValue VeinSizeHematite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkHematite; 
-	public static ForgeConfigSpec.IntValue MinHeightHematite; 
-	public static ForgeConfigSpec.IntValue MaxHeightHematite; 
-
-	public static ForgeConfigSpec.BooleanValue enableMagnetite; 
-	public static ForgeConfigSpec.IntValue VeinSizeMagnetite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkMagnetite; 
-	public static ForgeConfigSpec.IntValue MinHeightMagnetite; 
-	public static ForgeConfigSpec.IntValue MaxHeightMagnetite; 
-
-	public static ForgeConfigSpec.BooleanValue enableLimonite; 
-	public static ForgeConfigSpec.IntValue VeinSizeLimonite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkLimonite; 
-	public static ForgeConfigSpec.IntValue MinHeightLimonite; 
-	public static ForgeConfigSpec.IntValue MaxHeightLimonite;
-
-	public static ForgeConfigSpec.BooleanValue enableSiderite; 
-	public static ForgeConfigSpec.IntValue VeinSizeSiderite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSiderite; 
-	public static ForgeConfigSpec.IntValue MinHeightSiderite; 
-	public static ForgeConfigSpec.IntValue MaxHeightSiderite; 
-
-	public static ForgeConfigSpec.BooleanValue enableTelluric_iron; 
-	public static ForgeConfigSpec.IntValue VeinSizeTelluric_iron; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTelluric_iron; 
-	public static ForgeConfigSpec.IntValue MinHeightTelluric_iron; 
-	public static ForgeConfigSpec.IntValue MaxHeightTelluric_iron; 
-
-	public static ForgeConfigSpec.BooleanValue enablePyrolusite; 
-	public static ForgeConfigSpec.IntValue VeinSizePyrolusite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPyrolusite; 
-	public static ForgeConfigSpec.IntValue MinHeightPyrolusite; 
-	public static ForgeConfigSpec.IntValue MaxHeightPyrolusite; 
-
-	public static ForgeConfigSpec.BooleanValue enableRhodochrosite; 
-	public static ForgeConfigSpec.IntValue VeinSizeRhodochrosite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkRhodochrosite; 
-	public static ForgeConfigSpec.IntValue MinHeightRhodochrosite; 
-	public static ForgeConfigSpec.IntValue MaxHeightRhodochrosite; 
-
-	public static ForgeConfigSpec.BooleanValue enableHollandite; 
-	public static ForgeConfigSpec.IntValue VeinSizeHollandite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkHollandite; 
-	public static ForgeConfigSpec.IntValue MinHeightHollandite; 
-	public static ForgeConfigSpec.IntValue MaxHeightHollandite; 
-
-	public static ForgeConfigSpec.BooleanValue enableManganite; 
-	public static ForgeConfigSpec.IntValue VeinSizeManganite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkManganite; 
-	public static ForgeConfigSpec.IntValue MinHeightManganite; 
-	public static ForgeConfigSpec.IntValue MaxHeightManganite; 
-
-	public static ForgeConfigSpec.BooleanValue enableHausmannite; 
-	public static ForgeConfigSpec.IntValue VeinSizeHausmannite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkHausmannite; 
-	public static ForgeConfigSpec.IntValue MinHeightHausmannite; 
-	public static ForgeConfigSpec.IntValue MaxHeightHausmannite;
-
-	public static ForgeConfigSpec.BooleanValue enableAlabandite; 
-	public static ForgeConfigSpec.IntValue VeinSizeAlabandite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAlabandite; 
-	public static ForgeConfigSpec.IntValue MinHeightAlabandite; 
-	public static ForgeConfigSpec.IntValue MaxHeightAlabandite; 
-
-	public static ForgeConfigSpec.BooleanValue enableRhodonite; 
-	public static ForgeConfigSpec.IntValue VeinSizeRhodonite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkRhodonite; 
-	public static ForgeConfigSpec.IntValue MinHeightRhodonite; 
-	public static ForgeConfigSpec.IntValue MaxHeightRhodonite; 
-
-	public static ForgeConfigSpec.BooleanValue enableChromite; 
-	public static ForgeConfigSpec.IntValue VeinSizeChromite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkChromite; 
-	public static ForgeConfigSpec.IntValue MinHeightChromite; 
-	public static ForgeConfigSpec.IntValue MaxHeightChromite; 
-
-	public static ForgeConfigSpec.BooleanValue enableMolybdenite; 
-	public static ForgeConfigSpec.IntValue VeinSizeMolybdenite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkMolybdenite; 
-	public static ForgeConfigSpec.IntValue MinHeightMolybdenite; 
-	public static ForgeConfigSpec.IntValue MaxHeightMolybdenite; 
-
-	public static ForgeConfigSpec.BooleanValue enableWulfenite; 
-	public static ForgeConfigSpec.IntValue VeinSizeWulfenite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkWulfenite; 
-	public static ForgeConfigSpec.IntValue MinHeightWulfenite; 
-	public static ForgeConfigSpec.IntValue MaxHeightWulfenite; 
-
-	public static ForgeConfigSpec.BooleanValue enableScheelite; 
-	public static ForgeConfigSpec.IntValue VeinSizeScheelite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkScheelite; 
-	public static ForgeConfigSpec.IntValue MinHeightScheelite; 
-	public static ForgeConfigSpec.IntValue MaxHeightScheelite; 
-
-	public static ForgeConfigSpec.BooleanValue enableFerberite; 
-	public static ForgeConfigSpec.IntValue VeinSizeFerberite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkFerberite; 
-	public static ForgeConfigSpec.IntValue MinHeightFerberite; 
-	public static ForgeConfigSpec.IntValue MaxHeightFerberite; 
-
-	public static ForgeConfigSpec.BooleanValue enableHubnerite; 
-	public static ForgeConfigSpec.IntValue VeinSizeHubnerite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkHubnerite; 
-	public static ForgeConfigSpec.IntValue MinHeightHubnerite; 
-	public static ForgeConfigSpec.IntValue MaxHeightHubnerite;
-
-	public static ForgeConfigSpec.BooleanValue enableVanadinite; 
-	public static ForgeConfigSpec.IntValue VeinSizeVanadinite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkVanadinite; 
-	public static ForgeConfigSpec.IntValue MinHeightVanadinite; 
-	public static ForgeConfigSpec.IntValue MaxHeightVanadinite; 
-
-	public static ForgeConfigSpec.BooleanValue enableDescloizite; 
-	public static ForgeConfigSpec.IntValue VeinSizeDescloizite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkDescloizite; 
-	public static ForgeConfigSpec.IntValue MinHeightDescloizite; 
-	public static ForgeConfigSpec.IntValue MaxHeightDescloizite; 
-
-	public static ForgeConfigSpec.BooleanValue enableColumbite; 
-	public static ForgeConfigSpec.IntValue VeinSizeColumbite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkColumbite; 
-	public static ForgeConfigSpec.IntValue MinHeightColumbite; 
-	public static ForgeConfigSpec.IntValue MaxHeightColumbite; 
-
-	public static ForgeConfigSpec.BooleanValue enableTantalite; 
-	public static ForgeConfigSpec.IntValue VeinSizeTantalite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTantalite; 
-	public static ForgeConfigSpec.IntValue MinHeightTantalite; 
-	public static ForgeConfigSpec.IntValue MaxHeightTantalite; 
-
-	public static ForgeConfigSpec.BooleanValue enableRutile; 
-	public static ForgeConfigSpec.IntValue VeinSizeRutile; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkRutile; 
-	public static ForgeConfigSpec.IntValue MinHeightRutile; 
-	public static ForgeConfigSpec.IntValue MaxHeightRutile; 
-
-	public static ForgeConfigSpec.BooleanValue enableIlmenite; 
-	public static ForgeConfigSpec.IntValue VeinSizeIlmenite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkIlmenite; 
-	public static ForgeConfigSpec.IntValue MinHeightIlmenite; 
-	public static ForgeConfigSpec.IntValue MaxHeightIlmenite; 
-
-	public static ForgeConfigSpec.BooleanValue enableAnatase; 
-	public static ForgeConfigSpec.IntValue VeinSizeAnatase; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAnatase; 
-	public static ForgeConfigSpec.IntValue MinHeightAnatase; 
-	public static ForgeConfigSpec.IntValue MaxHeightAnatase; 
-
-	public static ForgeConfigSpec.BooleanValue enableBrookite; 
-	public static ForgeConfigSpec.IntValue VeinSizeBrookite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBrookite; 
-	public static ForgeConfigSpec.IntValue MinHeightBrookite; 
-	public static ForgeConfigSpec.IntValue MaxHeightBrookite;
-
-	public static ForgeConfigSpec.BooleanValue enableTitanite; 
-	public static ForgeConfigSpec.IntValue VeinSizeTitanite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTitanite; 
-	public static ForgeConfigSpec.IntValue MinHeightTitanite; 
-	public static ForgeConfigSpec.IntValue MaxHeightTitanite; 
-
-	public static ForgeConfigSpec.BooleanValue enableZircon; 
-	public static ForgeConfigSpec.IntValue VeinSizeZircon; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkZircon; 
-	public static ForgeConfigSpec.IntValue MinHeightZircon; 
-	public static ForgeConfigSpec.IntValue MaxHeightZircon; 
-
-	public static ForgeConfigSpec.BooleanValue enableThorite; 
-	public static ForgeConfigSpec.IntValue VeinSizeThorite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkThorite; 
-	public static ForgeConfigSpec.IntValue MinHeightThorite; 
-	public static ForgeConfigSpec.IntValue MaxHeightThorite; 
-
-	public static ForgeConfigSpec.BooleanValue enableCarnotite; 
-	public static ForgeConfigSpec.IntValue VeinSizeCarnotite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCarnotite; 
-	public static ForgeConfigSpec.IntValue MinHeightCarnotite; 
-	public static ForgeConfigSpec.IntValue MaxHeightCarnotite; 
-
-	public static ForgeConfigSpec.BooleanValue enableUraninite; 
-	public static ForgeConfigSpec.IntValue VeinSizeUraninite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkUraninite; 
-	public static ForgeConfigSpec.IntValue MinHeightUraninite; 
-	public static ForgeConfigSpec.IntValue MaxHeightUraninite; 
-
-	public static ForgeConfigSpec.BooleanValue enableMagnesite; 
-	public static ForgeConfigSpec.IntValue VeinSizeMagnesite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkMagnesite; 
-	public static ForgeConfigSpec.IntValue MinHeightMagnesite; 
-	public static ForgeConfigSpec.IntValue MaxHeightMagnesite; 
-
-	public static ForgeConfigSpec.BooleanValue enableKieserite; 
-	public static ForgeConfigSpec.IntValue VeinSizeKieserite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkKieserite; 
-	public static ForgeConfigSpec.IntValue MinHeightKieserite; 
-	public static ForgeConfigSpec.IntValue MaxHeightKieserite;
-
-	public static ForgeConfigSpec.BooleanValue enableBrucite; 
-	public static ForgeConfigSpec.IntValue VeinSizeBrucite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBrucite; 
-	public static ForgeConfigSpec.IntValue MinHeightBrucite; 
-	public static ForgeConfigSpec.IntValue MaxHeightBrucite; 
-
-	public static ForgeConfigSpec.BooleanValue enableCalcite; 
-	public static ForgeConfigSpec.IntValue VeinSizeCalcite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCalcite; 
-	public static ForgeConfigSpec.IntValue MinHeightCalcite; 
-	public static ForgeConfigSpec.IntValue MaxHeightCalcite; 
-
-	public static ForgeConfigSpec.BooleanValue enableGypsum; 
-	public static ForgeConfigSpec.IntValue VeinSizeGypsum; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkGypsum; 
-	public static ForgeConfigSpec.IntValue MinHeightGypsum; 
-	public static ForgeConfigSpec.IntValue MaxHeightGypsum; 
-
-	public static ForgeConfigSpec.BooleanValue enableAnhydrite; 
-	public static ForgeConfigSpec.IntValue VeinSizeAnhydrite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAnhydrite; 
-	public static ForgeConfigSpec.IntValue MinHeightAnhydrite; 
-	public static ForgeConfigSpec.IntValue MaxHeightAnhydrite; 
-
-	public static ForgeConfigSpec.BooleanValue enableDolomite; 
-	public static ForgeConfigSpec.IntValue VeinSizeDolomite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkDolomite; 
-	public static ForgeConfigSpec.IntValue MinHeightDolomite; 
-	public static ForgeConfigSpec.IntValue MaxHeightDolomite; 
-
-	public static ForgeConfigSpec.BooleanValue enableStrontianite; 
-	public static ForgeConfigSpec.IntValue VeinSizeStrontianite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkStrontianite; 
-	public static ForgeConfigSpec.IntValue MinHeightStrontianite; 
-	public static ForgeConfigSpec.IntValue MaxHeightStrontianite; 
-
-	public static ForgeConfigSpec.BooleanValue enableCelestine; 
-	public static ForgeConfigSpec.IntValue VeinSizeCelestine; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCelestine; 
-	public static ForgeConfigSpec.IntValue MinHeightCelestine; 
-	public static ForgeConfigSpec.IntValue MaxHeightCelestine;
-
-	public static ForgeConfigSpec.BooleanValue enablePolylithionite; 
-	public static ForgeConfigSpec.IntValue VeinSizePolylithionite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPolylithionite; 
-	public static ForgeConfigSpec.IntValue MinHeightPolylithionite; 
-	public static ForgeConfigSpec.IntValue MaxHeightPolylithionite; 
-
-	public static ForgeConfigSpec.BooleanValue enablePetalite; 
-	public static ForgeConfigSpec.IntValue VeinSizePetalite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPetalite; 
-	public static ForgeConfigSpec.IntValue MinHeightPetalite; 
-	public static ForgeConfigSpec.IntValue MaxHeightPetalite; 
-
-	public static ForgeConfigSpec.BooleanValue enableCarnallite; 
-	public static ForgeConfigSpec.IntValue VeinSizeCarnallite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCarnallite; 
-	public static ForgeConfigSpec.IntValue MinHeightCarnallite; 
-	public static ForgeConfigSpec.IntValue MaxHeightCarnallite; 
-
-	public static ForgeConfigSpec.BooleanValue enableSylvite; 
-	public static ForgeConfigSpec.IntValue VeinSizeSylvite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSylvite; 
-	public static ForgeConfigSpec.IntValue MinHeightSylvite; 
-	public static ForgeConfigSpec.IntValue MaxHeightSylvite; 
-
-	public static ForgeConfigSpec.BooleanValue enablePolyhalite; 
-	public static ForgeConfigSpec.IntValue VeinSizePolyhalite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPolyhalite; 
-	public static ForgeConfigSpec.IntValue MinHeightPolyhalite; 
-	public static ForgeConfigSpec.IntValue MaxHeightPolyhalite; 
-
-	public static ForgeConfigSpec.BooleanValue enableKainite; 
-	public static ForgeConfigSpec.IntValue VeinSizeKainite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkKainite; 
-	public static ForgeConfigSpec.IntValue MinHeightKainite; 
-	public static ForgeConfigSpec.IntValue MaxHeightKainite; 
-
-	public static ForgeConfigSpec.BooleanValue enableLangbeinite; 
-	public static ForgeConfigSpec.IntValue VeinSizeLangbeinite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkLangbeinite; 
-	public static ForgeConfigSpec.IntValue MinHeightLangbeinite; 
-	public static ForgeConfigSpec.IntValue MaxHeightLangbeinite; 
-
-	public static ForgeConfigSpec.BooleanValue enableNitratine; 
-	public static ForgeConfigSpec.IntValue VeinSizeNitratine; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNitratine; 
-	public static ForgeConfigSpec.IntValue MinHeightNitratine; 
-	public static ForgeConfigSpec.IntValue MaxHeightNitratine;
-
-	public static ForgeConfigSpec.BooleanValue enableHalite; 
-	public static ForgeConfigSpec.IntValue VeinSizeHalite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkHalite; 
-	public static ForgeConfigSpec.IntValue MinHeightHalite; 
-	public static ForgeConfigSpec.IntValue MaxHeightHalite; 
-
-	public static ForgeConfigSpec.BooleanValue enableSapphire_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeSapphire_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSapphire_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightSapphire_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightSapphire_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableRuby_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeRuby_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkRuby_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightRuby_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightRuby_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableSpinel_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeSpinel_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSpinel_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightSpinel_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightSpinel_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableAmethyst_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeAmethyst_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAmethyst_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightAmethyst_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightAmethyst_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableJade_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeJade_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkJade_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightJade_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightJade_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableTourmaline_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeTourmaline_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTourmaline_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightTourmaline_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightTourmaline_ore;
-
-	public static ForgeConfigSpec.BooleanValue enableSugilite_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeSugilite_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSugilite_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightSugilite_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightSugilite_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enablePeridot_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizePeridot_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPeridot_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightPeridot_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightPeridot_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableAgate_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeAgate_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAgate_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightAgate_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightAgate_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableCarnelian_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeCarnelian_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCarnelian_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightCarnelian_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightCarnelian_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableChrysoprase_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeChrysoprase_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkChrysoprase_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightChrysoprase_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightChrysoprase_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableHeliotrope_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeHeliotrope_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkHeliotrope_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightHeliotrope_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightHeliotrope_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableTopaz_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeTopaz_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTopaz_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightTopaz_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightTopaz_ore;
-
-	public static ForgeConfigSpec.BooleanValue enableUnakite_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeUnakite_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkUnakite_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightUnakite_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightUnakite_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableTanzanite_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeTanzanite_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTanzanite_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightTanzanite_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightTanzanite_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableHauyne_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeHauyne_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkHauyne_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightHauyne_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightHauyne_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableOnyx_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeOnyx_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkOnyx_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightOnyx_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightOnyx_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableOpal_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeOpal_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkOpal_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightOpal_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightOpal_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableMoonstone_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeMoonstone_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkMoonstone_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightMoonstone_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightMoonstone_ore;
-
-	public static ForgeConfigSpec.BooleanValue enableTurquoise_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeTurquoise_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTurquoise_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightTurquoise_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightTurquoise_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableAmazonite_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeAmazonite_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAmazonite_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightAmazonite_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightAmazonite_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableChrysocolla_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeChrysocolla_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkChrysocolla_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightChrysocolla_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightChrysocolla_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableAlmandine_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeAlmandine_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAlmandine_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightAlmandine_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightAlmandine_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableSpessartine_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeSpessartine_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkSpessartine_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightSpessartine_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightSpessartine_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enablePyrope_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizePyrope_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPyrope_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightPyrope_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightPyrope_ore;
-
-	public static ForgeConfigSpec.BooleanValue enableTsavorite_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeTsavorite_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkTsavorite_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightTsavorite_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightTsavorite_ore; 
-
-	public static ForgeConfigSpec.BooleanValue enableAndradite_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeAndradite_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAndradite_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightAndradite_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightAndradite_ore;
-
-	public static ForgeConfigSpec.BooleanValue enableMithril_ore; 
-	public static ForgeConfigSpec.IntValue VeinSizeMithril_ore; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkMithril_ore; 
-	public static ForgeConfigSpec.IntValue MinHeightMithril_ore; 
-	public static ForgeConfigSpec.IntValue MaxHeightMithril_ore;
-
-	public static ForgeConfigSpec.BooleanValue enableSulphurOres;
-	public static ForgeConfigSpec.BooleanValue enableSeleniumOres;
-	public static ForgeConfigSpec.BooleanValue enableCoalOres;
-	public static ForgeConfigSpec.BooleanValue enableGraphiteOre;
-	public static ForgeConfigSpec.BooleanValue enableArsenicOres;
-	public static ForgeConfigSpec.BooleanValue enableAntimonyOres;
-	public static ForgeConfigSpec.BooleanValue enableGermaniumOres;
-	public static ForgeConfigSpec.BooleanValue enableBismuthOres;
-	public static ForgeConfigSpec.BooleanValue enableTinOres;
-	public static ForgeConfigSpec.BooleanValue enableLeadOres;
-	public static ForgeConfigSpec.BooleanValue enableAluminumOres;
-	public static ForgeConfigSpec.BooleanValue enableZincOres;
-	public static ForgeConfigSpec.BooleanValue enableCadmiumOres;
-	public static ForgeConfigSpec.BooleanValue enableMercuryOres;
-	public static ForgeConfigSpec.BooleanValue enableCopperOres;
-	public static ForgeConfigSpec.BooleanValue enableSilverOres;
-	public static ForgeConfigSpec.BooleanValue enableNickelOres;
-	public static ForgeConfigSpec.BooleanValue enableCobaltOres;
-	public static ForgeConfigSpec.BooleanValue enableIronOres;
-	public static ForgeConfigSpec.BooleanValue enableManganeseOres;
-	public static ForgeConfigSpec.BooleanValue enableChromiumOres;
-	public static ForgeConfigSpec.BooleanValue enableMolybdenumOres;
-	public static ForgeConfigSpec.BooleanValue enableTungstenOres;
-	public static ForgeConfigSpec.BooleanValue enableVanadiumOres;
-	public static ForgeConfigSpec.BooleanValue enableNiobiumOres;
-	public static ForgeConfigSpec.BooleanValue enableTantalumOres;
-	public static ForgeConfigSpec.BooleanValue enableTitaniumOres;
-	public static ForgeConfigSpec.BooleanValue enableZirconiumOres;
-	public static ForgeConfigSpec.BooleanValue enableThoriumOres;
-	public static ForgeConfigSpec.BooleanValue enableUraniumOres;
-	public static ForgeConfigSpec.BooleanValue enableMagnesiumOres;
-	public static ForgeConfigSpec.BooleanValue enableCalciumOres;
-	public static ForgeConfigSpec.BooleanValue enableStrontiumOres;
-	public static ForgeConfigSpec.BooleanValue enableLithiumOres;	
-	public static ForgeConfigSpec.BooleanValue enableNPKOres;
-	public static ForgeConfigSpec.BooleanValue enableMithrilOre;
-	public static ForgeConfigSpec.BooleanValue enableSaltpetreOre;
-	public static ForgeConfigSpec.BooleanValue enableSaltOre;
-	public static ForgeConfigSpec.BooleanValue enableSomeGems;
-	public static ForgeConfigSpec.BooleanValue enableAllGems;
-	public static ForgeConfigSpec.BooleanValue enablePGMs;
-	public static ForgeConfigSpec.BooleanValue enableRarePGMs;	
-	public static ForgeConfigSpec.BooleanValue enableREEs;
-
-	public static ForgeConfigSpec.BooleanValue enableGold; 
-	public static ForgeConfigSpec.IntValue VeinSizeGold; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkGold; 
-	public static ForgeConfigSpec.IntValue MinHeightGold; 
-	public static ForgeConfigSpec.IntValue MaxHeightGold;
-
-	public static ForgeConfigSpec.BooleanValue enableBadlandsGold; 
-	public static ForgeConfigSpec.IntValue VeinSizeBadlandsGold; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkBadlandsGold; 
-	public static ForgeConfigSpec.IntValue MinHeightBadlandsGold; 
-	public static ForgeConfigSpec.IntValue MaxHeightBadlandsGold;
-
-	public static ForgeConfigSpec.BooleanValue enableRedstone; 
-	public static ForgeConfigSpec.IntValue VeinSizeRedstone; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkRedstone; 
-	public static ForgeConfigSpec.IntValue MinHeightRedstone; 
-	public static ForgeConfigSpec.IntValue MaxHeightRedstone;
-
-	public static ForgeConfigSpec.BooleanValue enableDiamond; 
-	public static ForgeConfigSpec.IntValue VeinSizeDiamond; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkDiamond; 
-	public static ForgeConfigSpec.IntValue MinHeightDiamond; 
-	public static ForgeConfigSpec.IntValue MaxHeightDiamond;
-
-	public static ForgeConfigSpec.BooleanValue enableLapis; 
-	public static ForgeConfigSpec.IntValue VeinSizeLapis; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkLapis; 
-	public static ForgeConfigSpec.IntValue DepthAverageLapis; 
-
-	public static ForgeConfigSpec.BooleanValue enableDirt; 
-	public static ForgeConfigSpec.IntValue VeinSizeDirt; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkDirt; 
-	public static ForgeConfigSpec.IntValue MinHeightDirt; 
-	public static ForgeConfigSpec.IntValue MaxHeightDirt;
-
-	public static ForgeConfigSpec.BooleanValue enableGravel; 
-	public static ForgeConfigSpec.IntValue VeinSizeGravel; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkGravel; 
-	public static ForgeConfigSpec.IntValue MinHeightGravel; 
-	public static ForgeConfigSpec.IntValue MaxHeightGravel;
-
-	public static ForgeConfigSpec.BooleanValue enableGranite; 
-	public static ForgeConfigSpec.IntValue VeinSizeGranite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkGranite; 
-	public static ForgeConfigSpec.IntValue MinHeightGranite; 
-	public static ForgeConfigSpec.IntValue MaxHeightGranite;
-
-	public static ForgeConfigSpec.BooleanValue enableDiorite; 
-	public static ForgeConfigSpec.IntValue VeinSizeDiorite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkDiorite; 
-	public static ForgeConfigSpec.IntValue MinHeightDiorite; 
-	public static ForgeConfigSpec.IntValue MaxHeightDiorite;
-
-	public static ForgeConfigSpec.BooleanValue enableAndesite; 
-	public static ForgeConfigSpec.IntValue VeinSizeAndesite; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAndesite; 
-	public static ForgeConfigSpec.IntValue MinHeightAndesite; 
-	public static ForgeConfigSpec.IntValue MaxHeightAndesite;
-
-	public static ForgeConfigSpec.BooleanValue enableInfestedStone; 
-	public static ForgeConfigSpec.IntValue VeinSizeInfestedStone; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkInfestedStone; 
-	public static ForgeConfigSpec.IntValue MinHeightInfestedStone; 
-	public static ForgeConfigSpec.IntValue MaxHeightInfestedStone;
-
-	public static ForgeConfigSpec.BooleanValue enableAdditionalPeat; 
-	public static ForgeConfigSpec.IntValue VeinSizeAdditionalPeat; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkAdditionalPeat; 
-	public static ForgeConfigSpec.IntValue MinHeightAdditionalPeat; 
-	public static ForgeConfigSpec.IntValue MaxHeightAdditionalPeat;
-
-	public static ForgeConfigSpec.BooleanValue enableNetherCoal; 
-	public static ForgeConfigSpec.IntValue VeinSizeNetherCoal; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNetherCoal; 
-	public static ForgeConfigSpec.IntValue MinHeightNetherCoal; 
-	public static ForgeConfigSpec.IntValue MaxHeightNetherCoal;
-
-	public static ForgeConfigSpec.BooleanValue enableNetherGold; 
-	public static ForgeConfigSpec.IntValue VeinSizeNetherGold; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNetherGold; 
-	public static ForgeConfigSpec.IntValue MinHeightNetherGold; 
-	public static ForgeConfigSpec.IntValue MaxHeightNetherGold;
-
-	public static ForgeConfigSpec.BooleanValue enableNetherMithril; 
-	public static ForgeConfigSpec.IntValue VeinSizeNetherMithril; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNetherMithril; 
-	public static ForgeConfigSpec.IntValue MinHeightNetherMithril; 
-	public static ForgeConfigSpec.IntValue MaxHeightNetherMithril;
-
-	public static ForgeConfigSpec.BooleanValue enableNetherSulphur; 
-	public static ForgeConfigSpec.IntValue VeinSizeNetherSulphur; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkNetherSulphur; 
-	public static ForgeConfigSpec.IntValue MinHeightNetherSulphur; 
-	public static ForgeConfigSpec.IntValue MaxHeightNetherSulphur;
-
-	public static ForgeConfigSpec.IntValue VeinSizeCoal;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkCoal;
-	public static ForgeConfigSpec.IntValue MinHeightCoal;	
-	public static ForgeConfigSpec.IntValue MaxHeightCoal;
-
-	public static ForgeConfigSpec.IntValue VeinSizeIron;
-	public static ForgeConfigSpec.IntValue VeinsPerChunkIron;
-	public static ForgeConfigSpec.IntValue MinHeightIron;
-	public static ForgeConfigSpec.IntValue MaxHeightIron;
-
-	public static ForgeConfigSpec.BooleanValue enabledPGMs; 
-	public static ForgeConfigSpec.IntValue VeinSizePGMs; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkPGMs; 
-	public static ForgeConfigSpec.IntValue MinHeightPGMs; 
-	public static ForgeConfigSpec.IntValue MaxHeightPGMs;
-
-	public static ForgeConfigSpec.BooleanValue enabledRarePGMs; 
-	public static ForgeConfigSpec.IntValue VeinSizeRarePGMs; 
-	public static ForgeConfigSpec.IntValue VeinsPerChunkRarePGMs; 
-	public static ForgeConfigSpec.IntValue MinHeightRarePGMs; 
-	public static ForgeConfigSpec.IntValue MaxHeightRarePGMs;
-
-	public static ForgeConfigSpec.IntValue copperHL;
-	public static ForgeConfigSpec.IntValue tinHL;
-	public static ForgeConfigSpec.IntValue zincHL;
-	public static ForgeConfigSpec.IntValue leadHL;
-	public static ForgeConfigSpec.IntValue cadmiumHL;
-	public static ForgeConfigSpec.IntValue mercuryHL;
-	public static ForgeConfigSpec.IntValue aluminiumHL;
-	public static ForgeConfigSpec.IntValue silverHL;
-	public static ForgeConfigSpec.IntValue manganeseHL;
-	public static ForgeConfigSpec.IntValue titaniumHL;
-	public static ForgeConfigSpec.IntValue tungstenHL;
-	public static ForgeConfigSpec.IntValue nickelHL;
-	public static ForgeConfigSpec.IntValue mithrilHL;
-	public static ForgeConfigSpec.IntValue nitratineHL;
-	public static ForgeConfigSpec.IntValue ironHL;
-	public static ForgeConfigSpec.IntValue haliteHL;
-	public static ForgeConfigSpec.IntValue chromiumHL;
-	public static ForgeConfigSpec.IntValue molybdenumHL;
-	public static ForgeConfigSpec.IntValue carnotiteHL;
-	public static ForgeConfigSpec.IntValue uraniniteHL;
-	public static ForgeConfigSpec.IntValue commonPgmsHL;
-	public static ForgeConfigSpec.IntValue rarePgmsHL;
-
-
-	public static ForgeConfigSpec.BooleanValue enableEmerald;
-
-	public static ForgeConfigSpec.BooleanValue All;
+	public static BooleanValue enableStoneAge;
+	public static BooleanValue enablePlugAndPlay;
+	public static BooleanValue clearNether;
+	public static BooleanValue hideJEI;
+	public static BooleanValue mineralogistOption;
+
+	public static ConfigValue<List<String>> blacklistGoldOre;
+	public static ConfigValue<List<String>> blacklistRedstoneOre;
+	public static ConfigValue<List<String>> blacklistDiamondOre;
+	public static ConfigValue<List<String>> blacklistLapisOre;
+	public static ConfigValue<List<String>> blacklistCopperOres;
+	public static ConfigValue<List<String>> blacklistIronOres;
+	public static ConfigValue<List<String>> blacklistAnthraciteOre;
+	public static ConfigValue<List<String>> blacklistBituminousCoalOre;
+	public static ConfigValue<List<String>> blacklistLigniteOre;
+	public static ConfigValue<List<String>> blacklistPeatOre;
+	public static ConfigValue<List<String>> blacklistTinOres;	
+	public static ConfigValue<List<String>> blacklistSulfurOres;
+	public static ConfigValue<List<String>> blacklistNPKOres;
+	public static ConfigValue<List<String>> blacklistLeadOres;
+	public static ConfigValue<List<String>> blacklistAluminiumOres;
+	public static ConfigValue<List<String>> blacklistZincOres;
+	public static ConfigValue<List<String>> blacklistCadmiumOres;
+	public static ConfigValue<List<String>> blacklistMercuryOres;
+	public static ConfigValue<List<String>> blacklistSilverOres;
+	public static ConfigValue<List<String>> blacklistNickelOres;
+	public static ConfigValue<List<String>> blacklistCommonPGMsOres;
+	public static ConfigValue<List<String>> blacklistRarePGMsOres;
+	public static ConfigValue<List<String>> blacklistManganeseOres;
+	public static ConfigValue<List<String>> blacklistChromiumOres;
+	public static ConfigValue<List<String>> blacklistMolybdenumOres;
+	public static ConfigValue<List<String>> blacklistTungstenOres;
+	public static ConfigValue<List<String>> blacklistVanadiumOres;
+	public static ConfigValue<List<String>> blacklistNiobiumOres;
+	public static ConfigValue<List<String>> blacklistTantalumOres;
+	public static ConfigValue<List<String>> blacklistTitaniumOres;
+	public static ConfigValue<List<String>> blacklistZirconiumOres;
+	public static ConfigValue<List<String>> blacklistThoriumOres;
+	public static ConfigValue<List<String>> blacklistUraniumOres;
+	public static ConfigValue<List<String>> blacklistMagnesiumOres;
+	public static ConfigValue<List<String>> blacklistCalciumOres;
+	public static ConfigValue<List<String>> blacklistStrontiumOres;
+	public static ConfigValue<List<String>> blacklistLithiumOres;
+	public static ConfigValue<List<String>> blacklistPotassiumOres;
+	public static ConfigValue<List<String>> blacklistSaltOre;
+	public static ConfigValue<List<String>> blacklistSaltpetreOre;
+	public static ConfigValue<List<String>> blacklistMithrilOre;
+	public static ConfigValue<List<String>> blacklistCobaltOres;
+	public static ConfigValue<List<String>> blacklistGraphiteOre;
+	public static ConfigValue<List<String>> blacklistChrysocollaOre;
+
+	public static BooleanValue enableVanillaCoalOre;
+	public static BooleanValue enableVanillaIronOre;
+	public static BooleanValue handleEverythingInOverworld;
+	public static BooleanValue disableAatoGeneration;
+
+	public static BooleanValue enableBastnasite_la;
+	public static IntValue VeinSizeBastnasite_la;
+	public static IntValue VeinsPerChunkBastnasite_la;
+	public static IntValue MinHeightBastnasite_la;
+	public static IntValue MaxHeightBastnasite_la;
+
+	public static BooleanValue enableMonazite_la;
+	public static IntValue VeinSizeMonazite_la;
+	public static IntValue VeinsPerChunkMonazite_la;
+	public static IntValue MinHeightMonazite_la;
+	public static IntValue MaxHeightMonazite_la;
+
+	public static BooleanValue enableBastnasite_ce;
+	public static IntValue VeinSizeBastnasite_ce;
+	public static IntValue VeinsPerChunkBastnasite_ce;
+	public static IntValue MinHeightBastnasite_ce;
+	public static IntValue MaxHeightBastnasite_ce;
+
+	public static BooleanValue enableMonazite_ce;
+	public static IntValue VeinSizeMonazite_ce;
+	public static IntValue VeinsPerChunkMonazite_ce;
+	public static IntValue MinHeightMonazite_ce;
+	public static IntValue MaxHeightMonazite_ce;
+
+	public static BooleanValue enableBastnasite_nd;
+	public static IntValue VeinSizeBastnasite_nd;
+	public static IntValue VeinsPerChunkBastnasite_nd;
+	public static IntValue MinHeightBastnasite_nd;
+	public static IntValue MaxHeightBastnasite_nd;
+
+	public static BooleanValue enableMonazite_nd;
+	public static IntValue VeinSizeMonazite_nd;
+	public static IntValue VeinsPerChunkMonazite_nd;
+	public static IntValue MinHeightMonazite_nd;
+	public static IntValue MaxHeightMonazite_nd;
+
+	public static BooleanValue enableBastnasite_y;
+	public static IntValue VeinSizeBastnasite_y;
+	public static IntValue VeinsPerChunkBastnasite_y;
+	public static IntValue MinHeightBastnasite_y;
+	public static IntValue MaxHeightBastnasite_y;
+
+	public static BooleanValue enableSamarskite_y;
+	public static IntValue VeinSizeSamarskite_y;
+	public static IntValue VeinsPerChunkSamarskite_y;
+	public static IntValue MinHeightSamarskite_y;
+	public static IntValue MaxHeightSamarskite_y;
+
+	public static BooleanValue enableThortveitite;
+	public static IntValue VeinSizeThortveitite;
+	public static IntValue VeinsPerChunkThortveitite;
+	public static IntValue MinHeightThortveitite;
+	public static IntValue MaxHeightThortveitite;
+
+	public static BooleanValue enablePyrite; 
+	public static IntValue VeinSizePyrite; 
+	public static IntValue VeinsPerChunkPyrite; 
+	public static IntValue MinHeightPyrite; 
+	public static IntValue MaxHeightPyrite; 
+
+	public static BooleanValue enableSulphur; 
+	public static IntValue VeinSizeSulphur; 
+	public static IntValue VeinsPerChunkSulphur; 
+	public static IntValue MinHeightSulphur; 
+	public static IntValue MaxHeightSulphur; 
+
+	public static BooleanValue enableClausthalite; 
+	public static IntValue VeinSizeClausthalite; 
+	public static IntValue VeinsPerChunkClausthalite; 
+	public static IntValue MinHeightClausthalite; 
+	public static IntValue MaxHeightClausthalite; 
+
+	public static BooleanValue enableGuano; 
+	public static IntValue VeinSizeGuano; 
+	public static IntValue VeinsPerChunkGuano; 
+	public static IntValue MinHeightGuano; 
+	public static IntValue MaxHeightGuano; 
+
+	public static BooleanValue enablePhosphorite; 
+	public static IntValue VeinSizePhosphorite; 
+	public static IntValue VeinsPerChunkPhosphorite; 
+	public static IntValue MinHeightPhosphorite; 
+	public static IntValue MaxHeightPhosphorite; 
+
+	public static BooleanValue enablePeat; 
+	public static IntValue VeinSizePeat; 
+	public static IntValue VeinsPerChunkPeat; 
+	public static IntValue MinHeightPeat; 
+	public static IntValue MaxHeightPeat; 
+
+	public static BooleanValue enableLignite_ore; 
+	public static IntValue VeinSizeLignite_ore; 
+	public static IntValue VeinsPerChunkLignite_ore; 
+	public static IntValue MinHeightLignite_ore; 
+	public static IntValue MaxHeightLignite_ore;
+
+	public static BooleanValue enableBituminous_coal_ore; 
+	public static IntValue VeinSizeBituminous_coal_ore; 
+	public static IntValue VeinsPerChunkBituminous_coal_ore; 
+	public static IntValue MinHeightBituminous_coal_ore; 
+	public static IntValue MaxHeightBituminous_coal_ore; 
+
+	public static BooleanValue enableAnthracite_ore; 
+	public static IntValue VeinSizeAnthracite_ore; 
+	public static IntValue VeinsPerChunkAnthracite_ore; 
+	public static IntValue MinHeightAnthracite_ore; 
+	public static IntValue MaxHeightAnthracite_ore; 
+
+	public static BooleanValue enableGraphite; 
+	public static IntValue VeinSizeGraphite; 
+	public static IntValue VeinsPerChunkGraphite; 
+	public static IntValue MinHeightGraphite; 
+	public static IntValue MaxHeightGraphite; 
+
+	public static BooleanValue enableLollingite; 
+	public static IntValue VeinSizeLollingite; 
+	public static IntValue VeinsPerChunkLollingite; 
+	public static IntValue MinHeightLollingite; 
+	public static IntValue MaxHeightLollingite; 
+
+	public static BooleanValue enableRealgar; 
+	public static IntValue VeinSizeRealgar; 
+	public static IntValue VeinsPerChunkRealgar; 
+	public static IntValue MinHeightRealgar; 
+	public static IntValue MaxHeightRealgar; 
+
+	public static BooleanValue enableOrpiment; 
+	public static IntValue VeinSizeOrpiment; 
+	public static IntValue VeinsPerChunkOrpiment; 
+	public static IntValue MinHeightOrpiment; 
+	public static IntValue MaxHeightOrpiment; 
+
+	public static BooleanValue enableArsenopyrite; 
+	public static IntValue VeinSizeArsenopyrite; 
+	public static IntValue VeinsPerChunkArsenopyrite; 
+	public static IntValue MinHeightArsenopyrite; 
+	public static IntValue MaxHeightArsenopyrite; 
+
+	public static BooleanValue enableStibnite; 
+	public static IntValue VeinSizeStibnite; 
+	public static IntValue VeinsPerChunkStibnite; 
+	public static IntValue MinHeightStibnite; 
+	public static IntValue MaxHeightStibnite; 
+
+	public static BooleanValue enableGermanite; 
+	public static IntValue VeinSizeGermanite; 
+	public static IntValue VeinsPerChunkGermanite; 
+	public static IntValue MinHeightGermanite; 
+	public static IntValue MaxHeightGermanite; 
+
+	public static BooleanValue enableArgutite; 
+	public static IntValue VeinSizeArgutite; 
+	public static IntValue VeinsPerChunkArgutite; 
+	public static IntValue MinHeightArgutite; 
+	public static IntValue MaxHeightArgutite; 
+
+	public static BooleanValue enableBismuthinite; 
+	public static IntValue VeinSizeBismuthinite; 
+	public static IntValue VeinsPerChunkBismuthinite; 
+	public static IntValue MinHeightBismuthinite; 
+	public static IntValue MaxHeightBismuthinite; 
+
+	public static BooleanValue enableNative_bismuth; 
+	public static IntValue VeinSizeNative_bismuth; 
+	public static IntValue VeinsPerChunkNative_bismuth; 
+	public static IntValue MinHeightNative_bismuth; 
+	public static IntValue MaxHeightNative_bismuth; 
+
+	public static BooleanValue enableBismite; 
+	public static IntValue VeinSizeBismite; 
+	public static IntValue VeinsPerChunkBismite; 
+	public static IntValue MinHeightBismite; 
+	public static IntValue MaxHeightBismite; 
+
+	public static BooleanValue enableCassiterite; 
+	public static IntValue VeinSizeCassiterite; 
+	public static IntValue VeinsPerChunkCassiterite; 
+	public static IntValue MinHeightCassiterite; 
+	public static IntValue MaxHeightCassiterite; 
+
+	public static BooleanValue enableTeallite; 
+	public static IntValue VeinSizeTeallite; 
+	public static IntValue VeinsPerChunkTeallite; 
+	public static IntValue MinHeightTeallite; 
+	public static IntValue MaxHeightTeallite; 
+
+	public static BooleanValue enableStannite; 
+	public static IntValue VeinSizeStannite; 
+	public static IntValue VeinsPerChunkStannite; 
+	public static IntValue MinHeightStannite; 
+	public static IntValue MaxHeightStannite; 
+
+	public static BooleanValue enableNative_tin; 
+	public static IntValue VeinSizeNative_tin; 
+	public static IntValue VeinsPerChunkNative_tin; 
+	public static IntValue MinHeightNative_tin; 
+	public static IntValue MaxHeightNative_tin; 
+
+	public static BooleanValue enableKesterite; 
+	public static IntValue VeinSizeKesterite; 
+	public static IntValue VeinsPerChunkKesterite; 
+	public static IntValue MinHeightKesterite; 
+	public static IntValue MaxHeightKesterite; 
+
+	public static BooleanValue enableGalena; 
+	public static IntValue VeinSizeGalena; 
+	public static IntValue VeinsPerChunkGalena; 
+	public static IntValue MinHeightGalena; 
+	public static IntValue MaxHeightGalena; 
+
+	public static BooleanValue enableCerussite; 
+	public static IntValue VeinSizeCerussite; 
+	public static IntValue VeinsPerChunkCerussite; 
+	public static IntValue MinHeightCerussite; 
+	public static IntValue MaxHeightCerussite; 
+
+	public static BooleanValue enableAnglesite; 
+	public static IntValue VeinSizeAnglesite; 
+	public static IntValue VeinsPerChunkAnglesite; 
+	public static IntValue MinHeightAnglesite; 
+	public static IntValue MaxHeightAnglesite; 
+
+	public static BooleanValue enableBoulangerite; 
+	public static IntValue VeinSizeBoulangerite; 
+	public static IntValue VeinsPerChunkBoulangerite; 
+	public static IntValue MinHeightBoulangerite; 
+	public static IntValue MaxHeightBoulangerite; 
+
+	public static BooleanValue enablePyromorphite; 
+	public static IntValue VeinSizePyromorphite; 
+	public static IntValue VeinsPerChunkPyromorphite; 
+	public static IntValue MinHeightPyromorphite; 
+	public static IntValue MaxHeightPyromorphite;
+
+	public static BooleanValue enableBauxite; 
+	public static IntValue VeinSizeBauxite; 
+	public static IntValue VeinsPerChunkBauxite; 
+	public static IntValue MinHeightBauxite; 
+	public static IntValue MaxHeightBauxite; 
+
+	public static BooleanValue enableNepheline; 
+	public static IntValue VeinSizeNepheline; 
+	public static IntValue VeinsPerChunkNepheline; 
+	public static IntValue MinHeightNepheline; 
+	public static IntValue MaxHeightNepheline; 
+
+	public static BooleanValue enableLeucite; 
+	public static IntValue VeinSizeLeucite; 
+	public static IntValue VeinsPerChunkLeucite; 
+	public static IntValue MinHeightLeucite; 
+	public static IntValue MaxHeightLeucite; 
+
+	public static BooleanValue enableSphalerite; 
+	public static IntValue VeinSizeSphalerite; 
+	public static IntValue VeinsPerChunkSphalerite; 
+	public static IntValue MinHeightSphalerite; 
+	public static IntValue MaxHeightSphalerite; 
+
+	public static BooleanValue enableSmithsonite; 
+	public static IntValue VeinSizeSmithsonite; 
+	public static IntValue VeinsPerChunkSmithsonite; 
+	public static IntValue MinHeightSmithsonite; 
+	public static IntValue MaxHeightSmithsonite;
+
+	public static BooleanValue enableHemimorphite; 
+	public static IntValue VeinSizeHemimorphite; 
+	public static IntValue VeinsPerChunkHemimorphite; 
+	public static IntValue MinHeightHemimorphite; 
+	public static IntValue MaxHeightHemimorphite; 
+
+	public static BooleanValue enableFranklinite; 
+	public static IntValue VeinSizeFranklinite; 
+	public static IntValue VeinsPerChunkFranklinite; 
+	public static IntValue MinHeightFranklinite; 
+	public static IntValue MaxHeightFranklinite; 
+
+	public static BooleanValue enableZincite; 
+	public static IntValue VeinSizeZincite; 
+	public static IntValue VeinsPerChunkZincite; 
+	public static IntValue MinHeightZincite; 
+	public static IntValue MaxHeightZincite; 
+
+	public static BooleanValue enableHydrozincite; 
+	public static IntValue VeinSizeHydrozincite; 
+	public static IntValue VeinsPerChunkHydrozincite; 
+	public static IntValue MinHeightHydrozincite; 
+	public static IntValue MaxHeightHydrozincite; 
+
+	public static BooleanValue enableOtavite; 
+	public static IntValue VeinSizeOtavite; 
+	public static IntValue VeinsPerChunkOtavite; 
+	public static IntValue MinHeightOtavite; 
+	public static IntValue MaxHeightOtavite; 
+
+	public static BooleanValue enableGreenockite; 
+	public static IntValue VeinSizeGreenockite; 
+	public static IntValue VeinsPerChunkGreenockite; 
+	public static IntValue MinHeightGreenockite; 
+	public static IntValue MaxHeightGreenockite; 
+
+	public static BooleanValue enableCinnabar; 
+	public static IntValue VeinSizeCinnabar; 
+	public static IntValue VeinsPerChunkCinnabar; 
+	public static IntValue MinHeightCinnabar; 
+	public static IntValue MaxHeightCinnabar;
+
+	public static BooleanValue enableNative_copper; 
+	public static IntValue VeinSizeNative_copper; 
+	public static IntValue VeinsPerChunkNative_copper; 
+	public static IntValue MinHeightNative_copper; 
+	public static IntValue MaxHeightNative_copper; 
+
+	public static BooleanValue enableChalcopyrite; 
+	public static IntValue VeinSizeChalcopyrite; 
+	public static IntValue VeinsPerChunkChalcopyrite; 
+	public static IntValue MinHeightChalcopyrite; 
+	public static IntValue MaxHeightChalcopyrite; 
+
+	public static BooleanValue enableChalcocite; 
+	public static IntValue VeinSizeChalcocite; 
+	public static IntValue VeinsPerChunkChalcocite; 
+	public static IntValue MinHeightChalcocite; 
+	public static IntValue MaxHeightChalcocite; 
+
+	public static BooleanValue enableBornite; 
+	public static IntValue VeinSizeBornite; 
+	public static IntValue VeinsPerChunkBornite; 
+	public static IntValue MinHeightBornite; 
+	public static IntValue MaxHeightBornite; 
+
+	public static BooleanValue enableEnargite; 
+	public static IntValue VeinSizeEnargite; 
+	public static IntValue VeinsPerChunkEnargite; 
+	public static IntValue MinHeightEnargite; 
+	public static IntValue MaxHeightEnargite; 
+
+	public static BooleanValue enableTennantite; 
+	public static IntValue VeinSizeTennantite; 
+	public static IntValue VeinsPerChunkTennantite; 
+	public static IntValue MinHeightTennantite; 
+	public static IntValue MaxHeightTennantite; 
+
+	public static BooleanValue enableTetrahedrite; 
+	public static IntValue VeinSizeTetrahedrite; 
+	public static IntValue VeinsPerChunkTetrahedrite; 
+	public static IntValue MinHeightTetrahedrite; 
+	public static IntValue MaxHeightTetrahedrite;
+
+	public static BooleanValue enableCovellite; 
+	public static IntValue VeinSizeCovellite; 
+	public static IntValue VeinsPerChunkCovellite; 
+	public static IntValue MinHeightCovellite; 
+	public static IntValue MaxHeightCovellite; 
+
+	public static BooleanValue enableAzurite; 
+	public static IntValue VeinSizeAzurite; 
+	public static IntValue VeinsPerChunkAzurite; 
+	public static IntValue MinHeightAzurite; 
+	public static IntValue MaxHeightAzurite; 
+
+	public static BooleanValue enableMalachite; 
+	public static IntValue VeinSizeMalachite; 
+	public static IntValue VeinsPerChunkMalachite; 
+	public static IntValue MinHeightMalachite; 
+	public static IntValue MaxHeightMalachite; 
+
+	public static BooleanValue enableCuprite; 
+	public static IntValue VeinSizeCuprite; 
+	public static IntValue VeinsPerChunkCuprite; 
+	public static IntValue MinHeightCuprite; 
+	public static IntValue MaxHeightCuprite; 
+
+	public static BooleanValue enableNative_silver; 
+	public static IntValue VeinSizeNative_silver; 
+	public static IntValue VeinsPerChunkNative_silver; 
+	public static IntValue MinHeightNative_silver; 
+	public static IntValue MaxHeightNative_silver; 
+
+	public static BooleanValue enableAcanthite; 
+	public static IntValue VeinSizeAcanthite; 
+	public static IntValue VeinsPerChunkAcanthite; 
+	public static IntValue MinHeightAcanthite; 
+	public static IntValue MaxHeightAcanthite;
+
+	public static BooleanValue enableStephanite; 
+	public static IntValue VeinSizeStephanite; 
+	public static IntValue VeinsPerChunkStephanite; 
+	public static IntValue MinHeightStephanite; 
+	public static IntValue MaxHeightStephanite; 
+
+	public static BooleanValue enableProustite; 
+	public static IntValue VeinSizeProustite; 
+	public static IntValue VeinsPerChunkProustite; 
+	public static IntValue MinHeightProustite; 
+	public static IntValue MaxHeightProustite; 
+
+	public static BooleanValue enableFreibergite; 
+	public static IntValue VeinSizeFreibergite; 
+	public static IntValue VeinsPerChunkFreibergite; 
+	public static IntValue MinHeightFreibergite; 
+	public static IntValue MaxHeightFreibergite; 
+
+	public static BooleanValue enableNickeline; 
+	public static IntValue VeinSizeNickeline; 
+	public static IntValue VeinsPerChunkNickeline; 
+	public static IntValue MinHeightNickeline; 
+	public static IntValue MaxHeightNickeline; 
+
+	public static BooleanValue enablePentlandite; 
+	public static IntValue VeinSizePentlandite; 
+	public static IntValue VeinsPerChunkPentlandite; 
+	public static IntValue MinHeightPentlandite; 
+	public static IntValue MaxHeightPentlandite; 
+
+	public static BooleanValue enableNepouite; 
+	public static IntValue VeinSizeNepouite; 
+	public static IntValue VeinsPerChunkNepouite; 
+	public static IntValue MinHeightNepouite; 
+	public static IntValue MaxHeightNepouite;
+
+	public static BooleanValue enableMillerite; 
+	public static IntValue VeinSizeMillerite; 
+	public static IntValue VeinsPerChunkMillerite; 
+	public static IntValue MinHeightMillerite; 
+	public static IntValue MaxHeightMillerite; 
+
+	public static BooleanValue enableGersdorffite; 
+	public static IntValue VeinSizeGersdorffite; 
+	public static IntValue VeinsPerChunkGersdorffite; 
+	public static IntValue MinHeightGersdorffite; 
+	public static IntValue MaxHeightGersdorffite; 
+
+	public static BooleanValue enableCobaltite; 
+	public static IntValue VeinSizeCobaltite; 
+	public static IntValue VeinsPerChunkCobaltite; 
+	public static IntValue MinHeightCobaltite; 
+	public static IntValue MaxHeightCobaltite; 
+
+	public static BooleanValue enableCarrollite; 
+	public static IntValue VeinSizeCarrollite; 
+	public static IntValue VeinsPerChunkCarrollite; 
+	public static IntValue MinHeightCarrollite; 
+	public static IntValue MaxHeightCarrollite; 
+
+	public static BooleanValue enableSkutterudite; 
+	public static IntValue VeinSizeSkutterudite; 
+	public static IntValue VeinsPerChunkSkutterudite; 
+	public static IntValue MinHeightSkutterudite; 
+	public static IntValue MaxHeightSkutterudite; 
+
+	public static BooleanValue enableHematite; 
+	public static IntValue VeinSizeHematite; 
+	public static IntValue VeinsPerChunkHematite; 
+	public static IntValue MinHeightHematite; 
+	public static IntValue MaxHeightHematite; 
+
+	public static BooleanValue enableMagnetite; 
+	public static IntValue VeinSizeMagnetite; 
+	public static IntValue VeinsPerChunkMagnetite; 
+	public static IntValue MinHeightMagnetite; 
+	public static IntValue MaxHeightMagnetite; 
+
+	public static BooleanValue enableLimonite; 
+	public static IntValue VeinSizeLimonite; 
+	public static IntValue VeinsPerChunkLimonite; 
+	public static IntValue MinHeightLimonite; 
+	public static IntValue MaxHeightLimonite;
+
+	public static BooleanValue enableSiderite; 
+	public static IntValue VeinSizeSiderite; 
+	public static IntValue VeinsPerChunkSiderite; 
+	public static IntValue MinHeightSiderite; 
+	public static IntValue MaxHeightSiderite; 
+
+	public static BooleanValue enableTelluric_iron; 
+	public static IntValue VeinSizeTelluric_iron; 
+	public static IntValue VeinsPerChunkTelluric_iron; 
+	public static IntValue MinHeightTelluric_iron; 
+	public static IntValue MaxHeightTelluric_iron; 
+
+	public static BooleanValue enablePyrolusite; 
+	public static IntValue VeinSizePyrolusite; 
+	public static IntValue VeinsPerChunkPyrolusite; 
+	public static IntValue MinHeightPyrolusite; 
+	public static IntValue MaxHeightPyrolusite; 
+
+	public static BooleanValue enableRhodochrosite; 
+	public static IntValue VeinSizeRhodochrosite; 
+	public static IntValue VeinsPerChunkRhodochrosite; 
+	public static IntValue MinHeightRhodochrosite; 
+	public static IntValue MaxHeightRhodochrosite; 
+
+	public static BooleanValue enableHollandite; 
+	public static IntValue VeinSizeHollandite; 
+	public static IntValue VeinsPerChunkHollandite; 
+	public static IntValue MinHeightHollandite; 
+	public static IntValue MaxHeightHollandite; 
+
+	public static BooleanValue enableManganite; 
+	public static IntValue VeinSizeManganite; 
+	public static IntValue VeinsPerChunkManganite; 
+	public static IntValue MinHeightManganite; 
+	public static IntValue MaxHeightManganite; 
+
+	public static BooleanValue enableHausmannite; 
+	public static IntValue VeinSizeHausmannite; 
+	public static IntValue VeinsPerChunkHausmannite; 
+	public static IntValue MinHeightHausmannite; 
+	public static IntValue MaxHeightHausmannite;
+
+	public static BooleanValue enableAlabandite; 
+	public static IntValue VeinSizeAlabandite; 
+	public static IntValue VeinsPerChunkAlabandite; 
+	public static IntValue MinHeightAlabandite; 
+	public static IntValue MaxHeightAlabandite; 
+
+	public static BooleanValue enableRhodonite; 
+	public static IntValue VeinSizeRhodonite; 
+	public static IntValue VeinsPerChunkRhodonite; 
+	public static IntValue MinHeightRhodonite; 
+	public static IntValue MaxHeightRhodonite; 
+
+	public static BooleanValue enableChromite; 
+	public static IntValue VeinSizeChromite; 
+	public static IntValue VeinsPerChunkChromite; 
+	public static IntValue MinHeightChromite; 
+	public static IntValue MaxHeightChromite; 
+
+	public static BooleanValue enableMolybdenite; 
+	public static IntValue VeinSizeMolybdenite; 
+	public static IntValue VeinsPerChunkMolybdenite; 
+	public static IntValue MinHeightMolybdenite; 
+	public static IntValue MaxHeightMolybdenite; 
+
+	public static BooleanValue enableWulfenite; 
+	public static IntValue VeinSizeWulfenite; 
+	public static IntValue VeinsPerChunkWulfenite; 
+	public static IntValue MinHeightWulfenite; 
+	public static IntValue MaxHeightWulfenite; 
+
+	public static BooleanValue enableScheelite; 
+	public static IntValue VeinSizeScheelite; 
+	public static IntValue VeinsPerChunkScheelite; 
+	public static IntValue MinHeightScheelite; 
+	public static IntValue MaxHeightScheelite; 
+
+	public static BooleanValue enableFerberite; 
+	public static IntValue VeinSizeFerberite; 
+	public static IntValue VeinsPerChunkFerberite; 
+	public static IntValue MinHeightFerberite; 
+	public static IntValue MaxHeightFerberite; 
+
+	public static BooleanValue enableHubnerite; 
+	public static IntValue VeinSizeHubnerite; 
+	public static IntValue VeinsPerChunkHubnerite; 
+	public static IntValue MinHeightHubnerite; 
+	public static IntValue MaxHeightHubnerite;
+
+	public static BooleanValue enableVanadinite; 
+	public static IntValue VeinSizeVanadinite; 
+	public static IntValue VeinsPerChunkVanadinite; 
+	public static IntValue MinHeightVanadinite; 
+	public static IntValue MaxHeightVanadinite; 
+
+	public static BooleanValue enableDescloizite; 
+	public static IntValue VeinSizeDescloizite; 
+	public static IntValue VeinsPerChunkDescloizite; 
+	public static IntValue MinHeightDescloizite; 
+	public static IntValue MaxHeightDescloizite; 
+
+	public static BooleanValue enableColumbite; 
+	public static IntValue VeinSizeColumbite; 
+	public static IntValue VeinsPerChunkColumbite; 
+	public static IntValue MinHeightColumbite; 
+	public static IntValue MaxHeightColumbite; 
+
+	public static BooleanValue enableTantalite; 
+	public static IntValue VeinSizeTantalite; 
+	public static IntValue VeinsPerChunkTantalite; 
+	public static IntValue MinHeightTantalite; 
+	public static IntValue MaxHeightTantalite; 
+
+	public static BooleanValue enableRutile; 
+	public static IntValue VeinSizeRutile; 
+	public static IntValue VeinsPerChunkRutile; 
+	public static IntValue MinHeightRutile; 
+	public static IntValue MaxHeightRutile; 
+
+	public static BooleanValue enableIlmenite; 
+	public static IntValue VeinSizeIlmenite; 
+	public static IntValue VeinsPerChunkIlmenite; 
+	public static IntValue MinHeightIlmenite; 
+	public static IntValue MaxHeightIlmenite; 
+
+	public static BooleanValue enableAnatase; 
+	public static IntValue VeinSizeAnatase; 
+	public static IntValue VeinsPerChunkAnatase; 
+	public static IntValue MinHeightAnatase; 
+	public static IntValue MaxHeightAnatase; 
+
+	public static BooleanValue enableBrookite; 
+	public static IntValue VeinSizeBrookite; 
+	public static IntValue VeinsPerChunkBrookite; 
+	public static IntValue MinHeightBrookite; 
+	public static IntValue MaxHeightBrookite;
+
+	public static BooleanValue enableTitanite; 
+	public static IntValue VeinSizeTitanite; 
+	public static IntValue VeinsPerChunkTitanite; 
+	public static IntValue MinHeightTitanite; 
+	public static IntValue MaxHeightTitanite; 
+
+	public static BooleanValue enableZircon; 
+	public static IntValue VeinSizeZircon; 
+	public static IntValue VeinsPerChunkZircon; 
+	public static IntValue MinHeightZircon; 
+	public static IntValue MaxHeightZircon; 
+
+	public static BooleanValue enableThorite; 
+	public static IntValue VeinSizeThorite; 
+	public static IntValue VeinsPerChunkThorite; 
+	public static IntValue MinHeightThorite; 
+	public static IntValue MaxHeightThorite; 
+
+	public static BooleanValue enableCarnotite; 
+	public static IntValue VeinSizeCarnotite; 
+	public static IntValue VeinsPerChunkCarnotite; 
+	public static IntValue MinHeightCarnotite; 
+	public static IntValue MaxHeightCarnotite; 
+
+	public static BooleanValue enableUraninite; 
+	public static IntValue VeinSizeUraninite; 
+	public static IntValue VeinsPerChunkUraninite; 
+	public static IntValue MinHeightUraninite; 
+	public static IntValue MaxHeightUraninite; 
+
+	public static BooleanValue enableMagnesite; 
+	public static IntValue VeinSizeMagnesite; 
+	public static IntValue VeinsPerChunkMagnesite; 
+	public static IntValue MinHeightMagnesite; 
+	public static IntValue MaxHeightMagnesite; 
+
+	public static BooleanValue enableKieserite; 
+	public static IntValue VeinSizeKieserite; 
+	public static IntValue VeinsPerChunkKieserite; 
+	public static IntValue MinHeightKieserite; 
+	public static IntValue MaxHeightKieserite;
+
+	public static BooleanValue enableBrucite; 
+	public static IntValue VeinSizeBrucite; 
+	public static IntValue VeinsPerChunkBrucite; 
+	public static IntValue MinHeightBrucite; 
+	public static IntValue MaxHeightBrucite; 
+
+	public static BooleanValue enableCalcite; 
+	public static IntValue VeinSizeCalcite; 
+	public static IntValue VeinsPerChunkCalcite; 
+	public static IntValue MinHeightCalcite; 
+	public static IntValue MaxHeightCalcite; 
+
+	public static BooleanValue enableGypsum; 
+	public static IntValue VeinSizeGypsum; 
+	public static IntValue VeinsPerChunkGypsum; 
+	public static IntValue MinHeightGypsum; 
+	public static IntValue MaxHeightGypsum; 
+
+	public static BooleanValue enableAnhydrite; 
+	public static IntValue VeinSizeAnhydrite; 
+	public static IntValue VeinsPerChunkAnhydrite; 
+	public static IntValue MinHeightAnhydrite; 
+	public static IntValue MaxHeightAnhydrite; 
+
+	public static BooleanValue enableDolomite; 
+	public static IntValue VeinSizeDolomite; 
+	public static IntValue VeinsPerChunkDolomite; 
+	public static IntValue MinHeightDolomite; 
+	public static IntValue MaxHeightDolomite; 
+
+	public static BooleanValue enableStrontianite; 
+	public static IntValue VeinSizeStrontianite; 
+	public static IntValue VeinsPerChunkStrontianite; 
+	public static IntValue MinHeightStrontianite; 
+	public static IntValue MaxHeightStrontianite; 
+
+	public static BooleanValue enableCelestine; 
+	public static IntValue VeinSizeCelestine; 
+	public static IntValue VeinsPerChunkCelestine; 
+	public static IntValue MinHeightCelestine; 
+	public static IntValue MaxHeightCelestine;
+
+	public static BooleanValue enablePolylithionite; 
+	public static IntValue VeinSizePolylithionite; 
+	public static IntValue VeinsPerChunkPolylithionite; 
+	public static IntValue MinHeightPolylithionite; 
+	public static IntValue MaxHeightPolylithionite; 
+
+	public static BooleanValue enablePetalite; 
+	public static IntValue VeinSizePetalite; 
+	public static IntValue VeinsPerChunkPetalite; 
+	public static IntValue MinHeightPetalite; 
+	public static IntValue MaxHeightPetalite; 
+
+	public static BooleanValue enableCarnallite; 
+	public static IntValue VeinSizeCarnallite; 
+	public static IntValue VeinsPerChunkCarnallite; 
+	public static IntValue MinHeightCarnallite; 
+	public static IntValue MaxHeightCarnallite; 
+
+	public static BooleanValue enableSylvite; 
+	public static IntValue VeinSizeSylvite; 
+	public static IntValue VeinsPerChunkSylvite; 
+	public static IntValue MinHeightSylvite; 
+	public static IntValue MaxHeightSylvite; 
+
+	public static BooleanValue enablePolyhalite; 
+	public static IntValue VeinSizePolyhalite; 
+	public static IntValue VeinsPerChunkPolyhalite; 
+	public static IntValue MinHeightPolyhalite; 
+	public static IntValue MaxHeightPolyhalite; 
+
+	public static BooleanValue enableKainite; 
+	public static IntValue VeinSizeKainite; 
+	public static IntValue VeinsPerChunkKainite; 
+	public static IntValue MinHeightKainite; 
+	public static IntValue MaxHeightKainite; 
+
+	public static BooleanValue enableLangbeinite; 
+	public static IntValue VeinSizeLangbeinite; 
+	public static IntValue VeinsPerChunkLangbeinite; 
+	public static IntValue MinHeightLangbeinite; 
+	public static IntValue MaxHeightLangbeinite; 
+
+	public static BooleanValue enableNitratine; 
+	public static IntValue VeinSizeNitratine; 
+	public static IntValue VeinsPerChunkNitratine; 
+	public static IntValue MinHeightNitratine; 
+	public static IntValue MaxHeightNitratine;
+
+	public static BooleanValue enableHalite; 
+	public static IntValue VeinSizeHalite; 
+	public static IntValue VeinsPerChunkHalite; 
+	public static IntValue MinHeightHalite; 
+	public static IntValue MaxHeightHalite; 
+
+	public static BooleanValue enableSapphire_ore; 
+	public static IntValue VeinSizeSapphire_ore; 
+	public static IntValue VeinsPerChunkSapphire_ore; 
+	public static IntValue MinHeightSapphire_ore; 
+	public static IntValue MaxHeightSapphire_ore; 
+
+	public static BooleanValue enableRuby_ore; 
+	public static IntValue VeinSizeRuby_ore; 
+	public static IntValue VeinsPerChunkRuby_ore; 
+	public static IntValue MinHeightRuby_ore; 
+	public static IntValue MaxHeightRuby_ore; 
+
+	public static BooleanValue enableSpinel_ore; 
+	public static IntValue VeinSizeSpinel_ore; 
+	public static IntValue VeinsPerChunkSpinel_ore; 
+	public static IntValue MinHeightSpinel_ore; 
+	public static IntValue MaxHeightSpinel_ore; 
+
+	public static BooleanValue enableAmethyst_ore; 
+	public static IntValue VeinSizeAmethyst_ore; 
+	public static IntValue VeinsPerChunkAmethyst_ore; 
+	public static IntValue MinHeightAmethyst_ore; 
+	public static IntValue MaxHeightAmethyst_ore; 
+
+	public static BooleanValue enableJade_ore; 
+	public static IntValue VeinSizeJade_ore; 
+	public static IntValue VeinsPerChunkJade_ore; 
+	public static IntValue MinHeightJade_ore; 
+	public static IntValue MaxHeightJade_ore; 
+
+	public static BooleanValue enableTourmaline_ore; 
+	public static IntValue VeinSizeTourmaline_ore; 
+	public static IntValue VeinsPerChunkTourmaline_ore; 
+	public static IntValue MinHeightTourmaline_ore; 
+	public static IntValue MaxHeightTourmaline_ore;
+
+	public static BooleanValue enableSugilite_ore; 
+	public static IntValue VeinSizeSugilite_ore; 
+	public static IntValue VeinsPerChunkSugilite_ore; 
+	public static IntValue MinHeightSugilite_ore; 
+	public static IntValue MaxHeightSugilite_ore; 
+
+	public static BooleanValue enablePeridot_ore; 
+	public static IntValue VeinSizePeridot_ore; 
+	public static IntValue VeinsPerChunkPeridot_ore; 
+	public static IntValue MinHeightPeridot_ore; 
+	public static IntValue MaxHeightPeridot_ore; 
+
+	public static BooleanValue enableAgate_ore; 
+	public static IntValue VeinSizeAgate_ore; 
+	public static IntValue VeinsPerChunkAgate_ore; 
+	public static IntValue MinHeightAgate_ore; 
+	public static IntValue MaxHeightAgate_ore; 
+
+	public static BooleanValue enableCarnelian_ore; 
+	public static IntValue VeinSizeCarnelian_ore; 
+	public static IntValue VeinsPerChunkCarnelian_ore; 
+	public static IntValue MinHeightCarnelian_ore; 
+	public static IntValue MaxHeightCarnelian_ore; 
+
+	public static BooleanValue enableChrysoprase_ore; 
+	public static IntValue VeinSizeChrysoprase_ore; 
+	public static IntValue VeinsPerChunkChrysoprase_ore; 
+	public static IntValue MinHeightChrysoprase_ore; 
+	public static IntValue MaxHeightChrysoprase_ore; 
+
+	public static BooleanValue enableHeliotrope_ore; 
+	public static IntValue VeinSizeHeliotrope_ore; 
+	public static IntValue VeinsPerChunkHeliotrope_ore; 
+	public static IntValue MinHeightHeliotrope_ore; 
+	public static IntValue MaxHeightHeliotrope_ore; 
+
+	public static BooleanValue enableTopaz_ore; 
+	public static IntValue VeinSizeTopaz_ore; 
+	public static IntValue VeinsPerChunkTopaz_ore; 
+	public static IntValue MinHeightTopaz_ore; 
+	public static IntValue MaxHeightTopaz_ore;
+
+	public static BooleanValue enableUnakite_ore; 
+	public static IntValue VeinSizeUnakite_ore; 
+	public static IntValue VeinsPerChunkUnakite_ore; 
+	public static IntValue MinHeightUnakite_ore; 
+	public static IntValue MaxHeightUnakite_ore; 
+
+	public static BooleanValue enableTanzanite_ore; 
+	public static IntValue VeinSizeTanzanite_ore; 
+	public static IntValue VeinsPerChunkTanzanite_ore; 
+	public static IntValue MinHeightTanzanite_ore; 
+	public static IntValue MaxHeightTanzanite_ore; 
+
+	public static BooleanValue enableHauyne_ore; 
+	public static IntValue VeinSizeHauyne_ore; 
+	public static IntValue VeinsPerChunkHauyne_ore; 
+	public static IntValue MinHeightHauyne_ore; 
+	public static IntValue MaxHeightHauyne_ore; 
+
+	public static BooleanValue enableOnyx_ore; 
+	public static IntValue VeinSizeOnyx_ore; 
+	public static IntValue VeinsPerChunkOnyx_ore; 
+	public static IntValue MinHeightOnyx_ore; 
+	public static IntValue MaxHeightOnyx_ore; 
+
+	public static BooleanValue enableOpal_ore; 
+	public static IntValue VeinSizeOpal_ore; 
+	public static IntValue VeinsPerChunkOpal_ore; 
+	public static IntValue MinHeightOpal_ore; 
+	public static IntValue MaxHeightOpal_ore; 
+
+	public static BooleanValue enableMoonstone_ore; 
+	public static IntValue VeinSizeMoonstone_ore; 
+	public static IntValue VeinsPerChunkMoonstone_ore; 
+	public static IntValue MinHeightMoonstone_ore; 
+	public static IntValue MaxHeightMoonstone_ore;
+
+	public static BooleanValue enableTurquoise_ore; 
+	public static IntValue VeinSizeTurquoise_ore; 
+	public static IntValue VeinsPerChunkTurquoise_ore; 
+	public static IntValue MinHeightTurquoise_ore; 
+	public static IntValue MaxHeightTurquoise_ore; 
+
+	public static BooleanValue enableAmazonite_ore; 
+	public static IntValue VeinSizeAmazonite_ore; 
+	public static IntValue VeinsPerChunkAmazonite_ore; 
+	public static IntValue MinHeightAmazonite_ore; 
+	public static IntValue MaxHeightAmazonite_ore; 
+
+	public static BooleanValue enableChrysocolla_ore; 
+	public static IntValue VeinSizeChrysocolla_ore; 
+	public static IntValue VeinsPerChunkChrysocolla_ore; 
+	public static IntValue MinHeightChrysocolla_ore; 
+	public static IntValue MaxHeightChrysocolla_ore; 
+
+	public static BooleanValue enableAlmandine_ore; 
+	public static IntValue VeinSizeAlmandine_ore; 
+	public static IntValue VeinsPerChunkAlmandine_ore; 
+	public static IntValue MinHeightAlmandine_ore; 
+	public static IntValue MaxHeightAlmandine_ore; 
+
+	public static BooleanValue enableSpessartine_ore; 
+	public static IntValue VeinSizeSpessartine_ore; 
+	public static IntValue VeinsPerChunkSpessartine_ore; 
+	public static IntValue MinHeightSpessartine_ore; 
+	public static IntValue MaxHeightSpessartine_ore; 
+
+	public static BooleanValue enablePyrope_ore; 
+	public static IntValue VeinSizePyrope_ore; 
+	public static IntValue VeinsPerChunkPyrope_ore; 
+	public static IntValue MinHeightPyrope_ore; 
+	public static IntValue MaxHeightPyrope_ore;
+
+	public static BooleanValue enableTsavorite_ore; 
+	public static IntValue VeinSizeTsavorite_ore; 
+	public static IntValue VeinsPerChunkTsavorite_ore; 
+	public static IntValue MinHeightTsavorite_ore; 
+	public static IntValue MaxHeightTsavorite_ore; 
+
+	public static BooleanValue enableAndradite_ore; 
+	public static IntValue VeinSizeAndradite_ore; 
+	public static IntValue VeinsPerChunkAndradite_ore; 
+	public static IntValue MinHeightAndradite_ore; 
+	public static IntValue MaxHeightAndradite_ore;
+
+	public static BooleanValue enableMithril_ore; 
+	public static IntValue VeinSizeMithril_ore; 
+	public static IntValue VeinsPerChunkMithril_ore; 
+	public static IntValue MinHeightMithril_ore; 
+	public static IntValue MaxHeightMithril_ore;
+
+	public static BooleanValue enableSulphurOres;
+	public static BooleanValue enableSeleniumOres;
+	public static BooleanValue enableCoalOres;
+	public static BooleanValue enableGraphiteOre;
+	public static BooleanValue enableArsenicOres;
+	public static BooleanValue enableAntimonyOres;
+	public static BooleanValue enableGermaniumOres;
+	public static BooleanValue enableBismuthOres;
+	public static BooleanValue enableTinOres;
+	public static BooleanValue enableLeadOres;
+	public static BooleanValue enableAluminumOres;
+	public static BooleanValue enableZincOres;
+	public static BooleanValue enableCadmiumOres;
+	public static BooleanValue enableMercuryOres;
+	public static BooleanValue enableCopperOres;
+	public static BooleanValue enableSilverOres;
+	public static BooleanValue enableNickelOres;
+	public static BooleanValue enableCobaltOres;
+	public static BooleanValue enableIronOres;
+	public static BooleanValue enableManganeseOres;
+	public static BooleanValue enableChromiumOres;
+	public static BooleanValue enableMolybdenumOres;
+	public static BooleanValue enableTungstenOres;
+	public static BooleanValue enableVanadiumOres;
+	public static BooleanValue enableNiobiumOres;
+	public static BooleanValue enableTantalumOres;
+	public static BooleanValue enableTitaniumOres;
+	public static BooleanValue enableZirconiumOres;
+	public static BooleanValue enableThoriumOres;
+	public static BooleanValue enableUraniumOres;
+	public static BooleanValue enableMagnesiumOres;
+	public static BooleanValue enableCalciumOres;
+	public static BooleanValue enableStrontiumOres;
+	public static BooleanValue enableLithiumOres;	
+	public static BooleanValue enableNPKOres;
+	public static BooleanValue enableMithrilOre;
+	public static BooleanValue enableSaltpetreOre;
+	public static BooleanValue enableSaltOre;
+	public static BooleanValue enableSomeGems;
+	public static BooleanValue enableAllGems;
+	public static BooleanValue enablePGMs;
+	public static BooleanValue enableRarePGMs;	
+	public static BooleanValue enableREEs;
+
+	public static BooleanValue enableGold; 
+	public static IntValue VeinSizeGold; 
+	public static IntValue VeinsPerChunkGold; 
+	public static IntValue MinHeightGold; 
+	public static IntValue MaxHeightGold;
+
+	public static BooleanValue enableBadlandsGold; 
+	public static IntValue VeinSizeBadlandsGold; 
+	public static IntValue VeinsPerChunkBadlandsGold; 
+	public static IntValue MinHeightBadlandsGold; 
+	public static IntValue MaxHeightBadlandsGold;
+
+	public static BooleanValue enableRedstone; 
+	public static IntValue VeinSizeRedstone; 
+	public static IntValue VeinsPerChunkRedstone; 
+	public static IntValue MinHeightRedstone; 
+	public static IntValue MaxHeightRedstone;
+
+	public static BooleanValue enableDiamond; 
+	public static IntValue VeinSizeDiamond; 
+	public static IntValue VeinsPerChunkDiamond; 
+	public static IntValue MinHeightDiamond; 
+	public static IntValue MaxHeightDiamond;
+
+	public static BooleanValue enableLapis; 
+	public static IntValue VeinSizeLapis; 
+	public static IntValue VeinsPerChunkLapis; 
+	public static IntValue DepthAverageLapis; 
+
+	public static BooleanValue enableDirt; 
+	public static IntValue VeinSizeDirt; 
+	public static IntValue VeinsPerChunkDirt; 
+	public static IntValue MinHeightDirt; 
+	public static IntValue MaxHeightDirt;
+
+	public static BooleanValue enableGravel; 
+	public static IntValue VeinSizeGravel; 
+	public static IntValue VeinsPerChunkGravel; 
+	public static IntValue MinHeightGravel; 
+	public static IntValue MaxHeightGravel;
+
+	public static BooleanValue enableGranite; 
+	public static IntValue VeinSizeGranite; 
+	public static IntValue VeinsPerChunkGranite; 
+	public static IntValue MinHeightGranite; 
+	public static IntValue MaxHeightGranite;
+
+	public static BooleanValue enableDiorite; 
+	public static IntValue VeinSizeDiorite; 
+	public static IntValue VeinsPerChunkDiorite; 
+	public static IntValue MinHeightDiorite; 
+	public static IntValue MaxHeightDiorite;
+
+	public static BooleanValue enableAndesite; 
+	public static IntValue VeinSizeAndesite; 
+	public static IntValue VeinsPerChunkAndesite; 
+	public static IntValue MinHeightAndesite; 
+	public static IntValue MaxHeightAndesite;
+
+	public static BooleanValue enableInfestedStone; 
+	public static IntValue VeinSizeInfestedStone; 
+	public static IntValue VeinsPerChunkInfestedStone; 
+	public static IntValue MinHeightInfestedStone; 
+	public static IntValue MaxHeightInfestedStone;
+
+	public static BooleanValue enableAdditionalPeat; 
+	public static IntValue VeinSizeAdditionalPeat; 
+	public static IntValue VeinsPerChunkAdditionalPeat; 
+	public static IntValue MinHeightAdditionalPeat; 
+	public static IntValue MaxHeightAdditionalPeat;
+
+	public static BooleanValue enableNetherCoal; 
+	public static IntValue VeinSizeNetherCoal; 
+	public static IntValue VeinsPerChunkNetherCoal; 
+	public static IntValue MinHeightNetherCoal; 
+	public static IntValue MaxHeightNetherCoal;
+
+	public static BooleanValue enableNetherGold; 
+	public static IntValue VeinSizeNetherGold; 
+	public static IntValue VeinsPerChunkNetherGold; 
+	public static IntValue MinHeightNetherGold; 
+	public static IntValue MaxHeightNetherGold;
+	
+	public static BooleanValue enableNetherQuartz;
+	public static IntValue VeinSizeNetherQuartz;
+	public static IntValue VeinsPerChunkNetherQuartz;
+	public static IntValue MinHeightNetherQuartz;
+	public static IntValue MaxHeightNetherQuartz;
+
+	public static BooleanValue enableNetherMithril; 
+	public static IntValue VeinSizeNetherMithril; 
+	public static IntValue VeinsPerChunkNetherMithril; 
+	public static IntValue MinHeightNetherMithril; 
+	public static IntValue MaxHeightNetherMithril;
+
+	public static BooleanValue enableNetherSulphur; 
+	public static IntValue VeinSizeNetherSulphur; 
+	public static IntValue VeinsPerChunkNetherSulphur; 
+	public static IntValue MinHeightNetherSulphur; 
+	public static IntValue MaxHeightNetherSulphur;
+
+	public static IntValue VeinSizeCoal;
+	public static IntValue VeinsPerChunkCoal;
+	public static IntValue MinHeightCoal;	
+	public static IntValue MaxHeightCoal;
+
+	public static IntValue VeinSizeIron;
+	public static IntValue VeinsPerChunkIron;
+	public static IntValue MinHeightIron;
+	public static IntValue MaxHeightIron;
+
+	public static BooleanValue enabledPGMs; 
+	public static IntValue VeinSizePGMs; 
+	public static IntValue VeinsPerChunkPGMs; 
+	public static IntValue MinHeightPGMs; 
+	public static IntValue MaxHeightPGMs;
+
+	public static BooleanValue enabledRarePGMs; 
+	public static IntValue VeinSizeRarePGMs; 
+	public static IntValue VeinsPerChunkRarePGMs; 
+	public static IntValue MinHeightRarePGMs; 
+	public static IntValue MaxHeightRarePGMs;
+
+	public static IntValue copperHL;
+	public static IntValue tinHL;
+	public static IntValue zincHL;
+	public static IntValue leadHL;
+	public static IntValue cadmiumHL;
+	public static IntValue mercuryHL;
+	public static IntValue aluminiumHL;
+	public static IntValue silverHL;
+	public static IntValue manganeseHL;
+	public static IntValue titaniumHL;
+	public static IntValue tungstenHL;
+	public static IntValue nickelHL;
+	public static IntValue mithrilHL;
+	public static IntValue nitratineHL;
+	public static IntValue ironHL;
+	public static IntValue haliteHL;
+	public static IntValue chromiumHL;
+	public static IntValue molybdenumHL;
+	public static IntValue carnotiteHL;
+	public static IntValue uraniniteHL;
+	public static IntValue commonPgmsHL;
+	public static IntValue rarePgmsHL;
+
+
+	public static BooleanValue enableEmerald;
+
+	public static BooleanValue All;
 
 	static {
 		BUILDER.comment("General settings").push("general");
-		handleEverythingInOverworld = BUILDER.comment("Should Aato remove ALL ores from other mods to prevent 'duplicate' ores in the overworld.").define("handleEverythingInOverworld", true);
+		handleEverythingInOverworld = BUILDER.comment("Should Aato remove ALL ores from other mods to prevent 'duplicate' ores in the overworld. PLEASE note that this option only works to some extent. "
+				+ "Check what underground generation looks like BEFORE starting a survival adventure.").define("handleEverythingInOverworld", true);
 		disableAatoGeneration = BUILDER.comment("Set this to true if you only want to use this mod to tune vanilla ores spawning. Nothing from this mod will spawn in any dimension.").define("disableAatoGeneration", false);
 		hideJEI = BUILDER.comment("Should blocks and items from this mod be hidden in JEI. Useful if you only use this mod to tune vanilla ores.").define("hideEverythingInJEI", false);
 		enableStoneAge = BUILDER.comment("Activate the stone age. Disable a few smelting recipes so you have to build a refiner in order to have iron. It really changes the way you have to play early game. (default: false)").define("enableStoneAge", false);
 		enablePlugAndPlay = BUILDER.comment("If for some reason you don't want the mod to automatically enable ore generation for mods supported by the plug and play feature, set this to false"
 				+ " WARNING : you will have to enable everything by yourself.").define("enablePlugAndPlay", true);
-		clearNether = BUILDER.comment("Should Nether be cleared of all ore generation from vanilla and other mods.").define("clearNether", false);
+		clearNether = BUILDER.comment("Should Nether be cleared of all ore generation from vanilla and other mods, except AatO's ores.").define("clearNether", false);
 		mineralogistOption = BUILDER.comment("If you are a geologist or a mineralogist at heart, turn this on. No tooltips will be shown. Also recommended for hardcore players.").define("noTooltips", false);
 		BUILDER.pop();
 
@@ -1264,7 +1274,7 @@ public class AatoConfig {
 		BUILDER.pop();
 
 		BUILDER.comment("Simplified overworld generation settings for modded ores.").push("overworldSimplified");
-		enableSulphurOres = BUILDER.comment("Enable all sulphur ores. (default: true)").define("enableSulphurOres", true);
+		enableSulphurOres = BUILDER.comment("Enable all sulphur ores. Including nether sulphur. (default: true)").define("enableSulphurOres", true);
 		enableSeleniumOres = BUILDER.comment("Enable all selenium ores. (default: false)").define("enableSeleniumOres", false);
 		enableCoalOres = BUILDER.comment("Enable all coal ores. (default: true)").define("enableCoalOres", true); 
 		enableGraphiteOre = BUILDER.comment("Enable graphite ore. (default: false)").define("enableGraphiteOre", false); 
@@ -2594,36 +2604,44 @@ public class AatoConfig {
 
 		BUILDER.comment("Nether generation settings").push("nether");
 
-		BUILDER.push("nether_gold");
-		enableNetherGold = BUILDER.comment("Enable gold ore generation in nether. (default: true)").define("enableNetherGold", true);
-		VeinSizeNetherGold = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherGold", 21, 0, 50);
-		VeinsPerChunkNetherGold = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherGold", 4, 0, 50);
-		MinHeightNetherGold = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherGold", 10, 0, 126);
-		MaxHeightNetherGold = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherGold", 110, 0, 126);
+		BUILDER.push("nether_gold_ore");
+		enableNetherGold = BUILDER.comment("Enable minecraft gold ore generation in nether. (default: true)").define("enableNetherGold", true);
+		VeinSizeNetherGold = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherGold", 11, 0, 50);
+		VeinsPerChunkNetherGold = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherGold", 11, 0, 50);
+		MinHeightNetherGold = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherGold", 10, 0, 128);
+		MaxHeightNetherGold = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherGold", 110, 0, 128);
+		BUILDER.pop();
+		
+		BUILDER.push("nether_quartz_ore");
+		enableNetherQuartz = BUILDER.comment("Enable minecraft nether quartz ore generation in nether. (default: true)").define("enableNetherQuartz", true);
+		VeinSizeNetherQuartz = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherQuartz", 14, 0, 50);
+		VeinsPerChunkNetherQuartz = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherQuartz", 16, 0, 50);
+		MinHeightNetherQuartz = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherQuartz", 10, 0, 128);
+		MaxHeightNetherQuartz = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherQuartz", 110, 0, 128);
 		BUILDER.pop();
 
-		BUILDER.push("nether_coal");
+		BUILDER.push("nether_coal_ore");
 		enableNetherCoal = BUILDER.comment("Enable coal ore generation in nether. (default: true)").define("enableNetherCoal", true);
 		VeinSizeNetherCoal = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherCoal", 16, 0, 50);
 		VeinsPerChunkNetherCoal = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherCoal", 5, 0, 50);
-		MinHeightNetherCoal = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherCoal", 10, 0, 126);
-		MaxHeightNetherCoal = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherCoal", 110, 0, 126);
+		MinHeightNetherCoal = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherCoal", 10, 0, 128);
+		MaxHeightNetherCoal = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherCoal", 110, 0, 128);
 		BUILDER.pop();
 
-		BUILDER.push("nether_mithril");
+		BUILDER.push("nether_mithril_ore");
 		enableNetherMithril = BUILDER.comment("Enable mithril ore generation in nether. (default: false)").define("enableNetherMithril", false);
 		VeinSizeNetherMithril = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherMithril", 9, 0, 50);
 		VeinsPerChunkNetherMithril = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherMithril", 6, 0, 50);
-		MinHeightNetherMithril = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherMithril", 10, 0, 126);
-		MaxHeightNetherMithril = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherMithril", 110, 0, 126);
+		MinHeightNetherMithril = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherMithril", 10, 0, 128);
+		MaxHeightNetherMithril = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherMithril", 110, 0, 128);
 		BUILDER.pop();
 
 		BUILDER.push("nether_sulphur");
-		enableNetherSulphur = BUILDER.comment("Enable sulphur ore generation in nether. (default: true)").define("enableNetherSulphur", true);
+		enableNetherSulphur = BUILDER.comment("Enable sulphur ore generation in nether. The 'easy sulphur option' includes this ore. (default: true)").define("enableNetherSulphur", true);
 		VeinSizeNetherSulphur = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherSulphur", 15, 0, 50);
 		VeinsPerChunkNetherSulphur = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherSulphur", 11, 0, 50);
-		MinHeightNetherSulphur = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherSulphur", 10, 0, 126);
-		MaxHeightNetherSulphur = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherSulphur", 110, 0, 126);
+		MinHeightNetherSulphur = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherSulphur", 10, 0, 128);
+		MaxHeightNetherSulphur = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherSulphur", 110, 0, 128);
 		BUILDER.pop();		
 
 		BUILDER.pop();
