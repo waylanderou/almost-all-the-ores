@@ -307,6 +307,9 @@ public class Ores {
 	@ObjectHolder(AlmostAllTheOres.MODID + ":uraninite")
 	public static final CustomOre URANINITE = null;
 
+	@ObjectHolder(AlmostAllTheOres.MODID + ":torbernite")
+	public static final CustomOre TORBERNITE = null;
+
 	@ObjectHolder(AlmostAllTheOres.MODID + ":magnesite")
 	public static final CustomOre MAGNESITE = null;
 
@@ -490,10 +493,6 @@ public class Ores {
 	@ObjectHolder(AlmostAllTheOres.MODID + ":thortveitite")
 	public static final CustomOre THORTVEITITE = null;
 
-
-
-
-
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class OresRegistryEvents{		
 
@@ -518,9 +517,10 @@ public class Ores {
 			final int nickelHL = AatoConfig.nickelHL.get();
 			final int carnotiteHL = AatoConfig.carnotiteHL.get();
 			final int uraniniteHL = AatoConfig.uraniniteHL.get();
+			final int torberniteHL = uraniniteHL;
 			final int molybdenumHL = AatoConfig.molybdenumHL.get();
 			final int ironHL = AatoConfig.ironHL.get();
-			
+
 			registerBlock(event, 1, "pyrite");
 			registerBlock(event, 1, "sulphur");
 			registerBlock(event, 1, "clausthalite");
@@ -616,6 +616,7 @@ public class Ores {
 			registerBlock(event, 3, "thorite");
 			registerBlock(event, carnotiteHL, "carnotite");
 			registerBlock(event, uraniniteHL, "uraninite");
+			registerBlock(event, torberniteHL, "torbernite");
 			registerBlock(event, 1, "magnesite");
 			registerBlock(event, 1, "kieserite");
 			registerBlock(event, 1, "brucite");
@@ -776,6 +777,7 @@ public class Ores {
 			registerItemBlock(THORITE, event);
 			registerItemBlock(CARNOTITE, event);
 			registerItemBlock(URANINITE, event);
+			registerItemBlock(TORBERNITE, event);
 			registerItemBlock(MAGNESITE, event);
 			registerItemBlock(KIESERITE, event);
 			registerItemBlock(BRUCITE, event);

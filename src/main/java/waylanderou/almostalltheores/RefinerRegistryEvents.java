@@ -9,7 +9,7 @@ import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ObjectHolder;
 import waylanderou.almostalltheores.block.Refiner;
 import waylanderou.almostalltheores.inventory.container.RefinerContainer;
@@ -30,7 +30,7 @@ public class RefinerRegistryEvents {
 	@ObjectHolder("almostalltheores:refiner_serializer")
 	public static RefinerRecipeSerializer<RefinerRecipe> refiner_serializer;
 
-	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+	@EventBusSubscriber(modid = AlmostAllTheOres.MODID, bus=EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents {		
 
 		@SubscribeEvent

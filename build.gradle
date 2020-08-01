@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '2.0.2.5'
+version = '2.0.3.0'
 group = 'waylanderou.almostalltheores' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'almostalltheores'
 
@@ -91,7 +91,8 @@ repositories {
     name = "Progwml6 maven"
     url = "https://dvs1.progwml6.com/files/maven/"
   }
-  maven { url "http://tehnut.info/maven" }
+  //maven { url "http://tehnut.info/maven" }
+  //tehnut.info is broken, not sure why...
   //maven {
     // location of a maven mirror for JEI files, as a fallback
    // name = "ModMaven"
@@ -100,15 +101,16 @@ repositories {
 }
 
 dependencies {    
-    minecraft 'net.minecraftforge:forge:1.15.2-31.1.0'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
         
     //JEI
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")    
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
     
     //Hwayla
-    compile fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}:api")
-    runtimeOnly fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}")
+    //compile fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}:api")
+    compile files("Hwyla-forge-1.10.8-B72_1.15.2-api.jar")
+    //runtimeOnly fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}")
 
 }
 

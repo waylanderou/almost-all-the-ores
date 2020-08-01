@@ -1,0 +1,8 @@
+{
+    "values": [
+        "almostalltheores:calcite", 
+        "almostalltheores:gypsum",
+		"almostalltheores:anhydrite"
+    ], 
+    "replace": false
+}

@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "almostalltheores:bituminous_coal",
-    "almostalltheores:anthracite"
+    "almostalltheores:anthracite",
+	"almostalltheores:lignite",
+	"almostalltheores:graphite",
+	"almostalltheores:jet"
   ]
 }

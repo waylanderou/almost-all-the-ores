@@ -1,0 +1,9 @@
+{
+	"conditions": [
+		{
+			"condition": "block_state_property",
+			"block": "almostalltheores:platinum_group_metals"
+		}
+	],
+	"replacement": "almostalltheores:osmium"
+}

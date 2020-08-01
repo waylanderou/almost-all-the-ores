@@ -2,23 +2,19 @@ package waylanderou.almostalltheores;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.loading.FMLPaths;
+import waylanderou.almostalltheores.integration.IntegratedOre;
 
 public class AatoConfig {
 
 	private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();	
 	public static ForgeConfigSpec spec;
-	private static boolean enableTinkersDefault = false;
-	private static boolean enableToolsforaatogemsMaterials = false;
-	private static boolean enableExtraGemsMaterials = false;
-	private static boolean enableEasySteelMaterials = false;
-	private static boolean enableUndergroundMaterialsMaterials = false;
-	private static boolean enableSilentsGemsMaterials = false;
 	public static ForgeConfigSpec.BooleanValue enableStoneAge;
 	public static ForgeConfigSpec.BooleanValue enablePlugAndPlay;
 	public static ForgeConfigSpec.BooleanValue clearNether;
@@ -1148,6 +1144,12 @@ public class AatoConfig {
 	public static ForgeConfigSpec.IntValue MinHeightRarePGMs; 
 	public static ForgeConfigSpec.IntValue MaxHeightRarePGMs;
 
+	public static ForgeConfigSpec.BooleanValue enabledTorbernite; 
+	public static ForgeConfigSpec.IntValue VeinSizeTorbernite; 
+	public static ForgeConfigSpec.IntValue VeinsPerChunkTorbernite; 
+	public static ForgeConfigSpec.IntValue MinHeightTorbernite; 
+	public static ForgeConfigSpec.IntValue MaxHeightTorbernite;
+
 	public static ForgeConfigSpec.IntValue copperHL;
 	public static ForgeConfigSpec.IntValue tinHL;
 	public static ForgeConfigSpec.IntValue zincHL;
@@ -1175,6 +1177,32 @@ public class AatoConfig {
 	public static ForgeConfigSpec.BooleanValue enableEmerald;
 
 	public static ForgeConfigSpec.BooleanValue All;
+	public static ForgeConfigSpec.BooleanValue lootOsmiumOnly;
+	public static ForgeConfigSpec.ConfigValue<List<String>> modWhitelist;
+	static boolean enableCopperMaterials;
+	static boolean enableTinMaterials;
+	static boolean enableLeadMaterials;
+	static boolean enableZincMaterials;
+	static boolean enableSilverMaterials;
+	static boolean enableAluminumMaterials;
+	static boolean enableNickelMaterials;
+	static boolean enableTungstenMaterials;
+	static boolean enableUraniumMaterials;
+	static boolean enableTitaniumMaterials;
+	static boolean enableRubyMaterials;
+	static boolean enableAmethystMaterials;
+	static boolean enableTopazMaterials;
+	static boolean enableCobaltMaterials;
+	static boolean enableCalciumMaterials;
+	static boolean enableSapphireMaterials;
+	static boolean enableSomeGemsMaterials;
+	static boolean enableAgateMaterial;
+	static boolean enableCarnelianMaterial;
+	static boolean enableChrysopraseMaterial;
+	static boolean enableMoonstoneMaterial;
+	static boolean enableTurquoiseMaterial;
+	static boolean enablePyropeMaterial;
+
 
 	static {
 		BUILDER.comment("General settings").push("general");
@@ -1186,12 +1214,16 @@ public class AatoConfig {
 				+ " WARNING : you will have to enable everything by yourself.").define("enablePlugAndPlay", true);
 		clearNether = BUILDER.comment("Should Nether be cleared of all ore generation from vanilla and other mods.").define("clearNether", false);
 		mineralogistOption = BUILDER.comment("If you are a geologist or a mineralogist at heart, turn this on. No tooltips will be shown. Also recommended for hardcore players.").define("noTooltips", false);
+		lootOsmiumOnly = BUILDER.comment("Should platinum-group metals block only drop osmium. Useful if you don't need platinum and iridium (e.g. playing Mekanism). If you need those metals, set this to false.").define("lootOsmiumOnly", true);
+		List<String> whitelist = new ArrayList<String>();
+		whitelist.add("embellishcraft");
+		modWhitelist = BUILDER.comment("Whitelist to allow specific mod generation. Use the mod id.").define("modWhitelist", whitelist);
 		BUILDER.pop();
 
 		BUILDER.comment("Harvest Levels. Wood, Stone, Iron, Diamond : 0, 1, 2, 3. Above 3 is modded materials stronger than diamond.").push("harvestlevels");
-		commonPgmsHL = BUILDER.comment("Common PGMs (platinum, iridium, osmium) harvest level").defineInRange("nitratineHavestLevel", 3, 0, 5);
-		rarePgmsHL = BUILDER.comment("Rare PGMs (palladium, ruthenium, rhodium) harvest level").defineInRange("nitratineHavestLevel", 3, 0, 5);
-		nitratineHL = BUILDER.comment("Nitratine (salpetre ore) harvest level").defineInRange("nitratineHavestLevel", 1, 0, 5);
+		commonPgmsHL = BUILDER.comment("Common PGMs (platinum, iridium, osmium) harvest level").defineInRange("commonPGMsHarvestLevel", 3, 0, 5);
+		rarePgmsHL = BUILDER.comment("Rare PGMs (palladium, ruthenium, rhodium) harvest level").defineInRange("rarePGMsHarvestLevel", 3, 0, 5);
+		nitratineHL = BUILDER.comment("Nitratine (salpetre ore) harvest level").defineInRange("nitratineHarvestLevel", 1, 0, 5);
 		ironHL = BUILDER.comment("Iron ores harvest level. Only works with modded iron ores, i.e. hematite, limonite...").defineInRange("ironHarvestLevel", 1, 0, 5);
 		haliteHL = BUILDER.comment("Halite (salt ore) harvest level").defineInRange("haliteHarvestLevel", 1, 0, 5);
 		chromiumHL = BUILDER.comment("Chromium ores harvest level").defineInRange("chromiumHarvestLevel", 2, 0, 5);
@@ -1302,10 +1334,10 @@ public class AatoConfig {
 		enableMithrilOre = BUILDER.comment("Enable mithril ore. (default: false)").define("enableMithrilOre", false);
 		enableSaltpetreOre = BUILDER.comment("Enable saltpetre ore. (default: true)").define("enableSaltpetreOre", true);
 		enableSaltOre = BUILDER.comment("Enable salt ore. (default: true)").define("enableSaltOre", true);
-		enableSomeGems = BUILDER.comment("Enable a few gems ore generation (Sapphire, Ruby, Spinel, Amethyst, Jade, Peridot, Topaz, Tanzanite, Onyx, Opal). (default: false)").define("enableSomeGems", false); 
+		enableSomeGems = BUILDER.comment("Enable a few gems ore generation (Sapphire, Ruby, Spinel, Amethyst, Jade, Peridot, Topaz, Tanzanite, Onyx, Opal). (default: false)").define("enableSomeGemsOres", false); 
 		enableAllGems = BUILDER.comment("Enable ALL gems. (default: false)").define("enableAllGems", false);
-		enablePGMs = BUILDER.comment("Enable commmon platinum-group metals (platinum, iridium, osmium). (default: false)").define("enablePGMs", false);
-		enableRarePGMs = BUILDER.comment("Enable rare platinum-group metals (ruthenium, rhodium, palladium). (default: false)").define("enableRarePGMs", false);
+		enablePGMs = BUILDER.comment("Enable commmon platinum-group metals (platinum, iridium, osmium). (default: false)").define("enablePGMsOres", false);
+		enableRarePGMs = BUILDER.comment("Enable rare platinum-group metals (ruthenium, rhodium, palladium). (default: false)").define("enableRarePGMsOres", false);
 		enableREEs = BUILDER.comment("Enable rare-earth elements ores (Bastnasite La, Ce, Y, Nd, Monazite La, Ce, Nd, Samarskite Y, Thortveitite.). (default: false)").define("enableREEs", false);
 		BUILDER.pop();
 
@@ -2197,6 +2229,14 @@ public class AatoConfig {
 		MaxHeightUraninite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightUraninite", 40, 0, 255);
 		BUILDER.pop();
 
+		BUILDER.push("torbernite");
+		enabledTorbernite = BUILDER.comment("Enable torbernite generation").define("enableTorbernite", false);
+		VeinSizeTorbernite = BUILDER.comment("Vein Size").defineInRange("VeinSizeTorbernite", 5, 0, 50);
+		VeinsPerChunkTorbernite = BUILDER.comment("").defineInRange("VeinsPerChunkTorbernite", 1, 0, 50);
+		MinHeightTorbernite = BUILDER.comment("Minimum Height").defineInRange("MinHeightTorbernite", 4, 0, 255);
+		MaxHeightTorbernite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightTorbernite", 40, 0, 255);
+		BUILDER.pop();
+
 		BUILDER.push("magnesite");
 		enableMagnesite = BUILDER.comment("Enable magnesite generation").define("enableMagnesite", false);
 		VeinSizeMagnesite = BUILDER.comment("Vein Size").defineInRange("VeinSizeMagnesite", 8, 0, 50);
@@ -2715,78 +2755,17 @@ public class AatoConfig {
 
 		if(configData.contains("general.enablePlugAndPlay")) {
 			if((boolean) configData.get("general.enablePlugAndPlay")) {
-				if(enableTinkersDefault) {
-					configData.set("overworldSimplified.enableCopperOres", true);
-					configData.set("overworldSimplified.enableTinOres", true);
-					configData.set("overworldSimplified.enableAluminumOres", true);
-					configData.set("overworldSimplified.enableSilverOres", true);
-					configData.set("overworldSimplified.enableLeadOres", true);
-					configData.set("overworldSimplified.enableZincOres", true);
-				}
-				if(enableToolsforaatogemsMaterials) {
-					configData.set("overworldSimplified.enableSomeGems", true);
-				}
-				if(enableExtraGemsMaterials) {
-					configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
-					configData.set("overworldExpert.sapphire_ore.enableSapphire_ore", true);
-					configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
-					configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
-				}
-				if(enableEasySteelMaterials) {
-					configData.set("overworldSimplified.enableCopperOres", true);
-					configData.set("overworldSimplified.enableTinOres", true);
-					configData.set("overworldSimplified.enableTitaniumOres", true);
-					configData.set("overworldSimplified.enableTungstenOres", true);
-				}
-				if(enableUndergroundMaterialsMaterials) {
-					configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
-					configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
-					configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
-					configData.set("overworldSimplified.enableCobaltOres", true);
-					configData.set("overworldSimplified.enableCalciumOres", true);			
-				}
-				if(enableSilentsGemsMaterials) {
-					configData.set("overworldExpert.ruby_ore.enableSapphire_ore", true);
-					configData.set("overworldExpert.amethyst_ore.enableAmethyst_ore", true);
-					configData.set("overworldExpert.topaz_ore.enableTopaz_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableRuby_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableSpinel_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableJade_ore", true);
-					configData.set("overworldExpert.ruby_ore.enablePeridot_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableAgate_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableCarnelian_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableChrysoprase_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableTanzanite_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableOnyx_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableOpal_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableMoonstone_ore", true);
-					configData.set("overworldExpert.ruby_ore.enableTurquoise_ore", true);
-					configData.set("overworldExpert.ruby_ore.enablePyrope_ore", true);			
-				}
+				IntegratedOre.integratedOresList.forEach((ore) -> {
+					if(ore.isNeeded) {
+						if(ore.isGem)
+							configData.set("overworldExpert." + ore.oreName.toLowerCase(Locale.ROOT) + "_ore.enable" + ore.oreName + "_ore", true);
+						else
+							configData.set("overworldSimplified.enable" + ore.oreName + "Ores", true);
+					}
+				});
 			}
 		}
 		spec.setConfig(configData);
-	}	
-
-	public static void enableTinkersDefaultMaterials() {
-		enableTinkersDefault = true;		
 	}
 
-	public static void enableToolsforaatogemsMaterials() {
-		enableToolsforaatogemsMaterials = true;
-	}
-
-	public static void enableExtraGemsMaterials() {
-		enableExtraGemsMaterials = true;
-	}
-
-	public static void enableEasySteelMaterials() {
-		enableEasySteelMaterials = true;
-	}
-	public static void enableUndergroundMaterialsMaterials() {
-		enableUndergroundMaterialsMaterials = true;
-	}
-	public static void enableSilentsGemsMaterials() {
-		enableSilentsGemsMaterials = true;
-	}
 }
