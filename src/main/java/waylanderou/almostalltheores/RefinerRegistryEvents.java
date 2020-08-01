@@ -30,7 +30,7 @@ public class RefinerRegistryEvents {
 	@ObjectHolder("almostalltheores:refiner_serializer")
 	public static RefinerRecipeSerializer<RefinerRecipe> refiner_serializer;
 
-	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+	@Mod.EventBusSubscriber(modid=AlmostAllTheOres.MODID,bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents {		
 
 		@SubscribeEvent

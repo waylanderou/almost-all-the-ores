@@ -37,7 +37,7 @@ public class TooltipHandler {
 	public final String[] titanium = { "rutile", "ilmenite", "anatase", "brookite", "titanite" };
 	public final String[] zirconium = { "zircon" };
 	public final String[] thorium = { "thorite" };
-	public final String[] uranium = { "carnotite", "uraninite" };
+	public final String[] uranium = { "carnotite", "uraninite", "torbernite" };
 	public final String[] magnesium = { "magnesite", "kieserite", "brucite" };
 	public final String[] calcium = { "anhydrite" };
 	public final String[] limestone = { "calcite" };

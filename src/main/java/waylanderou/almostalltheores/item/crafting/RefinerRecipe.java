@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
 
 public class RefinerRecipe implements IRecipe<IInventory> {
-	public static final IRecipeType<RefinerRecipe> REFINING = IRecipeType.register("refining");
+	public static final IRecipeType<RefinerRecipe> REFINING = IRecipeType.register("almostalltheores:refining");
 	private final IRecipeType<?> type;
 	private final ResourceLocation id;
 	final String group;

@@ -1,4 +1,4 @@
-package waylanderou.almostalltheores;
+package waylanderou.almostalltheores.world.biome;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +22,7 @@ import net.minecraft.world.gen.placement.DepthAverageConfig;
 import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
+import waylanderou.almostalltheores.AatoConfig;
 import waylanderou.almostalltheores.block.Ores;
 
 public class OreGeneration {
@@ -44,7 +45,7 @@ public class OreGeneration {
 				continue;
 			}
 			if(AatoConfig.handleEverythingInOverworld.get()) {
-				biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();
+				removeEverythingExceptWhitelisted(biome);
 			} else {
 				removeVanillaStuff(biome);
 			}
@@ -54,6 +55,27 @@ public class OreGeneration {
 			addVanillaStuff(biome);
 			handleInfestedStone(biome);
 		}		
+	}
+	
+	private static void removeEverythingExceptWhitelisted(Biome biome) {
+		boolean keep;
+		List<ConfiguredFeature<?,?>> featuresToRemove = new ArrayList<ConfiguredFeature<?,?>>();
+		for(ConfiguredFeature<?, ?> feature : biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES)) {
+			if (feature.config instanceof DecoratedFeatureConfig) {
+				if(((DecoratedFeatureConfig)feature.config).feature.feature instanceof OreFeature) {
+					Block b = ((OreFeatureConfig)((DecoratedFeatureConfig)feature.config).feature.config).state.getBlock();
+					keep = false;
+					for(String modname : AatoConfig.modWhitelist.get()) {
+						if(b.getRegistryName().getNamespace().equals(modname))
+							keep = true;
+					}
+					if(!keep)
+						featuresToRemove.add(feature);
+				}
+			}
+		}
+		biome.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).removeAll(featuresToRemove);
+
 	}
 
 	private static void removeVanillaNetherOres(Biome biome) {
@@ -385,6 +407,9 @@ public class OreGeneration {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MITHRIL_ORE.getDefaultState(), AatoConfig.VeinSizeMithril_ore.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkMithril_ore.get(), AatoConfig.MinHeightMithril_ore.get(), 0,AatoConfig.MaxHeightMithril_ore.get()))));
 		}
 		if(biome.getTempCategory() == TempCategory.MEDIUM) {
+			if(AatoConfig.All.get() || AatoConfig.enabledTorbernite.get() || AatoConfig.enableUraniumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,  Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TORBERNITE.getDefaultState(), AatoConfig.VeinSizeTorbernite.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkTorbernite.get(), AatoConfig.MinHeightTorbernite.get(), 0, AatoConfig.MaxHeightTorbernite.get()))));
+			}
 			if(AatoConfig.All.get() || AatoConfig.enableBastnasite_ce.get() || AatoConfig.enableREEs.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BASTNASITE_CE.getDefaultState(), AatoConfig.VeinSizeBastnasite_ce.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkBastnasite_ce.get(), AatoConfig.MinHeightBastnasite_ce.get(), 0,AatoConfig.MaxHeightBastnasite_ce.get()))));			
 			}
@@ -674,6 +699,9 @@ public class OreGeneration {
 			}
 		}
 		if(biome.getTempCategory() == TempCategory.OCEAN) {
+			if(AatoConfig.All.get() || AatoConfig.enabledTorbernite.get() || AatoConfig.enableUraniumOres.get()) {
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,  Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TORBERNITE.getDefaultState(), AatoConfig.VeinSizeTorbernite.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkTorbernite.get(), AatoConfig.MinHeightTorbernite.get(), 0, AatoConfig.MaxHeightTorbernite.get()))));
+			}
 			if(AatoConfig.All.get() || AatoConfig.enableBastnasite_ce.get() || AatoConfig.enableREEs.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BASTNASITE_CE.getDefaultState(), AatoConfig.VeinSizeBastnasite_ce.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(AatoConfig.VeinsPerChunkBastnasite_ce.get(), AatoConfig.MinHeightBastnasite_ce.get(), 0,AatoConfig.MaxHeightBastnasite_ce.get()))));			
 			}

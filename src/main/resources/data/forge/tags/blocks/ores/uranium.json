@@ -1,7 +1,8 @@
 {
     "values": [
         "almostalltheores:carnotite", 
-        "almostalltheores:uraninite"
+        "almostalltheores:uraninite",
+        "almostalltheores:torbernite"
     ], 
     "replace": false
 }
