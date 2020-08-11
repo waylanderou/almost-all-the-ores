@@ -3,6 +3,7 @@ package waylanderou.almostalltheores.client;
 import com.mojang.blaze3d.platform.GlStateManager;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
@@ -24,17 +25,18 @@ public class RefinerScreen extends ContainerScreen<RefinerContainer> {
 	}
 
 	@Override
-	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {		
+	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
+		FontRenderer fontrenderer = Minecraft.getInstance().fontRenderer;
 		int j = container.getFuelLeft();
-		drawString(Minecraft.getInstance().fontRenderer, "Refiner : ", 5, 5, 0xffffff);
+		drawString(fontrenderer, "Refiner : ", 5, 5, 0xffffff);
 		if(this.container.isProcessingOre()) {
-			drawString(Minecraft.getInstance().fontRenderer, "refining ore...", 52, 5, 0xffffff);
+			drawString(fontrenderer, "refining ore...", 52, 5, 0xffffff);
 		} else {
-			drawString(Minecraft.getInstance().fontRenderer, "ready", 52, 5, 0xffffff);
+			drawString(fontrenderer, "ready", 52, 5, 0xffffff);
 		}
 		if(!this.container.isProcessingOre() && this.container.getFuelLeft() > 0) {
-			drawString(Minecraft.getInstance().fontRenderer, "Fuel reserve : ", 5, 73, 0xffffff);
-			drawString(Minecraft.getInstance().fontRenderer, "" + j, 85, 73, 0xffffff);		
+			drawString(fontrenderer, "Fuel reserve : ", 5, 73, 0xffffff);
+			drawString(fontrenderer, "" + j, 85, 73, 0xffffff);		
 		}
 	}
 

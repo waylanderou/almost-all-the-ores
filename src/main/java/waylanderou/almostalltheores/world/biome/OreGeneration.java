@@ -405,6 +405,9 @@ public class OreGeneration {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.MITHRIL_ORE.getDefaultState(), AatoConfig.VeinSizeMithril_ore.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkMithril_ore.get(), AatoConfig.MinHeightMithril_ore.get(), 0,AatoConfig.MaxHeightMithril_ore.get()))));
 		}
 		if(biome.getTempCategory() == TempCategory.MEDIUM) {
+			if(AatoConfig.enableDiamond.get())
+				if(!AatoConfig.blacklistDiamondOre.get().contains(biome.getRegistryName().toString()))
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.KIMBERLITE.getDefaultState(), AatoConfig.VeinSizeDiamond.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDiamond.get(), AatoConfig.MinHeightDiamond.get(), 0,AatoConfig.MaxHeightDiamond.get()))));
 			if(AatoConfig.All.get() || AatoConfig.enabledTorbernite.get() || AatoConfig.enableUraniumOres.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TORBERNITE.getDefaultState(), AatoConfig.VeinSizeTorbernite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTorbernite.get(), AatoConfig.MinHeightTorbernite.get(), 0, AatoConfig.MaxHeightTorbernite.get()))));
 			}
@@ -495,6 +498,9 @@ public class OreGeneration {
 			}
 		}
 		if(biome.getTempCategory() == TempCategory.WARM) {
+			if(AatoConfig.enableDiamond.get())
+				if(!AatoConfig.blacklistDiamondOre.get().contains(biome.getRegistryName().toString()))
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.KIMBERLITE.getDefaultState(), AatoConfig.VeinSizeDiamond.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDiamond.get(), AatoConfig.MinHeightDiamond.get(), 0,AatoConfig.MaxHeightDiamond.get()))));
 			if(AatoConfig.All.get() || AatoConfig.enableBastnasite_y.get() || AatoConfig.enableREEs.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.BASTNASITE_Y.getDefaultState(), AatoConfig.VeinSizeBastnasite_y.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkBastnasite_y.get(), AatoConfig.MinHeightBastnasite_y.get(), 0,AatoConfig.MaxHeightBastnasite_y.get()))));			
 			}
@@ -595,6 +601,10 @@ public class OreGeneration {
 			}
 		}
 		if(biome.getTempCategory() == TempCategory.COLD) {
+			if(AatoConfig.enableDiamond.get())
+				if(!AatoConfig.blacklistDiamondOre.get().contains(biome.getRegistryName().toString()))
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.LAMPROITE.getDefaultState(), AatoConfig.VeinSizeDiamond.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDiamond.get(), AatoConfig.MinHeightDiamond.get(), 0,AatoConfig.MaxHeightDiamond.get()))));
+
 			if(AatoConfig.All.get() || AatoConfig.enableSamarskite_y.get() || AatoConfig.enableREEs.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.SAMARSKITE_Y.getDefaultState(), AatoConfig.VeinSizeSamarskite_y.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkSamarskite_y.get(), AatoConfig.MinHeightSamarskite_y.get(), 0,AatoConfig.MaxHeightSamarskite_y.get()))));			
 			}
@@ -697,6 +707,9 @@ public class OreGeneration {
 			}
 		}
 		if(biome.getTempCategory() == TempCategory.OCEAN) {
+			if(AatoConfig.enableDiamond.get())
+				if(!AatoConfig.blacklistDiamondOre.get().contains(biome.getRegistryName().toString()))
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.KIMBERLITE.getDefaultState(), AatoConfig.VeinSizeDiamond.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDiamond.get(), AatoConfig.MinHeightDiamond.get(), 0,AatoConfig.MaxHeightDiamond.get()))));
 			if(AatoConfig.All.get() || AatoConfig.enabledTorbernite.get() || AatoConfig.enableUraniumOres.get()) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Ores.TORBERNITE.getDefaultState(), AatoConfig.VeinSizeTorbernite.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkTorbernite.get(), AatoConfig.MinHeightTorbernite.get(), 0, AatoConfig.MaxHeightTorbernite.get()))));
 			}
@@ -805,10 +818,6 @@ public class OreGeneration {
 		if(AatoConfig.enableRedstone.get()) {
 			if(!AatoConfig.blacklistRedstoneOre.get().contains(biome.getRegistryName().toString()))
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.REDSTONE_ORE.getDefaultState(), AatoConfig.VeinSizeRedstone.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkRedstone.get(), AatoConfig.MinHeightRedstone.get(), 0,AatoConfig.MaxHeightRedstone.get()))));
-		}
-		if(AatoConfig.enableDiamond.get()) {
-			if(!AatoConfig.blacklistDiamondOre.get().contains(biome.getRegistryName().toString()))
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIAMOND_ORE.getDefaultState(), AatoConfig.VeinSizeDiamond.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDiamond.get(), AatoConfig.MinHeightDiamond.get(), 0,AatoConfig.MaxHeightDiamond.get()))));
 		}
 		if(AatoConfig.enableLapis.get()) {
 			if(!AatoConfig.blacklistLapisOre.get().contains(biome.getRegistryName().toString()))

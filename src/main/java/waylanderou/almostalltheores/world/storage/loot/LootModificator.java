@@ -7,7 +7,9 @@ import com.google.gson.JsonObject;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootParameters;
@@ -17,9 +19,9 @@ import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.registries.ForgeRegistries;
 import waylanderou.almostalltheores.AatoConfig;
 import waylanderou.almostalltheores.AlmostAllTheOres;
-import waylanderou.almostalltheores.item.Items;
 
 @EventBusSubscriber(modid=AlmostAllTheOres.MODID, bus=EventBusSubscriber.Bus.MOD)
 public class LootModificator {
@@ -27,9 +29,11 @@ public class LootModificator {
 	public LootModificator() {}
 
 	private static class TestModifier extends LootModifier {
+		private final Item drop;
 
-		protected TestModifier(ILootCondition[] conditionsIn) {
+		protected TestModifier(ILootCondition[] conditionsIn, Item drop) {
 			super(conditionsIn);
+			this.drop = drop;
 		}
 
 		@Override
@@ -42,7 +46,7 @@ public class LootModificator {
 					level = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, tool);
 				}
 				int i = new Random().nextInt(1 + level);
-				generatedLoot.add(new ItemStack(Items.OSMIUM, 1 + i));
+				generatedLoot.add(new ItemStack(drop, 1 + i));
 			}
 			return generatedLoot;
 		}
@@ -51,7 +55,8 @@ public class LootModificator {
 
 			@Override
 			public TestModifier read(ResourceLocation location, JsonObject object, ILootCondition[] ailootcondition) {
-				return new TestModifier(ailootcondition);
+				Item replacement = ForgeRegistries.ITEMS.getValue(new ResourceLocation(JSONUtils.getString(object, "replacement")));
+				return new TestModifier(ailootcondition, replacement);
 			}
 
 		}

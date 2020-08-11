@@ -9,7 +9,7 @@ import com.electronwill.nightconfig.core.io.WritingMode;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.loading.FMLPaths;
-import waylanderou.almostalltheores.integration.IntegratedOre;
+import waylanderou.almostalltheores.integration.ModPlugAndPlay;
 
 public class AatoConfig {
 
@@ -1179,29 +1179,6 @@ public class AatoConfig {
 	public static ForgeConfigSpec.BooleanValue All;
 	public static ForgeConfigSpec.BooleanValue lootOsmiumOnly;
 	public static ForgeConfigSpec.ConfigValue<List<String>> modWhitelist;
-	static boolean enableCopperMaterials;
-	static boolean enableTinMaterials;
-	static boolean enableLeadMaterials;
-	static boolean enableZincMaterials;
-	static boolean enableSilverMaterials;
-	static boolean enableAluminumMaterials;
-	static boolean enableNickelMaterials;
-	static boolean enableTungstenMaterials;
-	static boolean enableUraniumMaterials;
-	static boolean enableTitaniumMaterials;
-	static boolean enableRubyMaterials;
-	static boolean enableAmethystMaterials;
-	static boolean enableTopazMaterials;
-	static boolean enableCobaltMaterials;
-	static boolean enableCalciumMaterials;
-	static boolean enableSapphireMaterials;
-	static boolean enableSomeGemsMaterials;
-	static boolean enableAgateMaterial;
-	static boolean enableCarnelianMaterial;
-	static boolean enableChrysopraseMaterial;
-	static boolean enableMoonstoneMaterial;
-	static boolean enableTurquoiseMaterial;
-	static boolean enablePyropeMaterial;
 
 
 	static {
@@ -2744,7 +2721,7 @@ public class AatoConfig {
 		spec = BUILDER.build();
 	}
 
-	public static void loadConfig() {		
+	public static void loadConfig(ModPlugAndPlay plugandplay) {		
 		final CommentedFileConfig configData = CommentedFileConfig.builder(FMLPaths.CONFIGDIR.get().resolve(AlmostAllTheOres.MODID + "-common.toml"))
 				.sync()
 				.autosave()
@@ -2755,7 +2732,7 @@ public class AatoConfig {
 
 		if(configData.contains("general.enablePlugAndPlay")) {
 			if((boolean) configData.get("general.enablePlugAndPlay")) {
-				IntegratedOre.integratedOresList.forEach((ore) -> {
+				plugandplay.getIntegratedOresList().forEach((ore) -> {
 					if(ore.isNeeded) {
 						if(ore.isGem)
 							configData.set("overworldExpert." + ore.oreName.toLowerCase(Locale.ROOT) + "_ore.enable" + ore.oreName + "_ore", true);

@@ -1,51 +1,58 @@
 package waylanderou.almostalltheores.integration;
 
+import java.util.ArrayList;
+
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import waylanderou.almostalltheores.AlmostAllTheOres;
 
 @Mod.EventBusSubscriber(modid=AlmostAllTheOres.MODID)
 public class ModPlugAndPlay {
-	static final String[] copperMods = {"tconstruct", "easy_steel", "immersiveengineering", "mekanism", "occultism", "create"};
-	static final String[] tinMods = {"tconstruct", "easy_steel", "mekanism"};
-	static final String[] leadMods = {"tconstruct", "immersiveengineering"};
-	static final String[] aluminumMods = {"tconstruct", "immersiveengineering"};
-	static final String[] zincMods = {"tconstruct", "create"};
-	static final String[] silverMods = {"tconstruct", "immersiveengineering", "occultism"};
-	static final String[] nickelMods = {"immersiveengineering"};
-	static final String[] tungstenMods = {"easy_steel"};
-	static final String[] uraniumMods = {"immersiveengineering"};
-	static final String[] titaniumMods = {"easy_steel"};
-	static final String[] rubyMods = {"undermat", "extragems"};
-	static final String[] amethystMods = {"undermat", "extragems"};
-	static final String[] topazMods = {"undermat", "extragems"};
-	static final String[] cobaltMods = {"undermat"};
-	static final String[] calciumMods = {"undermat"};
-	static final String[] sapphireMods = {"extragems"};
-	static final String[] someGemsMods = {"toolsforaatogems", "silentgems"};
-	static final String[] PGMsMods = {"mekanism"};
+	final String[] copperMods = {"tconstruct", "easy_steel", "immersiveengineering", "mekanism", "occultism", "create"};
+	final String[] tinMods = {"tconstruct", "easy_steel", "mekanism"};
+	final String[] leadMods = {"tconstruct", "immersiveengineering"};
+	final String[] aluminumMods = {"tconstruct", "immersiveengineering"};
+	final String[] zincMods = {"tconstruct", "create"};
+	final String[] silverMods = {"tconstruct", "immersiveengineering", "occultism"};
+	final String[] nickelMods = {"immersiveengineering"};
+	final String[] tungstenMods = {"easy_steel"};
+	final String[] uraniumMods = {"immersiveengineering"};
+	final String[] titaniumMods = {"easy_steel"};
+	final String[] rubyMods = {"undermat", "extragems"};
+	final String[] amethystMods = {"undermat", "extragems"};
+	final String[] topazMods = {"undermat", "extragems"};
+	final String[] cobaltMods = {"undermat"};
+	final String[] calciumMods = {"undermat"};
+	final String[] sapphireMods = {"extragems"};
+	final String[] someGemsMods = {"toolsforaatogems", "silentgems"};
+	final String[] PGMsMods = {"mekanism"};
+	private ArrayList<IntegratedOre> integratedOresList = new ArrayList<IntegratedOre>();
 
-	public static void activateOres() {
-		new IntegratedOre("Copper", copperMods);
-		new IntegratedOre("Tin", tinMods);
-		new IntegratedOre("Lead", leadMods);
-		new IntegratedOre("Aluminum", aluminumMods);
-		new IntegratedOre("Zinc", zincMods);
-		new IntegratedOre("Silver", silverMods);
-		new IntegratedOre("Nickel", nickelMods);
-		new IntegratedOre("Tungsten", tungstenMods);
-		new IntegratedOre("Uranium", uraniumMods);
-		new IntegratedOre("Titanium", titaniumMods);
-		new IntegratedOre("Ruby", rubyMods, true);
-		new IntegratedOre("Amethyst", amethystMods, true);
-		new IntegratedOre("Topaz", topazMods, true);
-		new IntegratedOre("Cobalt", cobaltMods);
-		new IntegratedOre("Calcium", calciumMods);
-		new IntegratedOre("Sapphire", sapphireMods, true);
-		new IntegratedOre("SomeGems", someGemsMods);
-		new IntegratedOre("PGMs", PGMsMods);
+	public ArrayList<IntegratedOre> getIntegratedOresList() {
+		return integratedOresList;
+	}
 
-		for(IntegratedOre ore : IntegratedOre.integratedOresList) {
+	public void activateOres() {
+		integratedOresList.add(new IntegratedOre("Copper", copperMods));
+		integratedOresList.add(new IntegratedOre("Tin", tinMods));
+		integratedOresList.add(new IntegratedOre("Lead", leadMods));
+		integratedOresList.add(new IntegratedOre("Aluminum", aluminumMods));
+		integratedOresList.add(new IntegratedOre("Zinc", zincMods));
+		integratedOresList.add(new IntegratedOre("Silver", silverMods));
+		integratedOresList.add(new IntegratedOre("Nickel", nickelMods));
+		integratedOresList.add(new IntegratedOre("Tungsten", tungstenMods));
+		integratedOresList.add(new IntegratedOre("Uranium", uraniumMods));
+		integratedOresList.add(new IntegratedOre("Titanium", titaniumMods));
+		integratedOresList.add(new IntegratedOre("Ruby", rubyMods, true));
+		integratedOresList.add(new IntegratedOre("Amethyst", amethystMods, true));
+		integratedOresList.add(new IntegratedOre("Topaz", topazMods, true));
+		integratedOresList.add(new IntegratedOre("Cobalt", cobaltMods));
+		integratedOresList.add(new IntegratedOre("Calcium", calciumMods));
+		integratedOresList.add(new IntegratedOre("Sapphire", sapphireMods, true));
+		integratedOresList.add(new IntegratedOre("SomeGems", someGemsMods));
+		integratedOresList.add(new IntegratedOre("PGMs", PGMsMods));
+
+		for(IntegratedOre ore : integratedOresList) {
 			for(String modName : ore.mods)
 				if(ModList.get().isLoaded(modName))
 					ore.isNeeded = true;

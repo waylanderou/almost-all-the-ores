@@ -1,661 +1,138 @@
-{\rtf1\ansi\deff3\adeflang1025
-{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}{\f4\froman\fprq2\fcharset0 Liberation Sans{\*\falt Arial};}{\f5\fnil\fprq2\fcharset0 Arial;}{\f6\fnil\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}}
-{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
-{\stylesheet{\s0\snext0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1 Normal;}
-{\s1\sbasedon18\snext1\dbch\af5\langfe1081\dbch\af6\afs48\ab\ql\widctlpar\hyphpar0\sb240\sa120\keepn\ltrpar\cf0\loch\f4\fs48\lang1036\b\kerning1 Titre 1;}
-{\s2\sbasedon18\snext2\dbch\af5\langfe1081\dbch\af6\afs36\ab\ql\widctlpar\hyphpar0\sb200\sa120\keepn\ltrpar\cf0\loch\f4\fs36\lang1036\b\kerning1 Titre 2;}
-{\*\cs15\snext15\langfe255\cf9\lang255\ul\ulc0 Lien Internet;}
-{\*\cs16\snext16\langfe255\cf13\lang255\ul\ulc0 Lien Internet visit\u233\'e9;}
-{\s18\sbasedon0\snext19\dbch\af5\langfe1081\dbch\af6\afs28\ql\widctlpar\hyphpar0\sb240\sa120\keepn\ltrpar\cf0\loch\f4\fs28\lang1036\kerning1 Titre;}
-{\s19\sbasedon0\snext19\dbch\af5\langfe1081\dbch\af6\afs24\ql\sl276\slmult1\widctlpar\hyphpar0\sb0\sa140\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1 Corps de texte;}
-{\s20\sbasedon19\snext20\dbch\af5\langfe1081\dbch\af6\afs24\ql\sl276\slmult1\widctlpar\hyphpar0\sb0\sa140\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1 Liste;}
-{\s21\sbasedon0\snext21\dbch\af5\langfe1081\dbch\af6\afs24\ai\ql\widctlpar\hyphpar0\sb120\sa120\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1 L\u233\'e9gende;}
-{\s22\sbasedon0\snext22\dbch\af5\langfe1081\dbch\af6\afs24\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1 Index;}
-{\s23\sbasedon0\snext23\dbch\af5\langfe1081\dbch\af6\afs24\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1 Contenu de tableau;}
-{\s24\sbasedon23\snext24\dbch\af5\langfe1081\dbch\af6\afs24\qc\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\b\kerning1 Titre de tableau;}
-}{\*\generator LibreOffice/6.3.1.2$Windows_X86_64 LibreOffice_project/b79626edf0065ac373bd1df5c28bd630b4424273}{\info{\creatim\yr2019\mo9\dy6\hr11\min55}{\revtim\yr2019\mo9\dy24\hr18\min25}{\printim\yr0\mo0\dy0\hr0\min0}}{\*\userprops}\deftab408
-\hyphauto0\viewscale151
-{\*\pgdsctbl
-{\pgdsc0\pgdscuse451\pgwsxn11906\pghsxn16838\marglsxn1134\margrsxn1134\margtsxn1134\margbsxn1134\pgdscnxt0 Style par d\u233\'e9faut;}}
-\formshade{\*\pgdscno0}\paperh16838\paperw11906\margl1134\margr1134\margt1134\margb1134\sectd\sbknone\sectunlocked1\pgndec\pgwsxn11906\pghsxn16838\marglsxn1134\margrsxn1134\margtsxn1134\margbsxn1134\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
-{\*\ftnsep\chftnsep}\pgndec\pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Thanks to JTK222 for telling me to learn how to use the Forge modding API and to stop being lazy using MCreator.}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1\loch
-
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-======================================================}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1\loch
-
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-TEXTURES}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1\loch
-
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-======================================================}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1\loch
-
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Most of the textures of this mod are derivative works from pictures found on wikimedia commons. Cropped and resized, sometimes colours are modified a bit too. }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1\loch
-
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Descloizite\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Vanadinite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Pyrite\~: }{{\*\bkmkstart attribution}{\*\bkmkend attribution}{\field{\*\fldinst HYPERLINK "https://www.flickr.com/photos/47445767@N05/18995624978" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-"Pyrite (latest Cretaceous to earliest Tertiary, 62-66 Ma; Leonard Mine, Butte, Montana, USA) 3"}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://www.flickr.com/photos/47445767@N05" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-James St. John}{}}}\loch
- is licensed under }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=rich" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-CC BY 2.0 }}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Soufre\~: }{{\*\bkmkstart attribution1}{\*\bkmkend attribution1}{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=3724628" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-"File:SulphurCrystal.jpg"}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Oscar" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Oscar}{}}}\loch
- is licensed under }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-CC BY-SA 3.0}{}}}\loch
- }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Clausthalite\~: }{{\*\bkmkstart attribution2}{\*\bkmkend attribution2}{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=10160124" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-"File:Clausthalite-207329.jpg"}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:RKBot" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-RKBot}{}}}\loch
- is licensed under }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-CC BY-SA 3.0 }}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Phosphorite\~: }{{\*\bkmkstart attribution3}{\*\bkmkend attribution3}{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=6604900" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-"File:Phosphorit (Staffelit) - Staffel Lahngebiet.jpg"}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Ra'ike" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Ra'ike}{}}}\loch
- is licensed under }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-CC BY-SA 3.0 }}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Bituminous coal\~: }{{\*\bkmkstart attribution4}{\*\bkmkend attribution4}{\field{\*\fldinst HYPERLINK "https://www.flickr.com/photos/47445767@N05/29651444041" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-"Fossiliferous bituminous coal (Clarion Coal, Middle Pennsylvanian; Prattsville West Roadcut, Vinton County, Ohio, USA) 5"}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://www.flickr.com/photos/47445767@N05" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-James St. John}{}}}\loch
- is licensed under }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=rich" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-CC BY 2.0 }}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Anthracite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/w/index.php?title=User:Educerva&action=edit&redlink=1" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Educerva}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Graphite\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-L\u246\'f6llingite\~: Didier Descouens \u8211\'96 CC-BY-SA-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-R\u233\'e9algar\~: }{{\*\bkmkstart attribution5}{\*\bkmkend attribution5}{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=10163733" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-"File:Realgar-230125.jpg"}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:RKBot" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-RKBot}{}}}\loch
- is licensed under }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-CC BY-SA 3.0 }}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Orpiment\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Ars\u233\'e9nopyrite\~: }{{\*\bkmkstart attribution6}{\*\bkmkend attribution6}{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=14867205" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-"File:Arsenopyrite-254716.jpg"}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:RKBot" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-RKBot}{}}}\loch
- is licensed under }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-CC BY-SA 3.0 }}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Stibnite\~: }{{\*\bkmkstart attribution7}{\*\bkmkend attribution7}{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=10445393" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-"File:Stibnite-car-149a.jpg"}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:RKBot" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-RKBot}{}}}\loch
- is licensed under }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-CC BY-SA 3.0 }}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Germanite\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Argutite\~: Norman King, https://www.mindat.org/photo-433199.html, CC BY-NC-SA 3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Native Bismuth\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Cassiterite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
-, CC-BY-SA 3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Teallite\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Stannite\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-native tin\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-K\u235\'ebsterite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-4.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Galena\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Cerussite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA 3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Angl\u233\'e9site\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Boulang\u233\'e9rite\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Pyromorphite\~: Dguendel \u8211\'96 CC-BY-4.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Bauxite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:BlueBreezeWiki" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-BlueBreezeWiki}{}}}\loch
- \u8211\'96 CC-BY-SA 3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Nepheline\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Zimbres" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Zimbres}{}}}\loch
- \u8211\'96 CC-BY-SA 2.5}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Leucite\~: }{{\field{\*\fldinst HYPERLINK "http://www.mindat.org/user-10773.html#0" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Kelly Nash}{}}}\loch
- \u8211\'96 CC-BY 3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Sphalerite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA 3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Smithsonite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Sanjay_ach" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Sanjay Acharya}{}}}\loch
- \u8211\'96 CC-BY-SA 3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Hemimorphite\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Franklinite\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Zincite\~: }{{\field{\*\fldinst HYPERLINK "https://www.flickr.com/people/cobalt/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-cobalt123}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://en.wikipedia.org/wiki/en:Creative_Commons" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Creative Commons}{}}}\loch
- }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by-sa/2.0/deed.en" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Attribution-Share Alike 2.0 Generic}{}}}\loch
- }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Hydrozincite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Ra%27ike" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Ra'ike}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Otavite\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Cinnabar\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Native copper\~: Jonathan Zander (}{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Digon3" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Digon3}{}}}\loch
-) \u8211\'96 CC-BY-SA-2.5}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Chalcopyrite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Lloyd.james0615" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Lloyd.james0615}{}}}\loch
- \u8211\'96 CC-BY-SA 3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Chalcocite\~: Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Bornite\~: }{{\*\bkmkstart attribution8}{\*\bkmkend attribution8}{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=2454408" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-"File:Bournite iridescence.jpg"}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Zimbres" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Zimbres}{}}}\loch
- licensed under }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by-sa/2.5/?ref=ccsearch&atype=rich" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-CC BY-SA 2.5 }}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Enargite\~: }{{\field{\*\fldinst HYPERLINK "https://www.flickr.com/photos/jsjgeology/18743735570/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://www.flickr.com/photos/jsjgeology/18743735570/}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://www.flickr.com/people/47445767@N05" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-James St. John}{}}}\loch
- \u8211\'96 CC-BY 2.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Tennantite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Tennantite2.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Tennantite2.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY 3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Tetrahedrite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Tetraedrite.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Tetraedrite.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Covellite\~: }{{\field{\*\fldinst HYPERLINK "https://upload.wikimedia.org/wikipedia/commons/6/6a/Covellite-USA.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://upload.wikimedia.org/wikipedia/commons/6/6a/Covellite-USA.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY 3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Azurite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Azuritechessy.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Azuritechessy.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Malachite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:9135_-_Milano_-_Museo_storia_naturale_-_Malachite_-_Foto_Giovanni_Dall%27Orto_22-Apr-2007.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:9135_-_Milano_-_Museo_storia_naturale_-_Malachite_-_Foto_Giovanni_Dall%27Orto_22-Apr-2007.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:G.dallorto" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-G.dallorto}{}}}\loch
- \u8211\'96 CC-BY-SA-2.5}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Native silver\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Argent_natif_(Maroc).JPG" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Argent_natif_(Maroc).JPG}{}}}\loch
-, Parent G\u233\'e9ry \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Acanthite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Acanthite-Argentite-acn-06a.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Acanthite-Argentite-acn-06a.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Stephanite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Stephanite-199620.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Stephanite-199620.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Proustite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Proustite-md42a.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Proustite-md42a.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Freibergite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Freibergite-295930.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Freibergite-295930.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Nickeline\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Nickeline.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Nickeline.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0  }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-N\u233\'e9pouite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:N\u233\'e9pouite_MHNT.MIN.2005.0.63.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:N%C3%A9pouite_MHNT.MIN.2005.0.63.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0   }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Millerite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Millerite-132356.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Millerite-132356.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Gersdorffite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Gersdorffit_-_Lobenstein,_Vogtland.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Gersdorffit_-_Lobenstein,_Vogtland.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Ra%27ike" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Ra'ike}{}}}\loch
- (see also: }{{\field{\*\fldinst HYPERLINK "https://de.wikipedia.org/wiki/Benutzer:Ra%27ike" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-de:Benutzer:Ra'ike}{}}}\loch
-) \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Cobaltite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Cobaltite_(Skutterud_Mines,_Modum,_Norway)_2_(19226355671).jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Cobaltite_(Skutterud_Mines,_Modum,_Norway)_2_(19226355671).jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://www.flickr.com/people/47445767@N05" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-James St. John}{}}}\loch
- \u8211\'96 CC-BY-2.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Carrollite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Carrollite.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Carrollite.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Skutterudite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Skutt\u233\'e9rudite.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Skutt%C3%A9rudite.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-4.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Hematite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:H\u233\'e9matite_Rose_de_Fer.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:H%C3%A9matite_Rose_de_Fer.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-4.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{
- }{\loch
-Magnetite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Magnetite-114113.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Magnetite-114113.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Limonite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Limonite_(Bitschwiller-les-Thann)-Mus\u233\'e9e_de_min\u233\'e9ralogie_de_Strasbourg.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Limonite_(Bitschwiller-les-Thann)-Mus%C3%A9e_de_min%C3%A9ralogie_de_Strasbourg.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Ji-Elle" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Ji-Elle}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Siderite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:SideriteRivet.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:SideriteRivet.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Telluric iron\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Iron-252608.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Iron-252608.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Rhodochrosite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Freiberg,_Terra_mineralia,_Rhodochrosit.JPG" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Freiberg,_Terra_mineralia,_Rhodochrosit.JPG}{}}}\loch
-, Dguendel \u8211\'96 CC-BY-4.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Hollandite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Hollandite-171530.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Hollandite-171530.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "http://www.mindat.org/user-2830.html#0" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-John Sobolewski}{}}}\loch
- (JSS) \u8211\'96 CC-BY-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Manganite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Manganite-165800.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Manganite-165800.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Hausmannite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Hausmannite-215565.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Hausmannite-215565.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Alabandite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:2461M-alabandite1.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:2461M-alabandite1.jpg}{}}}\loch
-, CarlesMillan \u8211\'96 CC-BY-SA-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Rhodonite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Rhodonite_Australie.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Rhodonite_Australie.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-4.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1\loch
-
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Molybdenite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Molybdenite_(Questa,_New_Mexico)_2_(19057184939).jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Molybdenite_(Questa,_New_Mexico)_2_(19057184939).jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://www.flickr.com/people/47445767@N05" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-James St. John}{}}}\loch
- \u8211\'96 CC-BY-2.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Wulfenite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Wulfenite_France.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Wulfenite_France.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-4.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Scheelite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Scheelite-qg01c.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Scheelite-qg01c.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Ferberite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Ferb\u232\'e8rite-Tch\u233\'e9quie.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Ferb%C3%A8rite-Tch%C3%A9quie.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-4.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Hubnerite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Hubnerite-sn32b.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Hubnerite-sn32b.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Columbite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Columbite-75444.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Columbite-75444.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1\loch
-
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Rutile\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Rutile-149285.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Rutile-149285.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Ilmenite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Ilmenite-65674.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Ilmenite-65674.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Anatase\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Anatase1_-_Kharan,_Balochistan,_Pakistan.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Anatase1_-_Kharan,_Balochistan,_Pakistan.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "http://www.mindat.org/user-2830.html#0" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-John Sobolewski}{}}}\loch
- (JSS) \u8211\'96 CC-BY-3.0  }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Brookite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Brookite,_quartz_1.jpeg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Brookite,_quartz_1.jpeg}{}}}\loch
-, Parent G\u233\'e9ry \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Titanite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Titanite-rom08a.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Titanite-rom08a.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Zircon\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Zircon-216649.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Zircon-216649.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Carnotite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Carnotite-Chrysocolla-201135.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Carnotite-Chrysocolla-201135.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Uraninite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Auriferous,_uraninitic,_hydrocarbon-rich_stromatolite_rock_(Carbon_Leader_Gold_Ore,_South_Africa)_2_(14533147268).jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Auriferous,_uraninitic,_hydrocarbon-rich_stromatolite_rock_(Carbon_Leader_Gold_Ore,_South_Africa)_2_(14533147268).jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://www.flickr.com/people/47445767@N05" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-James St. John}{}}}\loch
- \u8211\'96 CC-BY-2.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Magnesite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:MagnesiteSaxe.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:MagnesiteSaxe.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-4.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Brucite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Brucite-21385.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Brucite-21385.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Anhydrite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Anhydrite-261625.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Anhydrite-261625.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Dolomite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:7092_pieskovna_Dolinka_pri_Hradisti_pod_Vratnom_dolomit.JPG" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:7092_pieskovna_Dolinka_pri_Hradisti_pod_Vratnom_dolomit.JPG}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Pelex" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Pelex}{}}}\loch
- \u8211\'96 CC-BY-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1\loch
-
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Strontianite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Strontianite-208780.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Strontianite-208780.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Celestine\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Barytoc\u233\'e9lestine.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Barytoc%C3%A9lestine.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Polylithionite\~: }{{\*\bkmkstart attribution9}{\*\bkmkend attribution9}{\field{\*\fldinst HYPERLINK "https://www.flickr.com/photos/28617364@N04/13900111785" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-"Greenland Hackmanite Chkalovite Polylithionite - WL"}{}}}\loch
- by }{{\field{\*\fldinst HYPERLINK "https://www.flickr.com/photos/28617364@N04" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-someHerrings}{}}}\loch
- is licensed under }{{\field{\*\fldinst HYPERLINK "https://creativecommons.org/licenses/by-nc-sa/2.0/?ref=ccsearch&atype=rich" \\t "_blank" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-CC BY-NC-SA 2.0 }}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Petalite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Petalite-199868.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Petalite-199868.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Sylvite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Sylvite_-_Esterhazy,_Saskatchewan.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Sylvite_-_Esterhazy,_Saskatchewan.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Chris857" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Chris857}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Polyhalite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Polyhalite-784531.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Polyhalite-784531.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://www.mindat.org/user-2830.html" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-John Sobolewski}{}}}\loch
- (JSS) \u8211\'96 CC-BY-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Nitratine\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Nitratine-548175.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Nitratine-548175.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "http://www.mindat.org/user-2830.html#0" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-John Sobolewski}{}}}\loch
- (JSS) \u8211\'96 CC-BY-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Halite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Halite-Nahcolite-180710.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Halite-Nahcolite-180710.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1\loch
-
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Sapphire\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Corundum-71826.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Corundum-71826.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Spinel\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Spinel-195704.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Spinel-195704.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Amethyst\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:GuerreroAm\u233\'e9thyste.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:GuerreroAm%C3%A9thyste.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Tourmaline\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Elbaite.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Elbaite.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-4.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Sugilite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Sugilite-118850.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Sugilite-118850.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Topaz\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Topaze_Br\u233\'e9sil.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Topaze_Br%C3%A9sil.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-tanzanite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Zo\u239\'efsite_(Tanzanite).jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Zo%C3%Afsite_(Tanzanite).jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Tsavorite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Grossular-122165.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Grossular-122165.jpg}{}}}\loch
-, Rob Lavinsky, }{{\field{\*\fldinst HYPERLINK "http://www.irocks.com/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-iRocks.com}{}}}\loch
- \u8211\'96 CC-BY-SA-3.0 }
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Andradite\~:}{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Andradite-Mali.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Andradite-Mali.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Didier Descouens}{}}}\loch
- \u8211\'96 CC-BY-SA-4.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1\loch
-
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Ruthenium\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Ruthenium_a_half_bar.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Ruthenium_a_half_bar.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Alchemist-hp" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Alchemist-hp}{}}}\loch
- (}{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User_talk:Alchemist-hp" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-talk}{}}}\loch
-) (}{{\field{\*\fldinst HYPERLINK "http://www.pse-mendelejew.de/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-www.pse-mendelejew.de}{}}}\loch
-) , }{{\field{\*\fldinst HYPERLINK "http://artlibre.org/licence/lal/en/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Free Art License}}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Iridium\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Iridium_element.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Iridium_element.jpg}{}}}\loch
-, W. Oelen \u8211\'96 CC-BY-SA-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Osmium\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Osmium_crystals.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Osmium_crystals.jpg}{}}}\loch
-, }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User:Alchemist-hp" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Alchemist-hp}{}}}\loch
- (}{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/User_talk:Alchemist-hp" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-talk}{}}}\loch
-) (}{{\field{\*\fldinst HYPERLINK "http://www.pse-mendelejew.de/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-www.pse-mendelejew.de}{}}}\loch
-) , }{{\field{\*\fldinst HYPERLINK "http://artlibre.org/licence/lal/en/" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-Free Art License}}}}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Palladium\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Palladium2.jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Palladium2.jpg}{}}}\loch
-, W. Oelen \u8211\'96 CC-BY-SA-3.0}
-\par \pard\plain \s0\dbch\af5\langfe1081\dbch\af6\afs24\alang1081\ql\widctlpar\hyphpar0\ltrpar\cf0\loch\f3\fs24\lang1036\kerning1{\loch
-Bismuthinite\~: }{{\field{\*\fldinst HYPERLINK "https://commons.wikimedia.org/wiki/File:Bismuthinite_(Llallagua,_Bolivia)_2_(18309812433).jpg" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-https://commons.wikimedia.org/wiki/File:Bismuthinite_(Llallagua,_Bolivia)_2_(18309812433).jpg}{}}}\loch
-,}{{\field{\*\fldinst HYPERLINK "https://www.flickr.com/people/47445767@N05" }{\fldrslt {\rtlch\langfe255 \ltrch\cf9\lang255\ul\ulc0\loch
-James St. John}{}}}\loch
- \u8211\'96 CC-BY-2.0}
-\par }
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deftab408{\fonttbl{\f0\froman\fprq2\fcharset0 Liberation Serif;}{\f1\froman\fprq2 Liberation Serif;}}
+{\colortbl ;\red0\green0\blue255;\red0\green0\blue128;}
+{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+\pard\hyphpar0\widctlpar\kerning1\f0\fs24\lang1036 Thanks to JTK222 for telling me to learn how to use the Forge modding API and to stop being lazy using MCreator.\par
+\par
+======================================================\par
+\par
+TEXTURES\par
+\par
+======================================================\par
+\par
+Most of the textures of this mod are derivative works from pictures found on wikimedia commons. Cropped and resized, sometimes colours are modified a bit too. \par
+\par
+Descloizite\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Vanadinite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0\par
+Pyrite\~: {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/photos/47445767@N05/18995624978"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 "Pyrite (latest Cretaceous to earliest Tertiary, 62-66 Ma; Leonard Mine, Butte, Montana, USA) 3"}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/photos/47445767@N05"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 James St. John}}}}\f0\fs24  is licensed under {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=rich"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 CC BY 2.0 }}}}\f0\fs24\par
+Soufre\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=3724628"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 "File:SulphurCrystal.jpg"}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Oscar"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 Oscar}}}}\f0\fs24  is licensed under {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 CC BY-SA 3.0}}}}\f0\fs24  \par
+Clausthalite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=10160124"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 "File:Clausthalite-207329.jpg"}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:RKBot"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 RKBot}}}}\f0\fs24  is licensed under {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 CC BY-SA 3.0 }}}}\f0\fs24\par
+Phosphorite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=6604900"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 "File:Phosphorit (Staffelit) - Staffel Lahngebiet.jpg"}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Ra'ike"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 Ra'ike}}}}\f0\fs24  is licensed under {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 CC BY-SA 3.0 }}}}\f0\fs24\par
+Bituminous coal\~: {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/photos/47445767@N05/29651444041"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 "Fossiliferous bituminous coal (Clarion Coal, Middle Pennsylvanian; Prattsville West Roadcut, Vinton County, Ohio, USA) 5"}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/photos/47445767@N05"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 James St. John}}}}\f0\fs24  is licensed under {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=rich"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 CC BY 2.0 }}}}\f0\fs24\par
+Anthracite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/w/index.php?title=User:Educerva&action=edit&redlink=1" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Educerva}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0\par
+Graphite\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+L\'f6llingite\~: Didier Descouens \f1\endash\f0  CC-BY-SA-3.0\par
+R\'e9algar\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=10163733"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 "File:Realgar-230125.jpg"}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:RKBot"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 RKBot}}}}\f0\fs24  is licensed under {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 CC BY-SA 3.0 }}}}\f0\fs24\par
+Orpiment\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Ars\'e9nopyrite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=14867205"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 "File:Arsenopyrite-254716.jpg"}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:RKBot"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 RKBot}}}}\f0\fs24  is licensed under {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 CC BY-SA 3.0 }}}}\f0\fs24\par
+Stibnite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=10445393"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 "File:Stibnite-car-149a.jpg"}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:RKBot"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 RKBot}}}}\f0\fs24  is licensed under {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-sa/3.0/?ref=ccsearch&atype=rich"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 CC BY-SA 3.0 }}}}\f0\fs24\par
+Germanite\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Argutite\~: Norman King, {{\field{\*\fldinst{HYPERLINK https://www.mindat.org/photo-433199.html }}{\fldrslt{https://www.mindat.org/photo-433199.html\ul0\cf0}}}}\f0\fs24 , CC BY-NC-SA 3.0\par
+Native Bismuth\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0\par
+Cassiterite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24 , CC-BY-SA 3.0\par
+Teallite\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Stannite\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+native tin\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+K\'ebsterite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-4.0\par
+Galena\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0\par
+Cerussite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA 3.0\par
+Angl\'e9site\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Boulang\'e9rite\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Pyromorphite\~: Dguendel \f1\endash\f0  CC-BY-4.0\par
+Bauxite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:BlueBreezeWiki" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 BlueBreezeWiki}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA 3.0\par
+Nepheline\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Zimbres" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Zimbres}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA 2.5\par
+Leucite\~: {{\field{\*\fldinst{HYPERLINK "http://www.mindat.org/user-10773.html#0" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Kelly Nash}}}}\f0\fs24  \f1\endash\f0  CC-BY 3.0\par
+Sphalerite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA 3.0\par
+Smithsonite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Sanjay_ach" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Sanjay Acharya}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA 3.0\par
+Hemimorphite\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Franklinite\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Zincite\~: {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/people/cobalt/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 cobalt123}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/en:Creative_Commons" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Creative Commons}}}}\f0\fs24  {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-sa/2.0/deed.en" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Attribution-Share Alike 2.0 Generic}}}}\f0\fs24  \par
+Hydrozincite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Ra%27ike" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Ra'ike}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Otavite\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Cinnabar\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Native copper\~: Jonathan Zander ({{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Digon3" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Digon3}}}}\f0\fs24 ) \f1\endash\f0  CC-BY-SA-2.5\par
+Chalcopyrite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Lloyd.james0615" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Lloyd.james0615}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA 3.0\par
+Chalcocite\~: Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Bornite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/w/index.php?curid=2454408"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 "File:Bournite iridescence.jpg"}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Zimbres"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 Zimbres}}}}\f0\fs24  licensed under {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-sa/2.5/?ref=ccsearch&atype=rich"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 CC BY-SA 2.5 }}}}\f0\fs24\par
+Enargite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://www.flickr.com/photos/jsjgeology/18743735570/ }}{\fldrslt{https://www.flickr.com/photos/jsjgeology/18743735570/\ul0\cf0}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/people/47445767@N05" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 James St. John}}}}\f0\fs24  \f1\endash\f0  CC-BY 2.0\par
+Tennantite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Tennantite2.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Tennantite2.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY 3.0\par
+Tetrahedrite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Tetraedrite.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Tetraedrite.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0\par
+Covellite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://upload.wikimedia.org/wikipedia/commons/6/6a/Covellite-USA.jpg }}{\fldrslt{https://upload.wikimedia.org/wikipedia/commons/6/6a/Covellite-USA.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY 3.0\par
+Azurite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Azuritechessy.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Azuritechessy.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Malachite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:9135_-_Milano_-_Museo_storia_naturale_-_Malachite_-_Foto_Giovanni_Dall%27Orto_22-Apr-2007.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:9135_-_Milano_-_Museo_storia_naturale_-_Malachite_-_Foto_Giovanni_Dall%27Orto_22-Apr-2007.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:G.dallorto" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 G.dallorto}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-2.5\par
+Native silver\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Argent_natif_(Maroc).JPG }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Argent_natif_(Maroc).JPG\ul0\cf0}}}}\f0\fs24 , Parent G\'e9ry \f1\endash\f0  CC-BY-SA-3.0 \par
+Acanthite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Acanthite-Argentite-acn-06a.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Acanthite-Argentite-acn-06a.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Stephanite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Stephanite-199620.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Stephanite-199620.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Proustite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Proustite-md42a.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Proustite-md42a.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Freibergite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Freibergite-295930.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Freibergite-295930.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Nickeline\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Nickeline.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Nickeline.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0  \par
+N\'e9pouite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/File:N\'e9pouite_MHNT.MIN.2005.0.63.jpg" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 https://commons.wikimedia.org/wiki/File:N%C3%A9pouite_MHNT.MIN.2005.0.63.jpg}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0   \par
+Millerite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Millerite-132356.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Millerite-132356.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Gersdorffite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Gersdorffit_-_Lobenstein,_Vogtland.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Gersdorffit_-_Lobenstein,_Vogtland.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Ra%27ike" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Ra'ike}}}}\f0\fs24  (see also: {{\field{\*\fldinst{HYPERLINK "https://de.wikipedia.org/wiki/Benutzer:Ra%27ike" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 de:Benutzer:Ra'ike}}}}\f0\fs24 ) \f1\endash\f0  CC-BY-SA-3.0 \par
+Cobaltite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Cobaltite_(Skutterud_Mines,_Modum,_Norway)_2_(19226355671).jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Cobaltite_(Skutterud_Mines,_Modum,_Norway)_2_(19226355671).jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/people/47445767@N05" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 James St. John}}}}\f0\fs24  \f1\endash\f0  CC-BY-2.0\par
+Carrollite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Carrollite.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Carrollite.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0\par
+Skutterudite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/File:Skutt\'e9rudite.jpg" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 https://commons.wikimedia.org/wiki/File:Skutt%C3%A9rudite.jpg}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-4.0\par
+Hematite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/File:H\'e9matite_Rose_de_Fer.jpg" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 https://commons.wikimedia.org/wiki/File:H%C3%A9matite_Rose_de_Fer.jpg}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-4.0\par
+ Magnetite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Magnetite-114113.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Magnetite-114113.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Limonite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/File:Limonite_(Bitschwiller-les-Thann)-Mus\'e9e_de_min\'e9ralogie_de_Strasbourg.jpg" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 https://commons.wikimedia.org/wiki/File:Limonite_(Bitschwiller-les-Thann)-Mus%C3%A9e_de_min%C3%A9ralogie_de_Strasbourg.jpg}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Ji-Elle" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Ji-Elle}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Siderite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:SideriteRivet.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:SideriteRivet.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Telluric iron\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Iron-252608.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Iron-252608.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Rhodochrosite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Freiberg,_Terra_mineralia,_Rhodochrosit.JPG }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Freiberg,_Terra_mineralia,_Rhodochrosit.JPG\ul0\cf0}}}}\f0\fs24 , Dguendel \f1\endash\f0  CC-BY-4.0\par
+Hollandite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Hollandite-171530.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Hollandite-171530.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "http://www.mindat.org/user-2830.html#0" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 John Sobolewski}}}}\f0\fs24  (JSS) \f1\endash\f0  CC-BY-3.0\par
+Manganite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Manganite-165800.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Manganite-165800.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Hausmannite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Hausmannite-215565.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Hausmannite-215565.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Alabandite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:2461M-alabandite1.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:2461M-alabandite1.jpg\ul0\cf0}}}}\f0\fs24 , CarlesMillan \f1\endash\f0  CC-BY-SA-3.0\par
+Rhodonite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Rhodonite_Australie.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Rhodonite_Australie.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-4.0 \par
+\par
+Molybdenite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Molybdenite_(Questa,_New_Mexico)_2_(19057184939).jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Molybdenite_(Questa,_New_Mexico)_2_(19057184939).jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/people/47445767@N05" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 James St. John}}}}\f0\fs24  \f1\endash\f0  CC-BY-2.0\par
+Wulfenite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Wulfenite_France.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Wulfenite_France.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-4.0\par
+Scheelite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Scheelite-qg01c.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Scheelite-qg01c.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Ferberite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/File:Ferb\'e8rite-Tch\'e9quie.jpg" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 https://commons.wikimedia.org/wiki/File:Ferb%C3%A8rite-Tch%C3%A9quie.jpg}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-4.0 \par
+Hubnerite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Hubnerite-sn32b.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Hubnerite-sn32b.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Columbite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Columbite-75444.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Columbite-75444.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+\par
+Rutile\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Rutile-149285.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Rutile-149285.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Ilmenite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Ilmenite-65674.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Ilmenite-65674.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Anatase\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Anatase1_-_Kharan,_Balochistan,_Pakistan.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Anatase1_-_Kharan,_Balochistan,_Pakistan.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "http://www.mindat.org/user-2830.html#0" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 John Sobolewski}}}}\f0\fs24  (JSS) \f1\endash\f0  CC-BY-3.0  \par
+Brookite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Brookite,_quartz_1.jpeg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Brookite,_quartz_1.jpeg\ul0\cf0}}}}\f0\fs24 , Parent G\'e9ry \f1\endash\f0  CC-BY-SA-3.0 \par
+Titanite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Titanite-rom08a.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Titanite-rom08a.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Zircon\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Zircon-216649.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Zircon-216649.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Carnotite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Carnotite-Chrysocolla-201135.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Carnotite-Chrysocolla-201135.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Uraninite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Auriferous,_uraninitic,_hydrocarbon-rich_stromatolite_rock_(Carbon_Leader_Gold_Ore,_South_Africa)_2_(14533147268).jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Auriferous,_uraninitic,_hydrocarbon-rich_stromatolite_rock_(Carbon_Leader_Gold_Ore,_South_Africa)_2_(14533147268).jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/people/47445767@N05" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 James St. John}}}}\f0\fs24  \f1\endash\f0  CC-BY-2.0\par
+Magnesite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:MagnesiteSaxe.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:MagnesiteSaxe.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-4.0 \par
+Brucite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Brucite-21385.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Brucite-21385.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Anhydrite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Anhydrite-261625.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Anhydrite-261625.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Dolomite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:7092_pieskovna_Dolinka_pri_Hradisti_pod_Vratnom_dolomit.JPG }}{\fldrslt{https://commons.wikimedia.org/wiki/File:7092_pieskovna_Dolinka_pri_Hradisti_pod_Vratnom_dolomit.JPG\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Pelex" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Pelex}}}}\f0\fs24  \f1\endash\f0  CC-BY-3.0 \par
+\par
+Strontianite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Strontianite-208780.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Strontianite-208780.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Celestine\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/File:Barytoc\'e9lestine.jpg" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 https://commons.wikimedia.org/wiki/File:Barytoc%C3%A9lestine.jpg}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Polylithionite\~: {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/photos/28617364@N04/13900111785"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 "Greenland Hackmanite Chkalovite Polylithionite - WL"}}}}\f0\fs24  by {{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/photos/28617364@N04"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 someHerrings}}}}\f0\fs24  is licensed under {{\field{\*\fldinst{HYPERLINK "https://creativecommons.org/licenses/by-nc-sa/2.0/?ref=ccsearch&atype=rich"}}{\fldrslt{\ul\cf1\cf2\ul\lang255 CC BY-NC-SA 2.0 }}}}\f0\fs24\par
+Petalite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Petalite-199868.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Petalite-199868.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Sylvite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Sylvite_-_Esterhazy,_Saskatchewan.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Sylvite_-_Esterhazy,_Saskatchewan.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Chris857" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Chris857}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Polyhalite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Polyhalite-784531.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Polyhalite-784531.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://www.mindat.org/user-2830.html" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 John Sobolewski}}}}\f0\fs24  (JSS) \f1\endash\f0  CC-BY-3.0 \par
+Nitratine\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Nitratine-548175.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Nitratine-548175.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "http://www.mindat.org/user-2830.html#0" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 John Sobolewski}}}}\f0\fs24  (JSS) \f1\endash\f0  CC-BY-3.0\par
+Halite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Halite-Nahcolite-180710.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Halite-Nahcolite-180710.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+\par
+Sapphire\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Corundum-71826.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Corundum-71826.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Spinel\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Spinel-195704.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Spinel-195704.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Amethyst\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/File:GuerreroAm\'e9thyste.jpg" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 https://commons.wikimedia.org/wiki/File:GuerreroAm%C3%A9thyste.jpg}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Tourmaline\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Elbaite.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Elbaite.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-4.0\par
+Sugilite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Sugilite-118850.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Sugilite-118850.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Topaz\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/File:Topaze_Br\'e9sil.jpg" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 https://commons.wikimedia.org/wiki/File:Topaze_Br%C3%A9sil.jpg}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+tanzanite\~: {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/File:Zo\'efsite_(Tanzanite).jpg" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 https://commons.wikimedia.org/wiki/File:Zo%C3%Afsite_(Tanzanite).jpg}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-3.0 \par
+Tsavorite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Grossular-122165.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Grossular-122165.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Andradite\~:{\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Andradite-Mali.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Andradite-Mali.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Didier Descouens}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-4.0\par
+\par
+Ruthenium\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Ruthenium_a_half_bar.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Ruthenium_a_half_bar.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Alchemist-hp" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Alchemist-hp}}}}\f0\fs24  ({{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User_talk:Alchemist-hp" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 talk}}}}\f0\fs24 ) ({{\field{\*\fldinst{HYPERLINK "http://www.pse-mendelejew.de/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 www.pse-mendelejew.de}}}}\f0\fs24 ) , {{\field{\*\fldinst{HYPERLINK "http://artlibre.org/licence/lal/en/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Free Art License}}}}\f0\fs24\par
+Iridium\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Iridium_element.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Iridium_element.jpg\ul0\cf0}}}}\f0\fs24 , W. Oelen \f1\endash\f0  CC-BY-SA-3.0\par
+Osmium\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Osmium_crystals.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Osmium_crystals.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Alchemist-hp" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Alchemist-hp}}}}\f0\fs24  ({{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User_talk:Alchemist-hp" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 talk}}}}\f0\fs24 ) ({{\field{\*\fldinst{HYPERLINK "http://www.pse-mendelejew.de/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 www.pse-mendelejew.de}}}}\f0\fs24 ) , {{\field{\*\fldinst{HYPERLINK "http://artlibre.org/licence/lal/en/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Free Art License}}}}\f0\fs24\par
+Palladium\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Palladium2.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Palladium2.jpg\ul0\cf0}}}}\f0\fs24 , W. Oelen \f1\endash\f0  CC-BY-SA-3.0\par
+Bismuthinite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Bismuthinite_(Llallagua,_Bolivia)_2_(18309812433).jpg, }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Bismuthinite_(Llallagua,_Bolivia)_2_(18309812433).jpg\lang1036 ,\ul0\cf0}}}}{\f0\fs24{\field{\*\fldinst{HYPERLINK "https://www.flickr.com/people/47445767@N05" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 James St. John}}}}\f0\fs24  \f1\endash\f0  CC-BY-2.0\par
+Monazite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Monazite_-_Rostadheia,_Iveland,_Norvegia_01.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Monazite_-_Rostadheia,_Iveland,_Norvegia_01.jpg\ul0\cf0}}}}\f0\fs24 , {{\field{\*\fldinst{HYPERLINK "https://commons.wikimedia.org/wiki/User:Aangelo" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 Aangelo}}}}\f0\fs24  CC-BY-SA 3.0\par
+{\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Monazite-169954.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Monazite-169954.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Bastnasite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Bastnaesit_Burundi.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Bastnaesit_Burundi.jpg\ul0\cf0}}}}\f0\fs24 , Kouame \f1\endash\f0  CC-BY-SA 3.0\par
+{\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Bastnasite-155010.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Bastnasite-155010.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Samarskite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Samarskite-(Y)-351417.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Samarskite-(Y)-351417.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Thortveitite\~: {\lang255{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Thortveitite-ea14a.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Thortveitite-ea14a.jpg\ul0\cf0}}}}\f0\fs24 , Rob Lavinsky, {{\field{\*\fldinst{HYPERLINK "http://www.irocks.com/" }}{\fldrslt{\ul\cf1\cf2\ul\lang255 iRocks.com}}}}\f0\fs24  \f1\endash\f0  CC-BY-SA-3.0 \par
+Kimberlite : {{\field{\*\fldinst{HYPERLINK https://commons.wikimedia.org/wiki/File:Kimberlite_picture.jpg }}{\fldrslt{https://commons.wikimedia.org/wiki/File:Kimberlite_picture.jpg\ul0\cf0}}}}\f0\fs24 , Woudloper / CC BY-SA ({{\field{\*\fldinst{HYPERLINK https://creativecommons.org/licenses/by-sa/1.0 }}{\fldrslt{https://creativecommons.org/licenses/by-sa/1.0\ul0\cf0}}}}\f0\fs24 )\par
+}
+ 

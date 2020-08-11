@@ -30,8 +30,9 @@ public class AlmostAllTheOres
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AatoConfig.spec);		
-		ModPlugAndPlay.activateOres();
-		AatoConfig.loadConfig();
+		final ModPlugAndPlay m = new ModPlugAndPlay();
+		m.activateOres();
+		AatoConfig.loadConfig(m);
 
 	}
 
