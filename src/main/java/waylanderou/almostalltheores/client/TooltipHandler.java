@@ -109,6 +109,7 @@ public class TooltipHandler {
 	public final String[] bastnasite_y = { "bastnasite_y" };
 	public final String[] samarskite_y = { "samarskite_y" };
 	public final String[] thortveitite = { "thortveitite" };
+	public final String[] diamond = {"kimberlite", "lamproite"};
 
 
 	HashMap<String[], String> tooltips = new HashMap<String[], String>();
@@ -211,7 +212,8 @@ public class TooltipHandler {
 		tooltips.put(monazite_nd, "tooltip.almostalltheores.monazite_nd");
 		tooltips.put(bastnasite_y, "tooltip.almostalltheores.bastnasite_y");
 		tooltips.put(samarskite_y, "tooltip.almostalltheores.samarskite_y");
-		tooltips.put(thortveitite, "tooltip.almostalltheores.thortveitite");		
+		tooltips.put(thortveitite, "tooltip.almostalltheores.thortveitite");
+		tooltips.put(diamond, "tooltip.almostalltheores.diamond");
 	}
 
 	public void onToolTip(ItemTooltipEvent event) {

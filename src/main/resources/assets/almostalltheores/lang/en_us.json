@@ -359,5 +359,8 @@
 	"tooltip.almostalltheores.bastnasite_y": "Contains Y, Dy, Gd, Sm, Yb, Ho, Lu, Tm, Eu",
 	"tooltip.almostalltheores.samarskite_y": "Contains Y, Er, Th, Dy",
 	"tooltip.almostalltheores.thortveitite": "Contains Sc, Yb, Lu, Er",
-	"block.almostalltheores.torbernite": "Torbernite"
+	"block.almostalltheores.torbernite": "Torbernite",
+	"block.almostalltheores.kimberlite": "Kimberlite",
+	"block.almostalltheores.lamproite": "Lamproite",
+	"tooltip.almostalltheores.diamond": "Contains Diamond(s)"
 }

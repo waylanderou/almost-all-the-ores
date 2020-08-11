@@ -1,13 +1,10 @@
 package waylanderou.almostalltheores.integration;
 
-import java.util.ArrayList;
-
 public class IntegratedOre {
 	public final String oreName;
 	final String[] mods;
 	public boolean isNeeded;
 	public boolean isGem;
-	public static ArrayList<IntegratedOre> integratedOresList = new ArrayList<IntegratedOre>();
 
 	public IntegratedOre(String ore, String[] mods) {
 		this(ore, mods, false);
@@ -18,7 +15,6 @@ public class IntegratedOre {
 		this.mods = mods;
 		this.isNeeded = false;
 		this.isGem = gem;
-		integratedOresList.add(this);
 	}
 
 }

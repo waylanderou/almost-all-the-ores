@@ -1,0 +1,6 @@
+{
+    "textures": {
+        "all": "almostalltheores:block/kimberlite"
+    }, 
+    "parent": "block/cube_all"
+}

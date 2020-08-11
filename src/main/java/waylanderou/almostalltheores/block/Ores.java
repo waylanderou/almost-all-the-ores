@@ -14,6 +14,7 @@ import waylanderou.almostalltheores.AlmostAllTheOres;
 import waylanderou.almostalltheores.AatoConfig;
 import waylanderou.almostalltheores.item.AnthraciteBlockItemBlock;
 
+@ObjectHolder(AlmostAllTheOres.MODID)
 public class Ores {
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":pyrite")
@@ -493,8 +494,9 @@ public class Ores {
 	@ObjectHolder(AlmostAllTheOres.MODID + ":thortveitite")
 	public static final CustomOre THORTVEITITE = null;
 
+	public static final CustomOre KIMBERLITE = null;
 
-
+	public static final CustomOre LAMPROITE = null;
 
 
 	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
@@ -684,6 +686,8 @@ public class Ores {
 			registerBlock(event, 2, "bastnasite_y");
 			registerBlock(event, 2, "samarskite_y");
 			registerBlock(event, 2, "thortveitite");
+			registerBlock(event, 2, "kimberlite");
+			registerBlock(event, 2, "lamproite");
 
 		}
 
@@ -846,7 +850,9 @@ public class Ores {
 			registerItemBlock(MONAZITE_ND, event);
 			registerItemBlock(BASTNASITE_Y, event);
 			registerItemBlock(SAMARSKITE_Y, event);
-			registerItemBlock(THORTVEITITE, event);			
+			registerItemBlock(THORTVEITITE, event);
+			registerItemBlock(KIMBERLITE, event);
+			registerItemBlock(LAMPROITE, event);
 			event.getRegistry().register(new AnthraciteBlockItemBlock(ANTHRACITE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName("anthracite_block"));			
 		}
 

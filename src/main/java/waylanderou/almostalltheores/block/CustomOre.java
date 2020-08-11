@@ -89,7 +89,11 @@ public class CustomOre extends Block {
 			return MathHelper.nextInt(random, 2, 3);
 		} else if(this == Ores.NETHER_COAL_ORE) {
 			return MathHelper.nextInt(random, 0, 2);
-		} else {
+		} else if(this == Ores.KIMBERLITE) {
+			return MathHelper.nextInt(random, 3, 7);
+		} else if(this == Ores.LAMPROITE) {
+			return MathHelper.nextInt(random, 3, 7);
+		} else {		
 			return 0;			
 		}		
 	}

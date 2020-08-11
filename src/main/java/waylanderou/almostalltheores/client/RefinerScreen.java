@@ -4,6 +4,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
@@ -25,17 +26,18 @@ public class RefinerScreen extends ContainerScreen<RefinerContainer> {
 	}
 
 	@Override
-	protected void func_230451_b_(MatrixStack matrixstack, int mouseX, int mouseY) {		
+	protected void func_230451_b_(MatrixStack matrixstack, int mouseX, int mouseY) {
+		FontRenderer fontRenderer = Minecraft.getInstance().fontRenderer;
 		int j = container.getFuelLeft();
-		func_238476_c_(matrixstack, Minecraft.getInstance().fontRenderer, "Refiner : ", 5, 5, 0xffffff);
+		func_238476_c_(matrixstack, fontRenderer, "Refiner : ", 5, 5, 0xffffff);
 		if(this.container.isProcessingOre()) {
-			func_238476_c_(matrixstack, Minecraft.getInstance().fontRenderer, "refining ore...", 52, 5, 0xffffff);
+			func_238476_c_(matrixstack, fontRenderer, "refining ore...", 52, 5, 0xffffff);
 		} else {
-			func_238476_c_(matrixstack, Minecraft.getInstance().fontRenderer, "ready", 52, 5, 0xffffff);
+			func_238476_c_(matrixstack, fontRenderer, "ready", 52, 5, 0xffffff);
 		}
 		if(!this.container.isProcessingOre() && this.container.getFuelLeft() > 0) {
-			func_238476_c_(matrixstack, Minecraft.getInstance().fontRenderer, "Fuel reserve : ", 5, 73, 0xffffff);
-			func_238476_c_(matrixstack, Minecraft.getInstance().fontRenderer, "" + j, 85, 73, 0xffffff);
+			func_238476_c_(matrixstack, fontRenderer, "Fuel reserve : ", 5, 73, 0xffffff);
+			func_238476_c_(matrixstack, fontRenderer, "" + j, 85, 73, 0xffffff);
 		}
 	}
 

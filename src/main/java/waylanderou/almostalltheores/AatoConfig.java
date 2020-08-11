@@ -12,7 +12,7 @@ import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 import net.minecraftforge.fml.loading.FMLPaths;
-import waylanderou.almostalltheores.integration.IntegratedOre;
+import waylanderou.almostalltheores.integration.ModPlugAndPlay;
 
 public class AatoConfig {
 
@@ -2738,7 +2738,7 @@ public class AatoConfig {
 		spec = BUILDER.build();
 	}
 
-	public static void loadConfig() {		
+	public static void loadConfig(ModPlugAndPlay plugandplay) {		
 		final CommentedFileConfig configData = CommentedFileConfig.builder(FMLPaths.CONFIGDIR.get().resolve(AlmostAllTheOres.MODID + "-common.toml"))
 				.sync()
 				.autosave()
@@ -2749,7 +2749,7 @@ public class AatoConfig {
 
 		if(configData.contains("general.enablePlugAndPlay")) {
 			if((boolean) configData.get("general.enablePlugAndPlay")) {
-				IntegratedOre.integratedOresList.forEach((ore) -> {
+				plugandplay.getIntegratedOresList().forEach((ore) -> {
 					if(ore.isNeeded) {
 						if(ore.isGem)
 							configData.set("overworldExpert." + ore.oreName.toLowerCase(Locale.ROOT) + "_ore.enable" + ore.oreName + "_ore", true);

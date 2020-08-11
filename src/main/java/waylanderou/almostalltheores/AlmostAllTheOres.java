@@ -6,7 +6,6 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -31,8 +30,9 @@ public class AlmostAllTheOres
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AatoConfig.spec);
-		ModPlugAndPlay.activateOres();
-		AatoConfig.loadConfig();
+		ModPlugAndPlay m = new ModPlugAndPlay();
+		m.activateOres();
+		AatoConfig.loadConfig(m);
 
 	}
 
