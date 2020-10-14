@@ -823,6 +823,10 @@ public class OreGeneration {
 			if(!AatoConfig.blacklistLapisOre.get().contains(biome.getRegistryName().toString()))
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.LAPIS_ORE.getDefaultState(), AatoConfig.VeinSizeLapis.get())).func_227228_a_(Placement.COUNT_DEPTH_AVERAGE.func_227446_a_(new DepthAverageConfig(AatoConfig.VeinsPerChunkLapis.get(), AatoConfig.DepthAverageLapis.get(), AatoConfig.DepthAverageLapis.get()))));
 		}
+		if(AatoConfig.enableDiamond.get()) {
+			if(!AatoConfig.blacklistDiamondOre.get().contains(biome.getRegistryName().toString()))
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIAMOND_ORE.getDefaultState(), AatoConfig.VeinSizeDiamond.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDiamond.get(), AatoConfig.MinHeightDiamond.get(), 0, AatoConfig.MaxHeightDiamond.get()))));
+		}
 		if(AatoConfig.enableDirt.get()) {
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.DIRT.getDefaultState(), AatoConfig.VeinSizeDirt.get())).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(AatoConfig.VeinsPerChunkDirt.get(), AatoConfig.MinHeightDirt.get(), 0,AatoConfig.MaxHeightDirt.get()))));
 		}
