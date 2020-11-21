@@ -1,4 +1,4 @@
-package waylanderou.almostalltheores;
+package waylanderou.almostalltheores.config;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +12,11 @@ import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 import net.minecraftforge.fml.loading.FMLPaths;
+import waylanderou.almostalltheores.AlmostAllTheOres;
 import waylanderou.almostalltheores.integration.ModPlugAndPlay;
 
 public class AatoConfig {
+	static CommentedFileConfig configData;
 
 	private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();	
 	public static ForgeConfigSpec spec;
@@ -30,10 +32,7 @@ public class AatoConfig {
 	public static ConfigValue<List<String>> blacklistLapisOre;
 	public static ConfigValue<List<String>> blacklistCopperOres;
 	public static ConfigValue<List<String>> blacklistIronOres;
-	public static ConfigValue<List<String>> blacklistAnthraciteOre;
-	public static ConfigValue<List<String>> blacklistBituminousCoalOre;
-	public static ConfigValue<List<String>> blacklistLigniteOre;
-	public static ConfigValue<List<String>> blacklistPeatOre;
+	public static ConfigValue<List<String>> blacklistCoalOres;
 	public static ConfigValue<List<String>> blacklistTinOres;	
 	public static ConfigValue<List<String>> blacklistSulfurOres;
 	public static ConfigValue<List<String>> blacklistNPKOres;
@@ -61,7 +60,6 @@ public class AatoConfig {
 	public static ConfigValue<List<String>> blacklistCalciumOres;
 	public static ConfigValue<List<String>> blacklistStrontiumOres;
 	public static ConfigValue<List<String>> blacklistLithiumOres;
-	public static ConfigValue<List<String>> blacklistPotassiumOres;
 	public static ConfigValue<List<String>> blacklistSaltOre;
 	public static ConfigValue<List<String>> blacklistSaltpetreOre;
 	public static ConfigValue<List<String>> blacklistMithrilOre;
@@ -1029,6 +1027,8 @@ public class AatoConfig {
 	public static BooleanValue enablePGMs;
 	public static BooleanValue enableRarePGMs;	
 	public static BooleanValue enableREEs;
+	public static BooleanValue enableAatODiamond;
+	public static BooleanValue enableVanillaDiamond;
 
 	public static BooleanValue enableGold; 
 	public static IntValue VeinSizeGold; 
@@ -1153,11 +1153,23 @@ public class AatoConfig {
 	public static IntValue MinHeightRarePGMs; 
 	public static IntValue MaxHeightRarePGMs;
 
-	public static ForgeConfigSpec.BooleanValue enabledTorbernite; 
+	public static ForgeConfigSpec.BooleanValue enableTorbernite; 
 	public static ForgeConfigSpec.IntValue VeinSizeTorbernite; 
 	public static ForgeConfigSpec.IntValue VeinsPerChunkTorbernite; 
 	public static ForgeConfigSpec.IntValue MinHeightTorbernite; 
 	public static ForgeConfigSpec.IntValue MaxHeightTorbernite;
+	
+	public static ForgeConfigSpec.BooleanValue enableKimberlite; 
+	public static ForgeConfigSpec.IntValue VeinSizeKimberlite; 
+	public static ForgeConfigSpec.IntValue VeinsPerChunkKimberlite; 
+	public static ForgeConfigSpec.IntValue MinHeightKimberlite; 
+	public static ForgeConfigSpec.IntValue MaxHeightKimberlite;
+	
+	public static ForgeConfigSpec.BooleanValue enableLamproite; 
+	public static ForgeConfigSpec.IntValue VeinSizeLamproite; 
+	public static ForgeConfigSpec.IntValue VeinsPerChunkLamproite; 
+	public static ForgeConfigSpec.IntValue MinHeightLamproite; 
+	public static ForgeConfigSpec.IntValue MaxHeightLamproite;
 
 	public static IntValue copperHL;
 	public static IntValue tinHL;
@@ -1189,6 +1201,8 @@ public class AatoConfig {
 	public static ForgeConfigSpec.BooleanValue lootOsmiumOnly;
 	public static ForgeConfigSpec.ConfigValue<List<String>> modWhitelist;
 
+	public static ConfigValue<ArrayList<String>> blacklistAatoDiamonds;
+
 	static {
 		BUILDER.comment("General settings").push("general");
 		handleEverythingInOverworld = BUILDER.comment("Should Aato remove ALL ores from other mods to prevent 'duplicate' ores in the overworld. PLEASE note that this option only works to some extent. "
@@ -1203,6 +1217,7 @@ public class AatoConfig {
 		lootOsmiumOnly = BUILDER.comment("Should platinum-group metals block only drop osmium. Useful if you don't need platinum and iridium (e.g. playing Mekanism). If you need those metals, set this to false.").define("lootOsmiumOnly", true);
 		List<String> whitelist = new ArrayList<String>();
 		whitelist.add("embellishcraft");
+		whitelist.add("appliedenergistics2");
 		modWhitelist = BUILDER.comment("Whitelist to allow specific mod generation. Use the mod id.").define("modWhitelist", whitelist);
 		BUILDER.pop();
 
@@ -1236,27 +1251,25 @@ public class AatoConfig {
 		BUILDER.comment("Here you can blacklist biomes you don't want a group of ores to spawn in. You should put biomes registry names, e.g."
 				+ " minecraft:plains or whatevermod:whateverbiome. See github wiki for examples. Works in all biomes except Nether and End.").push("blacklists");
 		blacklistGoldOre = BUILDER.comment("Gold ore biomes blacklist").define("biomesBlacklistGoldOre", new ArrayList<String>());
-		blacklistDiamondOre = BUILDER.comment("Diamond ore biomes blacklist").define("biomesBlacklistDiamondOre", new ArrayList<String>());
+		blacklistDiamondOre = BUILDER.comment("Vanilla diamond ore biomes blacklist").define("biomesBlacklistDiamondOre", new ArrayList<String>());
+		blacklistAatoDiamonds = BUILDER.comment("AatO diamond ores biomes blacklist").define("biomesBlacklistAatODiamondOres", new ArrayList<String>());
 		blacklistLapisOre = BUILDER.comment("Lapis lazuli ore biomes blacklist").define("biomesBlacklistLapislazuliOre", new ArrayList<String>());
 		blacklistRedstoneOre = BUILDER.comment("Redstone ore biomes blacklist").define("biomesBlacklistRedstoneOre", new ArrayList<String>());
 		blacklistCopperOres = BUILDER.comment("Copper ores biomes blacklist").define("biomesBlacklistCopperOres", new ArrayList<String>());		
 		blacklistIronOres = BUILDER.comment("Iron ores biomes blacklist. Also works for vanilla iron ore if you enabled it.").define("biomesBlacklistIronOres", new ArrayList<String>());
-		blacklistAnthraciteOre = BUILDER.comment("Anthracite ore biomes blacklist").define("biomesBlacklistAnthraciteOre", new ArrayList<String>());
-		blacklistBituminousCoalOre = BUILDER.comment("Bituminous coal ore biomes blacklist. Also works for vanilla coal ore if you enabled it.").define("biomesBlacklistBituminousCoalOre", new ArrayList<String>());
-		blacklistPeatOre = BUILDER.comment("Peat biomes blacklist").define("biomesBlacklistPeat", new ArrayList<String>());
-		blacklistLigniteOre = BUILDER.comment("Lignite ore biomes blacklist").define("biomesBlacklistLigniteOre", new ArrayList<String>());
+		blacklistCoalOres = BUILDER.comment("Coal ores (anthracite, bituminous coal, lignite, peat) biomes blacklist. Also works for vanilla coal ore if you enabled it.").define("biomesBlacklistCoalOres", new ArrayList<String>());
 		blacklistTinOres = BUILDER.comment("Tin ores biomes blacklist").define("biomesBlacklistTinOres", new ArrayList<String>());	
-		blacklistSulfurOres = BUILDER.comment("Sulfur ores biomes blacklist").define("biomesBlacklistSulfurOres", new ArrayList<String>());
+		blacklistSulfurOres = BUILDER.comment("Sulfur ores biomes blacklist").define("biomesBlacklistSulphurOres", new ArrayList<String>());
 		blacklistNPKOres = BUILDER.comment("NPK ores (used for making fertilizer) biomes blacklist").define("biomesBlacklistNPKOres", new ArrayList<String>());
 		blacklistLeadOres = BUILDER.comment("Lead ores biomes blacklist").define("biomesBlacklistLeadOres", new ArrayList<String>());
-		blacklistAluminiumOres = BUILDER.comment("Aluminium ores biomes blacklist").define("biomesBlacklistAluminiumOres", new ArrayList<String>());
+		blacklistAluminiumOres = BUILDER.comment("Aluminium ores biomes blacklist").define("biomesBlacklistAluminumOres", new ArrayList<String>());
 		blacklistZincOres = BUILDER.comment("Zinc ores biomes blacklist").define("biomesBlacklistZincOres", new ArrayList<String>());
 		blacklistCadmiumOres = BUILDER.comment("Cadmium ores biomes blacklist").define("biomesBlacklistCadmiumOres", new ArrayList<String>());
 		blacklistMercuryOres = BUILDER.comment("Mercury ores biomes blacklist").define("biomesBlacklistMercuryOres", new ArrayList<String>());
 		blacklistSilverOres = BUILDER.comment("Silver ores biomes blacklist").define("biomesBlacklistSilverOres", new ArrayList<String>());
 		blacklistNickelOres = BUILDER.comment("Nickel ores biomes blacklist").define("biomesBlacklistNickelOres", new ArrayList<String>());
-		blacklistCommonPGMsOres = BUILDER.comment("Common PGMs (platinum, iridium, osmium) ores biomes blacklist").define("biomesBlacklistCommonPGMsOres", new ArrayList<String>());
-		blacklistRarePGMsOres = BUILDER.comment("Rare PGMs (palladium, rhodium, ruthenium) ores biomes blacklist").define("biomesBlacklistRarePGMsOres", new ArrayList<String>());
+		blacklistCommonPGMsOres = BUILDER.comment("Common PGMs (platinum, iridium, osmium) ores biomes blacklist").define("biomesBlacklistPGMs", new ArrayList<String>());
+		blacklistRarePGMsOres = BUILDER.comment("Rare PGMs (palladium, rhodium, ruthenium) ores biomes blacklist").define("biomesBlacklistRarePGMs", new ArrayList<String>());
 		blacklistManganeseOres = BUILDER.comment("Manganese ores biomes blacklist").define("biomesBlacklistManganeseOres", new ArrayList<String>());
 		blacklistChromiumOres = BUILDER.comment("Chromium ores biomes blacklist").define("biomesBlacklistChromiumOres", new ArrayList<String>());
 		blacklistMolybdenumOres = BUILDER.comment("Molybdenum ores biomes blacklist").define("biomesBlacklistMolybdenumOres", new ArrayList<String>());
@@ -1272,7 +1285,6 @@ public class AatoConfig {
 		blacklistCalciumOres = BUILDER.comment("Calcium ores biomes blacklist").define("biomesBlacklistCalciumOres", new ArrayList<String>());
 		blacklistStrontiumOres = BUILDER.comment("Strontium ores biomes blacklist").define("biomesBlacklistStrontiumOres", new ArrayList<String>());
 		blacklistLithiumOres = BUILDER.comment("Lithium ores biomes blacklist").define("biomesBlacklistLithiumOres", new ArrayList<String>());
-		blacklistPotassiumOres = BUILDER.comment("Potassium ores biomes blacklist").define("biomesBlacklistPotassiumOres", new ArrayList<String>());
 		blacklistSaltOre = BUILDER.comment("Salt ore (halite) biomes blacklist").define("biomesBlacklistSaltOre", new ArrayList<String>());
 		blacklistSaltpetreOre = BUILDER.comment("Saltpetre ore (nitratine) biomes blacklist").define("biomesBlacklistSaltpetreOre", new ArrayList<String>());
 		blacklistMithrilOre = BUILDER.comment("Mithril ore biomes blacklist").define("biomesBlacklistMithrilOre", new ArrayList<String>());
@@ -1282,6 +1294,7 @@ public class AatoConfig {
 		BUILDER.pop();
 
 		BUILDER.comment("Simplified overworld generation settings for modded ores.").push("overworldSimplified");
+		enableAatODiamond = BUILDER.comment("Enable AatO diamond ores").define("enableAatODiamondOres", true);
 		enableSulphurOres = BUILDER.comment("Enable all sulphur ores. Including nether sulphur. (default: true)").define("enableSulphurOres", true);
 		enableSeleniumOres = BUILDER.comment("Enable all selenium ores. (default: false)").define("enableSeleniumOres", false);
 		enableCoalOres = BUILDER.comment("Enable all coal ores. (default: true)").define("enableCoalOres", true); 
@@ -1327,19 +1340,18 @@ public class AatoConfig {
 		enableREEs = BUILDER.comment("Enable rare-earth elements ores (Bastnasite La, Ce, Y, Nd, Monazite La, Ce, Nd, Samarskite Y, Thortveitite.). (default: false)").define("enableREEs", false);
 		BUILDER.pop();
 
-
-		BUILDER.comment("Vanilla ores generation settings.").push("vanilla");
-
-		BUILDER.comment("If you want vanilla's coal ore to spawn").push("coal");
-		enableVanillaCoalOre = BUILDER.comment("Should vanilla coal ore spawn.").define("enableVanillaCoalOre", false);
+		BUILDER.comment("Expert overworld generation settings").push("overworldExpert");
+		
+		BUILDER.comment("If you want vanilla's coal ore to spawn").push("coalore");
+		enableVanillaCoalOre = BUILDER.comment("Should vanilla coal ore spawn.").define("enableCoalOre", false);
 		VeinSizeCoal = BUILDER.comment("Coal Ore Vein Size").defineInRange("VeinSizeCoalOre", 17, 0, 50);
 		VeinsPerChunkCoal = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkCoalOre", 20, 0, 50);
 		MinHeightCoal = BUILDER.comment("Minimum Height").defineInRange("MinHeightCoalOre", 0, 0, 255);
 		MaxHeightCoal = BUILDER.comment("Maximum Height").defineInRange("MaxHeightCoalOre", 128, 0, 255);
 		BUILDER.pop();
 
-		BUILDER.comment("If you want vanilla's iron ore to spawn").push("iron");
-		enableVanillaIronOre = BUILDER.comment("Should vanilla iron ore spawn.").define("enableVanillaIronOre", false);
+		BUILDER.comment("If you want vanilla's iron ore to spawn").push("ironore");
+		enableVanillaIronOre = BUILDER.comment("Should vanilla iron ore spawn.").define("enableIronOre", false);
 		VeinSizeIron = BUILDER.comment("Iron Ore Vein Size").defineInRange("VeinSizeIronOre", 9, 0, 50);
 		VeinsPerChunkIron = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkIronOre", 20, 0, 50);
 		MinHeightIron = BUILDER.comment("Minimum Height").defineInRange("MinHeightIronOre", 0, 0, 255);
@@ -1350,12 +1362,15 @@ public class AatoConfig {
 		enableEmerald = BUILDER.comment("Enable emerald_ore generation").define("enableEmeraldOre", true);
 		BUILDER.pop();
 
-		BUILDER.push("gold_ore");
+		BUILDER.push("gold");
 		enableGold = BUILDER.comment("Enable gold ore generation").define("enableGold", true);
 		VeinSizeGold = BUILDER.comment("Vein Size").defineInRange("VeinSizeGold", 9, 0, 50);
 		VeinsPerChunkGold = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkGold", 2, 0, 50);
 		MinHeightGold = BUILDER.comment("Minimum Height").defineInRange("MinHeightGold", 0, 0, 255);
 		MaxHeightGold = BUILDER.comment("Maximum Height").defineInRange("MaxHeightGold", 32, 0, 255);
+		BUILDER.pop();
+		
+		BUILDER.push("badlandsgold");
 		enableBadlandsGold = BUILDER.comment("Enable additional gold in badlands biomes").define("enableBadlandsGold", true);
 		VeinSizeBadlandsGold = BUILDER.comment("Vein Size badlands gold").defineInRange("VeinSizeBadlandsGold", 9, 0, 50);
 		VeinsPerChunkBadlandsGold = BUILDER.comment("Veins per chunk badlands gold").defineInRange("VeinsPerChunkBadlandsGold", 20, 0, 50);
@@ -1363,7 +1378,7 @@ public class AatoConfig {
 		MaxHeightBadlandsGold = BUILDER.comment("Maximum Height badlands gold").defineInRange("MaxHeightBadlandsGold", 80, 0, 255);
 		BUILDER.pop();
 
-		BUILDER.push("redstone_ore");
+		BUILDER.push("redstone");
 		enableRedstone = BUILDER.comment("Enable redstone ore generation").define("enableRedstone", true);
 		VeinSizeRedstone = BUILDER.comment("Vein Size").defineInRange("VeinSizeRedstone", 8, 0, 50);
 		VeinsPerChunkRedstone = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkRedstone", 8, 0, 50);
@@ -1371,15 +1386,15 @@ public class AatoConfig {
 		MaxHeightRedstone = BUILDER.comment("Maximum Height").defineInRange("MaxHeightRedstone", 16, 0, 255);
 		BUILDER.pop();
 
-		BUILDER.push("diamond_ore");
-		enableDiamond = BUILDER.comment("Enable diamond ore generation").define("enableDiamond", true);
+		BUILDER.push("diamond");
+		enableDiamond = BUILDER.comment("Enable vanilla diamond ore generation").define("enableDiamond", false);
 		VeinSizeDiamond = BUILDER.comment("Vein Size").defineInRange("VeinSizeDiamond", 8, 0, 50);
 		VeinsPerChunkDiamond = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkDiamond", 1, 0, 50);
 		MinHeightDiamond = BUILDER.comment("Minimum Height").defineInRange("MinHeightDiamond", 0, 0, 255);
 		MaxHeightDiamond = BUILDER.comment("Maximum Height").defineInRange("MaxHeightDiamond", 16, 0, 255);
 		BUILDER.pop();
 
-		BUILDER.push("lapis_lazuli_ore");
+		BUILDER.push("lapis");
 		enableLapis = BUILDER.comment("Enable lapis lazuli ore generation").define("enableLapis", true);
 		VeinSizeLapis = BUILDER.comment("Vein Size").defineInRange("VeinSizeLapis", 7, 0, 50);
 		VeinsPerChunkLapis = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkLapis", 1, 0, 50);
@@ -1426,18 +1441,13 @@ public class AatoConfig {
 		MaxHeightAndesite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightAndesite", 80, 0, 255);
 		BUILDER.pop();	
 
-		BUILDER.push("infested_stone");
+		BUILDER.push("infestedstone");
 		enableInfestedStone = BUILDER.comment("Enable infested stone generation").define("enableInfestedStone", true);
 		VeinSizeInfestedStone  = BUILDER.comment("Vein Size").defineInRange("VeinSizeInfestedStone", 9, 0, 50);
 		VeinsPerChunkInfestedStone = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkInfestedStone", 7, 0, 50);
 		MinHeightInfestedStone = BUILDER.comment("Minimum Height").defineInRange("MinHeightInfestedStone", 0, 0, 255);
 		MaxHeightInfestedStone = BUILDER.comment("Maximum Height").defineInRange("MaxHeightInfestedStone", 64, 0, 255);		
 		BUILDER.pop();
-
-		BUILDER.pop();
-
-
-		BUILDER.comment("Expert overworld generation settings").push("overworldExpert");		
 
 		BUILDER.push("pyrite");
 		enablePyrite = BUILDER.comment("Enable pyrite generation").define("enablePyrite", false);
@@ -1453,6 +1463,22 @@ public class AatoConfig {
 		VeinsPerChunkSulphur = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkSulphur", 2, 0, 50);
 		MinHeightSulphur = BUILDER.comment("Minimum Height").defineInRange("MinHeightSulphur", 40, 0, 255);
 		MaxHeightSulphur = BUILDER.comment("Maximum Height").defineInRange("MaxHeightSulphur", 255, 0, 255);
+		BUILDER.pop();
+		
+		BUILDER.push("kimberlite");
+		enableKimberlite = BUILDER.comment("Enable Kimberlite generation (diamond ore)").define("enableKimberlite", true);
+		VeinSizeKimberlite = BUILDER.comment("Vein Size").defineInRange("VeinSizeKimberlite", 8, 0, 50);
+		VeinsPerChunkKimberlite = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkKimberlite", 1, 0, 50);
+		MinHeightKimberlite = BUILDER.comment("Minimum Height").defineInRange("MinHeightKimberlite", 0, 0, 255);
+		MaxHeightKimberlite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightKimberlite", 16, 0, 255);
+		BUILDER.pop();
+		
+		BUILDER.push("lamproite");
+		enableLamproite = BUILDER.comment("Enable Lamproite generation (diamond ore)").define("enableLamproite", true);
+		VeinSizeLamproite = BUILDER.comment("Vein Size").defineInRange("VeinSizeLamproite", 8, 0, 50);
+		VeinsPerChunkLamproite = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkLamproite", 1, 0, 50);
+		MinHeightLamproite = BUILDER.comment("Minimum Height").defineInRange("MinHeightLamproite", 0, 0, 255);
+		MaxHeightLamproite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightLamproite", 16, 0, 255);
 		BUILDER.pop();
 
 		BUILDER.push("clausthalite");
@@ -2216,7 +2242,7 @@ public class AatoConfig {
 		BUILDER.pop();
 
 		BUILDER.push("torbernite");
-		enabledTorbernite = BUILDER.comment("Enable torbernite generation").define("enableTorbernite", false);
+		enableTorbernite = BUILDER.comment("Enable torbernite generation").define("enableTorbernite", false);
 		VeinSizeTorbernite = BUILDER.comment("Vein Size").defineInRange("VeinSizeTorbernite", 5, 0, 50);
 		VeinsPerChunkTorbernite = BUILDER.comment("").defineInRange("VeinsPerChunkTorbernite", 1, 0, 50);
 		MinHeightTorbernite = BUILDER.comment("Minimum Height").defineInRange("MinHeightTorbernite", 4, 0, 255);
@@ -2583,15 +2609,15 @@ public class AatoConfig {
 		MaxHeightAndradite_ore = BUILDER.comment("Maximum Height").defineInRange("MaxHeightAndradite_ore", 35, 0, 255);
 		BUILDER.pop();
 
-		BUILDER.push("mithril_ore");
-		enableMithril_ore = BUILDER.comment("Enable mithril generation").define("enableMithril_ore", false);
-		VeinSizeMithril_ore = BUILDER.comment("Vein Size").defineInRange("VeinSizeMithril_ore", 7, 0, 50);
-		VeinsPerChunkMithril_ore = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkMithril_ore", 3, 0, 50);
-		MinHeightMithril_ore = BUILDER.comment("Minimum Height").defineInRange("MinHeightMithril_ore", 4, 0, 255);
-		MaxHeightMithril_ore = BUILDER.comment("Maximum Height").defineInRange("MaxHeightMithril_ore", 35, 0, 255);
+		BUILDER.push("mithril");
+		enableMithril_ore = BUILDER.comment("Enable mithril generation").define("enableMithril", false);
+		VeinSizeMithril_ore = BUILDER.comment("Vein Size").defineInRange("VeinSizeMithril", 7, 0, 50);
+		VeinsPerChunkMithril_ore = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkMithril", 3, 0, 50);
+		MinHeightMithril_ore = BUILDER.comment("Minimum Height").defineInRange("MinHeightMithril", 4, 0, 255);
+		MaxHeightMithril_ore = BUILDER.comment("Maximum Height").defineInRange("MaxHeightMithril", 35, 0, 255);
 		BUILDER.pop();		
 
-		BUILDER.push("additional_peat");
+		BUILDER.push("additionalpeat");
 		enableAdditionalPeat = BUILDER.comment("Enable additional peat generation in swamps").define("enableAdditionalPeat", false);
 		VeinSizeAdditionalPeat = BUILDER.comment("Vein Size").defineInRange("VeinSizeAdditionalPeat", 18, 0, 50);
 		VeinsPerChunkAdditionalPeat = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkAdditionalPeat", 9, 0, 50);
@@ -2599,70 +2625,22 @@ public class AatoConfig {
 		MaxHeightAdditionalPeat = BUILDER.comment("Maximum Height").defineInRange("MaxHeightAdditionalPeat", 70, 0, 255);
 		BUILDER.pop();
 
-		BUILDER.push("Common PGMs platinum group metals");
-		enabledPGMs = BUILDER.comment("Enable Common platinum group metals (platinum, osmium, iridium)").define("enableCommonPGMs", false);
-		VeinSizePGMs = BUILDER.comment("Vein Size").defineInRange("VeinSizeCommonPGMs", 5, 0, 50);
-		VeinsPerChunkPGMs = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkCommonPGMs", 2, 0, 50);
-		MinHeightPGMs = BUILDER.comment("Minimum Height").defineInRange("MinHeightCommonPGMs", 4, 0, 255);
-		MaxHeightPGMs = BUILDER.comment("Maximum Height").defineInRange("MaxHeightCommonPGMs", 12, 0, 255);
+		BUILDER.comment("Common PGMs platinum group metals").push("pgms");
+		enabledPGMs = BUILDER.comment("Enable Common platinum group metals (platinum, osmium, iridium)").define("enablePGMs", false);
+		VeinSizePGMs = BUILDER.comment("Vein Size").defineInRange("VeinSizePGMs", 5, 0, 50);
+		VeinsPerChunkPGMs = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkPGMs", 2, 0, 50);
+		MinHeightPGMs = BUILDER.comment("Minimum Height").defineInRange("MinHeightPGMs", 4, 0, 255);
+		MaxHeightPGMs = BUILDER.comment("Maximum Height").defineInRange("MaxHeightPGMs", 12, 0, 255);
 		BUILDER.pop();
 
-		BUILDER.push("Rare PGMS platinum group metals");
+		BUILDER.comment("Rare PGMS platinum group metals").push("rarepgms");
 		enabledRarePGMs = BUILDER.comment("Enable rare platinum group metals (rhodium, palladium, ruthenium)").define("enableRarePGMs", false);
 		VeinSizeRarePGMs = BUILDER.comment("Vein Size").defineInRange("VeinSizeRarePGMs", 4, 0, 50);
 		VeinsPerChunkRarePGMs = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkRarePGMs", 1, 0, 50);
 		MinHeightRarePGMs = BUILDER.comment("Minimum Height").defineInRange("MinHeightRarePGMs", 4, 0, 255);
 		MaxHeightRarePGMs = BUILDER.comment("Maximum Height").defineInRange("MaxHeightRarePGMs", 12, 0, 255);
-		BUILDER.pop();
-
-		BUILDER.pop();
-
-
-		BUILDER.comment("Nether generation settings").push("nether");
-
-		BUILDER.push("nether_gold_ore");
-		enableNetherGold = BUILDER.comment("Enable minecraft gold ore generation in nether. (default: true)").define("enableNetherGold", true);
-		VeinSizeNetherGold = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherGold", 11, 0, 50);
-		VeinsPerChunkNetherGold = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherGold", 11, 0, 50);
-		MinHeightNetherGold = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherGold", 10, 0, 128);
-		MaxHeightNetherGold = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherGold", 110, 0, 128);
-		BUILDER.pop();
-
-		BUILDER.push("nether_quartz_ore");
-		enableNetherQuartz = BUILDER.comment("Enable minecraft nether quartz ore generation in nether. (default: true)").define("enableNetherQuartz", true);
-		VeinSizeNetherQuartz = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherQuartz", 14, 0, 50);
-		VeinsPerChunkNetherQuartz = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherQuartz", 16, 0, 50);
-		MinHeightNetherQuartz = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherQuartz", 10, 0, 128);
-		MaxHeightNetherQuartz = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherQuartz", 110, 0, 128);
-		BUILDER.pop();
-
-		BUILDER.push("nether_coal_ore");
-		enableNetherCoal = BUILDER.comment("Enable coal ore generation in nether. (default: true)").define("enableNetherCoal", true);
-		VeinSizeNetherCoal = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherCoal", 16, 0, 50);
-		VeinsPerChunkNetherCoal = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherCoal", 5, 0, 50);
-		MinHeightNetherCoal = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherCoal", 10, 0, 128);
-		MaxHeightNetherCoal = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherCoal", 110, 0, 128);
-		BUILDER.pop();
-
-		BUILDER.push("nether_mithril_ore");
-		enableNetherMithril = BUILDER.comment("Enable mithril ore generation in nether. (default: false)").define("enableNetherMithril", false);
-		VeinSizeNetherMithril = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherMithril", 9, 0, 50);
-		VeinsPerChunkNetherMithril = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherMithril", 6, 0, 50);
-		MinHeightNetherMithril = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherMithril", 10, 0, 128);
-		MaxHeightNetherMithril = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherMithril", 110, 0, 128);
-		BUILDER.pop();
-
-		BUILDER.push("nether_sulphur");
-		enableNetherSulphur = BUILDER.comment("Enable sulphur ore generation in nether. The 'easy sulphur option' includes this ore. (default: true)").define("enableNetherSulphur", true);
-		VeinSizeNetherSulphur = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherSulphur", 15, 0, 50);
-		VeinsPerChunkNetherSulphur = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherSulphur", 11, 0, 50);
-		MinHeightNetherSulphur = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherSulphur", 10, 0, 128);
-		MaxHeightNetherSulphur = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherSulphur", 110, 0, 128);
 		BUILDER.pop();		
 
-		BUILDER.pop();
-
-		BUILDER.comment("Rare-earth elements").push("rees");
 		BUILDER.push("bastnasite_la");
 		enableBastnasite_la = BUILDER.comment("Enable Bastnasite La generation.").define("enableBastnasite_la", false);
 		VeinSizeBastnasite_la = BUILDER.comment("Vein Size").defineInRange("VeinSizeBastnasite_la", 6, 0, 50);	
@@ -2726,8 +2704,48 @@ public class AatoConfig {
 		MinHeightThortveitite = BUILDER.comment("Minimum Height").defineInRange("MinHeightThortveitite", 3, 0, 255);
 		MaxHeightThortveitite = BUILDER.comment("Maximum Height").defineInRange("MaxHeightThortveitite", 60, 0, 255);
 		BUILDER.pop();
+		
+		BUILDER.push("nethergold");
+		enableNetherGold = BUILDER.comment("Enable minecraft gold ore generation in nether. (default: true)").define("enableNetherGold", true);
+		VeinSizeNetherGold = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherGold", 11, 0, 50);
+		VeinsPerChunkNetherGold = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherGold", 11, 0, 50);
+		MinHeightNetherGold = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherGold", 10, 0, 128);
+		MaxHeightNetherGold = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherGold", 110, 0, 128);
 		BUILDER.pop();
 
+		BUILDER.push("netherquartz");
+		enableNetherQuartz = BUILDER.comment("Enable minecraft nether quartz ore generation in nether. (default: true)").define("enableNetherQuartz", true);
+		VeinSizeNetherQuartz = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherQuartz", 14, 0, 50);
+		VeinsPerChunkNetherQuartz = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherQuartz", 16, 0, 50);
+		MinHeightNetherQuartz = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherQuartz", 10, 0, 128);
+		MaxHeightNetherQuartz = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherQuartz", 110, 0, 128);
+		BUILDER.pop();
+
+		BUILDER.push("nethercoal");
+		enableNetherCoal = BUILDER.comment("Enable coal ore generation in nether. (default: true)").define("enableNetherCoal", true);
+		VeinSizeNetherCoal = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherCoal", 16, 0, 50);
+		VeinsPerChunkNetherCoal = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherCoal", 5, 0, 50);
+		MinHeightNetherCoal = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherCoal", 10, 0, 128);
+		MaxHeightNetherCoal = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherCoal", 110, 0, 128);
+		BUILDER.pop();
+
+		BUILDER.push("nethermithril");
+		enableNetherMithril = BUILDER.comment("Enable mithril ore generation in nether. (default: false)").define("enableNetherMithril", false);
+		VeinSizeNetherMithril = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherMithril", 9, 0, 50);
+		VeinsPerChunkNetherMithril = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherMithril", 6, 0, 50);
+		MinHeightNetherMithril = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherMithril", 10, 0, 128);
+		MaxHeightNetherMithril = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherMithril", 110, 0, 128);
+		BUILDER.pop();
+
+		BUILDER.push("nethersulphur");
+		enableNetherSulphur = BUILDER.comment("Enable sulphur ore generation in nether. The 'easy sulphur option' includes this ore. (default: true)").define("enableNetherSulphur", true);
+		VeinSizeNetherSulphur = BUILDER.comment("Vein Size").defineInRange("VeinSizeNetherSulphur", 15, 0, 50);
+		VeinsPerChunkNetherSulphur = BUILDER.comment("Veins per chunk").defineInRange("VeinsPerChunkNetherSulphur", 11, 0, 50);
+		MinHeightNetherSulphur = BUILDER.comment("Minimum Height").defineInRange("MinHeightNetherSulphur", 10, 0, 128);
+		MaxHeightNetherSulphur = BUILDER.comment("Maximum Height").defineInRange("MaxHeightNetherSulphur", 110, 0, 128);
+		BUILDER.pop();
+		
+		BUILDER.pop();//[overworldExpert] ends here
 
 		BUILDER.comment("Debug options").push("debug");
 		All = BUILDER.comment("Enable all AatO ores in their relative dimensions. ALL of them. For testing purposes. (default: false)")
@@ -2738,8 +2756,8 @@ public class AatoConfig {
 		spec = BUILDER.build();
 	}
 
-	public static void loadConfig(ModPlugAndPlay plugandplay) {		
-		final CommentedFileConfig configData = CommentedFileConfig.builder(FMLPaths.CONFIGDIR.get().resolve(AlmostAllTheOres.MODID + "-common.toml"))
+	public static void loadConfig(ModPlugAndPlay plugandplay) {
+		configData = CommentedFileConfig.builder(FMLPaths.CONFIGDIR.get().resolve(AlmostAllTheOres.MODID + "-common.toml"))
 				.sync()
 				.autosave()
 				.writingMode(WritingMode.REPLACE)
@@ -2760,6 +2778,10 @@ public class AatoConfig {
 			}
 		}
 		spec.setConfig(configData);
+	}
+	
+	public static CommentedFileConfig getConfigData() {
+		return configData;
 	}
 
 }

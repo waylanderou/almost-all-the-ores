@@ -35,7 +35,7 @@ public class Refiner extends Block {
 	public Refiner() {
 		super(Properties.create(Material.IRON)				
 				.sound(SoundType.METAL)
-				.hardnessAndResistance(2.0F).func_235838_a_((x) -> {
+				.hardnessAndResistance(2.0F).setLightLevel((x) -> {
 					return 10;
 				}));
 		setRegistryName("refiner");

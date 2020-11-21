@@ -20,8 +20,8 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
-import waylanderou.almostalltheores.AatoConfig;
 import waylanderou.almostalltheores.AlmostAllTheOres;
+import waylanderou.almostalltheores.config.AatoConfig;
 
 @EventBusSubscriber(modid=AlmostAllTheOres.MODID, bus=EventBusSubscriber.Bus.MOD)
 public class LootModificator {
@@ -57,6 +57,13 @@ public class LootModificator {
 			public TestModifier read(ResourceLocation location, JsonObject object, ILootCondition[] ailootcondition) {
 				Item replacement = ForgeRegistries.ITEMS.getValue(new ResourceLocation(JSONUtils.getString(object, "replacement")));
 				return new TestModifier(ailootcondition, replacement);
+			}
+
+			@Override
+			public JsonObject write(TestModifier instance) {
+				//What is this for now ?
+				// TODO Auto-generated method stub
+				return null;
 			}
 
 		}

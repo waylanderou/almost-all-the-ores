@@ -11,7 +11,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ObjectHolder;
 import waylanderou.almostalltheores.AlmostAllTheOres;
-import waylanderou.almostalltheores.AatoConfig;
+import waylanderou.almostalltheores.config.AatoConfig;
 import waylanderou.almostalltheores.item.AnthraciteBlockItemBlock;
 
 @ObjectHolder(AlmostAllTheOres.MODID)
@@ -426,7 +426,7 @@ public class Ores {
 	public static final CustomOre TURQUOISE_ORE = null;
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":amazonite_ore")
-	public static final CustomOre AMAZONITE_ORE = null;
+	public static CustomOre AMAZONITE_ORE = null;
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":chrysocolla_ore")
 	public static final CustomOre CHRYSOCOLLA_ORE = null;
@@ -460,9 +460,6 @@ public class Ores {
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":nether_coal_ore")
 	public static final CustomOre NETHER_COAL_ORE = null;
-
-	@ObjectHolder(AlmostAllTheOres.MODID + ":nether_gold_ore")
-	public static final CustomOre NETHER_GOLD_ORE = null;
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":nether_mithril_ore")
 	public static final CustomOre NETHER_MITHRIL_ORE = null;
@@ -498,18 +495,21 @@ public class Ores {
 
 	public static final CustomOre LAMPROITE = null;
 
-
-	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
-	public static class OresRegistryEvents{		
+	//@Mod.EventBusSubscriber(modid=AlmostAllTheOres.MODID,bus=Mod.EventBusSubscriber.Bus.MOD)
+	//@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)//bus=Mod.EventBusSubscriber.Bus.MOD / modid = AlmostAllTheOres.MODID
+	public static class OresRegistryEvents{
 
 		@SubscribeEvent
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
+			
+			System.out.println("azerty");
+			
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("guano"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("peat"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).func_235838_a_((x) -> {
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).setLightLevel((x) -> {
 				return 7;
 			})).setRegistryName("mithril_ore"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).func_235838_a_((x) -> {
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).setLightLevel((x) -> {
 				return 7;
 			})).setRegistryName("nether_mithril_ore"));
 
@@ -675,7 +675,6 @@ public class Ores {
 			registerBlock(event, AatoConfig.commonPgmsHL.get(), "platinum_group_metals");
 			registerBlock(event, AatoConfig.rarePgmsHL.get(), "rare_platinum_group_metals");
 			registerBlock(event, 0, "anthracite_block");
-			registerBlock(event, 2, "nether_gold_ore");
 			registerBlock(event, 0, "nether_coal_ore");	
 			registerBlock(event, 2, "bastnasite_la");
 			registerBlock(event, 2, "monazite_la");
@@ -838,8 +837,7 @@ public class Ores {
 			registerItemBlock(MITHRIL_ORE, event);
 			registerItemBlock(PLATINUM_GROUP_METALS, event);
 			registerItemBlock(RARE_PLATINUM_GROUP_METALS, event);
-			registerItemBlock(PEAT, event);			
-			registerItemBlock(NETHER_GOLD_ORE, event);
+			registerItemBlock(PEAT, event);
 			registerItemBlock(NETHER_COAL_ORE, event);
 			registerItemBlock(NETHER_MITHRIL_ORE, event);
 			registerItemBlock(BASTNASITE_LA, event);

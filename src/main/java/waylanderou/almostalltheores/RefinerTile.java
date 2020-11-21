@@ -358,7 +358,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 	}
 
 	@Override
-	public void func_230337_a_(BlockState state, CompoundNBT compound) {
+	public void read(BlockState state, CompoundNBT compound) {
 		this.items = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
 		ItemStackHelper.loadAllItems(compound, this.items);
 		this.totalExperience = compound.getFloat("totalExperience");
@@ -371,7 +371,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 		if(!compound.getString("recipeLocation").equals("")) {
 			this.recipeLocation = new ResourceLocation(compound.getString("recipeLocation"));			
 		}
-		super.func_230337_a_(state, compound);
+		super.read(state, compound);
 	}
 
 	@Override

@@ -16,9 +16,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.ResourceLocation;
-import waylanderou.almostalltheores.AatoConfig;
 import waylanderou.almostalltheores.AlmostAllTheOres;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
+import waylanderou.almostalltheores.config.AatoConfig;
 import waylanderou.almostalltheores.item.crafting.RefinerRecipe;
 
 @JeiPlugin

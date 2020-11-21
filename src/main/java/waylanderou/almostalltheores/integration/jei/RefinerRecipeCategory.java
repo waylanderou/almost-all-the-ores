@@ -81,7 +81,7 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 			Minecraft minecraft = Minecraft.getInstance();
 			FontRenderer fontRenderer = minecraft.fontRenderer;
 			int stringWidth = fontRenderer.getStringWidth(experienceString);
-			fontRenderer.func_238421_b_(matrixstack, experienceString, background.getWidth() - stringWidth - 61, 46, 0xFF808080);
+			fontRenderer.drawString(matrixstack, experienceString, background.getWidth() - stringWidth - 61, 46, 0xFF808080);
 		}
 	}
 
