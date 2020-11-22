@@ -22,7 +22,6 @@ public class AatoConfig {
 	public static ForgeConfigSpec spec;
 	public static BooleanValue enableStoneAge;
 	public static BooleanValue enablePlugAndPlay;
-	public static BooleanValue clearNether;
 	public static BooleanValue hideJEI;
 	public static BooleanValue mineralogistOption;
 
@@ -69,7 +68,6 @@ public class AatoConfig {
 
 	public static BooleanValue enableVanillaCoalOre;
 	public static BooleanValue enableVanillaIronOre;
-	public static BooleanValue handleEverythingInOverworld;
 	public static BooleanValue disableAatoGeneration;
 
 	public static BooleanValue enableBastnasite_la;
@@ -1205,20 +1203,13 @@ public class AatoConfig {
 
 	static {
 		BUILDER.comment("General settings").push("general");
-		handleEverythingInOverworld = BUILDER.comment("Should Aato remove ALL ores from other mods to prevent 'duplicate' ores in the overworld. PLEASE note that this option only works to some extent. "
-				+ "Check what underground generation looks like BEFORE starting a survival adventure.").define("handleEverythingInOverworld", true);
 		disableAatoGeneration = BUILDER.comment("Set this to true if you only want to use this mod to tune vanilla ores spawning. Nothing from this mod will spawn in any dimension.").define("disableAatoGeneration", false);
 		hideJEI = BUILDER.comment("Should blocks and items from this mod be hidden in JEI. Useful if you only use this mod to tune vanilla ores.").define("hideEverythingInJEI", false);
 		enableStoneAge = BUILDER.comment("Activate the stone age. Disable a few smelting recipes so you have to build a refiner in order to have iron. It really changes the way you have to play early game. (default: false)").define("enableStoneAge", false);
 		enablePlugAndPlay = BUILDER.comment("If for some reason you don't want the mod to automatically enable ore generation for mods supported by the plug and play feature, set this to false"
 				+ " WARNING : you will have to enable everything by yourself.").define("enablePlugAndPlay", true);
-		clearNether = BUILDER.comment("Should Nether be cleared of all ore generation from vanilla and other mods, except AatO's ores.").define("clearNether", false);
 		mineralogistOption = BUILDER.comment("If you are a geologist or a mineralogist at heart, turn this on. No tooltips will be shown. Also recommended for hardcore players.").define("noTooltips", false);
 		lootOsmiumOnly = BUILDER.comment("Should platinum-group metals block only drop osmium. Useful if you don't need platinum and iridium (e.g. playing Mekanism). If you need those metals, set this to false.").define("lootOsmiumOnly", true);
-		List<String> whitelist = new ArrayList<String>();
-		whitelist.add("embellishcraft");
-		whitelist.add("appliedenergistics2");
-		modWhitelist = BUILDER.comment("Whitelist to allow specific mod generation. Use the mod id.").define("modWhitelist", whitelist);
 		BUILDER.pop();
 
 		BUILDER.comment("Harvest Levels. Wood, Stone, Iron, Diamond : 0, 1, 2, 3. Above 3 is modded materials stronger than diamond.").push("harvestlevels");

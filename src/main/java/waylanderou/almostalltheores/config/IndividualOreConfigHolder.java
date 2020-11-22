@@ -133,6 +133,8 @@ public class IndividualOreConfigHolder {
 	}
 
 	public boolean isOreGroupEnabled() {
+		if(aatoDisabled())
+			return false;
 		return getGroupConfigValue();
 	}
 

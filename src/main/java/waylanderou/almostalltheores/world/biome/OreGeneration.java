@@ -82,7 +82,7 @@ public class OreGeneration {
 					downfallPassed = blockConfigHolder.downfallcriteria.get().test(event.getClimate().downfall);
 				if(downfallPassed && (blockConfigHolder.isEnabled() || blockConfigHolder.isOreGroupEnabled())) {
 					BlockState oreState = blockConfigHolder.getOre().getDefaultState();
-					addOre(event, 
+					addOre(event,
 							OreFeatureConfig.FillerBlockType.field_241882_a, 
 							oreState,
 							blockConfigHolder.getVeinSize(),
