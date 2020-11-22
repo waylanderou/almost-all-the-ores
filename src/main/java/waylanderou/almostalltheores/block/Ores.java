@@ -8,7 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ObjectHolder;
 import waylanderou.almostalltheores.AlmostAllTheOres;
 import waylanderou.almostalltheores.config.AatoConfig;
@@ -495,23 +494,19 @@ public class Ores {
 
 	public static final CustomOre LAMPROITE = null;
 
-	//@Mod.EventBusSubscriber(modid=AlmostAllTheOres.MODID,bus=Mod.EventBusSubscriber.Bus.MOD)
-	//@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)//bus=Mod.EventBusSubscriber.Bus.MOD / modid = AlmostAllTheOres.MODID
+
 	public static class OresRegistryEvents{
 
 		@SubscribeEvent
-		public static void registerBlocks(RegistryEvent.Register<Block> event) {
-			
-			System.out.println("azerty");
-			
+		public static void registerBlocks(RegistryEvent.Register<Block> event) {			
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("guano"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("peat"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).setLightLevel((x) -> {
 				return 7;
-			})).setRegistryName("mithril_ore"));
+			}).setRequiresTool()).setRegistryName("mithril_ore"));
 			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).setLightLevel((x) -> {
 				return 7;
-			})).setRegistryName("nether_mithril_ore"));
+			}).setRequiresTool()).setRegistryName("nether_mithril_ore"));
 
 			final int copperHL = AatoConfig.copperHL.get();
 			final int leadHL = AatoConfig.leadHL.get();
@@ -687,7 +682,6 @@ public class Ores {
 			registerBlock(event, 2, "thortveitite");
 			registerBlock(event, 2, "kimberlite");
 			registerBlock(event, 2, "lamproite");
-
 		}
 
 		@SubscribeEvent
@@ -859,7 +853,7 @@ public class Ores {
 		}
 
 		private static void registerBlock(RegistryEvent.Register<Block> event, int harvestLevel, String name) {
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(harvestLevel)).setRegistryName(name));			
+			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(harvestLevel).setRequiresTool()).setRegistryName(name));			
 		}
 
 	}

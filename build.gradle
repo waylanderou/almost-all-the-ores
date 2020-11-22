@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '3.0.3.2'
+version = '3.0.4.1'
 group = 'waylanderou.almostalltheores' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'almostalltheores'
 
@@ -100,12 +100,12 @@ repositories {
 }
 
 dependencies {    
-    minecraft 'net.minecraftforge:forge:1.16.3-34.1.0'
+    minecraft 'net.minecraftforge:forge:1.16.4-35.1.0'
 	
 	//JEI
     //compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")    
     //runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
-	compile files ("jei-1.16.3-7.5.0.43-api.jar")
+	compile files ("jei-1.16.4-7.6.0.58-api.jar")
     
     //HWYLA
     compile files("Hwyla-forge-1.10.11-B78_1.16.2-api.jar")

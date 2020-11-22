@@ -194,10 +194,10 @@ public class OreGeneration {
 
 	private boolean isInfestedBiome(BiomeLoadingEvent event) {
 		final ResourceLocation biomeToCheck = event.getName();
-		if(biomeToCheck == Biomes.GRAVELLY_MOUNTAINS.getLocation() ||
-				biomeToCheck == Biomes.MODIFIED_GRAVELLY_MOUNTAINS.getLocation() ||
-				biomeToCheck == Biomes.MOUNTAIN_EDGE.getLocation() ||
-				biomeToCheck == Biomes.MOUNTAINS.getLocation() || biomeToCheck == Biomes.WOODED_MOUNTAINS.getLocation()) {
+		if(biomeToCheck.equals(Biomes.GRAVELLY_MOUNTAINS.getLocation()) ||
+				biomeToCheck.equals(Biomes.MODIFIED_GRAVELLY_MOUNTAINS.getLocation()) ||
+				biomeToCheck.equals(Biomes.MOUNTAIN_EDGE.getLocation()) ||
+				biomeToCheck.equals(Biomes.MOUNTAINS.getLocation()) || biomeToCheck.equals(Biomes.WOODED_MOUNTAINS.getLocation())) {
 			return true;
 		}
 		return false;
@@ -246,10 +246,10 @@ public class OreGeneration {
 
 	private boolean isBadlands(BiomeLoadingEvent event) {
 		final ResourceLocation biome = event.getName();
-		if(biome == Biomes.BADLANDS.getLocation() || biome == Biomes.BADLANDS_PLATEAU.getLocation()
-				|| biome == Biomes.ERODED_BADLANDS.getLocation() || biome == Biomes.MODIFIED_BADLANDS_PLATEAU.getLocation() 
-				|| biome == Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU.getLocation() 
-				|| biome == Biomes.WOODED_BADLANDS_PLATEAU.getLocation()) {
+		if(biome.equals(Biomes.BADLANDS.getLocation()) || biome.equals(Biomes.BADLANDS_PLATEAU.getLocation())
+				|| biome.equals(Biomes.ERODED_BADLANDS.getLocation()) || biome.equals(Biomes.MODIFIED_BADLANDS_PLATEAU.getLocation()) 
+				|| biome.equals(Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU.getLocation()) 
+				|| biome.equals(Biomes.WOODED_BADLANDS_PLATEAU.getLocation())) {
 			return true;
 		}
 		return false;
@@ -257,9 +257,9 @@ public class OreGeneration {
 
 	private boolean isEmeraldBiome(BiomeLoadingEvent event) {
 		final ResourceLocation biome = event.getName();
-		if(biome == Biomes.GRAVELLY_MOUNTAINS.getLocation() || biome == Biomes.MODIFIED_GRAVELLY_MOUNTAINS.getLocation() 
-				|| biome == Biomes.MOUNTAIN_EDGE.getLocation() || biome == Biomes.MOUNTAINS.getLocation() 
-				|| biome == Biomes.WOODED_MOUNTAINS.getLocation()) {
+		if(biome.equals(Biomes.GRAVELLY_MOUNTAINS.getLocation()) || biome.equals(Biomes.MODIFIED_GRAVELLY_MOUNTAINS.getLocation()) 
+				|| biome.equals(Biomes.MOUNTAIN_EDGE.getLocation()) || biome.equals(Biomes.MOUNTAINS.getLocation()) 
+				|| biome.equals(Biomes.WOODED_MOUNTAINS.getLocation())) {
 			return true;
 		}
 		return false;
