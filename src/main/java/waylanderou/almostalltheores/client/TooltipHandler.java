@@ -3,12 +3,12 @@ package waylanderou.almostalltheores.client;
 import java.util.HashMap;
 import java.util.List;
 
-import net.minecraft.item.Item;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.item.Item;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import waylanderou.almostalltheores.AatoConfig;
+import waylanderou.almostalltheores.config.AatoConfig;
 
 public class TooltipHandler {
 	public final String[] iron = { "hematite", "magnetite", "limonite", "siderite", "telluric_iron" };
@@ -109,6 +109,7 @@ public class TooltipHandler {
 	public final String[] bastnasite_y = { "bastnasite_y" };
 	public final String[] samarskite_y = { "samarskite_y" };
 	public final String[] thortveitite = { "thortveitite" };
+	public final String[] diamond = {"kimberlite", "lamproite"};
 
 
 	HashMap<String[], String> tooltips = new HashMap<String[], String>();
@@ -211,25 +212,26 @@ public class TooltipHandler {
 		tooltips.put(monazite_nd, "tooltip.almostalltheores.monazite_nd");
 		tooltips.put(bastnasite_y, "tooltip.almostalltheores.bastnasite_y");
 		tooltips.put(samarskite_y, "tooltip.almostalltheores.samarskite_y");
-		tooltips.put(thortveitite, "tooltip.almostalltheores.thortveitite");		
+		tooltips.put(thortveitite, "tooltip.almostalltheores.thortveitite");
+		tooltips.put(diamond, "tooltip.almostalltheores.diamond");
 	}
 
 	public void onToolTip(ItemTooltipEvent event) {
 		Item item = event.getItemStack().getItem();
-		List<ITextComponent> tooltip = event.getToolTip();
+		List<Component> tooltip = event.getToolTip();
 		if ("almostalltheores".equals(item.getCreatorModId(event.getItemStack()))) {
 			String itemName = item.getRegistryName().toString().split(":")[1];
 			addTooltips(itemName, tooltip);
 		} 		
 	}
 
-	public void addTooltips(String name, List<ITextComponent> tooltip) {
+	public void addTooltips(String name, List<Component> tooltip) {
 		if(AatoConfig.mineralogistOption.get())
 			return;
 		tooltips.forEach((keys, tsKey) -> {			
 			for(String key : keys) {
 				if(key.equals(name))
-					tooltip.add(new TranslationTextComponent(tsKey).applyTextStyle(TextFormatting.GRAY));
+					tooltip.add(new TranslatableComponent(tsKey).withStyle(ChatFormatting.GRAY));
 			}
 		});
 	}	

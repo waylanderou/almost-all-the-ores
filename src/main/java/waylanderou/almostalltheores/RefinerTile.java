@@ -2,34 +2,32 @@ package waylanderou.almostalltheores;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.item.ExperienceOrbEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tileentity.AbstractFurnaceTileEntity;
-import net.minecraft.tileentity.ITickableTileEntity;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Direction;
-import net.minecraft.util.IIntArray;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraftforge.common.ForgeHooks;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import waylanderou.almostalltheores.block.Refiner;
 import waylanderou.almostalltheores.inventory.container.RefinerContainer;
 import waylanderou.almostalltheores.item.Items;
 import waylanderou.almostalltheores.item.crafting.RefinerRecipe;
 
-public class RefinerTile extends TileEntity implements ITickableTileEntity, INamedContainerProvider, ISidedInventory {
+public class RefinerTile extends BlockEntity implements MenuProvider, WorldlyContainer {
 	private NonNullList<ItemStack> items = NonNullList.withSize(SIZE, ItemStack.EMPTY);
 	private static final int SIZE = 12;
 	private static final int[] OUTPUT_SLOTS = {3, 4, 5, 6, 7, 8, 9, 10, 11};
@@ -39,12 +37,12 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 	private int hasBeenRefinedFor = 0; 
 	private int fuelTimeLeft;
 	private ResourceLocation recipeLocation;
-	private final IRecipeType<? extends RefinerRecipe> recipeType;
+	private final RecipeType<? extends RefinerRecipe> recipeType;
 	private int refineTimeNeeded;
 	private int itemBurnTime;
 	private float totalExperience;
 
-	protected final IIntArray data = new IIntArray() {
+	public final ContainerData data = new ContainerData() {
 		public int get(int index) {
 			switch(index) {
 			case 0:
@@ -82,24 +80,24 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 			}
 		}
 
-		public int size() {
+		public int getCount() {
 			return 5;
 		}
 	};
 
-	public RefinerTile() {
-		super(RefinerRegistryEvents.REFINER_TILE);
+	public RefinerTile(BlockPos pos, BlockState state) {
+		super(RefinerRegistryEvents.REFINER_TILE, pos, state);
 		this.recipeType = RefinerRecipe.REFINING;
 	}
 
 	@Nullable
 	@Override
-	public Container createMenu(int i, PlayerInventory playerInv, PlayerEntity p_createMenu_3_) {
-		return new RefinerContainer(i, playerInv, this.data, this, this.pos);
+	public AbstractContainerMenu createMenu(int i, Inventory playerInv, Player player) {
+		return new RefinerContainer(i, playerInv, this.data, this, this.worldPosition);
 	}
 
 	@Override
-	public int getSizeInventory() {
+	public int getContainerSize() {
 		return SIZE;
 	}
 
@@ -114,39 +112,39 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 	}
 
 	@Override
-	public ItemStack getStackInSlot(int index) {
+	public ItemStack getItem(int index) {
 		return this.items.get(index);
 	}
 
 	@Override
-	public ItemStack decrStackSize(int index, int count) {
-		return ItemStackHelper.getAndSplit(this.items, index, count);
+	public ItemStack removeItem(int index, int count) {
+		return ContainerHelper.removeItem(this.items, index, count);
 	}
 
 	@Override
-	public ItemStack removeStackFromSlot(int index) {
-		return ItemStackHelper.getAndRemove(this.items, index);
+	public ItemStack removeItemNoUpdate(int index) {
+		return ContainerHelper.takeItem(this.items, index);
 	}
 
 	@Override
-	public void setInventorySlotContents(int index, ItemStack stack) {
+	public void setItem(int index, ItemStack stack) {
 		this.items.set(index, stack);
-		if (stack.getCount() > this.getInventoryStackLimit()) {
-			stack.setCount(this.getInventoryStackLimit());
+		if (stack.getCount() > this.getMaxStackSize()) {
+			stack.setCount(this.getMaxStackSize());
 		}
 	}
 
 	@Override
-	public boolean isUsableByPlayer(PlayerEntity player) {
-		if (this.world.getTileEntity(this.pos) != this) {
+	public boolean stillValid(Player player) {
+		if (this.level.getBlockEntity(this.getBlockPos()) != this) {
 			return false;
 		} else {
-			return player.getDistanceSq((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D;
+			return player.distanceToSqr((double)this.getBlockPos().getX() + 0.5D, (double)this.getBlockPos().getY() + 0.5D, (double)this.getBlockPos().getZ() + 0.5D) <= 64.0D;
 		}
 	}
 
 	@Override
-	public void clear() {
+	public void clearContent() {
 		this.items.clear();
 	}
 
@@ -160,7 +158,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 	}
 
 	public boolean isItemValidForSlot(int index, ItemStack stack) {
-		if(index == 0 && AbstractFurnaceTileEntity.isFuel(stack)) {
+		if(index == 0 && AbstractFurnaceBlockEntity.isFuel(stack)) {
 			return true;
 		} else if(index == 1 && stack.getItem() == waylanderou.almostalltheores.item.Items.SULPHURIC_ACID) { 
 			return true;			
@@ -172,12 +170,12 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 	}
 
 	@Override
-	public boolean canInsertItem(int index, ItemStack itemStackIn, Direction direction) {
+	public boolean canPlaceItemThroughFace(int index, ItemStack itemStackIn, Direction direction) {
 		return isItemValidForSlot(index, itemStackIn);
 	}
 
 	@Override
-	public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
+	public boolean canTakeItemThroughFace(int index, ItemStack stack, Direction direction) {
 		if((index > 2)) {			
 			return true;
 		}		
@@ -185,17 +183,16 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 	}
 
 	@Override
-	public ITextComponent getDisplayName() {
-		return new TranslationTextComponent("tileentity.almostalltheores.refinertile");
+	public TranslatableComponent getDisplayName() {
+		return new TranslatableComponent("tileentity.almostalltheores.refinertile");
 	}
 
-	@Override
-	public void tick() {
-		if(!world.isRemote) {
+	public void tickServer() {
+		if(!level.isClientSide) {
 			if(!hasFuel()) {
 				ItemStack fuelStack = items.get(0);
 				if(this.hasBeenRefinedFor > 0) {					
-					if(AbstractFurnaceTileEntity.isFuel(fuelStack)) {						
+					if(AbstractFurnaceBlockEntity.isFuel(fuelStack)) {						
 						this.fuelTimeLeft = getBurnTimes(fuelStack);
 						this.itemBurnTime = getBurnTimes(fuelStack);
 						if(fuelStack.hasContainerItem()) {
@@ -210,8 +207,8 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 						turnOff();
 					}
 				} else {
-					RefinerRecipe recipe = this.world.getRecipeManager().getRecipe(RefinerRecipe.REFINING, this, this.world).orElse(null);					 
-					if(AbstractFurnaceTileEntity.isFuel(fuelStack) && canRefine(recipe)) {	
+					RefinerRecipe recipe = this.level.getRecipeManager().getRecipeFor(RefinerRecipe.REFINING, this, this.level).orElse(null);
+					if(AbstractFurnaceBlockEntity.isFuel(fuelStack) && canRefine(recipe)) {	
 						if(recipe.isREERecipe()) {
 							if(this.secondCounter == 0) {
 								this.items.get(1).shrink(1);
@@ -232,10 +229,10 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 						}			
 						ItemStack itemBeingRefinedLocal = items.get(2);						
 						if(!itemBeingRefinedLocal.isEmpty()) {
-							this.itemBeingRefined = itemBeingRefinedLocal.getItem().getTranslationKey();
+							this.itemBeingRefined = itemBeingRefinedLocal.getItem().getDescriptionId();
 							itemBeingRefinedLocal.shrink(1);														
 						}						
-						markDirty(); 							
+						setChanged(); 							
 					} else {
 						turnOff();						
 					}
@@ -243,20 +240,20 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 			}			
 			if(hasFuel()) { 
 				if(!this.itemBeingRefined.equals("empty")) { 
-					BlockState blockState = world.getBlockState(pos);
-					world.setBlockState(pos, blockState.with(Refiner.REFINING, true), 3);
+					BlockState blockState = level.getBlockState(worldPosition);
+					level.setBlock(worldPosition, blockState.setValue(Refiner.REFINING, true), 3);
 					this.fuelTimeLeft--; 
 					this.hasBeenRefinedFor++;
 					if(this.recipeLocation.getPath().contains("acid")) this.secondCounter--;
 					if(this.hasBeenRefinedFor >= this.refineTimeNeeded) {
-						RefinerRecipe r = (RefinerRecipe) this.world.getRecipeManager().getRecipe(this.recipeLocation).orElse(null);
+						RefinerRecipe r = (RefinerRecipe) this.level.getRecipeManager().byKey(this.recipeLocation).orElse(null);
 						checkRecipeAndSpawnOutput(r);
 						this.hasBeenRefinedFor = 0;
 						this.itemBeingRefined = "empty";
-						markDirty();
+						setChanged();
 					}										
 				} else {	
-					RefinerRecipe recipe = this.world.getRecipeManager().getRecipe(RefinerRecipe.REFINING, this, this.world).orElse(null);
+					RefinerRecipe recipe = this.level.getRecipeManager().getRecipeFor(RefinerRecipe.REFINING, this, this.level).orElse(null);
 					if(canRefine(recipe)) {
 
 						if(recipe.isREERecipe()) {
@@ -270,21 +267,21 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 						this.refineTimeNeeded = recipe.getRefiningTime();
 						ItemStack itembeingRefinedLocal = items.get(2);						
 						if(!itembeingRefinedLocal.isEmpty()) {
-							this.itemBeingRefined = itembeingRefinedLocal.getItem().getTranslationKey();
+							this.itemBeingRefined = itembeingRefinedLocal.getItem().getDescriptionId();
 							itembeingRefinedLocal.shrink(1);												
 						}
 					} else {
 						turnOff();
 					}
 				}
-				markDirty();
+				setChanged();
 			}
 		}
 	}
 
 	private void turnOff() {
-		BlockState blockState = world.getBlockState(this.pos);
-		world.setBlockState(pos, blockState.with(Refiner.REFINING, false), 3);
+		BlockState blockState = level.getBlockState(this.worldPosition);
+		level.setBlock(worldPosition, blockState.setValue(Refiner.REFINING, false), 3);
 	}	
 
 	private boolean canRefine(RefinerRecipe recipe) {
@@ -301,17 +298,17 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 		return false;
 	}
 
-	public void spawnExp(PlayerEntity player) {
+	public void spawnExp(Player player) {
 		spawnExp(player, this.totalExperience);
 		this.totalExperience = 0;
 	}
 
-	public static void spawnExp(PlayerEntity player, float totalXp) {		
+	public static void spawnExp(Player player, float totalXp) {		
 		int i = (int) totalXp;		
 		while(i > 0) {
-			int j = ExperienceOrbEntity.getXPSplit(i);
+			int j = ExperienceOrb.getExperienceValue(i);
 			i -= j;
-			player.world.addEntity(new ExperienceOrbEntity(player.world, player.lastTickPosX, player.lastTickPosY + 0.5D, player.lastTickPosZ + 0.5D, j)); //TODO check if that works
+			player.level.addFreshEntity(new ExperienceOrb(player.level, player.xOld, player.yOld + 0.5D, player.zOld + 0.5D, j));
 		}		
 	}
 
@@ -321,7 +318,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 		Boolean refinerFull;		
 		for(int i = 3; i<12; i++) {
 			refinerFull = true;
-			recipeOutput = recipe.getRecipeOutput(i);		
+			recipeOutput = recipe.getResultItem(i);	
 			if(recipeOutput.isEmpty()) continue;
 
 			this.totalExperience += recipe.getExperience(); 
@@ -332,14 +329,14 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 					this.items.set(j, recipeOutput);
 					j = 42;	
 					refinerFull = false;					
-				} else if (itemstackInSlot.isItemEqual(recipeOutput) && (itemstackInSlot.getCount() + recipeOutput.getCount() <= this.getInventoryStackLimit()) && (itemstackInSlot.getCount() + recipeOutput.getCount() <= itemstackInSlot.getMaxStackSize())) {
+				} else if (itemstackInSlot.sameItem(recipeOutput) && (itemstackInSlot.getCount() + recipeOutput.getCount() <= this.getMaxStackSize()) && (itemstackInSlot.getCount() + recipeOutput.getCount() <= itemstackInSlot.getMaxStackSize())) {
 					itemstackInSlot.grow(recipeOutput.getCount());	
 					j = 42;
 					refinerFull = false;					
 				}
 			}
 			if(refinerFull) {
-				Block.spawnAsEntity(world, this.pos, recipeOutput);				
+				Block.popResource(level, worldPosition, recipeOutput);				
 			}
 		}
 	}
@@ -352,15 +349,14 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 		if (itemstack.isEmpty()) {
 			return 0;
 		} else {
-			int ret = itemstack.getBurnTime();
-			return net.minecraftforge.event.ForgeEventFactory.getItemBurnTime(itemstack, ret == -1 ? ForgeHooks.getBurnTime(itemstack): ret); 
+			return net.minecraftforge.common.ForgeHooks.getBurnTime(itemstack, null);
 		}
 	}
 
 	@Override
-	public void read(CompoundNBT compound) {
-		this.items = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
-		ItemStackHelper.loadAllItems(compound, this.items);
+	public void load(CompoundTag compound) {
+		this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
+		ContainerHelper.loadAllItems(compound, this.items);
 		this.totalExperience = compound.getFloat("totalExperience");
 		this.itemBurnTime = compound.getInt("itemBurnTime");
 		this.refineTimeNeeded = compound.getInt("refineTime");
@@ -371,12 +367,12 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 		if(!compound.getString("recipeLocation").equals("")) {
 			this.recipeLocation = new ResourceLocation(compound.getString("recipeLocation"));			
 		}
-		super.read(compound);
+		super.load(compound);
 	}
 
 	@Override
-	public CompoundNBT write(CompoundNBT compound) {
-		ItemStackHelper.saveAllItems(compound, this.items);
+	public void saveAdditional(CompoundTag compound) {
+		ContainerHelper.saveAllItems(compound, this.items);
 		compound.putFloat("totalExperience", this.totalExperience);
 		compound.putInt("itemBurnTime", this.itemBurnTime);
 		compound.putInt("refineTime", this.refineTimeNeeded);
@@ -389,7 +385,7 @@ public class RefinerTile extends TileEntity implements ITickableTileEntity, INam
 		} else {
 			compound.putString("recipeLocation", "");
 		}
-		return super.write(compound);
+		super.saveAdditional(compound);
 	}
 
 }

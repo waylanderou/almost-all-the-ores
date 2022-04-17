@@ -1,37 +1,38 @@
 package waylanderou.almostalltheores.inventory.container;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.util.IIntArray;
-import net.minecraft.util.IntArray;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
 import waylanderou.almostalltheores.item.Items;
 import waylanderou.almostalltheores.item.crafting.RefinerRecipe;
 
-public class RefinerContainer extends Container {
-	private IIntArray machineData;
+public class RefinerContainer extends AbstractContainerMenu {
+	private ContainerData machineData;
 	private BlockPos tePos;
-	private final IInventory machineInventory;
-	private final World world;
+	private final Container machineInventory;
+	private final Level level;
 
-	public RefinerContainer(int windowId, PlayerInventory playerInventory) {
-		this(windowId, playerInventory, new IntArray(5), new Inventory(12), null);
+	public RefinerContainer(int windowId, Inventory playerInventory) {
+		this(windowId, playerInventory, new SimpleContainerData(5), new SimpleContainer(12), null);
 	}    
 
-	public RefinerContainer(int windowId, PlayerInventory playerInventory, IIntArray machineData, IInventory machineInv, BlockPos tePos) {
+	public RefinerContainer(int windowId, Inventory playerInventory, ContainerData machineData, Container machineInv, BlockPos tePos) {
 		super(RefinerRegistryEvents.REFINER_CONTAINER, windowId);
 		this.tePos = tePos;		    
 		this.machineInventory = machineInv;
 		this.machineData = machineData;
-		this.world = playerInventory.player.world;
+		this.level = playerInventory.player.level;
 
 		addSlot(new Slot(machineInv, 0, 56, 53));
 		addSlot(new Slot(machineInv, 1, 45, 17));
@@ -47,52 +48,52 @@ public class RefinerContainer extends Container {
 		addSlot(new RefinerResultSlot(playerInventory.player, machineInv, 11, 145, 53));
 		layoutPlayerInventorySlots(playerInventory, 8, 84);         
 
-		this.trackIntArray(machineData);
+		this.addDataSlots(machineData);
 	}
 
 	@Override
-	public boolean canInteractWith(PlayerEntity playerIn) {		
-		return this.machineInventory.isUsableByPlayer(playerIn);
+	public boolean stillValid(Player playerIn) {		
+		return this.machineInventory.stillValid(playerIn);
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
+	public ItemStack quickMoveStack(Player playerIn, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
-		Slot slot = this.inventorySlots.get(index);
-		if (slot != null && slot.getHasStack()) {
-			ItemStack stack = slot.getStack();
+		Slot slot = this.slots.get(index);
+		if (slot != null && slot.hasItem()) {
+			ItemStack stack = slot.getItem();
 			itemstack = stack.copy();
 			if (index == 0 || index == 1 || index == 2 || index == 3 || index == 4 || index == 5 || index ==  6 || index == 7 || 
 					index == 8 || index == 9 || index == 10 || index == 11) { 
-				if (!this.mergeItemStack(stack, 12, 48, true)) { 
+				if (!this.moveItemStackTo(stack, 12, 48, true)) { 
 					return ItemStack.EMPTY;
 				}
-				slot.onSlotChange(stack, itemstack);
+				slot.onQuickCraft(stack, itemstack);
 			} else { 
-				if (net.minecraft.tileentity.AbstractFurnaceTileEntity.isFuel(stack)) {
-					if (!this.mergeItemStack(stack, 0, 1, false)) {
+				if (AbstractFurnaceBlockEntity.isFuel(stack)) {
+					if (!this.moveItemStackTo(stack, 0, 1, false)) {
 						return ItemStack.EMPTY;
 					}
 				} else if(stack.getItem() == Items.SULPHURIC_ACID) {
-					if (!this.mergeItemStack(stack, 1, 2, false)) {
+					if (!this.moveItemStackTo(stack, 1, 2, false)) {
 						return ItemStack.EMPTY;
 					}
 				} else if(this.hasRecipe(stack)) {
-					if (!this.mergeItemStack(stack, 2, 3, false)) {
+					if (!this.moveItemStackTo(stack, 2, 3, false)) {
 						return ItemStack.EMPTY;
 					}
 				} else if (index < 39) {
-					if (!this.mergeItemStack(stack, 39, 48, false)) { 
+					if (!this.moveItemStackTo(stack, 39, 48, false)) { 
 						return ItemStack.EMPTY;
 					}
-				} else if (index < 48 && !this.mergeItemStack(stack, 12, 39, false)) {
+				} else if (index < 48 && !this.moveItemStackTo(stack, 12, 39, false)) {
 					return ItemStack.EMPTY;
 				}
 			}
 			if (stack.isEmpty()) {
-				slot.putStack(ItemStack.EMPTY);
+				slot.set(ItemStack.EMPTY);
 			} else {
-				slot.onSlotChanged();
+				slot.setChanged();
 			}
 			if (stack.getCount() == itemstack.getCount()) {
 				return ItemStack.EMPTY;
@@ -104,15 +105,15 @@ public class RefinerContainer extends Container {
 
 	private boolean hasRecipe(ItemStack stack) {
 		boolean flag = false;
-		for(ItemStack s : this.getInventory()) {
+		for(ItemStack s : this.getItems()) {
 			if(s.getItem() == Items.SULPHURIC_ACID) {
-				flag = this.world.getRecipeManager().getRecipe((IRecipeType<RefinerRecipe>)RefinerRecipe.REFINING, new Inventory(ItemStack.EMPTY, new ItemStack(Items.SULPHURIC_ACID), stack), this.world).isPresent();
+				flag = this.level.getRecipeManager().getRecipeFor((RecipeType<RefinerRecipe>)RefinerRecipe.REFINING, new SimpleContainer(ItemStack.EMPTY, new ItemStack(Items.SULPHURIC_ACID), stack), this.level).isPresent();
 			}
 		}		
-		return flag || this.world.getRecipeManager().getRecipe((IRecipeType<RefinerRecipe>)RefinerRecipe.REFINING, new Inventory(ItemStack.EMPTY, ItemStack.EMPTY, stack), this.world).isPresent();
+		return flag || this.level.getRecipeManager().getRecipeFor((RecipeType<RefinerRecipe>)RefinerRecipe.REFINING, new SimpleContainer(ItemStack.EMPTY, ItemStack.EMPTY, stack), this.level).isPresent();
 	}
 
-	private int addSlotRange(PlayerInventory playerInventory, int index, int x, int y, int amount, int dx) {
+	private int addSlotRange(Inventory playerInventory, int index, int x, int y, int amount, int dx) {
 		for (int i = 0 ; i < amount ; i++) {
 			this.addSlot(new Slot(playerInventory, index, x, y));
 			x += dx;
@@ -121,7 +122,7 @@ public class RefinerContainer extends Container {
 		return index;
 	}
 
-	private int addSlotBox(PlayerInventory playerInventory, int index, int x, int y, int horAmount, int dx, int verAmount, int dy) {
+	private int addSlotBox(Inventory playerInventory, int index, int x, int y, int horAmount, int dx, int verAmount, int dy) {
 		for (int j = 0 ; j < verAmount ; j++) {
 			index = addSlotRange(playerInventory, index, x, y, horAmount, dx);
 			y += dy;
@@ -129,7 +130,7 @@ public class RefinerContainer extends Container {
 		return index;
 	}
 
-	private void layoutPlayerInventorySlots(PlayerInventory playerInventory, int leftCol, int topRow) {		  
+	private void layoutPlayerInventorySlots(Inventory playerInventory, int leftCol, int topRow) {		  
 		addSlotBox(playerInventory, 9, leftCol, topRow, 9, 18, 3, 18);		
 		topRow += 58;
 		addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);

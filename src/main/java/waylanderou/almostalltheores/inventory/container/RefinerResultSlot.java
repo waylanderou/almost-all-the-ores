@@ -1,43 +1,43 @@
 package waylanderou.almostalltheores.inventory.container;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 import waylanderou.almostalltheores.RefinerTile;
 
 public class RefinerResultSlot extends Slot {
-	private final PlayerEntity player;
+	private final Player player;
 
-	public RefinerResultSlot(PlayerEntity playerIn, IInventory inventoryIn, int index, int xPosition, int yPosition) {
+	public RefinerResultSlot(Player playerIn, Container inventoryIn, int index, int xPosition, int yPosition) {
 		super(inventoryIn, index, xPosition, yPosition);
 		this.player = playerIn;		
 	}
 
 	@Override
-	public boolean isItemValid(ItemStack stack) {
+	public boolean mayPlace(ItemStack stack) {
 		return false;
 	}
 
 	@Override
-	public ItemStack onTake(PlayerEntity player, ItemStack stack) {
-		this.onCrafting(stack);
-		super.onTake(player, stack);
-		return stack;		
+	public void onTake(Player player, ItemStack stack) {
+		this.safeInsert(stack);
+		super.onTake(player, stack);	
 	}
 
 	@Override
-	protected void onCrafting(ItemStack stack, int amount) {
-		this.onCrafting(stack);
+	public ItemStack safeInsert(ItemStack stack, int amount) {
+		return this.safeInsert(stack);
 	}
 
 	@Override
-	protected void onCrafting(ItemStack stack) {
-		stack.onCrafting(this.player.world, this.player, stack.getCount());
-		if(!this.player.world.isRemote && this.inventory instanceof RefinerTile) {
-			((RefinerTile)this.inventory).spawnExp(this.player);
+	public ItemStack safeInsert(ItemStack stack) {
+		stack.onCraftedBy(this.player.level, this.player, stack.getCount());
+		if(!this.player.level.isClientSide && this.container instanceof RefinerTile) {
+			((RefinerTile)this.container).spawnExp(this.player);
 		}
-		net.minecraftforge.fml.hooks.BasicEventHooks.firePlayerSmeltedEvent(this.player, stack);
+		net.minecraftforge.event.ForgeEventFactory.firePlayerSmeltedEvent(this.player, stack);
+		return stack;
 	}
 
 }

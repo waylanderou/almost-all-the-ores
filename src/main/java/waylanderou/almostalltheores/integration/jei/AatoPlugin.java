@@ -12,13 +12,13 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.util.ResourceLocation;
-import waylanderou.almostalltheores.AatoConfig;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.resources.ResourceLocation;
 import waylanderou.almostalltheores.AlmostAllTheOres;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
+import waylanderou.almostalltheores.config.AatoConfig;
 import waylanderou.almostalltheores.item.crafting.RefinerRecipe;
 
 @JeiPlugin
@@ -44,8 +44,9 @@ public class AatoPlugin implements IModPlugin {
 		registration.addRecipeCatalyst(new ItemStack(RefinerRegistryEvents.REFINER), RefinerRecipeCategory.UID);
 	}
 
-	private static List<IRecipe<?>> getRecipesOfType(IRecipeType<?> recipeType) {
-		return Minecraft.getInstance().world.getRecipeManager().getRecipes().stream()
+	@SuppressWarnings("resource")
+	private static List<Recipe<?>> getRecipesOfType(RecipeType<?> recipeType) {
+		return Minecraft.getInstance().level.getRecipeManager().getRecipes().stream()
 				.filter(r -> r.getType() == recipeType)
 				.collect(Collectors.toList());
 	}

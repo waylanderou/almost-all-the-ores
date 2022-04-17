@@ -23,7 +23,7 @@
 			"item": "almostalltheores:separation_part"
 		},
 		"C": {
-			"item": "minecraft:chest"
+			"tag": "forge:chests/wooden"
 		}
     }
 }

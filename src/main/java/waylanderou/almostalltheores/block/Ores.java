@@ -1,17 +1,16 @@
 package waylanderou.almostalltheores.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.item.*;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ObjectHolder;
 import waylanderou.almostalltheores.AlmostAllTheOres;
-import waylanderou.almostalltheores.AatoConfig;
+import waylanderou.almostalltheores.config.AatoConfig;
 import waylanderou.almostalltheores.item.AnthraciteBlockItemBlock;
 
 @ObjectHolder(AlmostAllTheOres.MODID)
@@ -426,7 +425,7 @@ public class Ores {
 	public static final CustomOre TURQUOISE_ORE = null;
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":amazonite_ore")
-	public static final CustomOre AMAZONITE_ORE = null;
+	public static CustomOre AMAZONITE_ORE = null;
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":chrysocolla_ore")
 	public static final CustomOre CHRYSOCOLLA_ORE = null;
@@ -461,9 +460,6 @@ public class Ores {
 	@ObjectHolder(AlmostAllTheOres.MODID + ":nether_coal_ore")
 	public static final CustomOre NETHER_COAL_ORE = null;
 
-	@ObjectHolder(AlmostAllTheOres.MODID + ":nether_gold_ore")
-	public static final CustomOre NETHER_GOLD_ORE = null;
-
 	@ObjectHolder(AlmostAllTheOres.MODID + ":nether_mithril_ore")
 	public static final CustomOre NETHER_MITHRIL_ORE = null;
 
@@ -493,20 +489,32 @@ public class Ores {
 
 	@ObjectHolder(AlmostAllTheOres.MODID + ":thortveitite")
 	public static final CustomOre THORTVEITITE = null;
-	
+
 	public static final CustomOre KIMBERLITE = null;
-	
+
 	public static final CustomOre LAMPROITE = null;
 
-	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
-	public static class OresRegistryEvents{		
+
+	public static class OresRegistryEvents{
 
 		@SubscribeEvent
-		public static void registerBlocks(RegistryEvent.Register<Block> event) {
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("guano"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)).setRegistryName("peat"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).lightValue(7)).setRegistryName("mithril_ore"));
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(AatoConfig.mithrilHL.get()).lightValue(7)).setRegistryName("nether_mithril_ore"));
+		public static void registerBlocks(RegistryEvent.Register<Block> event) {			
+			event.getRegistry().register(
+					new CustomOre(BlockBehaviour.Properties.of(Material.DIRT).strength(0.5F)
+							.sound(SoundType.GRAVEL)).setRegistryName("guano"));
+			event.getRegistry().register(
+					new CustomOre(0, BlockBehaviour.Properties.of(Material.DIRT).strength(0.5F)
+							.sound(SoundType.GRAVEL), UniformInt.of(0, 2)).setRegistryName("peat"));
+			event.getRegistry().register(
+					new CustomOre(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F)
+							.requiresCorrectToolForDrops().lightLevel((x) -> { //.harvestLevel(AatoConfig.mithrilHL.get()
+								return 7;
+							}).requiresCorrectToolForDrops()).setRegistryName("mithril_ore"));
+			event.getRegistry().register(
+					new CustomOre(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F)
+							.requiresCorrectToolForDrops().lightLevel((x) -> { //.harvestLevel(AatoConfig.mithrilHL.get()
+								return 7;
+							}).requiresCorrectToolForDrops()).setRegistryName("nether_mithril_ore"));
 
 			final int copperHL = AatoConfig.copperHL.get();
 			final int leadHL = AatoConfig.leadHL.get();
@@ -526,13 +534,13 @@ public class Ores {
 			final int molybdenumHL = AatoConfig.molybdenumHL.get();
 			final int ironHL = AatoConfig.ironHL.get();
 
-			registerBlock(event, 1, "pyrite");
-			registerBlock(event, 1, "sulphur");
+			registerBlock(event, 1, "pyrite", UniformInt.of(0, 2));
+			registerBlock(event, 1, "sulphur", UniformInt.of(1, 2));
 			registerBlock(event, 1, "clausthalite");
-			registerBlock(event, 1, "phosphorite");
-			registerBlock(event, 0, "lignite_ore");
-			registerBlock(event, 0, "bituminous_coal_ore");
-			registerBlock(event, 0, "anthracite_ore");
+			registerBlock(event, 1, "phosphorite", UniformInt.of(0, 1));
+			registerBlock(event, 0, "lignite_ore", UniformInt.of(0, 2));
+			registerBlock(event, 0, "bituminous_coal_ore", UniformInt.of(0, 2));
+			registerBlock(event, 0, "anthracite_ore", UniformInt.of(2, 3));
 			registerBlock(event, 1, "graphite");
 			registerBlock(event, 2, "lollingite");
 			registerBlock(event, 1, "realgar");
@@ -638,40 +646,39 @@ public class Ores {
 			registerBlock(event, 1, "polyhalite");
 			registerBlock(event, 1, "kainite");
 			registerBlock(event, 1, "langbeinite");
-			registerBlock(event, AatoConfig.nitratineHL.get(), "nitratine");
-			registerBlock(event, AatoConfig.haliteHL.get(), "halite");
-			registerBlock(event, 2, "sapphire_ore");
-			registerBlock(event, 2, "ruby_ore");
-			registerBlock(event, 2, "spinel_ore");
-			registerBlock(event, 2, "amethyst_ore");
-			registerBlock(event, 2, "jade_ore");
-			registerBlock(event, 2, "tourmaline_ore");
-			registerBlock(event, 2, "sugilite_ore");
-			registerBlock(event, 2, "peridot_ore");
-			registerBlock(event, 2, "agate_ore");
-			registerBlock(event, 2, "carnelian_ore");
-			registerBlock(event, 2, "chrysoprase_ore");
-			registerBlock(event, 2, "heliotrope_ore");
-			registerBlock(event, 2, "topaz_ore");
-			registerBlock(event, 2, "unakite_ore");
-			registerBlock(event, 2, "tanzanite_ore");
-			registerBlock(event, 2, "hauyne_ore");
-			registerBlock(event, 2, "onyx_ore");
-			registerBlock(event, 2, "opal_ore");
-			registerBlock(event, 2, "moonstone_ore");
-			registerBlock(event, 2, "turquoise_ore");
-			registerBlock(event, 2, "amazonite_ore");
-			registerBlock(event, 1, "chrysocolla_ore");
-			registerBlock(event, 2, "almandine_ore");
-			registerBlock(event, 1, "spessartine_ore");
-			registerBlock(event, 1, "pyrope_ore");
-			registerBlock(event, 1, "tsavorite_ore");
-			registerBlock(event, 1, "andradite_ore");
+			registerBlock(event, AatoConfig.nitratineHL.get(), "nitratine", UniformInt.of(1, 2));
+			registerBlock(event, AatoConfig.haliteHL.get(), "halite", UniformInt.of(0, 1));
+			registerBlock(event, 2, "sapphire_ore", UniformInt.of(3, 7));
+			registerBlock(event, 2, "ruby_ore", UniformInt.of(3, 7));
+			registerBlock(event, 2, "spinel_ore", UniformInt.of(2, 5));
+			registerBlock(event, 2, "amethyst_ore", UniformInt.of(2, 3));
+			registerBlock(event, 2, "jade_ore", UniformInt.of(2, 4));
+			registerBlock(event, 2, "tourmaline_ore", UniformInt.of(2, 4));
+			registerBlock(event, 2, "sugilite_ore", UniformInt.of(1, 3));
+			registerBlock(event, 2, "peridot_ore", UniformInt.of(1, 4));
+			registerBlock(event, 2, "agate_ore", UniformInt.of(2, 3));
+			registerBlock(event, 2, "carnelian_ore", UniformInt.of(2, 3));
+			registerBlock(event, 2, "chrysoprase_ore", UniformInt.of(2, 5));
+			registerBlock(event, 2, "heliotrope_ore", UniformInt.of(2, 4));
+			registerBlock(event, 2, "topaz_ore", UniformInt.of(2, 5));
+			registerBlock(event, 2, "unakite_ore", UniformInt.of(2, 3));
+			registerBlock(event, 2, "tanzanite_ore", UniformInt.of(2, 3));
+			registerBlock(event, 2, "hauyne_ore", UniformInt.of(2, 3));
+			registerBlock(event, 2, "onyx_ore", UniformInt.of(2, 4));
+			registerBlock(event, 2, "opal_ore", UniformInt.of(2, 4));
+			registerBlock(event, 2, "moonstone_ore", UniformInt.of(2, 3));
+			registerBlock(event, 2, "turquoise_ore", UniformInt.of(2, 3));
+			registerBlock(event, 2, "amazonite_ore", UniformInt.of(2, 3));
+			registerBlock(event, 1, "chrysocolla_ore", UniformInt.of(0, 3));
+			registerBlock(event, 2, "almandine_ore", UniformInt.of(1, 3));
+			registerBlock(event, 1, "spessartine_ore", UniformInt.of(1, 3));
+			registerBlock(event, 1, "pyrope_ore", UniformInt.of(1, 3));
+			registerBlock(event, 1, "tsavorite_ore", UniformInt.of(1, 3));
+			registerBlock(event, 1, "andradite_ore", UniformInt.of(2, 3));
 			registerBlock(event, AatoConfig.commonPgmsHL.get(), "platinum_group_metals");
 			registerBlock(event, AatoConfig.rarePgmsHL.get(), "rare_platinum_group_metals");
 			registerBlock(event, 0, "anthracite_block");
-			registerBlock(event, 2, "nether_gold_ore");
-			registerBlock(event, 0, "nether_coal_ore");	
+			registerBlock(event, 0, "nether_coal_ore", UniformInt.of(0, 2));	
 			registerBlock(event, 2, "bastnasite_la");
 			registerBlock(event, 2, "monazite_la");
 			registerBlock(event, 2, "bastnasite_ce");
@@ -681,9 +688,8 @@ public class Ores {
 			registerBlock(event, 2, "bastnasite_y");
 			registerBlock(event, 2, "samarskite_y");
 			registerBlock(event, 2, "thortveitite");
-			registerBlock(event, 2, "kimberlite");
-			registerBlock(event, 2, "lamproite");
-
+			registerBlock(event, 2, "kimberlite", UniformInt.of(3, 7));
+			registerBlock(event, 2, "lamproite", UniformInt.of(3, 7));
 		}
 
 		@SubscribeEvent
@@ -833,8 +839,7 @@ public class Ores {
 			registerItemBlock(MITHRIL_ORE, event);
 			registerItemBlock(PLATINUM_GROUP_METALS, event);
 			registerItemBlock(RARE_PLATINUM_GROUP_METALS, event);
-			registerItemBlock(PEAT, event);			
-			registerItemBlock(NETHER_GOLD_ORE, event);
+			registerItemBlock(PEAT, event);
 			registerItemBlock(NETHER_COAL_ORE, event);
 			registerItemBlock(NETHER_MITHRIL_ORE, event);
 			registerItemBlock(BASTNASITE_LA, event);
@@ -845,18 +850,22 @@ public class Ores {
 			registerItemBlock(MONAZITE_ND, event);
 			registerItemBlock(BASTNASITE_Y, event);
 			registerItemBlock(SAMARSKITE_Y, event);
-			registerItemBlock(THORTVEITITE, event);		
+			registerItemBlock(THORTVEITITE, event);
 			registerItemBlock(KIMBERLITE, event);
 			registerItemBlock(LAMPROITE, event);
-			event.getRegistry().register(new AnthraciteBlockItemBlock(ANTHRACITE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName("anthracite_block"));			
+			event.getRegistry().register(new AnthraciteBlockItemBlock(ANTHRACITE_BLOCK, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)).setRegistryName("anthracite_block"));			
 		}
 
 		private static void registerItemBlock(CustomOre block, RegistryEvent.Register<Item> event) {
-			event.getRegistry().register(new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName(block.getRegistryName()));
+			event.getRegistry().register(new BlockItem(block, new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)).setRegistryName(block.getRegistryName()));
 		}
 
 		private static void registerBlock(RegistryEvent.Register<Block> event, int harvestLevel, String name) {
-			event.getRegistry().register(new CustomOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F).harvestTool(net.minecraftforge.common.ToolType.PICKAXE).harvestLevel(harvestLevel)).setRegistryName(name));			
+			event.getRegistry().register(new CustomOre(harvestLevel, BlockBehaviour.Properties.of(Material.STONE).strength(3.0F).requiresCorrectToolForDrops()).setRegistryName(name));			
+		}
+
+		private static void registerBlock(RegistryEvent.Register<Block> event, int harvestLevel, String name, UniformInt xp) {
+			event.getRegistry().register(new CustomOre(harvestLevel, BlockBehaviour.Properties.of(Material.STONE).strength(3.0F).requiresCorrectToolForDrops(), xp).setRegistryName(name));			
 		}
 
 	}

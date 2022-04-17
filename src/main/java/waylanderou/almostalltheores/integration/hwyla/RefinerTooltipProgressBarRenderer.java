@@ -1,53 +1,43 @@
 package waylanderou.almostalltheores.integration.hwyla;
 
-/**
- * This class contains code from Hwyla by TehNut:
- * https://github.com/TehNut/HWYLA
- */
+import static net.minecraft.client.gui.GuiComponent.blit;
 
-import java.awt.Dimension;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 
-import mcp.mobius.waila.api.ICommonAccessor;
-import mcp.mobius.waila.api.ITooltipRenderer;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.ResourceLocation;
+import mcp.mobius.waila.api.ITooltipComponent;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.resources.ResourceLocation;
 
-public class RefinerTooltipProgressBarRenderer implements ITooltipRenderer {
+public class RefinerTooltipProgressBarRenderer implements ITooltipComponent {
 	private static final ResourceLocation SHEET = new ResourceLocation("waila", "textures/sprites.png");
+	private int progress;
+	private int total;
 
 	@Override
-	public Dimension getSize(CompoundNBT data, ICommonAccessor accessor) {
-		return new Dimension(26, 16);
+	public int getWidth() {
+		return 24;
 	}
 
 	@Override
-	public void draw(CompoundNBT data, ICommonAccessor accessor, int x, int y) {		
-		int currentValue = data.getInt("progress");
-		Minecraft.getInstance().getTextureManager().bindTexture(SHEET);        
-		drawTexturedModalRect(x + 2, y, 0, 16, 22, 15, 22, 15);
-		int maxValue = data.getInt("total");
-		if (maxValue > 0) {
-			int progress = (currentValue * 22) / maxValue;
-			drawTexturedModalRect(x + 2, y, 0, 0, progress + 1, 16, progress + 1, 16);
-		}
-	}	
+	public int getHeight() {
+		return 18;
+	}
 
-	public static void drawTexturedModalRect(int x, int y, int textureX, int textureY, int width, int height, int tw, int th) {
-		float f = 0.00390625F;
-		float f1 = 0.00390625F;
-		float zLevel = 0.0F;
-		Tessellator tessellator = Tessellator.getInstance();
-		BufferBuilder buffer = tessellator.getBuffer();
-		buffer.begin(7, DefaultVertexFormats.POSITION_TEX);
-		buffer.pos(x, y + height, zLevel).tex( ((float) (textureX) * f), ((float) (textureY + th) * f1)).endVertex();
-		buffer.pos(x + width, y + height, zLevel).tex( ((float) (textureX + tw) * f), ((float) (textureY + th) * f1)).endVertex();
-		buffer.pos(x + width, y, zLevel).tex( ((float) (textureX + tw) * f), ((float) (textureY) * f1)).endVertex();
-		buffer.pos(x, y, zLevel).tex( ((float) (textureX) * f), ((float) (textureY) * f1)).endVertex();
-		tessellator.draw();
+	public RefinerTooltipProgressBarRenderer(int progress, int total) {
+		this.progress = progress;
+		this.total = total;
+	}
+
+	@Override
+	public void render(PoseStack matrixStack, int x, int y, float delta) {
+		RenderSystem.setShader(GameRenderer::getPositionTexShader);
+		RenderSystem.setShaderTexture(0, SHEET);
+		blit(matrixStack, x + 1, y + 1, 0, 16, 22, 16, 22, 32);
+		if (total > 0 && progress > 0) {
+			int progressBar = (progress * 22) / total;
+			blit(matrixStack, x + 1, y + 1, 0, 0, progressBar + 1, 16, 22, 32);
+		}
 	}
 
 }

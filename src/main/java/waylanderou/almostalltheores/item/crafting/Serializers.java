@@ -1,6 +1,6 @@
 package waylanderou.almostalltheores.item.crafting;
 
-import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -12,7 +12,7 @@ public class Serializers {
 	public static class RegistrySerializers{
 
 		@SubscribeEvent
-		public static void register(RegistryEvent.Register<IRecipeSerializer<?>> event) {
+		public static void register(RegistryEvent.Register<RecipeSerializer<?>> event) {
 			CraftingHelper.register(new StoneAgeConditionSerializer());
 		}
 

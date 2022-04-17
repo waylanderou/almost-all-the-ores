@@ -1,15 +1,15 @@
 package waylanderou.almostalltheores;
 
-import net.minecraft.block.Block;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ObjectHolder;
 import waylanderou.almostalltheores.block.Refiner;
 import waylanderou.almostalltheores.inventory.container.RefinerContainer;
@@ -22,15 +22,15 @@ public class RefinerRegistryEvents {
 	public static Refiner REFINER;
 
 	@ObjectHolder("almostalltheores:refiner")
-	public static TileEntityType<RefinerTile> REFINER_TILE;
+	public static BlockEntityType<RefinerTile> REFINER_TILE;
 
 	@ObjectHolder( "almostalltheores:refiner")
-	public static ContainerType<RefinerContainer> REFINER_CONTAINER;
+	public static MenuType<RefinerContainer> REFINER_CONTAINER;
 
 	@ObjectHolder("almostalltheores:refiner_serializer")
 	public static RefinerRecipeSerializer<RefinerRecipe> refiner_serializer;
 
-	@EventBusSubscriber(modid = AlmostAllTheOres.MODID, bus=EventBusSubscriber.Bus.MOD)
+	@Mod.EventBusSubscriber(modid=AlmostAllTheOres.MODID,bus=Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents {		
 
 		@SubscribeEvent
@@ -40,22 +40,22 @@ public class RefinerRegistryEvents {
 
 		@SubscribeEvent
 		public static void registerItems(final RegistryEvent.Register<Item> event) {
-			event.getRegistry().register(new BlockItem(REFINER, new Item.Properties().group(ItemGroup.REDSTONE)).setRegistryName("refiner"));
+			event.getRegistry().register(new BlockItem(REFINER, new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)).setRegistryName("refiner"));
 		}
 
 		@SubscribeEvent
-		public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
-			event.getRegistry().register(TileEntityType.Builder.create(RefinerTile::new, REFINER).build(null).setRegistryName("refiner"));			
+		public static void onTileEntityRegistry(final RegistryEvent.Register<BlockEntityType<?>> event) {
+			event.getRegistry().register(BlockEntityType.Builder.of(RefinerTile::new, REFINER).build(null).setRegistryName("refiner"));			
 		}
 
 		@SubscribeEvent
-		public static void onRecipeSerializersRegistry(final RegistryEvent.Register<IRecipeSerializer<?>> event) {
+		public static void onRecipeSerializersRegistry(final RegistryEvent.Register<RecipeSerializer<?>> event) {
 			event.getRegistry().register(new RefinerRecipeSerializer<>(RefinerRecipe::new).setRegistryName("refiner_serializer"));
 		}
 
 		@SubscribeEvent
-		public static void onContainerRegistry(final RegistryEvent.Register<ContainerType<?>> event) {
-			event.getRegistry().register(new ContainerType<>(RefinerContainer::new).setRegistryName("refiner"));
+		public static void onContainerRegistry(final RegistryEvent.Register<MenuType<?>> event) {
+			event.getRegistry().register(new MenuType<>(RefinerContainer::new).setRegistryName("refiner"));
 		} 
 
 	}

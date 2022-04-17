@@ -1,6 +1,0 @@
-{
-    "textures": {
-        "all": "almostalltheores:block/nether_gold_ore"
-    }, 
-    "parent": "block/cube_all"
-}

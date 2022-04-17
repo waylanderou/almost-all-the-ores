@@ -2,20 +2,20 @@ package waylanderou.almostalltheores.item.crafting;
 
 import javax.annotation.Nonnull;
 
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.Container;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
 
-public class RefinerRecipe implements IRecipe<IInventory> {
-	public static final IRecipeType<RefinerRecipe> REFINING = IRecipeType.register("refining");
-	private final IRecipeType<?> type;
+public class RefinerRecipe implements Recipe<Container> {
+	public static final RecipeType<RefinerRecipe> REFINING = RecipeType.register("almostalltheores:refining");
+	private final RecipeType<?> type;
 	private final ResourceLocation id;
 	final String group;
 	final Ingredient ingredient;	
@@ -52,18 +52,18 @@ public class RefinerRecipe implements IRecipe<IInventory> {
 	}
 
 	@Override
-	public boolean matches(IInventory inv, World worldIn) {		
-		return this.ingredient.test(inv.getStackInSlot(2));
+	public boolean matches(Container inv, Level worldIn) {		
+		return this.ingredient.test(inv.getItem(2));
 	}
 
 	@Deprecated
 	@Override
-	public ItemStack getCraftingResult(IInventory inv) {			
+	public ItemStack assemble(Container inv) {			
 		return null;
 	}
 
 	@Override
-	public boolean canFit(int width, int height) {
+	public boolean canCraftInDimensions(int width, int height) {
 		return true;
 	}
 
@@ -73,11 +73,11 @@ public class RefinerRecipe implements IRecipe<IInventory> {
 	 */
 	@Deprecated
 	@Override
-	public ItemStack getRecipeOutput() {	
+	public ItemStack getResultItem() {	
 		return this.result_a.copy();
 	}
 
-	public ItemStack getRecipeOutput(int slotIndex) {
+	public ItemStack getResultItem(int slotIndex) {
 		switch(slotIndex) {
 		case 3: return this.result_a.copy();		
 		case 4: return this.result_b.copy();
@@ -105,12 +105,12 @@ public class RefinerRecipe implements IRecipe<IInventory> {
 	}
 
 	@Override
-	public IRecipeSerializer<?> getSerializer() {
+	public RecipeSerializer<?> getSerializer() {
 		return RefinerRegistryEvents.refiner_serializer;
 	}
 
 	@Override
-	public IRecipeType<?> getType() {
+	public RecipeType<?> getType() {
 		return type;
 	}
 
@@ -128,7 +128,7 @@ public class RefinerRecipe implements IRecipe<IInventory> {
 
 	@Override
 	@Nonnull
-	public ItemStack getIcon() {
+	public ItemStack getToastSymbol() {
 		return new ItemStack(RefinerRegistryEvents.REFINER);
 	}
 
@@ -139,7 +139,7 @@ public class RefinerRecipe implements IRecipe<IInventory> {
 	public boolean hasRecipeOutput() {
 		ItemStack output = ItemStack.EMPTY;
 		for(int i=3; i<12; i++) {
-			output = getRecipeOutput(i);
+			output = getResultItem(i);
 			if(!output.isEmpty()) {
 				return true;
 			}

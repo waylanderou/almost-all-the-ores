@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -14,10 +16,12 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.gui.Font;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import waylanderou.almostalltheores.AlmostAllTheOres;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
 import waylanderou.almostalltheores.item.crafting.RefinerRecipe;
@@ -36,7 +40,7 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 
 	public RefinerRecipeCategory(IGuiHelper guiHelper) {
 		background = guiHelper.createDrawable(REFINER_GUI, 0, 0, width, height);
-		icon = guiHelper.createDrawableIngredient(new ItemStack(RefinerRegistryEvents.REFINER));		
+		icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM,new ItemStack(RefinerRegistryEvents.REFINER));
 		staticFlame = guiHelper.createDrawable(REFINER_GUI, 130, 0, 14, 14); 
 		animatedFlame = guiHelper.createAnimatedDrawable(staticFlame, 300, IDrawableAnimated.StartDirection.TOP, true);
 		arrow = guiHelper.drawableBuilder(REFINER_GUI, 130, 14, 24, 17) 
@@ -54,8 +58,8 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 	}
 
 	@Override
-	public String getTitle() {
-		return "Refining";
+	public Component getTitle() {
+		return new TextComponent("Refining");
 	}
 
 	@Override
@@ -69,17 +73,17 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 	}
 
 	@Override
-	public void draw(RefinerRecipe recipe, double mouseX, double mouseY) {
-		animatedFlame.draw(18, 26);
-		arrow.draw(41, 24);
+	public void draw(RefinerRecipe recipe, PoseStack matrixstack, double mouseX, double mouseY) {
+		animatedFlame.draw(matrixstack, 18, 26);
+		arrow.draw(matrixstack, 41, 24);
 
 		float experience = recipe.getExperience();
 		if (experience > 0) {
 			String experienceString = experience + " XP"; 
 			Minecraft minecraft = Minecraft.getInstance();
-			FontRenderer fontRenderer = minecraft.fontRenderer;
-			int stringWidth = fontRenderer.getStringWidth(experienceString);
-			fontRenderer.drawString(experienceString, background.getWidth() - stringWidth - 61, 46, 0xFF808080);
+			Font fontRenderer = minecraft.font;
+			int stringWidth = fontRenderer.width(experienceString);
+			fontRenderer.draw(matrixstack, experienceString, background.getWidth() - stringWidth - 61, 46, 0xFF808080);
 		}
 	}
 
@@ -87,7 +91,7 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 	public void setIngredients(RefinerRecipe recipe, IIngredients ingredients) {	
 
 		List<ItemStack> oreSlot = new ArrayList<ItemStack>();
-		oreSlot = Arrays.asList(recipe.getInput().getMatchingStacks());
+		oreSlot = Arrays.asList(recipe.getInput().getItems());
 
 		List<ItemStack> acidSlot = new ArrayList<ItemStack>();
 		if(recipe.isREERecipe()) {
@@ -98,7 +102,7 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 
 		List<ItemStack> outputSlots = new ArrayList<ItemStack>();		
 		for(int i=3; i<12; i++) {
-			ItemStack stack = recipe.getRecipeOutput(i);
+			ItemStack stack = recipe.getResultItem(i);
 			if(stack != ItemStack.EMPTY && stack.getItem() != Items.AIR) {
 				outputSlots.add(stack);
 			}
@@ -130,7 +134,7 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 		itemStacks.init(11, false, 106, 42);
 
 		for(int i=3; i<12; i++) {
-			ItemStack stack = recipe.getRecipeOutput(i);
+			ItemStack stack = recipe.getResultItem(i);
 			if(stack != ItemStack.EMPTY && stack.getItem() != Items.AIR) {
 				itemStacks.set(i, stack);
 			}
@@ -138,7 +142,7 @@ public class RefinerRecipeCategory implements IRecipeCategory<RefinerRecipe> {
 		if(recipe.isREERecipe()) {
 			itemStacks.set(1, new ItemStack(waylanderou.almostalltheores.item.Items.SULPHURIC_ACID));
 		}
-		itemStacks.set(2, Arrays.asList(recipe.getInput().getMatchingStacks()));
+		itemStacks.set(2, Arrays.asList(recipe.getInput().getItems()));
 	}
 
 }

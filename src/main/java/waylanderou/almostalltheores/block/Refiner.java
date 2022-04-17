@@ -2,96 +2,105 @@ package waylanderou.almostalltheores.block;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.network.NetworkHooks;
 import waylanderou.almostalltheores.RefinerTile;
 
-public class Refiner extends Block {
+public class Refiner extends Block implements EntityBlock {
 
 	public static final BooleanProperty REFINING = BooleanProperty.create("refining");		
-	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
 	public Refiner() {
-		super(Properties.create(Material.IRON)				
+		super(BlockBehaviour.Properties.of(Material.METAL)		
 				.sound(SoundType.METAL)
-				.hardnessAndResistance(2.0F)
-				.lightValue(10));
+				.strength(2.0F).lightLevel((x) -> {
+					return 10;
+				}));
 		setRegistryName("refiner");
-		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(Refiner.REFINING, Boolean.valueOf(false)));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(Refiner.REFINING, Boolean.valueOf(false)));
 	}	
 
-	public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
+	@Override
+	public void onRemove(BlockState state, Level worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
 		if (state.getBlock() != newState.getBlock()) {
-			TileEntity tileentity = worldIn.getTileEntity(pos);
+			BlockEntity tileentity = worldIn.getBlockEntity(pos);
 			if (tileentity instanceof RefinerTile) {
-				InventoryHelper.dropInventoryItems(worldIn, pos, (RefinerTile)tileentity);
-				worldIn.updateComparatorOutputLevel(pos, this);
+				dropResources(state, worldIn, pos, tileentity);
+				worldIn.updateNeighbourForOutputSignal(pos, newState.getBlock());
 			}
-			super.onReplaced(state, worldIn, pos, newState, isMoving);
+			super.onRemove(state, worldIn, pos, newState, isMoving);
 		}
 	}
 
-	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+	public BlockState getStateForPlacement(UseOnContext context) {
+		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
 	}
 
 	public static Direction getFacingFromEntity(BlockPos clickedBlock, LivingEntity entity) {
-		return Direction.getFacingFromVector((float) (entity.lastTickPosX - clickedBlock.getX()), (float) (entity.lastTickPosY - clickedBlock.getY()), (float) (entity.lastTickPosZ - clickedBlock.getZ()));
-	}
+		return Direction.getNearest((float) (entity.xOld - clickedBlock.getX()), (float) (entity.yOld - clickedBlock.getY()), (float) (entity.zOld - clickedBlock.getZ()));
+	}//getFacingFromVector ?
 
 	@Override
-	public boolean hasTileEntity(BlockState state) {
-		return true;
-	}
-
-	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(FACING, Refiner.REFINING);
 	}
 
 	@Nullable
 	@Override
-	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-		return new RefinerTile();
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+		if(level.isClientSide())
+			return null;
+		return (lvl, pos, blockState, t) -> {
+			if (t instanceof RefinerTile tile) {
+				tile.tickServer();
+			}
+		};
 	}
 
 	@Override
-	public ActionResultType onBlockActivated(BlockState p_225533_1_, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
-		if (!world.isRemote) {
-			TileEntity tileEntity = world.getTileEntity(pos);
-			if (tileEntity instanceof INamedContainerProvider) {
-				NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider) tileEntity, tileEntity.getPos());
+	public InteractionResult use(BlockState p_225533_1_, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult p_225533_6_) {
+		if (!world.isClientSide) {
+			BlockEntity tileEntity = world.getBlockEntity(pos);
+			if (tileEntity instanceof RefinerTile) {
+				NetworkHooks.openGui((ServerPlayer) player, (RefinerTile) tileEntity, tileEntity.getBlockPos());
 			} else {
 				throw new IllegalStateException("Named container provider missing");
 			}
-			return ActionResultType.SUCCESS;
+			return InteractionResult.SUCCESS;
 		}
-		return super.onBlockActivated(p_225533_1_, world, pos, player, hand, p_225533_6_);
+		return super.use(p_225533_1_, world, pos, player, hand, p_225533_6_);
 	}
 
 	public int getLightValue(BlockState state) {
-		return state.get(Refiner.REFINING) ? state.getLightValue() : 0;
+		return state.getValue(Refiner.REFINING) ? state.getLightEmission() : 0;
+	}
+
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new RefinerTile(pos, state);
 	}
 
 }

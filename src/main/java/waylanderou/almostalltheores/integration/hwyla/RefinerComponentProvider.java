@@ -1,92 +1,64 @@
 package waylanderou.almostalltheores.integration.hwyla;
 
-/**
- * This class contains code from Hwyla by TehNut:
- * https://github.com/TehNut/HWYLA
- */
-
-import java.util.List;
-
-import mcp.mobius.waila.api.IComponentProvider;
-import mcp.mobius.waila.api.IDataAccessor;
+import mcp.mobius.waila.api.IBlockAccessor;
+import mcp.mobius.waila.api.IBlockComponentProvider;
 import mcp.mobius.waila.api.IPluginConfig;
 import mcp.mobius.waila.api.IServerDataProvider;
-import mcp.mobius.waila.api.RenderableTextComponent;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.ListNBT;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.Constants;
+import mcp.mobius.waila.api.ITooltip;
+import mcp.mobius.waila.api.component.ItemComponent;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import waylanderou.almostalltheores.RefinerTile;
-import waylanderou.almostalltheores.block.Refiner;
 
-public class RefinerComponentProvider implements IComponentProvider, IServerDataProvider<TileEntity> {
-
-	static final RefinerComponentProvider INSTANCE = new RefinerComponentProvider();
+public enum RefinerComponentProvider implements IBlockComponentProvider, IServerDataProvider<BlockEntity> {
+	INSTANCE;
 
 	@Override
-	public void appendServerData(CompoundNBT data, ServerPlayerEntity player, World world, TileEntity tile) {		
-		RefinerTile refiner = (RefinerTile) tile;
-		ListNBT items = new ListNBT();
+	public void appendServerData(CompoundTag data, ServerPlayer player, Level world, BlockEntity tile) {		
+		RefinerTile refinerTile = (RefinerTile) tile;
+		ListTag items = new ListTag();
 		for(int i=0; i<12; i++) {
-			items.add(refiner.getStackInSlot(i).write(new CompoundNBT()));
+			items.add(refinerTile.getItem(i).save(new CompoundTag()));
 		}
 		data.put("refiner", items);
-		CompoundNBT refinerTag = refiner.write(new CompoundNBT());
-		data.putInt("progress", refinerTag.getInt("hasBurntFor"));
-		data.putInt("total", refinerTag.getInt("refineTime"));
+		data.putInt("progress", refinerTile.data.get(0));
+		data.putInt("total", refinerTile.data.get(3));
 	}
 
 	@Override
-	public void appendBody(List<ITextComponent> tooltip, IDataAccessor accessor, IPluginConfig config) {
-		if(!accessor.getBlockState().get(Refiner.REFINING)) {
-			return;
-		}
-		ListNBT refinerItems = accessor.getServerData().getList("refiner", Constants.NBT.TAG_COMPOUND);
+	public void appendBody(ITooltip tooltip, IBlockAccessor accessor, IPluginConfig config) {
+		ListTag refinerItems = accessor.getServerData().getList("refiner", Tag.TAG_COMPOUND);
 		NonNullList<ItemStack> inventory = NonNullList.withSize(12, ItemStack.EMPTY);
 		for (int i = 0; i <refinerItems.size(); i++)
-			inventory.set(i, ItemStack.read(refinerItems.getCompound(i)));
+			inventory.set(i, ItemStack.of(refinerItems.getCompound(i)));
 
-		CompoundNBT progress = new CompoundNBT();
+		CompoundTag progress = new CompoundTag();
 		progress.putInt("progress", accessor.getServerData().getInt("progress"));
 		progress.putInt("total", accessor.getServerData().getInt("total"));
 
-		RenderableTextComponent renderables = new RenderableTextComponent(
-				getRenderable(inventory.get(0)),
-				getRenderable(inventory.get(1)),
-				getRenderable(inventory.get(2)),
-				new RenderableTextComponent(AlmostAllTheOresPlugin.RENDER_REFINER_PROGRESS, progress),
-				getRenderable(inventory.get(3)),
-				getRenderable(inventory.get(4)),
-				getRenderable(inventory.get(5)),
-				getRenderable(inventory.get(3)),
-				getRenderable(inventory.get(7)),
-				getRenderable(inventory.get(8)),
-				getRenderable(inventory.get(9)),
-				getRenderable(inventory.get(10)),
-				getRenderable(inventory.get(11))			
-				);
+		tooltip.addLine()
+		.with(new ItemComponent(inventory.get(0)))
+		.with(new ItemComponent(inventory.get(1)))
+		.with(new ItemComponent(inventory.get(2)))
+		.with(new RefinerTooltipProgressBarRenderer(
+				accessor.getServerData().getInt("progress"), accessor.getServerData().getInt("total")))
+		.with(new ItemComponent(inventory.get(3)))
+		.with(new ItemComponent(inventory.get(4)))
+		.with(new ItemComponent(inventory.get(5)))
+		.with(new ItemComponent(inventory.get(6)))
+		.with(new ItemComponent(inventory.get(7)))
+		.with(new ItemComponent(inventory.get(8)))
+		.with(new ItemComponent(inventory.get(9)))
+		.with(new ItemComponent(inventory.get(10)))
+		.with(new ItemComponent(inventory.get(11)));
 
-		tooltip.add(renderables);
-	}
 
-	private static RenderableTextComponent getRenderable(ItemStack stack) {
-		if (!stack.isEmpty()) {
-			CompoundNBT tag = new CompoundNBT();
-			tag.putString("id", stack.getItem().getRegistryName().toString());
-			tag.putInt("count", stack.getCount());
-			if (stack.hasTag())
-				tag.putString("nbt", stack.getTag().toString());
-			return new RenderableTextComponent(AlmostAllTheOresPlugin.RENDER_ITEM_CUSTOM, tag);
-		} else {
-			CompoundNBT spacerTag = new CompoundNBT();
-			spacerTag.putInt("width", 18);
-			return new RenderableTextComponent(AlmostAllTheOresPlugin.RENDER_SPACER, spacerTag);
-		}
 	}
 
 }

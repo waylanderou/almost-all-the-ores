@@ -1,8 +1,8 @@
 package waylanderou.almostalltheores.item.crafting;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.crafting.conditions.ICondition;
-import waylanderou.almostalltheores.AatoConfig;
+import waylanderou.almostalltheores.config.AatoConfig;
 
 public class StoneAgeCondition implements ICondition {
 	public static final ResourceLocation NAME = new ResourceLocation("almostalltheores", "stoneagecondition");

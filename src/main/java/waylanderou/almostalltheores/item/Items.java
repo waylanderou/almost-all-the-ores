@@ -1,9 +1,9 @@
 package waylanderou.almostalltheores.item;
 
-import net.minecraft.item.BoneMealItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ShearsItem;
+import net.minecraft.world.item.BoneMealItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ShearsItem;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -303,13 +303,13 @@ public class Items {
 		@SubscribeEvent
 		public static void registerItems(final RegistryEvent.Register<Item> event) {
 			for(String name: normalItemNames) {
-				event.getRegistry().register(new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(name));								
+				event.getRegistry().register(new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)).setRegistryName(name));								
 			}
 			for(String name: customItemNames) {
-				event.getRegistry().register(new Fuel(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(name));
+				event.getRegistry().register(new Fuel(new Item.Properties().tab(CreativeModeTab.TAB_MISC)).setRegistryName(name));
 			}
-			event.getRegistry().register(new BoneMealItem(new Item.Properties().group(ItemGroup.MISC)).setRegistryName("fertilizer"));
-			event.getRegistry().register(new ShearsItem((new Item.Properties()).maxDamage(42).group(ItemGroup.TOOLS)).setRegistryName("flint_shears"));
+			event.getRegistry().register(new BoneMealItem(new Item.Properties().tab(CreativeModeTab.TAB_MISC)).setRegistryName("fertilizer"));
+			event.getRegistry().register(new ShearsItem((new Item.Properties()).durability(42).tab(CreativeModeTab.TAB_TOOLS)).setRegistryName("flint_shears"));
 		}
 
 	}

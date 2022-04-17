@@ -1,12 +1,13 @@
 package waylanderou.almostalltheores.proxy;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.ScreenManager;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.world.World;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import waylanderou.almostalltheores.RefinerRegistryEvents;
 import waylanderou.almostalltheores.client.RefinerScreen;
 
+@SuppressWarnings("resource")
 public class ClientProxy implements IProxy {
 
 	public ClientProxy() {		
@@ -14,16 +15,17 @@ public class ClientProxy implements IProxy {
 
 	@Override
 	public void init() {
-		ScreenManager.registerFactory(RefinerRegistryEvents.REFINER_CONTAINER, RefinerScreen::new);
+		MenuScreens.register(RefinerRegistryEvents.REFINER_CONTAINER, RefinerScreen::new);
+	}
+
+	
+	@Override
+	public Level getClientWorld() {	
+		return Minecraft.getInstance().level;
 	}
 
 	@Override
-	public World getClientWorld() {		
-		return Minecraft.getInstance().world;
-	}
-
-	@Override
-	public PlayerEntity getClientPlayer() {		
+	public Player getClientPlayer() {		
 		return Minecraft.getInstance().player;
 	}
 
